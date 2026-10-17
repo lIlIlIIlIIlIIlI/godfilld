@@ -1,7 +1,7 @@
-import type { GameState, ActionEnvelope } from '../../../shared/types';
-import { viewFor, applyAction } from '../game/GameEngine';
-import { player } from '../game/State';
-import { evaluateAttack, evaluateDefense } from './ActionEvaluator';
+import type { GameState, ActionEnvelope } from '../../../shared/types.js';
+import { viewFor, applyAction } from '../game/GameEngine.js';
+import { player } from '../game/State.js';
+import { evaluateAttack, evaluateDefense } from './ActionEvaluator.js';
 export function waitingActor(s: GameState) {
   return s.phase === 'DEFENSE_SELECTION'
     ? s.current!.target

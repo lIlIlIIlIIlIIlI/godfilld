@@ -1,9 +1,9 @@
-import type { GameState, Player, Attack, CardDefinition } from '../../../shared/types';
-import { alive, emit, increase, damage, player, enemy, uid } from './State';
-import { choose, shuffle } from './Random';
-import { addStatus, cleanse } from './StatusEffectEngine';
-import { card, give } from './CardRegistry';
-import { offerBuy, payForced } from './TradeManager';
+import type { GameState, Player, Attack, CardDefinition } from '../../../shared/types.js';
+import { alive, emit, increase, damage, player, enemy, uid } from './State.js';
+import { choose, shuffle } from './Random.js';
+import { addStatus, cleanse } from './StatusEffectEngine.js';
+import { card, give } from './CardRegistry.js';
+import { offerBuy, payForced } from './TradeManager.js';
 export const summonTypes = [
   'MARS',
   'MERCURY',

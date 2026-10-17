@@ -1,4 +1,4 @@
-import { card, attackValue, defenseValue } from '../../../shared/catalog';
+import { card, attackValue, defenseValue } from '../../../shared/catalog.js';
 import type {
   GameView,
   Action,
@@ -6,10 +6,10 @@ import type {
   Piece,
   CardDefinition,
   PublicPlayer,
-} from '../../../shared/types';
-import { enemy } from '../game/State';
-import { canDefend, mix } from '../game/Rules';
-import { validateCombo } from '../game/CombatResolver';
+} from '../../../shared/types.js';
+import { enemy } from '../game/State.js';
+import { canDefend, mix } from '../game/Rules.js';
+import { validateCombo } from '../game/CombatResolver.js';
 export interface ScoredAction {
   action: Action;
   score: number;

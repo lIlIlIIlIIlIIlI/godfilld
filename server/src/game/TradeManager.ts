@@ -1,7 +1,7 @@
-import type { GameState, Player, Action } from '../../../shared/types';
-import { increase, emit, requireRule, player } from './State';
-import { give, card } from './CardRegistry';
-import { choose } from './Random';
+import type { GameState, Player, Action } from '../../../shared/types.js';
+import { increase, emit, requireRule, player } from './State.js';
+import { give, card } from './CardRegistry.js';
+import { choose } from './Random.js';
 export function payForced(p: Player, n: number) {
   const gold = Math.min(n, p.gold);
   p.gold -= gold;

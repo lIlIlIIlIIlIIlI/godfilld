@@ -1,12 +1,12 @@
-import type { GameState, Player, Attack, CardDefinition } from '../../../shared/types';
-import { defenseValue } from '../../../shared/catalog';
-import { owned, consume } from './CardRegistry';
-import { emit, requireRule, uid, alive } from './State';
-import { choose } from './Random';
-import { canDefend, mix } from './Rules';
-import { addStatus } from './StatusEffectEngine';
-import { inflict, buildAttack } from './CombatResolver';
-import { endgameRisk } from './EndgameManager';
+import type { GameState, Player, Attack, CardDefinition } from '../../../shared/types.js';
+import { defenseValue } from '../../../shared/catalog.js';
+import { owned, consume } from './CardRegistry.js';
+import { emit, requireRule, uid, alive } from './State.js';
+import { choose } from './Random.js';
+import { canDefend, mix } from './Rules.js';
+import { addStatus } from './StatusEffectEngine.js';
+import { inflict, buildAttack } from './CombatResolver.js';
+import { endgameRisk } from './EndgameManager.js';
 export function specialDefense(c: CardDefinition, atk: Attack, s: GameState) {
   const x = c.defenseExtra;
   if (x === 'REFLECT_ANY') return true;

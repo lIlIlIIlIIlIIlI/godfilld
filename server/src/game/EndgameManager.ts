@@ -1,6 +1,6 @@
-import type { GameState, Player } from '../../../shared/types';
-import { random, choose } from './Random';
-import { damage, emit } from './State';
+import type { GameState, Player } from '../../../shared/types.js';
+import { random, choose } from './Random.js';
+import { damage, emit } from './State.js';
 // Threshold and demon damage are explicit new-game settings, not verified historical values.
 export function endgameRisk(s: GameState, p: Player, operations: number) {
   if (s.turn < s.rules.doomAt || s.phase === 'FINISHED') return;

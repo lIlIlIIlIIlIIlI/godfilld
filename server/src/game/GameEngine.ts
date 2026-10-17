@@ -6,17 +6,17 @@ import type {
   Difficulty,
   GameView,
   Attack,
-} from '../../../shared/types';
-import { defaultRules } from './Rules';
-import { draw, owned, card } from './CardRegistry';
-import { emit, requireRule, uid, player, alive, enemy } from './State';
-import { shuffle, random } from './Random';
-import { attackCommand, inflict } from './CombatResolver';
-import { defend } from './DefenseResolver';
-import { buy } from './TradeManager';
-import { tickStatus } from './StatusEffectEngine';
-import { summonOpportunities } from './SummonManager';
-import { endgameRisk } from './EndgameManager';
+} from '../../../shared/types.js';
+import { defaultRules } from './Rules.js';
+import { draw, owned, card } from './CardRegistry.js';
+import { emit, requireRule, uid, player, alive, enemy } from './State.js';
+import { shuffle, random } from './Random.js';
+import { attackCommand, inflict } from './CombatResolver.js';
+import { defend } from './DefenseResolver.js';
+import { buy } from './TradeManager.js';
+import { tickStatus } from './StatusEffectEngine.js';
+import { summonOpportunities } from './SummonManager.js';
+import { endgameRisk } from './EndgameManager.js';
 export interface PlayerInput {
   id: string;
   name: string;

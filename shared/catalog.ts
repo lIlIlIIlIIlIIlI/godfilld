@@ -1,6 +1,6 @@
-import raw from '../data/cards.json';
-import assets from '../data/asset-manifest.json';
-import type { Attribute, CardDefinition, CardType } from './types';
+import raw from '../data/cards.json' with { type: "json" };
+import assets from '../data/asset-manifest.json' with { type: "json" };
+import type { Attribute, CardDefinition, CardType } from './types.js';
 export const typeNames: Record<CardType, string> = {
   WEAPON: '무기',
   PROTECTOR: '방어구',

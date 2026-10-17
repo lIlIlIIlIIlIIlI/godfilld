@@ -1,9 +1,9 @@
-import raw from '../../../data/summons.json';
-import type { GameState, Player, CardDefinition } from '../../../shared/types';
-import { card, drawPool } from './CardRegistry';
-import { weighted, choose, random } from './Random';
-import { alive, enemy } from './State';
-import { buildAttack } from './CombatResolver';
+import raw from '../../../data/summons.json' with { type: "json" };
+import type { GameState, Player, CardDefinition } from '../../../shared/types.js';
+import { card, drawPool } from './CardRegistry.js';
+import { weighted, choose, random } from './Random.js';
+import { alive, enemy } from './State.js';
+import { buildAttack } from './CombatResolver.js';
 const beneficial = [
   'INCREASE_MP',
   'INCREASE_HP',

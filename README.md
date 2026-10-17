@@ -58,7 +58,7 @@ npm run simulate -- 1000
 
 ## 운영 배포
 
-Vercel 프로젝트 `aether-arena`는 생성되어 있으나 배포는 아직 하지 않았습니다. 전용 PostgreSQL의 `DATABASE_URL`이 필요합니다. Vercel에서는 SQLite로 조용히 대체하지 않고 설정 오류로 중단하도록 했습니다. `/api/server.ts`는 HTTP 서버와 WebSocket 업그레이드를 내보냅니다. 운영 설정·시크릿은 저장소에 넣지 않습니다.
+Vercel 프로젝트 `aether-arena`의 최초 GitHub 소스 배포는 READY가 되었고, 인증 후 정적 HTML 응답200을 확인했습니다. 그러나 서버 API는500으로 게임 서비스가 정상 가동되는 상태는 아닙니다. 최초 실행 로그에서 확장자 없는 ESM import 오류를 확인하여 `.js` 경로와 JSON import 속성을 추가했습니다. 전용 PostgreSQL의 `DATABASE_URL`도 아직 필요합니다. Vercel에서는 SQLite로 조용히 대체하지 않고 설정 오류로 중단하도록 했습니다. `/api/server.ts`는 HTTP 서버와 WebSocket 업그레이드를 내보냅니다. 운영 설정·시크릿은 저장소에 넣지 않습니다.
 
 소스 저장소는 [lIlIlIIlIIlIIlI/godfilld](https://github.com/lIlIlIIlIIlIIlI/godfilld)입니다. Vercel의 기존 `aether-arena` 프로젝트에 이 저장소를 연결하며 루트 디렉터리는 저장소 루트입니다. 전용 DB 연결과 공개 배포 검증은 아직 남아 있습니다. 상세 절차는 operations.md를 참고하세요.
 

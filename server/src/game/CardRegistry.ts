@@ -1,7 +1,7 @@
-import { card, cards } from '../../../shared/catalog';
-import type { GameState, Player, Piece, CardDefinition } from '../../../shared/types';
-import { random, weighted, choose } from './Random';
-import { emit, requireRule, uid } from './State';
+import { card, cards } from '../../../shared/catalog.js';
+import type { GameState, Player, Piece, CardDefinition } from '../../../shared/types.js';
+import { random, weighted, choose } from './Random.js';
+import { emit, requireRule, uid } from './State.js';
 export { card, cards };
 export const drawPool = cards.filter((c) => c.weight > 0);
 export function draw(s: GameState, p: Player, count: number) {

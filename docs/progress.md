@@ -39,8 +39,8 @@ AI는 공개 관측에서 후보를 평가하고 같은 서버 검증을 통과�
 ## 아직 남은 사항
 
 1. **소스 저장소 지정.** 사용자가 제공한 [lIlIlIIlIIlIIlI/godfilld](https://github.com/lIlIlIIlIIlIIlI/godfilld)를 사용합니다. 게임 소스·문서·테스트는 저장소 루트에 배치하며, Vercel 프로젝트와의 Git 연동은 별도 작업입니다.
-2. **운영 PostgreSQL 연결·통합 검사 미완료.** Neon 플러그인 연결은 확인했습니다. 연결된 조직이 Vercel 관리 조직이라 Neon API의 전용 프로젝트 생성이 `organization is managed by Vercel` 오류로 거절되었습니다. Vercel 연동 관리 API는 해당 팀 권한 부족으로403, CLI는 미로그인 상태입니다. DB·브랜치·자격증명은 생성되지 않았습니다. Vercel 대시보드에서 전용 Neon DB를 생성하고 프로젝트에 연결해야 합니다. 다른 프로젝트 DB를 임의 재사용하지 않았습니다.
-3. **공개 배포 미완료.** Vercel `aether-arena` 프로젝트만 생성했습니다. 배포 ID나 플레이 가능한 공개 URL은 아직 없습니다. GitHub·DB 연결 후 배포 보호 설정과 실제 WebSocket upgrade·여러 인스턴스 복구도 검사해야 합니다.
+2. **운영 PostgreSQL 연결·통합 검사 미완료.** Neon 플러그인 연결은 확인했습니다. 연결된 조직이 Vercel 관리 조직이라 Neon API의 전용 프로젝트 생성이 `organization is managed by Vercel` 오류로 거절되었습니다. Vercel 권한 재확인 후 팀 접근과 Neon 연동 조회는 성공했습니다. DB 생성 도구는 제공되지 않아 Vercel 대시보드에서 전용 Neon DB를 생성하고 프로젝트에 연결해야 합니다. 다른 프로젝트 DB를 임의 재사용하지 않았습니다.
+3. **배포 생성·빌드 완료, 정상 가동 미완료.** 최초 배포 `dpl_2eAt7NMtrZoqfQ2J5p8VPPi9xpe2`는 READY입니다. 보호 인증 후 정적 HTML200, `/api/health`500을 확인했습니다. 실행 로그의 `ERR_MODULE_NOT_FOUND`를 수정하기 위해 서버·공유 코드의 상대 import에 `.js`를 추가하고 JSON import 속성을 명시했습니다. 변경 후348개 테스트와 빌드가 통과했습니다. 네이티브 Node.js ESM 실행이 DB 설정 검사까지 도달하는 것도 확인했습니다. DB와 배포 보호 설정 및 실제 WebSocket upgrade·여러 인스턴스 복구 검사는 아직 필요합니다. 요청은 Preview였으나 최초 배포 응답은 production으로 표시되었습니다.
 4. **실브라우저/모바일 시각 QA 미실시.** DOM 입력 검사는 통과했지만 사용 가능한 browser-control 환경이 없어 실제 화면 스크린샷·터치·오디오·애니메이션을 기기에서 검수하지 못했습니다. 반응형 CSS를 구현했다고 해서 실기기 검증까지 완료한 것은 아닙니다.
 5. **원작 규칙 불확실성.** 빛 방어·기적 공간·질병·튕김·종말 차이를 문서화했습니다. G.F. 시작 수치와 악마 피해표는 신규 설정입니다. 공식 원작과 완전 일치한다고 주장하지 않습니다.
 6. **리소스·번역.** 원본 리소스 재사용 허가와 개별 ID 매핑 미확인. 한국어는 신규 이름과 효과 설명이며 원작 카드 번역이 아닙니다. 창작 일러스트·본격 BGM·다양한 전투 연출은 추후 개선 대상입니다.

@@ -1,13 +1,13 @@
-import type { GameState, Player, Attack, Action, CardDefinition } from '../../../shared/types';
-import { attackValue } from '../../../shared/catalog';
-import { card, owned, consume } from './CardRegistry';
-import { alive, enemy, requireRule, uid, player, damage, increase, emit } from './State';
-import { choose } from './Random';
-import { mix } from './Rules';
-import { exchange, sell } from './TradeManager';
-import { mystery, resolveEffect } from './CardEffectResolver';
-import { addStatus, diseases, harms } from './StatusEffectEngine';
-import { endgameRisk } from './EndgameManager';
+import type { GameState, Player, Attack, Action, CardDefinition } from '../../../shared/types.js';
+import { attackValue } from '../../../shared/catalog.js';
+import { card, owned, consume } from './CardRegistry.js';
+import { alive, enemy, requireRule, uid, player, damage, increase, emit } from './State.js';
+import { choose } from './Random.js';
+import { mix } from './Rules.js';
+import { exchange, sell } from './TradeManager.js';
+import { mystery, resolveEffect } from './CardEffectResolver.js';
+import { addStatus, diseases, harms } from './StatusEffectEngine.js';
+import { endgameRisk } from './EndgameManager.js';
 const additions = ['INCREASE_ATK', 'DOUBLE_ATK', 'WIDE_ATK', 'ADD_ATTRIBUTE'];
 export function validateCombo(list: CardDefinition[]) {
   const first = list[0];

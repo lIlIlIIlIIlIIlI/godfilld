@@ -1,11 +1,11 @@
 import { randomUUID, randomBytes, createHash, scryptSync, timingSafeEqual } from 'node:crypto';
 import { z } from 'zod';
-import { roomSchema, envelopeSchema } from '../../../shared/schemas';
-import type { GameState, Difficulty, ActionEnvelope } from '../../../shared/types';
-import { createGame, applyAction, viewFor } from '../game/GameEngine';
-import { requireRule } from '../game/State';
-import { botDecision, waitingActor } from '../ai/BotController';
-import type { Store, Identity } from '../persistence/Store';
+import { roomSchema, envelopeSchema } from '../../../shared/schemas.js';
+import type { GameState, Difficulty, ActionEnvelope } from '../../../shared/types.js';
+import { createGame, applyAction, viewFor } from '../game/GameEngine.js';
+import { requireRule } from '../game/State.js';
+import { botDecision, waitingActor } from '../ai/BotController.js';
+import type { Store, Identity } from '../persistence/Store.js';
 export interface Seat {
   id: string;
   name: string;

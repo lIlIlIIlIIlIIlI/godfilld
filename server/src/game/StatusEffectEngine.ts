@@ -1,6 +1,6 @@
-import type { Disease, Harm, Player, GameState } from '../../../shared/types';
-import { emit, damage, increase } from './State';
-import { random } from './Random';
+import type { Disease, Harm, Player, GameState } from '../../../shared/types.js';
+import { emit, damage, increase } from './State.js';
+import { random } from './Random.js';
 export const diseases: Disease[] = ['COLD', 'FEVER', 'HELL', 'HEAVEN'];
 export const harms: Harm[] = ['FOG', 'ILLUSION', 'GLORY', 'DARK_CLOUD'];
 export function addStatus(s: GameState, p: Player, status: string) {

@@ -1,7 +1,7 @@
 import { DatabaseSync } from 'node:sqlite';
 import { Pool } from 'pg';
 import { attachDatabasePool } from '@vercel/functions';
-import type { RoomRecord } from '../rooms/RoomService';
+import type { RoomRecord } from '../rooms/RoomService.js';
 export interface Identity {
   id: string;
   tokenHash: string;

@@ -1,4 +1,4 @@
-import type { GameState } from '../../../shared/types';
+import type { GameState } from '../../../shared/types.js';
 export function random(s: GameState): number {
   let x = s.rng || 0x9e3779b9;
   x ^= x << 13;

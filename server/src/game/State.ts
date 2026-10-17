@@ -1,4 +1,4 @@
-import type { GameState, Player, GameEvent } from '../../../shared/types';
+import type { GameState, Player, GameEvent } from '../../../shared/types.js';
 export function requireRule(ok: unknown, message: string): asserts ok {
   if (!ok) throw new Error(message);
 }

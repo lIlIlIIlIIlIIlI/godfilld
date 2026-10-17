@@ -2,10 +2,10 @@ import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import { WebSocketServer, WebSocket } from 'ws';
-import type { Store, Identity } from '../persistence/Store';
-import { RoomService } from '../rooms/RoomService';
-import { requireRule } from '../game/State';
-import { cards } from '../../../shared/catalog';
+import type { Store, Identity } from '../persistence/Store.js';
+import { RoomService } from '../rooms/RoomService.js';
+import { requireRule } from '../game/State.js';
+import { cards } from '../../../shared/catalog.js';
 const mime: Record<string, string> = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',

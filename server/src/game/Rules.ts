@@ -1,4 +1,4 @@
-import type { Rules, Attribute } from '../../../shared/types';
+import type { Rules, Attribute } from '../../../shared/types.js';
 export const defaultRules: Rules = {
   capacity: 16,
   initialCards: 10,
