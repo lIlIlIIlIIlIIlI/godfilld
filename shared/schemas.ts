@@ -1,4 +1,11 @@
 import { z } from 'zod';
+export { doomStartTurns } from './settings.js';
+export const doomStartSchema = z.union([
+  z.literal(1),
+  z.literal(50),
+  z.literal(100),
+  z.literal(500),
+]);
 const refs = z.array(z.string().max(80)).max(16);
 export const actionSchema = z.discriminatedUnion('kind', [
   z
@@ -35,4 +42,5 @@ export const roomSchema = z.object({
   capacity: z.number().int().min(2).max(8).default(4),
   mode: z.enum(['ffa', 'team']).default('ffa'),
   difficulty: z.enum(['easy', 'normal', 'hard']).default('normal'),
+  doomAt: doomStartSchema.default(100),
 });

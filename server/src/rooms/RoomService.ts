@@ -1,7 +1,12 @@
 import { randomUUID, randomBytes, createHash, scryptSync, timingSafeEqual } from 'node:crypto';
 import { z } from 'zod';
 import { roomSchema, envelopeSchema } from '../../../shared/schemas.js';
-import type { GameState, Difficulty, ActionEnvelope } from '../../../shared/types.js';
+import type {
+  GameState,
+  Difficulty,
+  ActionEnvelope,
+  DoomStartTurn,
+} from '../../../shared/types.js';
 import { createGame, applyAction, viewFor } from '../game/GameEngine.js';
 import { requireRule } from '../game/State.js';
 import { botDecision, waitingActor } from '../ai/BotController.js';
@@ -24,6 +29,7 @@ export interface RoomRecord {
   passwordHash: string;
   capacity: number;
   mode: 'ffa' | 'team';
+  doomAt?: DoomStartTurn;
   seats: Seat[];
   spectators: string[];
   revision: number;
@@ -74,6 +80,7 @@ export class RoomService {
         capacity: r.capacity,
         locked: Boolean(r.passwordHash),
         playing: Boolean(r.game && r.game.phase !== 'FINISHED'),
+        doomAt: r.doomAt ?? r.game?.rules.doomAt ?? 100,
       }));
   }
   async create(identity: Identity, input: unknown, practice = false) {
@@ -97,6 +104,7 @@ export class RoomService {
       passwordHash: password(options.password, id),
       capacity: practice ? 4 : options.capacity,
       mode: options.mode,
+      doomAt: options.doomAt,
       seats: [seat],
       spectators: [],
       revision: 0,
@@ -150,7 +158,7 @@ export class RoomService {
       '2명 이상 모두 준비해야 합니다.',
     );
     r.commands = [];
-    r.game = createGame(r.id, r.seats, randomBytes(4).readUInt32LE());
+    r.game = createGame(r.id, r.seats, randomBytes(4).readUInt32LE(), { doomAt: r.doomAt ?? 100 });
     this.setDeadline(r);
   }
   async join(id: string, identity: Identity, pass = '', spectate = false) {
@@ -316,6 +324,7 @@ export class RoomService {
       private: r.private,
       capacity: r.capacity,
       mode: r.mode,
+      doomAt: r.doomAt ?? r.game?.rules.doomAt ?? 100,
       revision: r.revision,
       seats: r.seats.map((p) => ({
         id: p.id,

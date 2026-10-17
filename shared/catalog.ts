@@ -1,5 +1,6 @@
-import raw from '../data/cards.json' with { type: "json" };
-import assets from '../data/asset-manifest.json' with { type: "json" };
+import raw from '../data/cards.json' with { type: 'json' };
+import assets from '../data/asset-manifest.json' with { type: 'json' };
+import koreanNames from '../data/card-names.ko.json' with { type: 'json' };
 import type { Attribute, CardDefinition, CardType } from './types.js';
 export const typeNames: Record<CardType, string> = {
   WEAPON: '무기',
@@ -73,27 +74,11 @@ export const effectNames: Record<string, string> = {
   DO_NOTHING: '대기',
   DISCARD: '카드 버리기',
 };
-const specials: Record<number, string> = {
-  0: '숨 고르기',
-  1: '정리의 시간',
-  2: '균형의 저울',
-  3: '여행 상인의 제안',
-  4: '별빛 경매장',
-  57: '마력의 수정검',
-  99: '운명의 추',
-  117: '황혼의 유언',
-  195: '정화의 깃',
-  196: '거울의 파편',
-  243: '별의 실타래',
-  244: '새벽의 씨앗',
-  245: '위험한 그릇',
-};
 export const cards: CardDefinition[] = raw.map((r) => {
   const type = r.type as CardType,
     effects = [r.attackKind, r.attackExtra, r.defenseKind, r.defenseExtra].filter(Boolean);
   const name =
-    specials[r.id] ??
-    `${attributeNames[r.attribute]} ${typeNames[type]} ${String(r.id).padStart(3, '0')}`;
+    (koreanNames as Record<string, string>)[String(r.id)] ?? '이름 미등록 카드';
   const desc =
     effects.map((e) => effectNames[e] ?? statusNames[e] ?? e).join(' · ') +
     (r.hitRate ? ` · 대상별 명중 ${r.hitRate}%` : '') +

@@ -4,16 +4,11 @@ npm warn Unknown env config "http-proxy". This will stop working in the next maj
 > vitest run
 
 
- RUN  v3.2.7 /workspace/scratch/57d8fb48178d/aether-arena
+ RUN  v5.0.5 /workspace/scratch/57d8fb48178d/godfilld-ui
 
- ✓ tests/coverage.test.ts (269 tests) 72ms
- ✓ tests/engine.test.ts (71 tests) 376ms
-   ✓ privacy and AI > all AI games finish deterministically  320ms
- ✓ tests/client.test.ts (1 test) 223ms
- ✓ tests/multiplayer.test.ts (7 tests) 360ms
 
- Test Files  4 passed (4)
-      Tests  348 passed (348)
-   Start at  04:30:56
-   Duration  857ms (transform 549ms, setup 0ms, collect 898ms, tests 1.03s, environment 243ms, prepare 228ms)
+ Test Files  5 passed (5)
+      Tests  355 passed (355)
+   Start at  05:11:45
+   Duration  695ms (tests 66%, environment 13%, import 13%, transform 7%, worker 1%)
 

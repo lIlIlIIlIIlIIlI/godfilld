@@ -29,6 +29,7 @@ export interface Piece {
 export type Disease = '' | 'COLD' | 'FEVER' | 'HELL' | 'HEAVEN';
 export type Harm = 'FOG' | 'ILLUSION' | 'GLORY' | 'DARK_CLOUD';
 export type Difficulty = 'easy' | 'normal' | 'hard';
+export type DoomStartTurn = 1 | 50 | 100 | 500;
 export interface Summon {
   type: string;
   hp: number;
