@@ -24,9 +24,9 @@
 
 생성된 프로젝트 ID: `prj_M45tAXNv1D4NnqHKEqw1day1FYap`.
 
-계정 범위: `team_aBvh9trNZYl2sGyzMHg4Mchk`. 프로젝트명: `aether-arena`. Node24 / Vite / `npm ci` / `npm run build` / `dist`. 최초 배포 `dpl_2eAt7NMtrZoqfQ2J5p8VPPi9xpe2`는 READY이며 주소는 https://aether-arena-2sxx4lmcr-nmseu486-8585.vercel.app 입니다. 정적 HTML200과 API500을 확인했으며 정상 플레이 주소로 검증된 것은 아닙니다. 실행 로그에서 확장자 없는 ESM import 실패를 확인하여 수정했습니다. Vercel 인증 보호가 켜져 있으므로 로그인 없는 일반 공개 서비스로 운영할 때에는 배포 보호 범위도 확인해야 합니다.
+계정 범위: `team_aBvh9trNZYl2sGyzMHg4Mchk`. 프로젝트명: `aether-arena`. Node24 / Vite / `npm ci` / `npm run build` / `dist`. ESM import 오류 수정 커밋 `88b0339`의 Preview 배포 `dpl_GCHHe3hb2LWMu9nLQnNoSVyA4VdV`는 READY이며 주소는 https://aether-arena-g1hbk3zvf-nmseu486-8585.vercel.app 입니다. 보호 인증 후 health200(`PostgresStore`)과 방 목록200을 확인했습니다. 정상 플레이 전체를 검증한 것은 아닙니다. Vercel 인증 보호가 켜져 있으므로 로그인 없는 일반 공개 서비스로 운영할 때에는 배포 보호 범위도 확인해야 합니다.
 
-1. Vercel 대시보드에서 `aether-arena`의 Storage → Create Database → Neon으로 전용 PostgreSQL을 생성하고 프로젝트에 연결합니다. 현재 연결된 Neon 조직은 Vercel 관리 조직이라 Neon API에서 직접 프로젝트를 만들 수 없습니다. Vercel 팀 권한과 Neon 연동 조회는 재확인 후 정상입니다. 연동 후 실제 환경 변수 이름을 확인하고 앱이 사용하는 `DATABASE_URL`에 풀링 URL을 설정합니다. Production·Preview는 별도 DB/브랜치로 분리합니다. URL이나 비밀번호를 채팅에 보내지 마세요.
+1. `DATABASE_URL` 등 DB 환경 변수가 Production·Preview에 설정되어 있고, Preview DB 초기화·목록 조회가 성공한 상태입니다. Production·Preview가 별도 DB/브랜치를 사용하는지는 추가 확인 대상입니다. 새 환경에서는 Vercel 대시보드에서 전용 Neon DB를 연결하고 앱이 사용하는 `DATABASE_URL`에 풀링 URL을 설정합니다. URL이나 비밀번호를 채팅에 보내지 마세요.
 2. 소스 저장소는 [lIlIlIIlIIlIIlI/godfilld](https://github.com/lIlIlIIlIIlIIlI/godfilld)입니다. 서버·클라이언트·데이터·테스트가 저장소 루트에 있습니다.
 3. Vercel의 기존 `aether-arena` 프로젝트에서 이 GitHub 저장소를 연결합니다. 루트 디렉터리는 저장소 루트입니다.
 4. 테스트 및 빌드 후 Preview로 배포합니다.
