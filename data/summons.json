@@ -1,0 +1,422 @@
+[
+  {
+    "assistantType": "MARS",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "FIRE",
+    "value": 2,
+    "hitRate": 75,
+    "weight": 6,
+    "id": 0
+  },
+  {
+    "assistantType": "MARS",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "FIRE",
+    "value": 3,
+    "hitRate": 75,
+    "weight": 5,
+    "id": 1
+  },
+  {
+    "assistantType": "MARS",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "FIRE",
+    "value": 4,
+    "hitRate": 75,
+    "weight": 4,
+    "id": 2
+  },
+  {
+    "assistantType": "MARS",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "FIRE",
+    "value": 5,
+    "hitRate": 75,
+    "weight": 3,
+    "id": 3
+  },
+  {
+    "assistantType": "MARS",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "FIRE",
+    "value": 6,
+    "hitRate": 75,
+    "weight": 2,
+    "id": 4
+  },
+  {
+    "assistantType": "MERCURY",
+    "attackKind": "ATK",
+    "attackExtra": "FOG",
+    "attribute": "WATER",
+    "value": 1,
+    "hitRate": 50,
+    "weight": 6,
+    "id": 5
+  },
+  {
+    "assistantType": "MERCURY",
+    "attackKind": "ATK",
+    "attackExtra": "FOG",
+    "attribute": "WATER",
+    "value": 2,
+    "hitRate": 0,
+    "weight": 5,
+    "id": 6
+  },
+  {
+    "assistantType": "MERCURY",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "WATER",
+    "value": 2,
+    "hitRate": 50,
+    "weight": 4,
+    "id": 7
+  },
+  {
+    "assistantType": "MERCURY",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "WATER",
+    "value": 3,
+    "hitRate": 0,
+    "weight": 3,
+    "id": 8
+  },
+  {
+    "assistantType": "MERCURY",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "WATER",
+    "value": 6,
+    "hitRate": 50,
+    "weight": 2,
+    "id": 9
+  },
+  {
+    "assistantType": "JUPITER",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "TREE",
+    "value": 1,
+    "hitRate": 0,
+    "weight": 6,
+    "id": 10
+  },
+  {
+    "assistantType": "JUPITER",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "TREE",
+    "value": 2,
+    "hitRate": 0,
+    "weight": 5,
+    "id": 11
+  },
+  {
+    "assistantType": "JUPITER",
+    "attackKind": "ATK",
+    "attackExtra": "ABSORB_HP",
+    "attribute": "TREE",
+    "value": 1,
+    "hitRate": 75,
+    "weight": 4,
+    "id": 12
+  },
+  {
+    "assistantType": "JUPITER",
+    "attackKind": "ADD_HARM",
+    "attackExtra": "ILLUSION",
+    "attribute": "TREE",
+    "value": 0,
+    "hitRate": 0,
+    "weight": 3,
+    "id": 13
+  },
+  {
+    "assistantType": "JUPITER",
+    "attackKind": "ATK",
+    "attackExtra": "ILLUSION",
+    "attribute": "TREE",
+    "value": 2,
+    "hitRate": 75,
+    "weight": 2,
+    "id": 14
+  },
+  {
+    "assistantType": "SATURN",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "SOIL",
+    "value": 3,
+    "hitRate": 0,
+    "weight": 6,
+    "id": 15
+  },
+  {
+    "assistantType": "SATURN",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "SOIL",
+    "value": 5,
+    "hitRate": 0,
+    "weight": 5,
+    "id": 16
+  },
+  {
+    "assistantType": "SATURN",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "SOIL",
+    "value": 7,
+    "hitRate": 0,
+    "weight": 4,
+    "id": 17
+  },
+  {
+    "assistantType": "SATURN",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "SOIL",
+    "value": 10,
+    "hitRate": 0,
+    "weight": 3,
+    "id": 18
+  },
+  {
+    "assistantType": "SATURN",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "SOIL",
+    "value": 16,
+    "hitRate": 0,
+    "weight": 2,
+    "id": 19
+  },
+  {
+    "assistantType": "URANUS",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "LIGHT",
+    "value": 2,
+    "hitRate": 0,
+    "weight": 6,
+    "id": 20
+  },
+  {
+    "assistantType": "URANUS",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "LIGHT",
+    "value": 4,
+    "hitRate": 25,
+    "weight": 5,
+    "id": 21
+  },
+  {
+    "assistantType": "URANUS",
+    "attackKind": "ADD_HARM",
+    "attackExtra": "GLORY",
+    "attribute": "LIGHT",
+    "value": 0,
+    "hitRate": 0,
+    "weight": 4,
+    "id": 22
+  },
+  {
+    "assistantType": "URANUS",
+    "attackKind": "ATK",
+    "attackExtra": "ABSORB_HP",
+    "attribute": "LIGHT",
+    "value": 5,
+    "hitRate": 0,
+    "weight": 3,
+    "id": 23
+  },
+  {
+    "assistantType": "URANUS",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "LIGHT",
+    "value": 10,
+    "hitRate": 75,
+    "weight": 2,
+    "id": 24
+  },
+  {
+    "assistantType": "PLUTO",
+    "attackKind": "ATK",
+    "attackExtra": "DARK_CLOUD",
+    "attribute": "DARK",
+    "value": 1,
+    "hitRate": 25,
+    "weight": 6,
+    "id": 25
+  },
+  {
+    "assistantType": "PLUTO",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "DARK",
+    "value": 1,
+    "hitRate": 0,
+    "weight": 5,
+    "id": 26
+  },
+  {
+    "assistantType": "PLUTO",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "DARK",
+    "value": 2,
+    "hitRate": 0,
+    "weight": 4,
+    "id": 27
+  },
+  {
+    "assistantType": "PLUTO",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "DARK",
+    "value": 4,
+    "hitRate": 0,
+    "weight": 3,
+    "id": 28
+  },
+  {
+    "assistantType": "PLUTO",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "DARK",
+    "value": 8,
+    "hitRate": 0,
+    "weight": 2,
+    "id": 29
+  },
+  {
+    "assistantType": "NEPTUNE",
+    "attackKind": "REMOVE_ALL_HARMS",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 0,
+    "hitRate": 0,
+    "weight": 6,
+    "id": 30
+  },
+  {
+    "assistantType": "NEPTUNE",
+    "attackKind": "INCREASE_MP",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 5,
+    "hitRate": 0,
+    "weight": 5,
+    "id": 31
+  },
+  {
+    "assistantType": "NEPTUNE",
+    "attackKind": "INCREASE_HP",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 5,
+    "hitRate": 0,
+    "weight": 4,
+    "id": 32
+  },
+  {
+    "assistantType": "NEPTUNE",
+    "attackKind": "INCREASE_MP",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 10,
+    "hitRate": 0,
+    "weight": 3,
+    "id": 33
+  },
+  {
+    "assistantType": "NEPTUNE",
+    "attackKind": "INCREASE_HP",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 10,
+    "hitRate": 0,
+    "weight": 2,
+    "id": 34
+  },
+  {
+    "assistantType": "VENUS",
+    "attackKind": "SCATTER_YEN",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 1,
+    "hitRate": 0,
+    "weight": 6,
+    "id": 35
+  },
+  {
+    "assistantType": "VENUS",
+    "attackKind": "INCREASE_YEN",
+    "attackExtra": "TO_ENEMY",
+    "attribute": "",
+    "value": 5,
+    "hitRate": 0,
+    "weight": 5,
+    "id": 36
+  },
+  {
+    "assistantType": "VENUS",
+    "attackKind": "ABSORB_YEN",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 3,
+    "hitRate": 0,
+    "weight": 4,
+    "id": 37
+  },
+  {
+    "assistantType": "VENUS",
+    "attackKind": "INCREASE_YEN",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 8,
+    "hitRate": 0,
+    "weight": 3,
+    "id": 38
+  },
+  {
+    "assistantType": "VENUS",
+    "attackKind": "INCREASE_YEN",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 20,
+    "hitRate": 0,
+    "weight": 2,
+    "id": 39
+  },
+  {
+    "assistantType": "EARTH",
+    "attackKind": "ADD_ITEM",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 0,
+    "hitRate": 0,
+    "weight": 1,
+    "id": 40
+  },
+  {
+    "assistantType": "MOON",
+    "attackKind": "ATK",
+    "attackExtra": "",
+    "attribute": "",
+    "value": 10,
+    "hitRate": 0,
+    "weight": 1,
+    "id": 41
+  }
+]

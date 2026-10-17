@@ -1,0 +1,5469 @@
+[
+  {
+    "path": "static.godfield.net/images/component/alert.png",
+    "format": "PNG",
+    "width": 350,
+    "height": 200,
+    "sha256": "ed65b96f7d3f1cc179adabbcfaa4c4222a789113f54f04df2051344c91497907"
+  },
+  {
+    "path": "static.godfield.net/images/component/user_list_up_arrow_up.png",
+    "format": "PNG",
+    "width": 16,
+    "height": 16,
+    "sha256": "d4a58d6c2e96cf31ad41acb9b75277917d435833d2031e13cc9e8d131cba8814"
+  },
+  {
+    "path": "static.godfield.net/images/component/check_box_down.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "4c037d3004c72beb40e4b189c65cd1c899502131aff9842ed30847550373bf51"
+  },
+  {
+    "path": "static.godfield.net/images/component/radio_button_up.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "74b121b76741b0e10afb92d4741437a02782766c9166468b18d62a02745270db"
+  },
+  {
+    "path": "static.godfield.net/images/component/alert_ok_button_up.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "24a46f7c4b1b28c21b89f74f9aaa6ba6d9e0fe099f8d3d70d66069b3ac68be66"
+  },
+  {
+    "path": "static.godfield.net/images/component/check_box_selected_over.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "c84262be085558e6dc581f0e54ac5fe40c06cb40bfaae2071564b57de876ee73"
+  },
+  {
+    "path": "static.godfield.net/images/component/user_button_over.png",
+    "format": "PNG",
+    "width": 204,
+    "height": 30,
+    "sha256": "23e1a0a0697028ae0f921118bba77655d144fdd08036bd1cd2237a0fd2badec2"
+  },
+  {
+    "path": "static.godfield.net/images/component/radio_button_selected_over.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "0fafda203abd6bfd87a34a57be6073f43debb39c3f1565e6e72e5e4f600118b7"
+  },
+  {
+    "path": "static.godfield.net/images/component/radio_button_selected_down.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "9e1d8d6c1a042d22b369f544aa57ccb9275c173c9fd78cb705d57678cf603f1f"
+  },
+  {
+    "path": "static.godfield.net/images/component/user_list_down_arrow_up.png",
+    "format": "PNG",
+    "width": 16,
+    "height": 16,
+    "sha256": "0f65d4ff79df6b30743c00ad9ab412641b9c9f0e505f9cce3c0fa522d86626f1"
+  },
+  {
+    "path": "static.godfield.net/images/component/radio_button_down.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "a60973a582fb8b89b58994b4a29bc89367dffe820ef8b99ccf822c7b83791da9"
+  },
+  {
+    "path": "static.godfield.net/images/component/user_list_up_arrow_down.png",
+    "format": "PNG",
+    "width": 16,
+    "height": 16,
+    "sha256": "49aef3557083998d10d4f9c5fd0f82f7cbab38e80b179a5cafc7b048fb2f2513"
+  },
+  {
+    "path": "static.godfield.net/images/component/user_list_down_arrow_down.png",
+    "format": "PNG",
+    "width": 16,
+    "height": 16,
+    "sha256": "fb91854388a7b511fb5726cfb36b35303aff467e2d8888b66eb55af0cdd4d8bd"
+  },
+  {
+    "path": "static.godfield.net/images/component/user_button_up.png",
+    "format": "PNG",
+    "width": 204,
+    "height": 30,
+    "sha256": "2775986eb8a4b8685713e500bbdee8487c54c544f473a98830a06f5fc9d415d9"
+  },
+  {
+    "path": "static.godfield.net/images/component/check_box_selected_up.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "e2bf2a9235cb609fab31a0dd2a27774508defc26679a70561346b5573172b61f"
+  },
+  {
+    "path": "static.godfield.net/images/component/check_box_up.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "574f021f2613cb8497cd1b9ad4f8ba6221978ff5d530fe84ef3e137a1e4e6117"
+  },
+  {
+    "path": "static.godfield.net/images/component/user_button_down.png",
+    "format": "PNG",
+    "width": 204,
+    "height": 30,
+    "sha256": "5b0907f194056504a07405a2ddf850e02b920eb7c2a09599d0a26e2c3f219ea7"
+  },
+  {
+    "path": "static.godfield.net/images/component/radio_button_over.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "c714841abc8789a39de3431414e8c0a638aa90669d027d214232516d7d04bb02"
+  },
+  {
+    "path": "static.godfield.net/images/component/alert_ok_button_over.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "5bd9d0d413e91b99d9362266152ea61f3ff5d44e6221c506113cbac0dde10931"
+  },
+  {
+    "path": "static.godfield.net/images/component/check_box_over.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "1a6c5b832932969a6dcf587daade6963ee9610ff295683cbf3cffc3d56569a4e"
+  },
+  {
+    "path": "static.godfield.net/images/component/radio_button_selected_up.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "5afe8ede723a99125b4d55d278639dbb0d5d6e84d2ed6f5d5391f3b3758f9a72"
+  },
+  {
+    "path": "static.godfield.net/images/component/check_box_selected_down.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 30,
+    "sha256": "67c9d6e97a890dc462bb4286da522a9ffedb839a41c9072a5bb6146d3a2bb4ee"
+  },
+  {
+    "path": "static.godfield.net/images/component/alert_ok_button_down.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "d75d32ba51e373d794985035536d5af4eaf79c6ccc38dba9405f934297e702a5"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/offline_button_down.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "4d14d0698171cdc7677f2ffd335cc72173225f23b3636cb86aa84ae14448ee84"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/offline_button_over.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "56807acc550436751e7e13bcfd748266561e25494e7755f5e61020925e0b9b3f"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/alert_cancel_button_over.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "f19daf218d12b0941b62521cbdc7f25f03c8575d8e080fea93aa40b7a9b471d5"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/alert_cancel_button_up.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "44cbf6235e7a5b56a056c7c7e93a441ba6cdbcf5e2c1c72bc47036b4536f96f5"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/alert_cancel_button_down.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "6ecfca3881a82974948c33e3269da1a2d821de2bd60b3a94c509bff778d2c081"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/offline_button_up.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "6419369f2d08fb90b4d8d717c749f1fd8f1da8894084df3a0cdad5ab9c892da5"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline_button_down.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "85730e87066eaf670a4215fe857bd2d1dc2669421a841d8ad7c96e35e3d991dc"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline_button_over.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "fe7f12efb7fe3a5417e758746eb177653ca01db5f88498592d27f96a60a07629"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/alert_cancel_button_over.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "47312b849e564634d05ab35e7ab114fc19409de0acd8f7fea71534277e66ddd6"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/alert_cancel_button_up.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "44a1d7690c0f51f43c563c6911a0c710f7d3513cd801fcf0c2c587ceed927630"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/alert_cancel_button_down.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "7e2ecb0db456207e4a19d97b8adcede318ac458682ab9fcd69ab91cc9d844577"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline_button_up.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "37794c9fb6bafe61bc9379ec0314d12b9dd542d0631794ca2e9c41149df08f00"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/title.png",
+    "format": "PNG",
+    "width": 110,
+    "height": 30,
+    "sha256": "dbe0c8b674459c4a88a507f335be37ff1d61fef1543b7a8cbf9c74549f18ded7"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/bar_bottom.png",
+    "format": "PNG",
+    "width": 1024,
+    "height": 30,
+    "sha256": "cdb8981c9eafbb97106b0497d56bad35a3cf04775a68bc282aabea9c2b35f9a4"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/bar_top.png",
+    "format": "PNG",
+    "width": 1024,
+    "height": 30,
+    "sha256": "6a9f661791c01bc1ba828c33a989244e0931572bc2dd064eb8a6208e75a909a8"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/background.jpg",
+    "format": "JPEG",
+    "width": 1024,
+    "height": 708,
+    "sha256": "937f99016d2eb40e7b2e23cf86b74da1a18b1528029b66f8d254f32c10776673"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/text_input.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 30,
+    "sha256": "ef0a619338d8520344e78c63275ffdbc823829a5632238481b870a82f90b54ac"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/background.jpg",
+    "format": "JPEG",
+    "width": 1024,
+    "height": 708,
+    "sha256": "f206dd15bf010fa57bfb246f5a2360144ac76dcc70bfa1133d1b617b6be69718"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/room_create_dialog.png",
+    "format": "PNG",
+    "width": 400,
+    "height": 400,
+    "sha256": "da3f4045437f300583e5cf6e43032d70dca3320efc9175e0204ff82dfdcb1e16"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/user_list_thumb.png",
+    "format": "PNG",
+    "width": 24,
+    "height": 600,
+    "sha256": "b9c05716051cda1c4e974b8d27eef78fa8ea125a12c75a65df262fa41319b429"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/user_list.png",
+    "format": "PNG",
+    "width": 238,
+    "height": 636,
+    "sha256": "4a554ef5d80ec9cc73163151c70121c7988e2c920a13a99dcb848f8fd77717fb"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/room_button_over.png",
+    "format": "PNG",
+    "width": 500,
+    "height": 60,
+    "sha256": "c37b0bb08f1ad86fcb44fe95dc748c6611081eae1ffa929ac02dca37c10a83bb"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/fast_room.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 24,
+    "sha256": "2e09dc3eda11a794ac57a669837c34ae8beb51783f6704bacdcde0e228aafe9d"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/game_playing_false.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 20,
+    "sha256": "3ed3031ed457fcd1d6001ef7d359dd8f3c060ca6ccb1ac42ab82242d21755af7"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/room_button_down.png",
+    "format": "PNG",
+    "width": 500,
+    "height": 60,
+    "sha256": "f821aa12e7d335e142a6db25bcba40ca9a82dad9026e3958c3b3023092b39c39"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/game_playing_true.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 20,
+    "sha256": "8011ddea83fc62fd8a597a1f371733bb3126bb3e5bb4a20a26415f897c4c3f02"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/members_only.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 50,
+    "sha256": "782c7dbd22ce9d968cdb7170537ecdd2896a2cff0b441e7abceb6ab34fcac509"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/room_button_up.png",
+    "format": "PNG",
+    "width": 500,
+    "height": 60,
+    "sha256": "7d3a4710fbc371a6c38969f3b133569acff52b6853621eb966fc47024cf53aee"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/room_user_count.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 20,
+    "sha256": "667a826305a7e1d1b47c7d5836b50e135e3e5d715517a4f6e90b327e0bd4e4af"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/room_password_input.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 30,
+    "sha256": "423f81eb7f6ab39a8e8b80bf8e93e5467dae4960a8f85f0da2b32e81ab2bde1c"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/user_list_track.png",
+    "format": "PNG",
+    "width": 24,
+    "height": 600,
+    "sha256": "647dd74f85fbe7a4996d2ea8793e37bbb19ed5a79148f2db587f85d72c3103ab"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/room_name_input.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 30,
+    "sha256": "535d29e405fbe527f84a46b9962a3beb2453c54a4c4352d8cb399b08319fd1a0"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/room_password_dialog.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 200,
+    "sha256": "cad73c4cf87752f4181b7e2bceceab74d01019108891e673376b5e976cc6dafe"
+  },
+  {
+    "path": "static.godfield.net/images/component/coin/god_coin_icon.png",
+    "format": "PNG",
+    "width": 24,
+    "height": 24,
+    "sha256": "26be29e9ce229f66214a00a5b775c49eedd9eaf987359caf98d997b39cd2f7ef"
+  },
+  {
+    "path": "static.godfield.net/images/component/coin/charin_icon.png",
+    "format": "PNG",
+    "width": 24,
+    "height": 24,
+    "sha256": "0b80172ac0b614aeb43925a26487b5ed692caf731901ee780776597611359ea9"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/user_list_thumb.png",
+    "format": "PNG",
+    "width": 24,
+    "height": 270,
+    "sha256": "b87251a0361203f3b8a4bc9b376bb5c10e1e8bd3fba2d183138b022af280c99e"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/user_list.png",
+    "format": "PNG",
+    "width": 238,
+    "height": 320,
+    "sha256": "96ad1cf42538773f8b316a67cecb02b15f42e9a58cdce9d0ae3eca33300c3253"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/chat_track.png",
+    "format": "PNG",
+    "width": 24,
+    "height": 164,
+    "sha256": "e9ee65f7e91105482af4d27ab0c602dada99ba9937a320a5c683454831c75c52"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/user_dialog.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "ebb34ae78e12d799c4af7d83080962fa7b0e7ce061dcdf7923a2181f10094724"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/chat_up_arrow_up.png",
+    "format": "PNG",
+    "width": 16,
+    "height": 16,
+    "sha256": "4f63a5a276e9891fbcceb80a70485be60b070d231e9d8d341c5b6cf5a9c058d3"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/chat_down_arrow_up.png",
+    "format": "PNG",
+    "width": 16,
+    "height": 16,
+    "sha256": "83cd204e9d14646ee4db5efc1434a46cfa9a16bb70d9d2aa57d0a1d44ec6b557"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/chat_up_arrow_down.png",
+    "format": "PNG",
+    "width": 16,
+    "height": 16,
+    "sha256": "d13f27a47297add6a29061580c07d11e3f56252d70a109e2959c295483f6f577"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/chat_down_arrow_down.png",
+    "format": "PNG",
+    "width": 16,
+    "height": 16,
+    "sha256": "a616b8b9368cccb421dbe5a1d8e2cb24143757282c9c4bbefc1f03d2c4373096"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/chat_cover.png",
+    "format": "PNG",
+    "width": 357,
+    "height": 202,
+    "sha256": "e1e2cacf939fd3fd854cf9f1cc8e355e9b8e921f7a918696cfb963151306198c"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/chat.png",
+    "format": "PNG",
+    "width": 357,
+    "height": 202,
+    "sha256": "22d786986301ba331753d89871b2169264482fbdeed77354b6cb31f605c6f833"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/user_list_track.png",
+    "format": "PNG",
+    "width": 24,
+    "height": 270,
+    "sha256": "69204fc7c3d80aa8ff91a5aedd11489952c7a07559ad1d2e76e7712ca22602e0"
+  },
+  {
+    "path": "static.godfield.net/images/component/room/chat_thumb.png",
+    "format": "PNG",
+    "width": 24,
+    "height": 164,
+    "sha256": "f7a50e4f3990284b685e32c06c9e4191d22e16cd2526247a2b075b76e04ce98e"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/background.jpg",
+    "format": "JPEG",
+    "width": 1024,
+    "height": 708,
+    "sha256": "d9a051b1c2dcde25fbc66a099483891f41e50c07e1122ab665d16b07290a1be2"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/fog.jpg",
+    "format": "JPEG",
+    "width": 1024,
+    "height": 708,
+    "sha256": "ae19d628042db22e515eea85acc408e235519ab6f493b438f1b3101ee9f08a2f"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/card.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 90,
+    "sha256": "aad361f1dd7e0699caa6c153bc1857a82adacc9886eaa2d4de3b2e0652d59c1f"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/inning_count.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 30,
+    "sha256": "7f25a2a7243c1e4992a79c56beac648df176fdc951de3a5e879aec0cc0b0fe3c"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/volume/mute_toggle_selected_up.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "6b08f09b11f7ca2f60ba37a0d0935dcf2aba541a2d2dd182bc6d8c32a7b1374e"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/volume/track.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 18,
+    "sha256": "d0a144d2b25c1eb02b7b75940effde8fbf0720447bf749f00925f08aa7b49cce"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/volume/mute_toggle_selected_over.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "542417f689026e65329da1abab204facd4e24f4abe63a1b99580ee272c8234e7"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/volume/thumb.png",
+    "format": "PNG",
+    "width": 11,
+    "height": 20,
+    "sha256": "4007f4afeced3cbdb74da0961e15d7bb864366c1b7ea69c0263f187e196423b7"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/volume/mute_toggle_down.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "1683e0550213a71e8cae33ad8aaf31d56f13114f36c8d52fa978954e889c7683"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/volume/background.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 30,
+    "sha256": "787cd058e7190bd4db83549109e56c6ad0153b50539762024b8b2db446d6161c"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/volume/mute_toggle_up.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "26289e420636a0607b9eac69997669e0d01a6b9a77130808a841236f29f53dd5"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/volume/mute_toggle_over.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "fd78abfc6bc81c21e12b65cf3725ac254972b84dcbbe6bf1040cb4227069bb0c"
+  },
+  {
+    "path": "static.godfield.net/images/component/main/volume/mute_toggle_selected_down.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "164e931582d6a077d69d8a4585f0686204087181cc5f64032a00068e3a1457b9"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/background.jpg",
+    "format": "JPEG",
+    "width": 1024,
+    "height": 708,
+    "sha256": "af7486b782be74b93640b0dad04e9b007fe6584ba600819253dc66b01ea4b7c5"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/training_button_down.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "2629c77bf69f1afaeaaf97c9598ec5a1b7688e42f083fdc27cf932d3f151fb99"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/freefight_button_down.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "1c29de8078dd167b19b7f885a996b5bf3604055868e6e59db3d01bc25c828835"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/spirit_button_up.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "fbb70d47a9a4550e51a33af40e46b43def703d92fc510c49dfbaf8b13d77fc8d"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/freefight_button_up.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "c76eac863b8aa4232fa9720929e7b8ae5f35bd23662e119ad2f4a70169987c2d"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/freefight_button_over.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "b0ef801de45f4a71de458e2597777c1e3ce9a3746327e64f8fa10c17a381fdc9"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/spirit_button_down.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "de057a24598132b97c82a4cc26f44798979d8ab17638871f437fd6da60bf4336"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/duel_button_over.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "4488591a348c8f0be57d9af98e5cfdd3355df0c53026c8f313daf1d3ba2ae1dd"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/duel_button_up.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "42b17c1584b6194a040e8ace1d02b542ba845448110f7f76198388f20473ce76"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/duel_button_down.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "48a56a8cdef0217a2ab1c7b024740371012d26ec2b2f54e660da3026b9b65196"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/training_button_over.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "9bef817920516ed7dc971ae34c1fc0c23aeb69858b32dbd8f43417ce86ca3e6e"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/training_button_up.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "881be0a02b77a830407255181e32ed0cddbcf8a55363b6fd2667ff0acab29d96"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/entrance/spirit_button_over.png",
+    "format": "PNG",
+    "width": 900,
+    "height": 80,
+    "sha256": "d3638af55fe573ca6973a87b28033237b47614f2aa22aeffb4fa12ad3d240100"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/background.png",
+    "format": "PNG",
+    "width": 1000,
+    "height": 700,
+    "sha256": "9dcecf43c6d6399f3c1b3b654e3268fd80d297a61d253c00fe387207c66aa41d"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/close_button_over.png",
+    "format": "PNG",
+    "width": 25,
+    "height": 25,
+    "sha256": "1f07635cfc23bc82429700c56c912af4adb127b7f1aefdb9e8c0b9bdde0ed52b"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/close_button_down.png",
+    "format": "PNG",
+    "width": 25,
+    "height": 25,
+    "sha256": "0426f2699bed47bf75d03610d665d49cacb5fca8f0832108680402a125713395"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/element_text.png",
+    "format": "PNG",
+    "width": 844,
+    "height": 120,
+    "sha256": "603659b125a5da5e0972f8ce2efc9a0813d955fca154179008bb84b6476d96cf"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/close_button_up.png",
+    "format": "PNG",
+    "width": 25,
+    "height": 25,
+    "sha256": "06277bcba251c557bf8a3d92281ffe68b5ec42845bbdde16b56bc33aa2c34c68"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/page/1.jpg",
+    "format": "JPEG",
+    "width": 845,
+    "height": 530,
+    "sha256": "05e944b8cdfe0a6401b0a9a53fe79e661b8e79170b133cff791a3a283f91dc44"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/page/8.jpg",
+    "format": "JPEG",
+    "width": 845,
+    "height": 530,
+    "sha256": "845fa5078f37137c1f533ff3385449a579efee06cf4b93bf0eb983e8b667fbe7"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/page/3.jpg",
+    "format": "JPEG",
+    "width": 845,
+    "height": 530,
+    "sha256": "5982b8e8fd6c2716124461127fcdad00a2982b4367334738c0b439118aa9bf0e"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/page/4.jpg",
+    "format": "JPEG",
+    "width": 845,
+    "height": 530,
+    "sha256": "eba3a26ba657080cf7c036199a88e63323b899145896f028172744bc43fc8375"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/page/9.jpg",
+    "format": "JPEG",
+    "width": 845,
+    "height": 530,
+    "sha256": "4146067e419b5353fdb3c8390727f92f61a2d56c0331d7549936de68996ba4c5"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/page/2.jpg",
+    "format": "JPEG",
+    "width": 845,
+    "height": 530,
+    "sha256": "a76a686a250075a6162875628f9f19c71006f8cebde36ae5dc63dd8103482359"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/page/5.jpg",
+    "format": "JPEG",
+    "width": 845,
+    "height": 530,
+    "sha256": "ed972cdc030cd7ba88f4d71abe26945d19f2276b92e97f0e797430543b86ce50"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/page/6.jpg",
+    "format": "JPEG",
+    "width": 845,
+    "height": 530,
+    "sha256": "e7e0741f4ead5b143ad59a3c3fd1c969264087f5faaaf6fae181781989b5af0b"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/page/0.jpg",
+    "format": "JPEG",
+    "width": 845,
+    "height": 530,
+    "sha256": "cc51d81c1594577a33fb50b5d1670574b85b2b58595c32af46f6dce368c4ec3f"
+  },
+  {
+    "path": "static.godfield.net/images/component/offline/book/page/7.jpg",
+    "format": "JPEG",
+    "width": 845,
+    "height": 530,
+    "sha256": "c2ac36c29f0a277abd3891af2c8f4b30a274d1ece1aae08575a66c478db16d98"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team1_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "46fee5f9f82a24ae3100bbd2c69dcbefcb3214a3343d140532ba80d2ea6509c9"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team4_selected_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "1c28cadf5a511ad55f7eb5f9ff16b71ad705ef897a5a4a7e7cf8d0d9e521dd23"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/single_selected_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "f3b833e05fec03ba68cb01c303bcc74ea30bb47878fb0b0e47fe99036e1b6d1c"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team4_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "46076cec993dadc9f9fad315d9b0f502039471c2f0e5532755175f0319a59a5f"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team2_selected_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "2fdfdab5eb5a681f67ebf896fe0199a6316484a540a54a6abef1a132dd326059"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team4_selected_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "ee1d8731f03255ff09c5a8f35f73dc4db51847531c9ea61b13a8d721a988b66c"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team3_selected_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "f5db346a24aad9e9cb0a5ce112264ea5781409b584fa77e0be63f31eda91db64"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team2_selected_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "0adac0c605217923fd872a5964901e50df6856ea1bfffa2eae00d65f3a221077"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/single_selected_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "0a5facd3fbb22bff8b31da8ff9033ec312f9fed3052b0256a49c945f6ac5eff6"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team4_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "36be521d19afc421a60f48bb966e9a9378559a46d764d766e536ca87481dcc7d"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/single_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "8ffe23ce36510e32a5c7b5b19c7ad2bd6585e710aefa47d7d11e9d6376a9f5cc"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team2_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "ea42f03824358988bb303de31345e7640d9804b23235c84a83fb90e99532a71e"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team4_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "1eb3ab0e4093356620424ee69dbc4ac037af64a8d48402f1c036cb252bc4289a"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team2_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "29ed79cc0b6aa47ac09fdc68bbb33134fc02ba50af3f80935dea57c2439eb6d2"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team3_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "0369d0e4f33e8655f1a239cb386e1eb55498a42a08da831dd8fc524516143bab"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team1_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "b701439b3b16213bbaa64b39fd7850df40760e07097ea191a7cf4513a1adfd87"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team3_selected_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "c5bf876abab563bf675b4cb81bbf7ded7c5dd0f1a5ac7b5878aa3c8531b072d2"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team3_selected_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "041a6f7446249f1565338c56baa147390e0e832b7fa9c11dcb8a094380735c67"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team1_selected_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "a8772b999a3a1257e2f119c08986d9f992152c88fe73270756fb78755b3b72f8"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/single_selected_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "1fa66fda405e966ebe5bffd866973999fc04f93b242da6afb6120966992e7d02"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team3_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "50c5e1d7da1d065d3208cba3f6188977cf4df1d8908672ca40b970a8587006ac"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team3_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "63b56b6981f5bd877ccc69e254b37f232ee90c366775646b01fe22e9e75ba340"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/single_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "7e01052d1e3229b5148f9505e64320f1a69529f5461fc1924c6aebc4997477ca"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/single_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "d0f910b7dbcfe8a807bf3c351f1c3ccf98546565c636d6eb4354983d1d1b6926"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team2_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "2e7f100f9666e162a2bbb0f826ebde241a2bc71f6360920d96f4fd5816860501"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team1_selected_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "7b7d1e4c149f6fc9cb3d57237c93ae80fd97c11645eb3a32768e4097f6c641a7"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team1_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "3d78ca2610725d4ff4ba6f15e69744ac65f8d7ea8326cb74c148dccefa149bab"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team2_selected_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "d41f90a56201239bb2627c7b0c01f3fc8aa5eed1443aacac77df1ba4a5cc22b6"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team1_selected_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "6c456cdd2bda7f0c61f1caa38f7b90644c541793f0883c7d900a7cc245b18de3"
+  },
+  {
+    "path": "static.godfield.net/images/component/freefight/entry_toggle/team4_selected_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "efdca70fa7920bbe4160776089e35c3d65606c70b04d18c54563ebba8d4a0219"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/assistant/saturn.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "642cfdff8b975c9a9728c7b227f2c2e2f9f4f95061eb7338b75728afe11d5109"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/assistant/neptune.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "b83ea7b57fd53b9f4b05f03be1d8d8ea708f32e994cfc9fc37596a6a230d31ab"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/assistant/uranus.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "6de50565134219087708d3ec1a18d496a426b5aeb44abe0517027278953c3c61"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/assistant/moon.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "830408b7edefd9398ef3183ffb67a273e6d51fed06f45805dbf256d108e15ed0"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/assistant/venus.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "cbaf387493b8cdbfa8b2b55d09effa72f29c0e2794e714e97cae1c6720dcba8d"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/assistant/earth.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "657ec02ebefac40eac3f91d218422b9dc2c00841155a1771b100344b922e0a7a"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/assistant/pluto.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "f1d54336670c46e84eaa817065ed8da6464e536563b9858605c824900912d401"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/assistant/mars.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "63ab1a9b4763fc424bcff51b08f6ca425b3b1a9bfd3d64e44bce81ccfe21ee71"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/assistant/jupiter.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "cade284fbbdc6de5cf6c7bd93b1080603945482b1514ed9d3c2c43bb367133bd"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/assistant/mercury.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 300,
+    "sha256": "8a0356d9d0bf608aa70a6625e7f6b3f6161656ccaac7b3e45fafe2d942838500"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_3.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "9eb0ebf069af2cad20b4d817c49dd72075518702a36f5308f94b4fa60f5c99dc"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_0.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "29f6605538d4c85f9dfdb7b20afd7da17c55a38a7a84b86d7e397e103b7928fc"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_9.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "209ac708d4481639727891ee2ae1edeee254a5298495a90fe2c5d19130ffa028"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_8.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "04c1e0e6af704fa07f5ca4a9170cec80df54274223154cca942b4fedcae5e7e6"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_7.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "de51b38748bbbc0b8c0594ef03ef1b08c8cb44900942e2fe318ff202f4d5ea18"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_increase.png",
+    "format": "PNG",
+    "width": 165,
+    "height": 75,
+    "sha256": "57d801449bf4bf2e1ed37e64374f3d20f97e7728c5779a3f9db52106412df236"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_0.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "fb5ce900cf9d499fad3fb90c96e3b59ac2c8d48ff995b34cb5af280ebe009839"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_dark_5.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "4068131af8992dc6b7c067710d9d2ffa61e00dfc1fb002a819928ae95a67b5cc"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_5.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "0f5dd1c8c46547e0db862acd9e4fa24c6f44ecbf9ea73ebdfa25c7481e4cd4bf"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/game_start_3.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 150,
+    "sha256": "77c4bd89570fe65ab932730fca32979fc1f4a81e43a28376a594153bf3bfe122"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_6.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "49768751223b2ae6cad58c9bad49c611c95ad95286423410cd4a2712d2586dec"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_dark_8.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "0149401b3a2e20789785a2979938b7e160f707719ad73173a327b809c64fc694"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_0.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "53c6fc162213b6e4943a98e21b132307585f2d3a3c7caeb4b8f0bdd0a9f3bfe6"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_5.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "26d6d5f6b20232aad5d74ffac819273c12f9930472582917c11e07eae83b20da"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_7.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "53b3b852d3f30bbb973f26e6d1b07c6819448adcbd8831df60560e08e6c276eb"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_3.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "812ffb3ca60e292b4fc01be67038b3119bbdd03d919ece65aaf6b7642afb9df2"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_1.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 115,
+    "sha256": "3a8f4e53461adb6d9df745016360ba52d598296f75c4dc066eda6c72f499fd59"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_8.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "8693b579460bfe736bdc919f10bc6b5827011deecb25be9de3ed4be4e775b1e5"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_1.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 115,
+    "sha256": "20ab88d1ff3c9bd96b198f975ad062be1398ed8e249a0d5e56fe0dfbdbc01eaf"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_dark_3.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "01cf14a08f7fdba0c896936547ee260bd8f9b4793df180057fd11b0de8dbe1f8"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_4.png",
+    "format": "PNG",
+    "width": 82,
+    "height": 115,
+    "sha256": "b8ffe1e35b0671769eec0ab6c7a7200340b56035109c9d4558700259ef0eddea"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_6.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "aab8da27ba375b7c177212cb0d68d55e4ca76bdebf3515c1ea0cd41e90f9ecb2"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/game_start_2.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 150,
+    "sha256": "0358c27437cca7f1c5c4f0409e6960a10903a17d6927549671069c2fee8d6c64"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_2.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "abc1a34091a840410f87e533d82ced11bfdc198d9cc9c5f9a71c87cee6ed65be"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_2.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "d3dd0366b2a37a2b86c57949af8350423ab05e159887a49c47de633d55b1f86d"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_3.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "897eef1b6d3a8c47bc40842e7e156a4914eb0ed13d053978b61473527ff2df6a"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_5.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "84e2432a2fc06061aafc5853fc1ad97c6c527d886506f7e96ade99045bb40a7e"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_3.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "2a22fe3585d2923fab3c58cf95f6494f6a39c33ad7ad45cc17930dd3c9e87154"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_dark_6.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "ca664eb1788f7abd45192aa5b3811348b449355422b30878a7b3c6abf26711e0"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_9.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "d985063b58a107afc2ccea6c4ea87551c69de374fb74f0db9e49978f3e23855b"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_5.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "ea43f0b9cda479347a5e9e68d0d439f33e2726010de91dfecee53021de5152e0"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_6.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "8f0a4a849e077a13658d3d9bae8d2ff5a4c506012d55696d1f9071d1edd45ca6"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_4.png",
+    "format": "PNG",
+    "width": 82,
+    "height": 115,
+    "sha256": "be113df31bb83d0cdc92cf3427d1440c3ecf63114ed0ba7a3f41ff5d09fbfa49"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_increase.png",
+    "format": "PNG",
+    "width": 175,
+    "height": 75,
+    "sha256": "9a85a7761642292b404bd8b1e591cf8885f4fbb8f99088af3fca0d743eaaeec2"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/game_start_1.png",
+    "format": "PNG",
+    "width": 85,
+    "height": 150,
+    "sha256": "356173fa4934c6ebdc0faf623b8a60c7cbfd6c7bcafbe9d6a609a7141b6cbded"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_dark_9.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "3b79732dcfb22aaef4526b1f915b04056ce750914f0e6245a3868aa94ec22028"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_8.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "c44edee2edc1007f047b0efba6007c1595339b6628897630e899086ddbc0f4df"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_9.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "c5f90a1e398658d6ad3e84e4dec58b73d6785b56eb2ef4472aa71904bf585552"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_9.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "2946d58a25c9edbbaa3dbd53964ec1ba294b55c87a09b2a62e32caad0b4a130f"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_2.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "058e32673b73cd2418533edcd01ec0efea7c4e718b02dfe568a9a6e7d3275823"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_dark_1.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 115,
+    "sha256": "194986d23fcf2883357568f47a4b30501c8b8b0f8c88994beb0961b81547a3cb"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_dark_7.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "2913aef1fdb589ae4ada76f779ae8167abdd1aad1ca6a95b3bbae9f62d32d493"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_1.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 115,
+    "sha256": "928b1264b1caf01e9b1438b2edf3313a6a116e81f1a14b2ee00337c46cf147f1"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_1.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 115,
+    "sha256": "785a17b850e78970dc2d410273e40ef389d5e12e195fe4ec64761243a6551fe1"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/mp_4.png",
+    "format": "PNG",
+    "width": 82,
+    "height": 115,
+    "sha256": "765c5f739744978dfcdad73d1855c0f7d49061d926ce8a973386339569863112"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_dark_4.png",
+    "format": "PNG",
+    "width": 82,
+    "height": 115,
+    "sha256": "3c70d9c693f50ec429a78c4bdd631e68f4852c6fb9c408eae91ab5ecef270c08"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_8.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "d66d274c55103c6345dc09ddfc7fc70791a68f5f45f1f9c39193bd5a98017c5b"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_dark_2.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "d41089bba5b3b1d043060971c4fbadf96e119b82b870daaf0487af28a3b8b74f"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_4.png",
+    "format": "PNG",
+    "width": 82,
+    "height": 115,
+    "sha256": "f05650072db8a81e927496645f93e71455cf355f9d0e6054ddee8e9b0b5f1256"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 75,
+    "sha256": "2e3e4705017cb1219a4414b15616021e56a54ceda7bac6ada3712482d86b1724"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_7.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "df88cc362f076e0ce15094c45fd46541f687fe3ee981c321d1367561e6d9e68c"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_increase.png",
+    "format": "PNG",
+    "width": 105,
+    "height": 75,
+    "sha256": "5dd6c63b4a9aad239eac9c6a567153e102056c015b72d5f46c0c1a6a1b4d8a45"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_dark_0.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "af0b74505fa125ec70dbd792e9c45c8003b841b1d1d2946e37cb57255e356700"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_0.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "1f1292ce9413170afcd0bc29e09f98e29079814f6a77d34c2bfd19015aa2e51d"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/damage_2.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "e89e805b304a4a18b23b3c334142408d48b1500d13b6087bb4e861b61f4fce60"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/yen_7.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "e712d68d3054c3e72ac0898c3ffa43910fd664f852af32cfe59250a12636707b"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/effect/hp_6.png",
+    "format": "PNG",
+    "width": 75,
+    "height": 115,
+    "sha256": "0412911e0521c78f78cac5369bdb274295e81b04022358649a8fe17e27fae244"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/time_gauge/defense.png",
+    "format": "PNG",
+    "width": 600,
+    "height": 6,
+    "sha256": "f004ecae54c7e50d08908097a24691dc74c3c79cb5935a54638967db7a3dfc23"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/time_gauge/attack.png",
+    "format": "PNG",
+    "width": 600,
+    "height": 6,
+    "sha256": "f6fea6af06f15b38d1c6179c85a9fe980d8855815910b985c83808e0b51d82f0"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/time_gauge/wait.png",
+    "format": "PNG",
+    "width": 600,
+    "height": 6,
+    "sha256": "4c063e12c2c1d87bd9fda14f030bd2cd9b92333cc869e29d7a66f2777b24a2b6"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/time_gauge/cover.png",
+    "format": "PNG",
+    "width": 667,
+    "height": 20,
+    "sha256": "e0b26e6990abf5e894d1487a8610ab718d065c5ba97e218d762a0e7acc3f2518"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/attribute/light.png",
+    "format": "PNG",
+    "width": 25,
+    "height": 25,
+    "sha256": "db618fbbda9bc28f6b8d453606f8af67f8fd2d0aaa743a15128a4a28d5c77e61"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/attribute/water.png",
+    "format": "PNG",
+    "width": 25,
+    "height": 25,
+    "sha256": "b872725ebaea2d5c83a239e65c6900cb79e83b534351ae93e36b50e33799a2cf"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/attribute/fire.png",
+    "format": "PNG",
+    "width": 25,
+    "height": 25,
+    "sha256": "fba689674d4af7c6c78c9baa6f117d1b62a15faa9da18287e3f4936c9c55d0b5"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/attribute/dark.png",
+    "format": "PNG",
+    "width": 25,
+    "height": 25,
+    "sha256": "b30db7e0358fdc77a159c5c3918b7ec2e54d728795f3701c82ed361f00a53e54"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/attribute/soil.png",
+    "format": "PNG",
+    "width": 25,
+    "height": 25,
+    "sha256": "e86fab86d29a6658a665ea94aeaa08e5df2b1f8c706354a46227a57dc411dfa9"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/attribute/tree.png",
+    "format": "PNG",
+    "width": 25,
+    "height": 25,
+    "sha256": "4454d3e70173409a76f26cf3aee7ecea5919c307dca0d913ec7964ca7767dab9"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/command/value.png",
+    "format": "PNG",
+    "width": 130,
+    "height": 30,
+    "sha256": "d1c1bac9e77ecd08e4dc123b1bce31daaa6cfaf75f73971209cd952851d83924"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/command/ok_button_up.png",
+    "format": "PNG",
+    "width": 250,
+    "height": 38,
+    "sha256": "b3a7ac737b1bb6fdf5eb959318dd283bb555c51fb3eae1ddd5bd2778bb0d022c"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/command/ok_button_over.png",
+    "format": "PNG",
+    "width": 250,
+    "height": 38,
+    "sha256": "3d16c5b42e4ceb12b871a622c31344b67a822b1460a848065b8d38f656fe4259"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/command/ok_button_down.png",
+    "format": "PNG",
+    "width": 250,
+    "height": 38,
+    "sha256": "c27af4ad77528e50d5a49acd37b281e8e1beda8a7606e56b19a440f2f1b77558"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/commander/target_arrow_left.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 40,
+    "sha256": "4261a72e2f2d8bd545b1334218c2e955dceedeb9c8654cfa0d3bbc77d19abdd6"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/commander/team1.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 30,
+    "sha256": "bb0eb6914877098e10e0b40f7c62845f4ff9fb6f7b29a4385d49071ea1b66891"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/commander/single.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 30,
+    "sha256": "c326abe4f169616ef3a5a4d8dfb41fa2bf17a9d67a5b5a722c2121f32edff2d7"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/commander/team2.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 30,
+    "sha256": "8e1a7617862a35362677186dbe0ab8891cdb9278aac8c3333ff31e702f846df3"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/commander/target_arrow_right.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 40,
+    "sha256": "9190574a8d560eb7049781e3987fd6b31a03e11c07fbff13eb27ed524ce90baa"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/up_arrow_over.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 25,
+    "sha256": "6684978262ba32da9ba13de0f39da818889484f25edbf3a6feb6e3947154cef0"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/power.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 40,
+    "sha256": "48329f1cc4eaae4baf072deb913761862ebfd9b3449761d81cac3ba54832fa4f"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/down_arrow_over.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 25,
+    "sha256": "ef51f0f01934a0d8417f3e79fff26dbb63b59e59de850db799b6853cf73a08a4"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/down_arrow_up.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 25,
+    "sha256": "054528ae6bd3c27a177c6646ba2684caf56332ef4747473ec3ab6a09cfce9b8d"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/balance_button_down.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 24,
+    "sha256": "d1f99352eae0408b956bfc2ff51b207e059e590850fdbbef038d949dfb510491"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/balance_button_over.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 24,
+    "sha256": "13947dff8a182a3ae64cd034ed033812410444bf7ea1c24eb95080ed38748d27"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/down_arrow_down.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 25,
+    "sha256": "f2e9aaadc24ad6dea33109622b3856096822fd340b86947e865d3f19192bdfc6"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/balance_button_up.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 24,
+    "sha256": "0db70574c34f7321b36c069ab1f8a0b8d6314a879bb4728bd875734e0d4c3279"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/up_arrow_down.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 25,
+    "sha256": "e0c17ff2b87d7a8d6eb93112bbb577c33a4cf41400842103bc16560e7d02a5d5"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/up_arrow_up.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 25,
+    "sha256": "bcfff81163e955f7f3bc3d0e6d97bd029acab8c4df94efcb7b631437c0d97388"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/exchange/arrow.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 40,
+    "sha256": "bc1f19234865526224a502c6520afdf9c6513d713ecf495ece595fe90afeaf6e"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/winner/team2_icon.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "0351b7c4b362d8fb9103f301d5845da12401f528a3b998208cc7ae2b38df5cda"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/winner/team4_icon.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "e76065fb41fa0db8263ea53030e9a38211f0a42a49676fca2c07bf92f03f5bf6"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/winner/single_icon.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "378bc7f63a1c1559e5f9c0c439b46db97442152a011a9bded5df8186e85e45b9"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/winner/team3_icon.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "c74d7591978f7815e8a61c8565b2f4afe7d9b96c80e0491f383da30cb75dd4a5"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/winner/team1_icon.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "e340ddfb954121a0b72f4f8b01686be3e943095071f2fe26d41e3636bd008977"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/winner/list.png",
+    "format": "PNG",
+    "width": 640,
+    "height": 380,
+    "sha256": "4d3cdf8a3af641e80d87bb9a3e034780405f649fee15ac78cdc926c1cd86e0b8"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team1_over.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "a1555b14ed807916a8147edef84a3157bfda702be89f7c7bb3f2a9d74ca1a60b"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team4_over.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "32b38ff6b256407bf06b2fb1c8edf29b3f083732e6c477836e226a0d600f74b0"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team4_up.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "404cb776a4b217ca1c4d4fd0e6f3197d34fc44f73870c7df7d248ce258e3456b"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/single_over.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "de200ee308a6558a1f2f1fa850d4614fea30a102b83b75f989dcb8a197a9d54d"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team3_ready.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "65348c498b81b07a53f2e2af61af11b2756178ea99d5bcfbce81404ac435f794"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team2_up.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "e03e3e50bee9022175cfb2b940a744f0b1771232709242de246454674000c47a"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team4_down.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "6c345e1caeb7612e2562c8d8d4eec9f4f435ba62751277019bfd512264ce6116"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team2_over.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "704fd256a4d8e032bafa9f8f096fad626c03d4ac72e4cde564d2982346057058"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team3_up.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "d9f06e60d147e9d5a21f7f23ef38f008a700f6b8eef82d1067c3b7f1eaa2ad3f"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team4_ready.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "6aa294e06fe9734395899a45558c9cfb2156b5cbf617f2ba996a1df18d78b454"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team2_ready.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "eb588ec81d3d1a5e826ac1d011efd36815595f97c41c475fb7ce16253380bd7b"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team1_up.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "fcb8099ca81cd060d0e0cf92d7b0b8e2350df437711d2e98c0137c165b4e33e7"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team3_over.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "778d470dfbd6cf234a5f5bc4fbe7ad8f9e1547c1e0b86794c1dbbdec7bfcd673"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team3_down.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "7ceb9df99ec9a9dc2a6977325e1035f00c77f9473fd68327a9e9a2621e21c627"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/single_down.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "8727e960896e43669e234e5d533f03d22b311a622ee529427c94b5c132459e44"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/single_up.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "980c8687fb27139b33a7ec41f68e7adf40cc52a1abfae884945112fc858568d9"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team2_down.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "35164681dd9993e9629278719c1ed7cf9e4d9d1e7109272d2db8e8b4b01dc79c"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team1_ready.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "8f97d567e4af12d9ae7ee8ac9ff87eab9c5ab0273217850f450e7a90f3539f55"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/team1_down.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 40,
+    "sha256": "0c19c2d5ced4bcf24c0d14277d86bbb6f68c9d75ce1fa5ce3c4f06e0a4ac525f"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/single_ready.png",
+    "format": "PNG",
+    "width": 20,
+    "height": 20,
+    "sha256": "396aad32f5b563297014bff9eb889344ddca1dee403f6e2bc9b9d98767075941"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/item/tag_defense.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 16,
+    "sha256": "23e4aff68141f5034b20241bd7403df354adbd2aca8f028aee37a2235885b301"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/item/tag_attack.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 16,
+    "sha256": "bfb7206d89abc543dab0bf82dc909e3a369ba61d761077eea1ad49455940671f"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/item/cover.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 40,
+    "sha256": "4f7c28b81309191d74632bf29b71cf37684c4cea9868d57cd069d11ee76e7db2"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/item/list.png",
+    "format": "PNG",
+    "width": 667,
+    "height": 304,
+    "sha256": "4b44919915999c1e45b70b3ddb9ebffecc5065473c1530f97d09ff31db16658d"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/harm/illusion.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 16,
+    "sha256": "e7325955a7c04574af75d145b2754227ea8adb71f656304fc2f92265a640513f"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/harm/blank.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 16,
+    "sha256": "d3081992dd940548688c5d68295bc47d64659f7f9b3c6746342a46d12e6d5a7a"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/harm/dark_cloud.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 16,
+    "sha256": "81d683ef1b92332a7009bc3360edf1c6c4711ef65aa22e45bd2baeca62724e81"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/harm/fog.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 16,
+    "sha256": "49831b58334336092636bfba246c4e2cbaa85b6c710ff6ecf5cec48d6f5b8121"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/harm/cold.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 16,
+    "sha256": "d00bf429e589df586455c9990c476b9ba8098bf26c42952bf52f82e63d94174a"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/harm/heaven.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 16,
+    "sha256": "c68bcb9629557ddc90f083a94d85af5b7bf16749bdf9c6677ed547053ce2b152"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/harm/fever.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 16,
+    "sha256": "1886b4bf8e1bdebc2ffdff308dc6c2317a6a0918a3fcc7e16856e5879ecfbcf8"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/harm/glory.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 16,
+    "sha256": "5b0e5005e77fc254b2607ebe20800a0d309d15e700ecafa2ee9bb71303088150"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/harm/hell.png",
+    "format": "PNG",
+    "width": 30,
+    "height": 16,
+    "sha256": "c1f7a4a6ebcc21697993a512c8bf7b199734d107e0a4fb8265716fe6fbeba1a3"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/assistant/saturn.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 40,
+    "sha256": "55d5b366c757bfb540f2a2de12c74ef782e16c518ee2a7caf6a5bfe63a63d4b9"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/assistant/neptune.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 40,
+    "sha256": "7c5354666f72e4b8a7da3eeb464f480e449e0bf75ede423715dd251a12bc2a10"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/assistant/uranus.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 40,
+    "sha256": "91e0a5084d4c43672954fb5b64261fcc2b88f0b8c42771fb663e397e5125da23"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/assistant/moon.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 40,
+    "sha256": "a3b11de4fb7eea67efba3484272a16217a5842d8dff16b6664813603ce492690"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/assistant/venus.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 40,
+    "sha256": "e39ae828bd574e1a427ef4fa4ddcc0a88a0b13ddf52be336f3be23bf2bdfbbc0"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/assistant/earth.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 40,
+    "sha256": "69d1cfb173738cc2f63c80cf2ce02ac1fe6312679725b5d076d6cb93b2f3e8b1"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/assistant/pluto.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 40,
+    "sha256": "6d8f2a5d57611a6b3847fb20c143c00a0f1e61cbc787b325699fdf5dfb629347"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/assistant/mars.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 40,
+    "sha256": "f5e44c36691e47487dbdd5111c32963922d5d43954f2666f2c5fa54150d528a4"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/assistant/jupiter.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 40,
+    "sha256": "f4c5eb911907a037ee72cc75a7dc8831fd925a27b834af6148c4f9adc03bd598"
+  },
+  {
+    "path": "static.godfield.net/images/component/game/status/assistant/mercury.png",
+    "format": "PNG",
+    "width": 50,
+    "height": 40,
+    "sha256": "f5559f4e5487f0561aeb90bc62be2c68f080456be78dccf938c90b77d2d4555e"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/offline/login_button_down.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 80,
+    "sha256": "1f3c16a7395e111b2439540e67ae4512024988eb337509fa878262c2d8748ed4"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/offline/login_button_over.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 80,
+    "sha256": "c8d81c18b35a37118b551c94f925fa8beabdab1269653b4ebee1d295c7e5108d"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/offline/login_button_up.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 80,
+    "sha256": "636c43570aee33519cb440a509efe1e87e9cfc88147ef3d883a763f3cad49622"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/ready_toggle_selected_over.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "6c01b5999e232ea17289345da7a6b90c53b58ccec2303ec081cebeb2eb481980"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/room_create_button_over.png",
+    "format": "PNG",
+    "width": 220,
+    "height": 160,
+    "sha256": "e3005793ae4ba3a07df556e2b40ddc2bba8de3cff38111b4d008ee62fba3616c"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/room_create_button_down.png",
+    "format": "PNG",
+    "width": 220,
+    "height": 160,
+    "sha256": "b8295d6b15168d04b3ba48fd29e58d76dfdee3fd60d8d74488dd8d7495b366ce"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/team_shuffle_button_up.png",
+    "format": "PNG",
+    "width": 140,
+    "height": 80,
+    "sha256": "2e634162643c378eb3f43f66efb84756dbde332ab81f2951afb0f293ace9803a"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/ready_toggle_up.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "3be1a343d1bbc052514e34d874fe44a0236cb4553f5d14a82a55a7e04217864c"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/team_shuffle_button_disabled.png",
+    "format": "PNG",
+    "width": 140,
+    "height": 80,
+    "sha256": "d2568abe75e79ff022f2989bf6c44c6d3b668b7f9b9787e63d4ee0141f7b63cd"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/ready_toggle_selected_up.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "c7ddb82c8b13105e2c9cef52139e7763496db34d492ae127755bdc92ba879029"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/room_create_button_up.png",
+    "format": "PNG",
+    "width": 220,
+    "height": 160,
+    "sha256": "4f4a2f15edc29ea88832903c8a98ab17433586414cc40f515b1bd4f1dd80b64d"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/team_shuffle_button_over.png",
+    "format": "PNG",
+    "width": 140,
+    "height": 80,
+    "sha256": "f4ec9c33c00ae35cfd00c435554e445db1526343885fb9d65511869ca2251335"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/ready_toggle_selected_down.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "7daddc848820a481664aff10f90f897d539f30995dec794a0ded2090d3e2215c"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/entry_dialog.png",
+    "format": "PNG",
+    "width": 480,
+    "height": 270,
+    "sha256": "db632739681590f8a96966f5a7347e37d36d8764c83ea9512a22b2c776df4cf8"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/team_shuffle_button_down.png",
+    "format": "PNG",
+    "width": 140,
+    "height": 80,
+    "sha256": "0a5483a4a42f4044272444b9a1c7b0b58bdd9ea946fda08d3281eabc8524bf7f"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/ready_toggle_over.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "355513290c19d65fd3c5f214d4331491c082b70d8b5fa8eab0f2484dbc681543"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/freefight/ready_toggle_down.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "7daddc848820a481664aff10f90f897d539f30995dec794a0ded2090d3e2215c"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/chat_toggle_selected_up.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "ef8c41d9beb2e510c328cfbcdec056a902e9d35f1b1f14a9ee78eea84a9ea45a"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/user_list_toggle_up.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "ad75813f11577ec2476e7ffc435d927cc780472a5f981104f8404a3b0947fac8"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/user_list_toggle_over.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "07ad51aa3b794798f4bdd9cef3c1d2067161351c2486bc3ca67757fd7ea0a6e6"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/chat_toggle_over.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "f037c23cb65ff0f3fbbe48efc35b1f741cfa3fe6d777604da8817da0f3ead6e9"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/chat_toggle_down.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "da14c4647c90065bea079a864b97e33928aa83fec9efc1b56a3e1b2ea6099c7a"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/user_list_toggle_down.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "65ce19bd2d9a16d88a1d806d33fb76aa4257f9561ec85599710872a015d12478"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/chat_toggle_selected_down.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "259249c7caf2567ecbb2409befeb8b54f905b99974209ee26a7595760ec82c57"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/chat_toggle_up.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "2de06b24701218a67752eb8015bea9d47227402d50aac29a1de3609beed8acb0"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/exit_button_up.png",
+    "format": "PNG",
+    "width": 160,
+    "height": 50,
+    "sha256": "32141a00197fcf3e0c194d5cc2898720ed4691f756b65258f13ee601faaba5bb"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/exit_button_down.png",
+    "format": "PNG",
+    "width": 160,
+    "height": 50,
+    "sha256": "dc72ff58029ce0d799f6953311a1f622b8be7d5714a5921ef69d717dea098e77"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/exit_button_over.png",
+    "format": "PNG",
+    "width": 160,
+    "height": 50,
+    "sha256": "6ff37f63aa7c1890480997c64b240870ad0d16a903d511db453696ac2c1f8242"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/user_list_toggle_selected_down.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "a3bef2c7710d3d8dc23fa29dc8506acb209f5c4bbeabd13433d7762706db5f90"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/user_list_toggle_selected_over.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "e709657b5312c3cd801c23a988455a1f1faf563dac3ab90dd62b9858b252cefc"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/user_list_toggle_selected_up.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "c80428e099f3766da09396f5ad8ea15ac3d0845f353419d9702f736723ee4afd"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/room/chat_toggle_selected_over.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "c9c918d3d477e72db3cd8ea8bb320a1bf8f682a44fe05c171c0ae313a512b41e"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/offline/entrance/logout_button_down.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "4d14d0698171cdc7677f2ffd335cc72173225f23b3636cb86aa84ae14448ee84"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/offline/entrance/logout_button_up.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "6419369f2d08fb90b4d8d717c749f1fd8f1da8894084df3a0cdad5ab9c892da5"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/offline/entrance/logout_button_over.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "56807acc550436751e7e13bcfd748266561e25494e7755f5e61020925e0b9b3f"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/game_draw.png",
+    "format": "PNG",
+    "width": 645,
+    "height": 225,
+    "sha256": "b0fbf135d501cf1de263538d9f57f2d2c823d2745dde5d2664ac828bfd9606b4"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/illusion.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 90,
+    "sha256": "723a4ce114497b6d58b998dc3177ac7bfb64956b61f448e6305d2cbc6b3c3e6e"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/damage_dark.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 70,
+    "sha256": "fa0282770b89474284302d533e1d8a02254e38b21e1af368409296a6ba60dc15"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/seizure.png",
+    "format": "PNG",
+    "width": 265,
+    "height": 90,
+    "sha256": "cef8f4bed421509c626b475359ac08d229215490286e886f4663d121a7aabfc2"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/flick.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 75,
+    "sha256": "6ff7384d497ed914573fc1334322bf03c1146ffa0bbab19ed6d4ef0ab1e266fa"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/hit.png",
+    "format": "PNG",
+    "width": 110,
+    "height": 70,
+    "sha256": "09bbeb4d0328ff73fa734706cda38b4622b21e9fc94516d77d0e20ad5c0e5b62"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/game_start.png",
+    "format": "PNG",
+    "width": 530,
+    "height": 145,
+    "sha256": "f6dedca653979a293d69a6c8332089ac2683a8961f4fd2abcc03a9fda51edf50"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/harm_remove.png",
+    "format": "PNG",
+    "width": 245,
+    "height": 60,
+    "sha256": "5c70ae4081b8895ee931e99edbfe35a71aa06a6e5666f962848f303a81b89e36"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/no_change.png",
+    "format": "PNG",
+    "width": 305,
+    "height": 75,
+    "sha256": "3057854ca6d23f6c7caafe1e250719a968bc2118a70a12d41e22cb46f0b0b50d"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/dark_cloud.png",
+    "format": "PNG",
+    "width": 330,
+    "height": 90,
+    "sha256": "bebefc53e6b37e4390ac2c70800fdea0df3f8a4b8d6586026929e1fc022ad48d"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/fog.png",
+    "format": "PNG",
+    "width": 160,
+    "height": 90,
+    "sha256": "415b997008deadd1640eafe4fc51b74a2215c4ff9fd2fa373cbb9a7a54087bc5"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/cold.png",
+    "format": "PNG",
+    "width": 215,
+    "height": 90,
+    "sha256": "bac7c78b3686f63cb64df14e7aaa0369c151cb66fdcce829bfdb808c02afd930"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/damage.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 70,
+    "sha256": "ca1e27388b30769cc0d62164c366b9fdd14ef1bdbd58ade7b1df8941f45df828"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/heaven.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 90,
+    "sha256": "157dcf55243bcbf65c34df5b39786d12d2cdcf2432423f146a1e73a669f6b6cb"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/fever.png",
+    "format": "PNG",
+    "width": 265,
+    "height": 90,
+    "sha256": "20a1b09901d79b11128fc1067b44e06ce65185be5f02769e8bea742c4c0fcf8b"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/dead.png",
+    "format": "PNG",
+    "width": 330,
+    "height": 200,
+    "sha256": "a8b797568c2f14ab1810bcda7387077d7e944a8705fdeec9d58ccedb725066a2"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/glory.png",
+    "format": "PNG",
+    "width": 230,
+    "height": 90,
+    "sha256": "0d277580aecb36209c8f31260dfecca26e9c74bf45abd52232a41ff026d7dd1e"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/hell.png",
+    "format": "PNG",
+    "width": 265,
+    "height": 90,
+    "sha256": "5f9c8cb836746581a5d7a2e1793ec5dce278d26162631947886d842bbf209ef8"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/miss.png",
+    "format": "PNG",
+    "width": 170,
+    "height": 70,
+    "sha256": "0bc555830d92b92c92d3a7ae6b6ef25c8306cc63d2758a9c6660752687bc25ea"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/game_win.png",
+    "format": "PNG",
+    "width": 660,
+    "height": 100,
+    "sha256": "2307dc96915c08cf533d65ddb7eaf21fe32bada5dc2a1954558f2ef333881080"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/reflect.png",
+    "format": "PNG",
+    "width": 290,
+    "height": 75,
+    "sha256": "f1b98872ecc20106cd7f2e06f9045c87e49694216ce85414c7b95a38cee94c19"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/effect/block.png",
+    "format": "PNG",
+    "width": 235,
+    "height": 75,
+    "sha256": "ff1970c75b3a38251764ac4f29bd3eb5a38c714f7e6cdf4aeab31103f05d29e9"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/buy/do_button_over.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "f1ce3ddf8d30b9626177f9906c6770ddfc957c89afd41995bb64b3da28a20cc5"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/buy/do_button_up.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "260e5130e7b6111f6de4216704c31b5601624ea7e68ac9c0d525bf81f0e4eb5f"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/buy/do_button_down.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "914ba74929e2e54c35560d47cda608d33396469d1c159a54b821cccba439692e"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/buy/do_not_button_down.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "5cb4c7c73769fa01f355195ba7e3cfb606d6ec200a4e5646b21141de7a8264a0"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/buy/do_not_button_over.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "d182fa8b0896f98f92953ca54c3869738272783ad732c7502f3cd815115e4601"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/buy/do_not_button_up.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "34807811d8a31b37a056fb92bacbe264938790f395546aa33986f60e02213a42"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/winner/draw.png",
+    "format": "PNG",
+    "width": 270,
+    "height": 70,
+    "sha256": "30b9d2f015bb69211e909d4781d8457071e6ec57797aa3e1d0470e363b22c8ce"
+  },
+  {
+    "path": "static.godfield.net/images/component_en/game/winner/win.png",
+    "format": "PNG",
+    "width": 270,
+    "height": 70,
+    "sha256": "49d0964b891d17149796d6429dcae7ef5d874d6c47f3d4531d18a926b7396502"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/login_button_down.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 80,
+    "sha256": "37e96fef4e1e101233faa593989a6d760e3447f7f87da33443dc0af133ad70ab"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/login_button_over.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 80,
+    "sha256": "5b601bf9bab022a4c388c68c5705b284ddff33d57222abe6904663411ad78921"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/login_button_up.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 80,
+    "sha256": "19b04d1e16412e6b02221f1b636b173c8392b49bdfa2d6ce579e5a6428aff764"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/ready_toggle_selected_over.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "1cce51e28e619e3ba9815a47d2dbfe45d9cbf27c81a082f0d452db239333e68d"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/room_create_button_over.png",
+    "format": "PNG",
+    "width": 220,
+    "height": 160,
+    "sha256": "bb45f544ed309c6ba98d32b32e98c825de370361a06841ba2df4d00d2589c7a9"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/room_create_button_down.png",
+    "format": "PNG",
+    "width": 220,
+    "height": 160,
+    "sha256": "10f6e6894e74a92133ba4720d88c944ee4317607c2b6b1479223b203a99c16ed"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/team_shuffle_button_up.png",
+    "format": "PNG",
+    "width": 140,
+    "height": 80,
+    "sha256": "6f118e7aad83d5f69853fef48d35121d1d1b5166a4d83da70bbdcc58ddc71223"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/ready_toggle_up.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "8cd33490eedc60543d868b607b591f7f25d875dc76840863ae6e79b1ae49897d"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/team_shuffle_button_disabled.png",
+    "format": "PNG",
+    "width": 140,
+    "height": 80,
+    "sha256": "ea9869f1286525fb00c61cb71d43ffd8f3b30bd941d2463d7fc81a430ee37e27"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/ready_toggle_selected_up.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "cc09031c5637101e37dd07304233711b5d959c31775a9b400218396d148d5dbf"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/room_create_button_up.png",
+    "format": "PNG",
+    "width": 220,
+    "height": 160,
+    "sha256": "070924aaa65e5683c0344e0b6432e9012ad24be05082f3a80b6195c7a0cea4c5"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/team_shuffle_button_over.png",
+    "format": "PNG",
+    "width": 140,
+    "height": 80,
+    "sha256": "ca320aebd23fc25cc8df54fa3352ed5eee639fcb65798d33ae09a954d79e43f7"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/ready_toggle_selected_down.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "9616ab08f36ee4928f0cd9d394ee0221596f8319dbc5a788e56212677efd4e46"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/entry_dialog.png",
+    "format": "PNG",
+    "width": 480,
+    "height": 270,
+    "sha256": "f87e73df914411fb4b5e6021bc8550aaeefadd95caaba499e0802a109cc24c76"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/team_shuffle_button_down.png",
+    "format": "PNG",
+    "width": 140,
+    "height": 80,
+    "sha256": "69604d63a85a3818ac6acf80b5754cc12d0e70229956d6f9cdb901e4bb40af2d"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/ready_toggle_over.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "5bb7a8ecc07f4a890b6e80a73b8b89969426a54026bba6f262849ee24d3ab248"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/freefight/ready_toggle_down.png",
+    "format": "PNG",
+    "width": 210,
+    "height": 60,
+    "sha256": "9616ab08f36ee4928f0cd9d394ee0221596f8319dbc5a788e56212677efd4e46"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/chat_toggle_selected_up.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "44d13aa8639d70d4d893a1a20729d605a1f98445c558b3de47187d154b08edea"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/user_list_toggle_up.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "5a48cabb141f66d9698da34be74c58b4969461bbea644fb2865d8f4a52f4bd33"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/user_list_toggle_over.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "758e44beab8ce477a88b48c0c2bbfb1ccd5a28c983ed6a11c780e3e8ea1b679f"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/chat_toggle_over.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "7ff8af426e2614128b32eb5dafebb32f1199ef0f0e96ec7b3d9ac45d63ef0734"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/chat_toggle_down.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "8169176c74878bf96a518f089fb89d0c0cb81243688b21ac20812f76740f0a2d"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/user_list_toggle_down.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "203ab1a5807426f816469346aa553e84552006f57e3ff502957e19fb685f0876"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/chat_toggle_selected_down.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "18385c1148819aecd4cc8cfe148dc77774504cb061bb46fc0c3746bbb4333b10"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/chat_toggle_up.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "d2f67161e070685243e81e726a53d9ef45ef930b11a382a71695b8645d867766"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/exit_button_up.png",
+    "format": "PNG",
+    "width": 160,
+    "height": 50,
+    "sha256": "65852f406825d79bd934611e5c50df6d0acb88e48bb4530aa3b16967acb6cf2b"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/exit_button_down.png",
+    "format": "PNG",
+    "width": 160,
+    "height": 50,
+    "sha256": "33112b7ba35253a1fe329d408d3de5a198ac83e3443aae0b7b23d245084648ca"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/exit_button_over.png",
+    "format": "PNG",
+    "width": 160,
+    "height": 50,
+    "sha256": "627171c8da55477d8cdb8f656b42897654a20d987316d9e272502e1679441316"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/user_list_toggle_selected_down.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "203ab1a5807426f816469346aa553e84552006f57e3ff502957e19fb685f0876"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/user_list_toggle_selected_over.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "a42b19ff552cbfa3388ae75cd1cf98780f62ebe9093a36bd66f5ef18fa0aee1f"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/user_list_toggle_selected_up.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 30,
+    "sha256": "712f4ebfc343837eb0a91b4db6e43eaca79f2e06b482d8c470c3106f91e78cb7"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/room/chat_toggle_selected_over.png",
+    "format": "PNG",
+    "width": 100,
+    "height": 24,
+    "sha256": "d8c7b093bc8dbfaf588f9a2d66bdf3989d1bbcb27c7523516f5d143d8cc29197"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/entrance/logout_button_down.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "f786f0c8da9ce70cf451729359e95e587b8f6bcc46447a735c0009e571b4746a"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/entrance/book_button_over.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 80,
+    "sha256": "124e54adcec9d2c9d8cb4f441958c465b3a792a6935034c76e5ec70e83537a52"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/entrance/logout_button_up.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "2dad7f13c107167dff548c24ca7e4b88f1171b9a111021b0b5964badee9b8313"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/entrance/book_button_down.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 80,
+    "sha256": "3a4f0a1b60f9989afd07b548daa57bb57067e7cafea202d8b8ea5d0ba350a035"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/entrance/logout_button_over.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 50,
+    "sha256": "6cd9e7249507c76ab10200c2309d0fced39244d6ce3b36bf8515fdc94be5ee66"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/entrance/book_button_up.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 80,
+    "sha256": "75c8eb24dca750b53df147d35862704c6f66609a0352aac36a3f988ab5746f40"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/element_add_button_up.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 120,
+    "sha256": "1e2fc14ee81cfbd94c3d525dce6403c171b9b18d37fc92ae8d0542c8ad346f91"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/element_add_button_over.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 120,
+    "sha256": "a3902a4f1b9e6861212ff1d8f1326ad9276761c626d37e99bf2bc2f8ccc86e43"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/element_add_button_down.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 120,
+    "sha256": "4c70281fcf463b9acc1b37842526d7479e2a425ef45769eba85ee8c84410651b"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/element_add_button_disabled.png",
+    "format": "PNG",
+    "width": 300,
+    "height": 120,
+    "sha256": "1d85d92ff04f7e0d1d21cb6189ce15922e6430632409329be46e6b07119b1050"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/5_over.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "5398e7cbc8dccb143571220832f9608c87f21ab439452bfb5ff179548aa3c2eb"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/8_selected_disabled.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "3424533164e8eb83502ac59e0511b7905cf42e3de6b5d5ac727d700d5f9af589"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/2_selected_disabled.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "64672dc9b3b2caa3a3654116ba7383c93deb16c05da3908ddfc2011b0cd1cf1d"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/0_over.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 80,
+    "sha256": "009ca4c0ad1ae95e29dac2b9d05ad3fce21ef5490965646adfa37cc6c992ea4a"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/7_down.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "e77c2cee2d594b62ea77242bc6bf4091f72b6d2e01c394cfb6991353976d8aa8"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/3_selected_disabled.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "af90e1968de91854ae523e19db83654e3d3e0a2c8677afed3679ad744593a89b"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/5_selected_disabled.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "6d113361e72eb2fde22444cccc3f0e5753dbb07a0ebbd1e11154f38f599e04a3"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/3_over.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "6ca2e82e5a0e5ba584b819ec5728330770e5688d651e44e0c63fb0127aa15021"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/1_down.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "41d0109e6dd025d348e592191684fb20f4abe22b514b99a65970338c9da7d113"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/2_down.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "02e4d8019ca28fafeceb2d8557d26fd037c0bafb24f9aac72f6174bbd1d4c647"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/4_selected_disabled.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "12df6c83c89022e4db415fd88be11005d8276f7b3e923b23a4e98bb0c75d924b"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/8_down.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "fe43d13c9eb868ab0c97036ba7deb01148e91efc7c5c689fd87b8e7b48fda08c"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/8_over.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "02cfb0e4fe3026cd788c15933e03f3a81e77436cbe7dfada63d1e6c7b4710cc3"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/2_up.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "c974f6ea0da95959a4907196823e149a126638be5fa1da8f13376c9a4a828972"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/4_up.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "8915db8722733095f407f4f12c6256c80e3844ab0dbb4ace9fa1865b54494ea6"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/1_selected_disabled.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "d1d794a22c8a3cb440b967e96d08059a5dfd6dfafc14719178f5acae12b78445"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/3_up.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "b8b01fc271bc88d2ad17257861f6cf80c2de41d731f3d97cd9738da059fa4384"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/2_over.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "b7533082d850c92cd1ff98d5b3adac8a54c175b2f5bb49570cfbc439d2522f8c"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/8_up.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "f931ce59dc0aaa00f4054e2d3913446959b0d92b9922d133f3c0a169c9f0fc39"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/4_down.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "dd9cadbb8d67d689ef0b79910738ae656534bb7a08b0aec8804e6d0963bce45e"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/9_down.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "fcdfb8df10402ddeffff58077ab4a525db293897d93586a6edd2347da1c6b13c"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/5_down.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "511b5da8f569703ccf2076d6f09f825688232efa1878b8a3105b24ccf0107557"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/9_selected_disabled.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "e403ee7cdef6cc7522ea5bfadd6db162e0e1ef0d0137577b779061331176274a"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/0_selected_disabled.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 80,
+    "sha256": "c9f6b00ddc967c2f22e1c7d6442b1c3a9fef805c28a62519e8e2093df4afe324"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/6_selected_disabled.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "718ef8fcb268f8296d30a4428285bc8a423626991645afb09a8315fcb023cf72"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/0_up.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 80,
+    "sha256": "33b4d5ac7a725fe2b9b5f7f9518cfc4b22117197aab6aef511e61964bd6d1fa2"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/6_down.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "1af209e5354cf193a18224bb9fa79079957819cf4a4d10fe8f52cf77971ca6cb"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/1_up.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "a51c355577f242f5eea9612ca2035b38d2d067054fdd2dd00010c2e8930ec14b"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/6_up.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "869050664f3d6fdbc025825d3e3f74f0ad0342fb4936f1905a6fb0cf2d53cec6"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/0_down.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 80,
+    "sha256": "dd5886f794cbded79a912c06f205523c887f07f1f51f396a9534936f12a9a33d"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/1_over.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "88a2724f69f42a9e9f64df2643cba20d3d0ef5e86d48eba2c6a323fbd05a0136"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/6_over.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "b6209e78448c32aaee231b758ee355afe4b88656217ca69f861aa1adf2c8b929"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/7_up.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "bfaae30cb75ef6a1cd5608ffb9c34eb912a46315466c103b5792aa5a9bf504fb"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/5_up.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "14cb69e33c1ee179c16edefdb8e9ce03e9d3d924265031ef5ff8c8857766ba2a"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/7_selected_disabled.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "1529c01783125dedc5dcad77afa3432616d473c940f8cc8f6bae68d4cc136b14"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/9_over.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "dc695f7b27f0064e7fe57a499872cca2f118f0d4951b54150307c50ceb2260c0"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/9_up.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "2fa424d4a2e15ec51fbcb513db2adb98ba1fc778d460b775414b39516caf3a82"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/4_over.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "3601795a1243cc4f528128eeffdcc546c79efe0530c475ec3e2259fb15b9d2ea"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/3_down.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "e702fca94fe10a0dd1b7c9fe99cd9c4909704b2301751f1cb3ac826af490e638"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/offline/book/tab/7_over.png",
+    "format": "PNG",
+    "width": 135,
+    "height": 50,
+    "sha256": "e6d507e71075dd233f6bf39a48affc24517d096f5373b3476ad11f5ace70d90b"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/game_draw.png",
+    "format": "PNG",
+    "width": 645,
+    "height": 225,
+    "sha256": "d2b82e2f9e633c464ff30bef2e350ded4731d90589e2d3b30b071cd0e5b6a352"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/illusion.png",
+    "format": "PNG",
+    "width": 160,
+    "height": 90,
+    "sha256": "ffd1aa9db198db3fccdfb141f3694c5fec54f423abc1b050b2ed49221c181ad9"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/damage_dark.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 70,
+    "sha256": "5422a54c16352de94a5f696a86badf713aafbb24c21a51962a57fbfede4566c3"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/seizure.png",
+    "format": "PNG",
+    "width": 155,
+    "height": 90,
+    "sha256": "4022c6dd150b6cca1eef33939457e9c1e32eef0bfb798c52c97d7d22fcf3f72e"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/flick.png",
+    "format": "PNG",
+    "width": 185,
+    "height": 75,
+    "sha256": "9fe1933daafbe57d49aef51bde8451ccb21ddcc6268cf8fd4d3de4637d8f09d7"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/hit.png",
+    "format": "PNG",
+    "width": 120,
+    "height": 70,
+    "sha256": "0fe8f20e70b49c26f8c2a75c239394a6549acb1422cfc06eaf48710effa5a57e"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/game_start.png",
+    "format": "PNG",
+    "width": 310,
+    "height": 170,
+    "sha256": "6ce181cdf610e970e5f25917dfcf2db7a6479c18a105b32e506d7dd6729310d7"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/harm_remove.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 65,
+    "sha256": "486929e8800099f42735336f7293faa7759ba551e5547bc8363e8b6e98eaae24"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/no_change.png",
+    "format": "PNG",
+    "width": 235,
+    "height": 75,
+    "sha256": "caf998829074388ecdbf301713256671fcb44ad7e3eaaf710f3c149330a35f85"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/dark_cloud.png",
+    "format": "PNG",
+    "width": 160,
+    "height": 90,
+    "sha256": "010421654be76060143c9887ab8e65c2cae4634cc4b33c52a143700ee239d512"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/fog.png",
+    "format": "PNG",
+    "width": 85,
+    "height": 90,
+    "sha256": "6a912d0faeb2e26d873dcc6de87915b61b4925ea476881547dfbd532bf077acb"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/cold.png",
+    "format": "PNG",
+    "width": 155,
+    "height": 90,
+    "sha256": "792673a3ab596a95bc2db805a73173b7250519c49cbe77aea9cc28ba435f9860"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/damage.png",
+    "format": "PNG",
+    "width": 200,
+    "height": 70,
+    "sha256": "566748f7858f8e6339b167c145b3db39ef1432569de41a2a418e9692566748d5"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/heaven.png",
+    "format": "PNG",
+    "width": 230,
+    "height": 90,
+    "sha256": "4bf70fa286b7805e1870d9812a01f9b06729bc38ede546ec340b3c37bd29bac5"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/fever.png",
+    "format": "PNG",
+    "width": 155,
+    "height": 90,
+    "sha256": "4541381bd65e43a9deded56092249fcc6f7185c5f0a32184ef4d137458cbcb63"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/dead.png",
+    "format": "PNG",
+    "width": 330,
+    "height": 160,
+    "sha256": "c0c822a7dcc0254c424b42eae0e24f17b08b292a7a9a87d4c88ae1be12643267"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/glory.png",
+    "format": "PNG",
+    "width": 160,
+    "height": 90,
+    "sha256": "1c60b09082c1d9ab8fcfc61d03e104358749a9c0f39a0a8720bf018cd9df8fcb"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/hell.png",
+    "format": "PNG",
+    "width": 230,
+    "height": 90,
+    "sha256": "c22069d03ad0eed9edacbe923e54e07085f04aeea9db3dac11b480dcc36829dd"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/miss.png",
+    "format": "PNG",
+    "width": 168,
+    "height": 70,
+    "sha256": "382e0a1517e4f781a849c1faca113f20fe61ca9bb258a83a39def81d2ad92428"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/game_win.png",
+    "format": "PNG",
+    "width": 450,
+    "height": 140,
+    "sha256": "4a5743b61d2110abc464fdee01154281e7883d1843289184482d45380523988b"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/reflect.png",
+    "format": "PNG",
+    "width": 290,
+    "height": 75,
+    "sha256": "965b121949f40250bb065c5735496adaf8d4c5c62eee1adcd6e09cc62bc1ae23"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/effect/block.png",
+    "format": "PNG",
+    "width": 180,
+    "height": 75,
+    "sha256": "3fa3c1a506af5491c8f2e5a6527a335319bf0b0d6f0f62b80ac1cfaf1dd8fe52"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/buy/do_button_over.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "2c2afd3c4d73ef7fcd2854ebded299ff589268249907ccac7dda9dd353463ea4"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/buy/do_button_up.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "87921780d4b32f59c4c8902290662e0e617fc057b7e85e677bde786706a1834a"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/buy/do_button_down.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "e691adf7bfdd893a3dae3c28e43b57c9168b5ff220d6407e8240a34a3a4b52b7"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/buy/do_not_button_down.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "cb2d376be2aab68677a42556f7c1fe1301c129e2e1b6f1b993b7d8aa69a77637"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/buy/do_not_button_over.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "797cf85f0cd2c1580cd6af48cf5386434722683ffd87791453796b9b57c7dfb3"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/buy/do_not_button_up.png",
+    "format": "PNG",
+    "width": 240,
+    "height": 60,
+    "sha256": "c8db07d567771c1e70966b5522d6f474000ad36af619e95e2bbb915c70dea25a"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/winner/draw.png",
+    "format": "PNG",
+    "width": 270,
+    "height": 70,
+    "sha256": "13a25d0ec0980351f55ffc2726656f0c8e614fe2db17e94e29a59cbcf39565eb"
+  },
+  {
+    "path": "static.godfield.net/images/component_ja/game/winner/win.png",
+    "format": "PNG",
+    "width": 270,
+    "height": 70,
+    "sha256": "0cb52d8c3b23a3d18e6cb365de40bcf8a458fa299274e17c2211d4681ce56c32"
+  },
+  {
+    "path": "static.godfield.net/images/card/harm/illusion.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 32,
+    "sha256": "abcc4cff834cf49147f19aa33d8e0b121610ea5d7b91720a34a076cd997b6843"
+  },
+  {
+    "path": "static.godfield.net/images/card/harm/dark_cloud.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 32,
+    "sha256": "bd93f554822d4d1dfca9f07aee7c90f5f4b698bdc5b9caf4e566d3c844d4a9c2"
+  },
+  {
+    "path": "static.godfield.net/images/card/harm/fog.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 32,
+    "sha256": "d24fa281ff392faaea808efa881817bbbec6a72ea33c8381b4d2763c1c1cf205"
+  },
+  {
+    "path": "static.godfield.net/images/card/harm/cold.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 32,
+    "sha256": "f58c1690ed9de08d4f12acb54d6ef3638a992798f7e4f9ef632722d97970d9f3"
+  },
+  {
+    "path": "static.godfield.net/images/card/harm/heaven.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 32,
+    "sha256": "5ee536df4d2981d07a7699e43ff61040ca8fa5b06341cd0985568fddd9232a51"
+  },
+  {
+    "path": "static.godfield.net/images/card/harm/fever.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 32,
+    "sha256": "f539209817a29eafb5be990b4dcdb0f49414a6412853655cc615c7cddc1d5825"
+  },
+  {
+    "path": "static.godfield.net/images/card/harm/glory.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 32,
+    "sha256": "59d120f459caf10e9b0d473b7728fcae37ae015c3bf8dcbe9cd5580b06669ea8"
+  },
+  {
+    "path": "static.godfield.net/images/card/harm/hell.png",
+    "format": "PNG",
+    "width": 60,
+    "height": 32,
+    "sha256": "bccdbd55ecd40247bb979913ab311c002ea3b9087a60a9247b52df8eb8b25a5f"
+  },
+  {
+    "path": "static.godfield.net/images/card/harm/illusion_item.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "6ca8d17d2bc1469913852b82a50492c12b12b0dc6f6613b3db84667dfaba4b58"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/saturn.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 64,
+    "sha256": "c3c82f10790a7200b26e43673cd58454d4c2b0e6396200d13bf210c13cb98462"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/shokushu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c56e86c1e476798cf953555552a405eeddce6a6dbf79ca556401c85b36500df3"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/iso_no_kaori.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "7099b039fad047ba29763c5b402f270fb75d53de23ffafda01a0c9693ce15bd2"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/mangetsutou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "782ba77baa58e0a770c9f8743d260c8cbe3a3c6028f2a1f11241e27732ee8c88"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/kozeni_baramaki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "a5f120733f1f3501a8da9d8eeb2b599b429416a82a1300e86eb7054713d140f5"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/goukana_accessory.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "67bae931322a89ada0e37517d40e11e592a0df92e32ca76c8f65399ce1d75aed"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/ushiojiru.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "645a1b219ae5589d23e1e35ad4b8c868665cff7f16897536527add0395c3fb59"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/ochiba_no_mai.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c9a3a403ce9641b4bc3c06eead72670ef5885c3f609e96cecad2473f1b79dd3b"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/koishi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "bdf286a3c13c9b4c52432d0e4b404506bdc7bc5b7d26fc7559e893218dcd43cb"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/kirisame.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "fb55a7dcac6c391ccabef118d1034c4a4a850002f1d33e4135278fa9a74f7003"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/kyoshu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "13b3f07112bb055cdcc786a633c568ee9fa586a9496c708d86ebd01501b1f1db"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/shikou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "4e7faaed7eb354358239d7c2d5db4c43159c152b91f9a307e67d7afda80a54ef"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/empa4.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "3c25eddd0a728d2dd976ae9bbb4fe1e260ece19e0ec3c1810753d803a6029728"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/fukitsuna_yokan.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "0030e30b8f2fc17c97c65b6ec1ea5aed0daaee2096d8cb77d46ed7299632c275"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/sekibarai.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8aae650521866f7b282b675c76f578d2ef44b7a144290f8d93db957535f7b341"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/temmetsu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "620c9808125c37df13a30f6f5f873939097aca349da43304ca383b4c7fa0f923"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/bakkin.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f6c9895ae7f1e8fac71b4bf0feae3df3981cdf1a7185375c100627b361e0b138"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/neptune.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 64,
+    "sha256": "8e5fffd3ad96aad95700abf4045c71b6d6a124aa01012add4e82d0c71c5ed0fa"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/uranus.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 64,
+    "sha256": "7d5e221e8fcb2946c5c5c70fa128a932fff84aeac6f952225274299d49dd5d3d"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/moon.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 64,
+    "sha256": "b95f7dda931871bae7d0ff7a09b2516d0efc434d0cc71e1ce608ea0456f4421a"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/arare.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "59079389865be1dea48121f2df3caa01b7e521a99cab8970e020eaf25bcd6689"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/venus.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 64,
+    "sha256": "5b680ac55319447e87a15eed4b43c9e17daa3b175b9e0422b81691fbd6770efd"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/morasu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "7f625fb730766ffcf7f59966b1e720b22530fd9b9cd7a3bef1dfe78b9f6a684f"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/mabataki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "6c85b65dc4c6f2586aad4f6c2a7c3a32c3c8b307fc62b974e87f1917039fa5ab"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/earth.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 64,
+    "sha256": "a0cf543082520912bce96ddb42e715d998e5997ba43ad86e450e91e4a51062b8"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/chuuishi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "46bd399c60b184bd73f7e26cdaf46937ab208c52bd72fff749018d94ac134cd1"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/empa3.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2979636c858fda9c3bd9ed4ffd2ba072635b1d332ff3abb5a16ca07a98502324"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/pluto.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 64,
+    "sha256": "469b1da0a78af71ec3eb86da38cdf9b552b93c9af7e077f05a053b3eeba9b6c8"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/mars.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 64,
+    "sha256": "173334082aa02d2353b2b07bfd99e01a61cb16c120cf3e8710842342f67c5284"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/mizushibuki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "b5df95c7f5dd106ad3388d282f1ad15b7d12d2d222a417a66cd8be88d461f545"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/empa5.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "78020818c1172540c005d178f192405939510b1c0048abc301d104c6fd98d219"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/dengeki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "7059657b30d1198fc82eee84bd33638e38b2685a3986349ae5a569608dc390d6"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/assaritoshita_ushiojiru.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "17b63e926ecbb71103ca01a9dbcc8f8020e173154c24773a73372bf61d9419af"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/gokou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8c240824488e4fd404a4ae9da49bcd195f50df5c1636b7f761423606b7bbe6b1"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/laser_beam.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "7619b5ceded7d5eb03cf9b932812f5e9a9ae35ef67b9588623b45e6fa76301bf"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/tsumaranai_mono.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "528ff595ef96f2ac01e0f5c395cb1617e4f7747e88ed08b9d5d5592af5ec36a2"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/awa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "82075df207093e2a7e0ceeed0c4cea358342eeb4e2f3eb5001592ac88016c7cd"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/wairo.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c2fc7abcbf500d2c0ac2a72f1fee785879092317e99ad263a14e3ce9951202cc"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/kouyou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "dcd82a97991d0a6d3fa293b4a70816f4c157c2103cbfeb680c5e6d69b5656239"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/empa6.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "43c1a637433a45509960e34dd8e476cca6f2221800308773fa163f13638e5cba"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/eda.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f9591b3ba36fa5f1b756fe2cedc66d0cf2d6a45e82eea736a1d46d4b45c82cff"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/nekko.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c72633377cec2055389781621d576ccd45ead907133bd899c305d65f39621b96"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/sawayakana_iso_no_kaori.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "7291d6a26ef3418a02920a31198ebe876fe45d7ef4d72f71f14b276fb89517a2"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/empa2.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e1142089e4df2aa79d0332f297ad48f68ddecb197c548c8f722abc2c102c8ab2"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/taiatari.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "487b272dac610b91bad21bc70246d62424e2053278224a547adb74d9764ec646"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/sazanami_no_oto.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "dee77b47059945e05f0a27fbf6be879554bcba3f0e29170a49d42b3da28e4373"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/kiri_no_iki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "b94d37d25a4f67a221e413ae14a163649001032b7fa4c7e8e334e411a6f4f281"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/jupiter.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 64,
+    "sha256": "5da341a29ecfac85bb71beee8ad01b1a9a879df22438bc8d457ca1676a268a44"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/shukufuku.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d51753f925bb52e97a9cda36ad302c2d153902cae268e16b03d5e43362306d42"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/ooishi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "008539b4f625ca8ac383e941707b649aa26d391e1d0d6a391553353b85d4bed3"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/mercury.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 64,
+    "sha256": "7842fb28429dab0cd03573d6386446bf99ed3212fceecec11ba69fbf54b29e85"
+  },
+  {
+    "path": "static.godfield.net/images/card/assistant/diamond_axe.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "3a1a75e72836814227b117c2a4641810e55fb373282eeb1c4ce23315afafbd25"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/chikurincho.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "0e0e639942a5743d90ff3b80e411fcb4618640ff7dcd7a6a7f38d8a1b5ecc9f3"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/boomerang.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "09050acc06dfbca4bd17559547f98f0b3601138cfc7a79461ddd2217e0b377f9"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kin_no_kombou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "374fc60b53a90c18712426abaed4bfc7a376542a69d19557b9950ecc2d4867a1"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/tsuru_shoot.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "73d87865bb846b8e6d3cfca260a9a9bcb7891cf51844e935df71c9dc3eb1fdb5"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/aqua_axe.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "89bbe2a4d7800e8e653fc8c9463e43e9974d9ce9b4322973bb4dc8448811f51d"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/majin_no_mokuba.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c2f940b5b123115b6053394832ad74766f962ae9317d22daf1a84cb553a5bbf9"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/takeyari.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "b5345c925fdde80c0040f1a37a6e304a61eacd52b43b1c904e365d6eae77dde7"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/suiryuu_ikkaku.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d5261ecf9c19f744251e1544c04d8fab77a4f135e85b4061ca88445ec4547219"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/blaze_blade.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "9a4beb0c1ec63a88c3e14264b318f2a5dba65a9cc139769e3f0bacdf5503ac6e"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/cobra.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "93ba99b9178a3cd3af94e5ac8d3c35fc165b9b25b7df721bb6f79f8f965b98bf"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/homuramaki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "6b4d5f9696962beb3a592782a0a073faddbea01f1e596e31ac454781b8d10f5d"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/saver_rod.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "3b2ed0c0a542cc88ffce0a2c871caad112735ea95ebe73ba82df2739757dd9c5"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/magical_stick.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e13fe0df424b63a2426b4790ab5ab12b0a9b305827d95687a19393af920abea7"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/koma_combat.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "4b0ea4e5d1a48654bc4879826c09f1c20f1a8281377b775cc1c8a5757e7784f9"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/mamori_no_hoko.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "96dd4b63d8cc59ded7475483bd9edf8a9f25b490e03e382a44bda97581658b94"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/scorpion.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "a9036ea208c7550d103d834398931b56ae3653d436d61f529370a38961d5adba"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kage_no_dart.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "265d4684cc6df48bf9c60be58e23930ceef5b8113ce1b0586a84bcf4da8aef72"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/angel_sword.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "6231e79e3e46c040b335ec0a3922dcff00b4bf0ed6b11c1fe9bb413aaf7e4df7"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/hangetsutou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "84d3124837f20923d2f519240e4a65b529ed39aff99aebac0340621daa3e11fa"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kami_no_ken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e2e2e972f2a5ca4acb33bca4872a0bb3ed2674d34fdfda2beeb0076119a28fcd"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/yukidama_gorogoro.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "03dc5e190ee6895befa2cfb843f6cac145cb304318943d6f39cd775364c0def2"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/sabita_ken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "0081bc78b5dc1dc8664d5837415b5cce80254b3e5069624389baa831a928e5b9"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/bowgun.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "920eb9b5b762611ff50cebb861580c01c0dd1f96ccea83d87f023b346301865e"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/star_staff.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "b749543c1c5e4b66e5ba5c6a754881e5c68f20828127f1e0471b4bb81cbd937d"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/rekka_shower.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c7cf6d927b23fe92c1a7cafd8524c2b5a67b3edacd9ac34f4439d99e85fda0bb"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/sayonara_no_ken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "08032019391670b28570bea0de5903de4d5b2d065da0f98c79a92928b43ea479"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/wasuretai_tsubasa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "16ab446cd7fc23a534dd2a0ba0f18081c193d072fdf60db2a389a8cc96431327"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/power_halbert.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "1e6a22cbf3501d80b06e305c83430ba3eb32e35970c9b79caa87359729ae9cd6"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/justice_lance.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "514b17cba49e4d4533fe03943ed51452e8221aefde162ea5004216f5e2d395bd"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/toushi_no_teppan.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "bb1a83ab7320f18452ad6b44c7670bc9bcfb2344c19d829211e007d7cec05225"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/killer_fork.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "5509aefbff46b8f5bbce5f079181f7d424aaafca5d6e6c4a2ca27506e4cc0439"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/otona_no_pachinko.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8b2ab4978b7c9409c8b5e9c28448dd18132b8016fbdd374055321b89bfed0133"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/sky_harpoon.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d0f20eee102c603fb81a04f64d0619451d082b5e65da0bbdc562035e59330972"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/happa_shuriken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f2ac16c505046e06730beeb7f552ab006f77282336c9818fc81ded2400ec72dd"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/paper_knife.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "61515493b215b2f02b8c7a93cdf155fea2e7cb4a4f32dcbe8db20bc89d1e19ca"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/ghost_sword.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f1a1bbf806aba8fad14173ba32c85cdc11d97a2e929e5cfe9d9e5a01d1e818fd"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/densetsu_no_ken_no_saya.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "69c6ba4bcac59ab7c72eff24e4757b6ae4aeb379866bf7c90e0b68a1d68f7010"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/hinoko_bukuro.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "ce431fdbaa18654622050a920f5adc0c9cd818670bbc6ecff55cfd9900e7edc6"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/zekkei_no_yari.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e715b199d33350ea2d88f31824dd18ed3f4c25d213145d2abd42fb20ae2b23e2"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/dou_no_kombou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "3cb372fd2a8dd6f6e77bd35565093950cfe9f3809e43f0317c622047ea5c59a3"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/daichihai.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "9fcc07731ad0dd4dd84248d08bbc4e0a1826068def42dd31c043f0488a52df1c"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/snow_sword.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2b18cc989713e64b6bc4416c9145b65e86b323a02205c3bd07b99ca1148c2dc9"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kusarigama.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "092686f272a99e411e3fd8f9a46e6267c2efd6bf80a2af99fb5f9721b339ae91"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/moe_muchi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "35828dc0a1fecac5975fb8958bf67ce141579a3582cf9c9bdfba84954bd5350e"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/cosmic_rod.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d4655e360a8205fc5ba14db1a2c81f0d702cceab75c768aa3fa55654089671ed"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/seirei_no_tsue.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "94e7ddefaf2b9a6febeca7449f968e3d9a790469ff68bea1c3ff070738514398"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/ibara_no_muchi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "05bdd7e919fb7a2ef58833b279ca855b3fe47efede1a6a183c09a5c636bae144"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/karyuu_ikkaku.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e82dc40b22f08dc0eaba55e68f2a5bfaa21555ccc5fe987243a7017c1d54202c"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/sword_shield.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "1669201761c04231a3cadb52246ef503e01a0aaac3d493320f50def30be2d9da"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/akumu_no_tachi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8d7b4d4dced7b6414b91afa8a44014ee92f542b7a864cda18697ba08b713dffd"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/taima_no_ken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "ce2a3df512561ff6f523dfb92699cfdf873cbc0bcf5e60bb8904f530697de679"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/fire_bowgun.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "cc9d00e70d9d915778f320a5b5237b4f04927bf4dd3c2fceeed53bd9b6a13e53"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/elbow_sack.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d8e54c2cd138ce29da79302f0180c7b84da2d1575536f4a0bfe1f79f7929f0c7"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/hakka_no_wand.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2578afdb2051bc9bce265d34e6c6c721e0720fc0a645352158e0ff30a86ab783"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/angel_no_yumi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "98c195b266dc62c1d80b3310f069e8d78a5c1aed87830e85ad2b1e56ed9ded7b"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kyuusekki_tomahawk.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "7ab9d3c4113bd3f4b829841d1c42b414c0a7da684c52e4b54556f836057782eb"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kiri_no_ougi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d3e45c690772d593e9c1a216ab492ad5e340ada587dd1fb2d4cf261ceecf0323"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/fukiya.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "488e509160a50e0e907eb9cf23bd5d611b3a5f82545554665c1b834d64862097"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/psychic_card.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "caf1a5c7ca5be5590e0814ed51d5a52293e7c89ff5c1f909b5e3c2867b2b4be1"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/abare_flail.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e5761e4c1ba8d11458baa23816a4739abb111d71b8ce1a465815072fc84102bc"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/demon_hand.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8c93fdadce712f36047563880f3e7649ba4d5542fa509828ee3557927701c1cc"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/reikihai.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c26a86cb827afd35c0f183266992c83e49c15f5885e4bda91a901b46e54970af"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/energy_whip.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f5cc0ec8a2c232e50ec57f95719874a33cd5efccf45eb1e035cf6bff3557f1b1"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/masui_no_wand.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "494ec9630ee2573cd00834cde01ba623ae88d9624df43acb83004f047f08c8d6"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/iga_nut.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "ebf272cb95a64f4ef25dbc845443d721872dc30dae03edf63d511e7da29b4236"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/diamond_sword.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "9a6964fb266716a968c90d1314509aab3a719a5f971349a43e48d410160c1300"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/randamuken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "5d3832ef8115a082f68fdd246503730e5b9d1d00f1435a5b7a03c659bcf42f37"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/tsurugiyaki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d6c7772bfa50cd31460dcc33071fbf789035188a78ca3092cdef0e8bcf2484d0"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/gakettsuchi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c4d4a704bd80107ec88986d17e31a5861558056fe08a2545b10470319d6d6de8"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/shinrinhai.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8af8d1a6810f7fb4572010f2b26e58c5b97f1a7e3b5dacceeeab5910c7b854b1"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/inazuma_kids.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "699ad2d992f723542c000d648bb37db806876699db8d3092368440b374ef1668"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/dragon_claw.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d7d45455b12e0a0e3fd9e3352331ac8aa539c02b7d1d0cecf7f0195fbccd4b84"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/gouu_no_saber.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "6e875c14ae3e8b2bfbc13ba0c4bdacd948d132c3d66c2f3ad77c3a25011c0f59"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/gom_no_yumi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "5adbc196924401501794ba159a8f1a4a52288e21fb6d640fb3714267bbd245ac"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/jashin_no_taiken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f3788e815af8c7ca31304996b0c537ec7a72ab032d34c8b6f176b87e29ff82b9"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/eikou_aru_dagger.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d20cee14ee6e1ee0e412355f44e17c86d38f30ed1d08e680315fe0caf8a55cec"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/rainbow_blade.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "4c7f80a637886335f8b8298584b39cae91ec1ba69dfdfaba29fcc2882b2f1b2c"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/shinkutou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "32c3bb525cc978e94be023e52339e3671c04515d3f6a21dee67703c3474e0c73"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/seiken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "40644a7a2e987e499bf69b26027b18bd6b4a8a10a84f7d24581499aab6afe07f"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/tsurara.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "221aa3a0eff626734135af15ead2d8b0850dd5482980f3187d3578567188c691"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/shinigami_no_kama.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "7062aa790d7d27413c2686e8941d8133e8a56c22badbcfb2fcddd5fa6a104af9"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/hyouketsu_hammer.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c0f88b43c599cbea9103d464d50a3f5b87ede8b74764c5b7e480c891d377f33f"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/hanshaken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "65d28b0d99429937a05a12c6634ca117cf0f01ecb35f189c3fcd99f3639947f9"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/yume_no_kizuchi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2fd646fa323cb373447644a8a90555757a66466064b8e7027ade8e2c268fa604"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kagayaki_no_kakera.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "a81dd58c1b4d31efca1bef292e14af5f9ed950fb1ddebf925ce296ea54023822"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/shoutenkyuu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "9fa79dfffaec94758e8433b26db5b7e6e92aae33c09b578605f28187a0c6e692"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/sunakaze_no_tsume.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f938ab8452e28e5bbb9bc2a5b76e854c1266ef923fe5580c52dd769fd20f2199"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kirideppou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2d251a4995b284b48d5eb1ced841bd673373bc7580c962894856b1456ca56c1a"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/alumi_knife.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "63e01396b93eba4c478067e01d9f3c6ae49b0c97c98d0fce34436277d10032b8"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/petit_saturn.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "3b9fca64238dfdbfbfa6d086b6d2c2174bb52a8ce85b1bda6565075d457a7a45"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/shippuuken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "3832ae1cb9392524a65d41209d3ef3972a5bc0451c9935163199448a61bf518b"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kaenhai.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f92a900241628682d3068657e8db03a32c7ee25b176b14ecc914c6691cd86a88"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/gekiretsu_shippuuken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "92afa8c9a9ffd785c032df264f425e5bc480e6828ebbeb0f146d5a7eaca19dde"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/flare_axe.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "4b00ddbb91565510f85a43d1413891c7fd6eaaffcc71bcb4ec44ef5fdd350fa8"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/hikari_no_orb.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "372add03f18d4d99e344e3c58abadf5fd3f49c35a4c38cf6b34a04d241ac8f84"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/abunai_kine.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e8931b8360471c8581272b00bbf87f49e79b74e65bfe44b5e5b238bf6f209986"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/taimatsu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "32b7834777c42a409488a8954b289d334421853d5bad56f4eb4365a0e3a37e1a"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/goranshin.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "0638099b18bb2f37944a8cc7bf46c7a48e5d6f2f1e9c46f79a6b532e1e0948e3"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/achichi_knife.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "ef3219eaf88d6ebee5a9b3fe60d596cb73c7983e55c925bb69189e43b7d92bf7"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/jigoku_no_hasami.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "59bbd45e5cbf81d769f9d5072b130904dcaf0d0120a8eaaab4d34899355801f8"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/lightning_axe.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "397ae90cd769569211d25bbc021aa7f020def5738c1a9fe879c586888e15d3a4"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kenshi_no_yumi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "032d79592a876516e0c5903dcc422c65baf4f377da88e5364324957e307ad5cb"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/gekkou_no_ono.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e98e0ab3da1bf1d4185a8c856582e7e2e5932f8cafe0cfa8a67e001dbd4a3aad"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kodaishokubutsu_no_muchi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "342764d538c8af9d2275927399e550e417b9937cf91400fe158435455d31dca2"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kyoufu_no_sharin.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "48cd257716972b5de653d4316ef0f6068eebfd7be6a1e8aaa5c2be196e2772e7"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/kyuusekki_javelin.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "274f3e9a37b54d61eb38195a8a309a1fbffe24703fd5996f4db382ce29b64771"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/battle_ball.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f16f1b39a14aa7c74c9f7b5a13c2e1cf8ef4a495fe597e1c72cc02cdecf09671"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/toge_belt.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "02666a00e8bdced6cff6c8019eac85b29a7160f182aac081eb5886c298303104"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/rokkakkyou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c00d3d5b992107a099a1bf2b3f1b7d0c7ac7674c56cc51cdf487fdcb060bf332"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/gin_no_kombou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "ad03f64c9de411e81441d1de81e5bebd8f079c503459d8d6721b177aba747e14"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/real_ghost_sword.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "9d8d63df637496eee331100ad9c627a90ede182661d04801de84b863bbaa2496"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/hagane_no_knuckle.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c9146fffcf102ebd4d0e515b033d8d071e673e171f4ba2187bd30913f817d76d"
+  },
+  {
+    "path": "static.godfield.net/images/card/weapon/wonder_sword.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "21bc35be511f47773bb1b490bda8ce8a327cc337317a380c8fbeaf56804d5b1f"
+  },
+  {
+    "path": "static.godfield.net/images/card/trade/kau.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "786652f92f3949ec69b55ee54a2c8fbbb4c6986c42e9125d1b59787ffe604db3"
+  },
+  {
+    "path": "static.godfield.net/images/card/trade/ryougae.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "cd3219fe6c813889db8c84392b18075c9207dc023b6d8f3f660474ae04af2777"
+  },
+  {
+    "path": "static.godfield.net/images/card/trade/uru.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "35eae3fe0ec250d502016038b6b230376cf78adb026907e7698c6df5e6d4ffcf"
+  },
+  {
+    "path": "static.godfield.net/images/card/mystery/danryuu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "fd8a86951ceead4538d8f47d818dbce97557a88aa28845433534514cf5d4281c"
+  },
+  {
+    "path": "static.godfield.net/images/card/mystery/noumu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2d1decec44d8cde420e3521c50885cf313c376289b8ec0c434dc44fb0f547644"
+  },
+  {
+    "path": "static.godfield.net/images/card/mystery/nisshoku.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d62e32488980133357b7c894fdbb236ba0fb9015a20fac2d4cb8d1b2421c7d69"
+  },
+  {
+    "path": "static.godfield.net/images/card/mystery/kinoko_daihassei.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2ae2b05ae87bf4ca76096d7cb198881effccd0632dedb9922822eac24b956390"
+  },
+  {
+    "path": "static.godfield.net/images/card/mystery/jikiarashi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "fb07031f966e9a62e01816f1e9461cf501a2dd276d367411ce2037026ecbbbd4"
+  },
+  {
+    "path": "static.godfield.net/images/card/mystery/kyodaina_tarai.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2f46f72160f4489b3b9c4580ba1ecc256b0a0bb45fdc07a7070f0a0ca13f522b"
+  },
+  {
+    "path": "static.godfield.net/images/card/mystery/sabaku_tatsumaki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "36c613c19707ade2177d5982a255eb146ebf0570a496d108baf52a7a81d30bcc"
+  },
+  {
+    "path": "static.godfield.net/images/card/mystery/black_hole.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "475b5fa35b6575d00d8b5a961837680e94dfd0e8e8d1ced42ba2c062a86bc4e9"
+  },
+  {
+    "path": "static.godfield.net/images/card/mystery/yuuyake.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "1f16e7b31c36d323cfa61a2b26dacdce0ee731c33c70be07edcf10eccbbbd8ef"
+  },
+  {
+    "path": "static.godfield.net/images/card/mystery/kinzan_hakken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "02f0ad6de8433da594f6b7f14c296dbe79b98189c50ef876fcda917a4f0a3fc1"
+  },
+  {
+    "path": "static.godfield.net/images/card/fixed/inoru.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "822e14fc5ba4db9ad5c165f2de26f13a31776ea99ddd8fd1046397fbcc8d53bb"
+  },
+  {
+    "path": "static.godfield.net/images/card/fixed/suteru.png",
+    "format": "PNG",
+    "width": 70,
+    "height": 70,
+    "sha256": "4cc2ba9dd91e85e3854dd395a0b0a3494e45be2a85531c0bbec1fa504253b4e5"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/kagerou_no_yoroi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f85e5a2ce8c9831fa6b35e7d0c1c3cc9bb8fa403ccb3534b56a4bbe115b8a057"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/flame_boots.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2c8117cc8a507956ac1bfe9c79b380c9115dbc25feb86a9766bc4def6b76290f"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/dragon_no_yoroi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "01a2091cfba4646aa99bc8a9c11d3ce8302608bfe8c4e09d39df8ea124ca82d8"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/niji_no_curtain.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f3e76773cf30577b570b63f07c34bf9dd97dbefc28384dde85a94b8d24bec88d"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/suisei_no_yubiwa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "6dbdb563da3be89250bdf728719d79432e7262cf7f5ad54801e41cd579101e99"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/ice_helm.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "075719f5973716d2183d98afc2c374a155e7f8690ea969336650cbce1ea6cda4"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/kohaku_no_muneate.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d0ca51901b28f7160751b361c32617002fc400d0a97efbca9185e33fa17bce0c"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/ice_shield.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e827307017d2f6420c49d6c9cca2a23e4eec62d56d06d487bfb9787d34ba08ef"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/hibana_no_kote.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "3ee32f26c61e6bea9e2bb8dc81c37dd959eaf37a17187e6ffca34534811dfdc1"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/slipper.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "1c6962ea3a286423042e060c3b70144da0796156a7124d2330b8895418ad68f2"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/daichi_no_kabuto.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e8a78b0e4829a4122ad788c02de438dcb3e7e1a64bd1e3890ca23f58aa2e547d"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/kasei_no_yubiwa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "56a5cadc863ee6a0613417865290f599b262a602810ab449f148ec0e7598eea6"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/sky_armor.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "7ae4b4e8f03e3a494e46cb7833ca1733b15844b473b6303e5b92c9a53d5d8430"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/tennou_no_yubiwa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "9f76f167874f988735f68cda2161b59a2f6d9374f1661760c4f6ac30d3843811"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/kesshouban.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "96061c1092448529846e48d6407926a1c15dd9cf1800210a1f688bb30fa1b8d7"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/yumemiru_boushi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "45a47c985dcfa362173cc3e805bd01627f99d220090c3cdb9c7a80ba695cebe5"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/kaiou_no_yubiwa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "27c830865ce1465078a22fc62788970219fe41116c6928b2b8f6b5396a6006d0"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/dosei_no_yubiwa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "3e2a8be716d6f3e76c7ad86f712c605b0d727d2743eeff7a0aab7baa2c753a34"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/energy_wear.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "ba933927a8977651ceda7c6e781c6d5be41ff3c4f92a8b6209821fa7ed448f2c"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/ganban.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "eb42090df4e6d235ff05b98f80d06ad86c6544147aabfcab712d5918306304d0"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/taima_no_kabuto.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "271e402e13fc295aad79a4a9f714f0fd2b59ca9f1f91d6f46f91c2521e1d66d2"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/burn_jacket.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "634ac210d604e680a59a87a27df4732e27a272b9b95fd7b0fca04a4904d95680"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/aqua_shoes.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "cc9061b5cc7edd9c907f9ac35f88022a16ed19e2ff8e625928bab1e3fdbc8972"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/ki_no_tate.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "a871303acc7e157c04ba38bceef0f3ada2b7183396a58038eae1362a1e00ee5d"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/sky_boots.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "0d25d6195add2d5668c176186d0ce8dc3f5d847e2d99d82e163991f688f108da"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/sabita_kote.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "bf512f0eca4e5f8c43fb67c566967c376288ed9a11cd1db15af5ca1989a0af4e"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/oni_no_yoroi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "69d29c271cfb6332ee5686b26806186e3a83d48df61aad838c30f446f32d7c70"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/oni_no_kutsu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "74b0d6a6b9915c5602eeecbbad349bab2bc262dc935da2ab92317f2c0898e6fc"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/seirei_no_obi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "ccdb84e188262475ad296fb7b8a9b5e3dd0b249def5cf7069f0e4a4dfd38542c"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/hibana_no_kutsu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e64f0c1923dfc29381cf7e8757a9cab51fc18d9ac6aad24d8536835fa921e9ae"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/hayashi_no_tate.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2db080efbd41857fa5927e8fa92ffc854e5a0bc6f047b602ea131d05536ceaee"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/meiou_no_yubiwa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "0ebcd5344a19717e353d4b4358cce140c204d3f0d345352bbb34f93c8bd40f89"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/pikapika_high_heel.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "0a285235700de94eaac3fb8c80a4cd18e82dcfd31b34c8749b7c94738f2bbded"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/sky_gauntlet.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8745fc63ceaf51b090cd14cb4a84b2fb7a92e190940bf0fec6f6319ffbf01412"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/nekkyou_kamen.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "0b8b8656f6002e1d05bbff778b3b6c7512bcca25663d19cb33e15f1272c4e1fe"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/elite_no_mantle.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "85c165f4e25452d293746b99e08b07c7d8130b1be07c079cf674f48809cbe1bc"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/goshimboku_no_kote.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "1b142205a17574c02402a1c9e7c31ab214676f656f933b10a2ff4f25487a15b3"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/gekkou_no_tate.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "81732ea355125f957e84af3dd12fe95da5358318aa8758c98a7c75df32318b39"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/angel_no_boushi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c25c5b3def62505a45d14a029cd2825ea7d7c1b0089f5437ecddc4eb6e440ad1"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/super_mirror.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8c081d8f15423abad69687db8ff1ec32c67eb0d6517ff2e79dd7400c8c818559"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/aqua_glove.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "1f375ae758c8794f3a898853084ee6442e060e9a3125b2e0db7ac230103e7df7"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/burn_shield.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c21ebd3ffea7f6fca9fc6471d89d1ae68e87765832821dac7ef4316041f45b04"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/alumi_shield.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2fcfa2d8168df79f176149518f7f430907b8f7965aaf76856e8171b93939f9ed"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/ice_boots.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "851efbbeaeb8771a36972d6c1f16902dea0e070b1fcbbcd55da144e0ffd852e6"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/hagane_no_kote.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "161934d5dcd6ff74046f3c6eeb118b5f269557cf62ee3d9961e68f212c10df46"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/flame_met.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "a1e7ab70ac61bd48a4a8b2e42e555dc816438f1c877b2f7bd45b29ce36c8c85b"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/angel_shield.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "4bf11c7b96dc8ca3817fd84139df2708453aeff340de9cb1dfe6262b44378638"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/kusa_kammuri.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "1a4eeaa24733f86e3e61ecc75735c7eae2377e7ab2fd6021d0687d8abf033a9e"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/dragon_no_tate.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "b305d48ae41e3e8505fd4c6008ce206961cea81528803175ca6b92d51c73085f"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/mori_no_tate.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "a17d2e5d69a61cbfdbcb99e8feb265ef8bdd464d83e378f1efd35e600a3429ff"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/kami_no_tate.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "eb6d786f086c2408f334e7cc80824e505e642244e756c6e908e3843f3af49157"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/wonder_body.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "421b5d5388ac4512000259ae78cabfee9873212dd94ebb46b8b34f23d758d309"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/oni_no_kote.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f73d79fb49f2f1071d87095776a9cd410b7948aa4c0d58ffffac8c515a8a7d72"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/seirei_no_tabi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "63cec04e73f169d781c07fdac87acc17d39e8450eb1df8af5037634289d7ca9a"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/snow_mitten.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "24954556819fb377a9f4014da98a565bc5a76688d7b4a5aa238c28c2b663275c"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/sky_shield.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f8fe4d39465da2618a1064cb2476168389485ae4e69b91d26e19a8910dfc97a8"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/rainbow_mail.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "0dddb7a22aa49b40e7f9268d3494348a0285dfc6499aedb4082a367ad64ef150"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/rare_metal_helm.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "92156ba847aa86af2ff416abb514a4525a858a70fdb9fc637ee76973be6bca1c"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/daichi_no_kutsu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2a6d162517bee538406c252879618061033ab5425debe0281797b3f7bc972c31"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/flame_shield.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "3dbdf521b6a959044ae1aaebbc1b34cc0411459b1f6f4d8afb76398857e93394"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/seirei_no_zukin.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "89866791d4a3a4bee287b534caa84e4d94fd02fd821ca0c03c7180f521310f61"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/daichi_no_kote.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "9fd25e6523c9f75a6f66f05c9f013578f21a5a1a6d8f5095221ed26a029965bb"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/ice_armor.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "998146bad6ba908ca441a1f98e01e463d183b193e282336c0419c383d669b9f4"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/kinsei_no_yubiwa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "270ae927521ef2dbbe1c316acbf9f289945c255cf54b765314e4c064bf0ade80"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/flame_mail.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e5d9535fd0ba6e4422e75ff9aae6764d8f160d6dc4e9efd3da511b875a72909d"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/mugiwara_boushi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c6cea8f34875ad678354a4b04388a57a46e3256ae0588208cf3784135907ed8b"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/sekiban.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d8edfb892ecdfbdf9ce0f90689b26e16bf7d30ddfdd6606b53eb2bc3671ac70c"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/jushi_de_anda_houi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "aedc3d41ded10d17bca8861baa7e4282ca04f055874aac9e156834f5b95cf20a"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/gekkou_no_yoroi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "83e062d25213611a8466fdaef7968f8f1e0284e2d4d2ed56d7e1bd811bd34fda"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/snow_mask.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "501a6402069b62fbef9026b1e5fe2ed02943b4c2c8f513acf30ea314324c670d"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/sky_helm.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "5e12e70299f18ab05eb294681403bd0a8079d24e08efa1c47782a374ef8d8eb3"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/kusari_katabira.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "9c6c786081f6a9d2eac20b9d01fc3dfdc06e62c305f367e35ab03be1d16cfd44"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/mashou_no_tate.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "5b655a1993077e0a37733d9e8e85a81adb0a226fe4f3c33b3ce06d880bf1963e"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/mokusei_no_yubiwa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "340f629efad27d02563c8a0793b0c4fe5e52dd3cd40e174683406acd85b8821a"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/daichi_no_yoroi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "febde97008b4b13156cc9bdbaaab6cf4b95a2fd03b3ff6d5cfdfb31693bc83de"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/gekkou_no_kabuto.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e0bef71f59c88703a0de783f830da68e472d7a396193683f70f682eff951de8c"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/oni_no_kabuto.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "44861d1320a8d6b87c9d7260afc3ea5d53e37f32badaf7403cbaf87d59fd4324"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/kirakira_dress.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d626f4c823fcf72d2d79351b803dcdf9029edf7ec6fae17141d2097e9f6bc5ac"
+  },
+  {
+    "path": "static.godfield.net/images/card/protector/angel_armor.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "131bcbaa6b68ac7ae76ada8d9c32d1b7fdca74bf533463752539fc6e6731cc9b"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/kabe.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "45842663922b1025a084040e89596eedba892fa393bf42199aad316a5172fc9b"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/tengokufuu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "f6f39e7f91fb6798c06f2b9b0da03bccbd9f7dd11672be76794519d22f1a83f4"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/eikou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "1d5848cda96dcef42eccb256c087258751b6e6c65864e7798473164ea7f40a95"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/neiro.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "105b58682e9ac128914d77ac1b63ca1f3da466ace0c58132d98d15e32e4fdfd0"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/kaze.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8d15d915d963b1bc101127b24904affdec959fb535329f9b75a0f12a3c5765de"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/yami.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "4137a6a4cfb72bbeb29f91f2f2fae6ab91e5664d462c204ebf8ba1ea936f36e2"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/taki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "7167133ecaf6c031f15c25b8ab7c88b491ed795bbe5a4b4f7da67d1554651b89"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/kemuri.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "4f4a56143006fa478908c39c567bfc9f66aadc237acc7e549c60032b990a1587"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/iwa.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "274623f3546aafc52c47936985e952e1785f314f3532fe8dd560a4bde40850af"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/magma.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8f5d4312d95d6503cd9261939d2170c89c71f886a8a1a73e701f0df6bee16b73"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/kaminari.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "72d565279fc49c42309a7b8367b1104f1b1c0482a494d718536b34e93f5a6025"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/shinkirou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "a6c298b873384dfd189024ac5556f7f94b3ee627b7e1bb8f3e751947b4d94b11"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/utagoe.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d7c6d0bcdb891b5146cd56f616818ea88c972b2c2226630fa13376e2bfb528db"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/izumi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "4e63c7bb1298f1e24c363b3038581587c148e41fa8726453690fe9cac2885ec6"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/ryuusei.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8edd6678853dade54ed1f195c68b6bcc06e216695cb345c7a6a2c35df41bbd96"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/kyuushuu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e17fe0ae384dde55ec3e9b2b785fe0eed7f8ed029a9836d556502e24ffa3d21d"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/hinotama.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "bc374f5db83d95d32a3f3460346ffcb5acda971d5d3ec67011ba047a659a5d88"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/nadare.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2318e1cc653db0f03b8212cb69648576c712acbd521ad6900c277b4f6cd7156f"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/hyougaki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "80fa3a8990ecec9f3fd8631441fddcf1830884d836b26f53d7b25b3a0c7cdf8e"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/anun.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "930f24fbbd266df0e6815b74b9ac943c904532e8fe42057af84988f8b20cad6f"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/aura.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c94ce055f0f24dc33a9e28f18d18f5ad6778394c7b7738044f2c88043cb41c5d"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/dosekiryuu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "cc615e40bb458d25a1649e1e6a7bc19508af626eec52f6aba32e684c89c2defd"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/kiri.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "a869e3b6bd14070e0122c762e6299db409914652096e8a735ff9ed0eb92da584"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/honoo.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "b02a77c1e7098a3018959d136643014d55d1637ad8831d810f8fae0b0c080844"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/koori.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "af6f72eeb2ba3d90645f5e9d531bc0823fea9328e392feda5672d70bf7a57d8a"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/genkaku.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "a35d98c3c5eff6e88c8080305765c4e59dd986fa8abac10058e195e6430b7051"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/taiboku.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "6a74228b5eae0d5518bf71482f18abec1d4a6a137e0c0d9beac85ff89d2aaca9"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/zaihou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "42a71ff60dcfdc6a3b79209c7f264efe743daa250db53b655200ed50388739b4"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/rankiryuu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "92960d73e1d010ef225cca39e6d158e675b6902c7fa3c7d6b40afe5a763fd5ee"
+  },
+  {
+    "path": "static.godfield.net/images/card/magic/kaihou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "25f5c5616fc7fed7c4265f5733def91145b5846482de1e607afb6b5866799343"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/heart_no_hana.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c8838b3b536d7f362ca48e39d37562d6db17d09a72bd1870454b3fe124fbaa57"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/shugofuuin_no_tsubo.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d7e1671aadd33661242b5edb783cdd2061312e6f91fa3887602e15c8f6d610c5"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/taiyou_no_omamori.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "b7ecda02ba1ce2912c3e5610ba3e83351ca74feca0e7c4f2ed8788b9db614349"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/romance_water.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "994fefecbcf9e508cb6b2c7e906a879a82946da6e59c2d23b31faae97e3af3ad"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/moon_no_shizuku.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "edeb4e57463ec964d1c5a2d0217a406a8064c0bc741d357c01dc9631e8d8246d"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/heart_no_shizuku.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "c3338f78ce1893499e7e27c438b1cbf8b55d10bf5d248e19009869e19377b7f0"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/weapon_ko.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "d899e4335944197e0a4773a7a1f9729550ee9fe808036b9a10b29d348c2fce82"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/dokidoki_namida.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "05bbf4519cf17b5c23a586597116f14a636fc96702e1133a7e5c3d4e97702b4c"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/moon_no_kaigara.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "99b15716d5f17e8bcc6ff15fd1046f8a7e0f4d545830731e136e93e1c17d8972"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/megami_no_sekken.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e0e9193843b97e73fc6b0f77eda33c3480730d547c0c5da566dab3743cc72067"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/ummei_no_himo.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "2120eb277b19feedd6b871ea5329a2eecfe65d1b36350a0e679864b9b1c688ca"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/yozora_no_houki.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "8f7cc67b04c064f621065bf06ebd1e635d91f28a19bb5d337ea5ff5dd273fb8f"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/seirei_no_nuigurumi.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "a20b77f4ea97ee740ec668025e4a2e08f0f59412738ecc6a3596175aee7b0bd6"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/amanogawa_no_oishii_mizu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "e21745f5bd94a0ee00eab1320421e1e7244fe4eb9d20350936f099b7dd1c7299"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/tengokusou.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "7beb1a9d36182a43773bdcee639394c4441536ec2aa8f435c591dfc6266a3fee"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/romance_no_kouboku.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "4f58ae9c23c457e86c5ed3ab36d41546027d2c771d9c6eda45f66cad895bba3a"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/moon_no_hana.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "4f80e91de6adabf6f03deba9aabd7ad9535e06204ec55de817f4096c63a6b7ea"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/heart_no_kaigara.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "97185cff2d5bb6b1ca6743e8c3aa1ea4e095339dd21531c5d9739af64bfec266"
+  },
+  {
+    "path": "static.godfield.net/images/card/sundry/abunai_usu.png",
+    "format": "PNG",
+    "width": 80,
+    "height": 80,
+    "sha256": "aa3ab011926572f619b93b07414ad45bf323569f9df6d84984822fbebda4e0dd"
+  }
+]

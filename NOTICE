@@ -1,0 +1,18 @@
+Aether Arena / 별의 의회
+
+New TypeScript implementation and original UI, 2026.
+Licensed under GNU AGPL version 3 only; see LICENSE.
+
+Game-system research and numeric card/assistant data reference:
+Igoorx/godfield-flash
+https://github.com/Igoorx/godfield-flash
+Commit: fcc83740a3d3cd9968e6e5cd2b7ed781f53abe80
+Reference server-src licensed under AGPL-3.0.
+
+This project does not contain the original client images, sounds, SWF,
+logos, translations, or Flash runtime. Their inclusion in the upstream
+historical backup does not establish reuse permission here.
+
+Lucide icons: ISC license. See node_modules/lucide/LICENSE when installed.
+Dependency licenses remain in their respective packages. The new UI's
+Source Code link offers the corresponding application source archive.

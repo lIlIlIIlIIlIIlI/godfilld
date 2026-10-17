@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/Igoorx/godfield-flash",
+  "commit": "fcc83740a3d3cd9968e6e5cd2b7ed781f53abe80",
+  "license": "AGPL-3.0-only",
+  "files": {
+    "ItemData.CSV": "a6b6892d6234656c40d5171b042ce7aeefcd309ae1abcd6c3fa61e55c552f8b1",
+    "AssistantItemData.CSV": "9475086efac418358ac24a3739cd1301eac9c6fdfc72edc8be5a7a49d89f14bf"
+  }
+}
