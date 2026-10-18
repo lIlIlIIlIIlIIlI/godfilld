@@ -37,6 +37,33 @@
       "url": "/assets/reference/google-play.webp",
       "bytes": 7214,
       "sha256": "5606dc922f3029bb399ced13a272c73e7e470394893b4fd2fe7b2dcbccfe9cc1"
+    },
+    {
+      "source": "https://godfield.net/images/items/devils/small-devil.webp",
+      "url": "/assets/reference/small-devil.webp",
+      "bytes": 2696,
+      "sha256": "81baffb773178dbd9e8fa8cb9ee25e4d725a924b434bf5f60b2edcdf4e0b57a3",
+      "effect": "demon",
+      "damage": 10,
+      "name": "소악마"
+    },
+    {
+      "source": "https://godfield.net/images/items/devils/medium-devil.webp",
+      "url": "/assets/reference/medium-devil.webp",
+      "bytes": 3518,
+      "sha256": "627e51b77b6ddfa4ceab8de615752100df3049dd7f42b25a95855f78275ca097",
+      "effect": "demon",
+      "damage": 20,
+      "name": "중악마"
+    },
+    {
+      "source": "https://godfield.net/images/items/devils/large-devil.webp",
+      "url": "/assets/reference/large-devil.webp",
+      "bytes": 2880,
+      "sha256": "61df33e4c6c81d90c2aa597198c777ac75ca20d5503471a18ee453b6a438305b",
+      "effect": "demon",
+      "damage": 30,
+      "name": "대악마"
     }
   ]
 }

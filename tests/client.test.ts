@@ -203,6 +203,100 @@ it('connects Korean home controls to a real validated game action and escapes ch
   (document.querySelector('#dialog [data-start]') as HTMLButtonElement).click();
   expect(fixture.connection.sent.at(-1)).toEqual({ type: 'start' });
   expect((document.querySelector('#dialog') as HTMLDialogElement).open).toBe(false);
+
+  // Real engine actions behind the portrait defense and result controls.
+  state = createGame(
+    'mobile-defense',
+    [
+      { id: 'me', name: '나' },
+      { id: 'enemy', name: '상대' },
+    ],
+    11,
+    { demonChance: 0, diseaseChance: 0, summonChance: 0 },
+  );
+  state.players.forEach((p) => {
+    p.hand = [];
+    p.abilities = [];
+  });
+  state.attacker = 'enemy';
+  give(state, state.players[1], 36);
+  state = applyAction(state, 'enemy', {
+    id: 'incoming',
+    version: state.version,
+    action: { kind: 'attack', pieces: [state.players[1].hand[0].uid], target: 'me' },
+  });
+  update();
+  expect(document.querySelector('.reference-incoming-power')?.textContent).toBe(
+    '공격' + state.current!.damage,
+  );
+  expect(document.querySelector('.reference-impact')?.getAttribute('aria-label')).toContain(
+    '방어 전 예상 피해',
+  );
+  (document.querySelector('[data-take]') as HTMLButtonElement).click();
+  const defenseRequest = fixture.connection.sent.at(-1);
+  expect(defenseRequest.envelope.action).toEqual({ kind: 'defend', pieces: [] });
+  state = applyAction(state, 'me', defenseRequest.envelope);
+  update();
+  expect(document.querySelector('.reference-impact')?.getAttribute('aria-label')).toContain(
+    '실제 피해',
+  );
+  const actualDamage = state.events
+    .filter((e) => e.type === 'damage' && e.target === 'me')
+    .at(-1)!.amount;
+  expect(document.querySelector('.reference-impact b')?.textContent).toBe(String(actualDamage));
+  const sentBeforeAnimation = fixture.connection.sent.length;
+  vi.advanceTimersByTime(500);
+  expect(fixture.connection.sent).toHaveLength(sentBeforeAnimation);
+  (document.querySelector('[data-hand-menu]') as HTMLButtonElement).click();
+  expect(document.querySelector('.mobile-hand-controls')).not.toBeNull();
+  (document.querySelector('#dialog [data-hand-filter="PROTECTOR"]') as HTMLButtonElement).click();
+  expect((document.querySelector('#dialog') as HTMLDialogElement).open).toBe(false);
+  (document.querySelector('[data-hand-filter="all"]') as HTMLButtonElement).click();
+  (document.querySelector('[data-toggle-miracles]') as HTMLButtonElement).click();
+  expect(document.querySelector('.empty-miracles')?.textContent).toContain('아직 일으킨 기적');
+  (document.querySelector('[data-toggle-miracles]') as HTMLButtonElement).click();
+  state = createGame(
+    'mobile-victory',
+    [
+      { id: 'me', name: '나' },
+      { id: 'enemy', name: '상대' },
+    ],
+    12,
+    { demonChance: 0, diseaseChance: 0, summonChance: 0 },
+  );
+  state.players.forEach((p) => {
+    p.hand = [];
+    p.abilities = [];
+  });
+  state.players[1].hp = 1;
+  state.attacker = 'me';
+  give(state, state.players[0], 36);
+  state = applyAction(state, 'me', {
+    id: 'last-attack',
+    version: state.version,
+    action: { kind: 'attack', pieces: [state.players[0].hand[0].uid], target: 'enemy' },
+  });
+  update();
+  state = applyAction(state, 'enemy', {
+    id: 'last-defense',
+    version: state.version,
+    action: { kind: 'defend', pieces: [] },
+  });
+  update();
+  expect(state.phase).toBe('FINISHED');
+  expect(document.querySelector('.reference-impact b')?.textContent).toBe('1');
+  vi.advanceTimersByTime(200);
+  expect(document.querySelector('.reference-ascension')?.textContent).toBe('승천');
+  vi.advanceTimersByTime(200);
+  expect(document.querySelector('.result.awaiting-cue')).toBeNull();
+  expect(document.querySelector('.result h2')?.textContent).toBe('승리');
+  expect(document.querySelector('.result-winners')?.textContent).toContain('나');
+  expect(document.querySelector('.fallen-players [data-player="enemy"]')).not.toBeNull();
+  expect(document.querySelector('.field-players [data-player="enemy"]')).toBeNull();
+  (document.querySelector('.result-end') as HTMLButtonElement).click();
+  expect(fixture.connection.sent.at(-1)).toEqual({ type: 'leave' });
+  fixture.connection.dispatchEvent(new CustomEvent('data', { detail: { type: 'left' } }));
+  expect(document.querySelector('.reference-cue')).toBeNull();
   vi.clearAllTimers();
   vi.useRealTimers();
 });

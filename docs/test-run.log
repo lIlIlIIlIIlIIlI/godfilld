@@ -7,8 +7,8 @@ npm warn Unknown env config "http-proxy". This will stop working in the next maj
  RUN  v5.0.5 /workspace/scratch/57d8fb48178d/godfilld-media
 
 
- Test Files  9 passed (9)
-      Tests  373 passed (373)
-   Start at  11:13:00
-   Duration  2.17s (tests 34%, environment 30%, transform 18%, import 15%, worker 1%)
+ Test Files  10 passed (10)
+      Tests  381 passed (381)
+   Start at  16:51:00
+   Duration  1.01s (tests 51%, environment 23%, import 13%, transform 11%, worker 2%)
 

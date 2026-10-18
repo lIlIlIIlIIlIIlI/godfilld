@@ -49,3 +49,7 @@ Flash를 실행하지 않고 압축 해제하여 SymbolClass 및 DefineBinaryDat
 공식 godfield.net의 home.webp(1080×746), room.webp(1080×660), tiebreak.webp(1080×660), logo.webp(590×190), 한국어 App Store SVG와 Google Play WebP를 실제로 열어 사진의 배경/로고/배지와 대응을 확인했습니다. 6개는 변형 없이 포함합니다. 경로·원본 URL·바이트 크기·SHA256은 data/ui-asset-manifest.json에 있습니다. 사용자 확인된 원본 미디어 사용 허가와 이번 사진 그대로의 구현 요청을 근거로 하며 별도 라이선스 증빙을 독립 검증한 것은 아닙니다. 원본 미디어는 AGPL로 재라이선스하지 않습니다.
 
 이전에 합성한 field-clouds.svg는 삭제했습니다. 원본 화면 프로그램을 포함하거나 실행하지 않습니다. 새 HTML/CSS/TypeScript가 기존 서버 권위 엔진의 실제 상태를 표시합니다. 스토어 배지는 원작 앱의 실제 주소와 명시적 접근성 이름을 사용합니다.
+
+## 모바일 악마 표시 자산
+
+2026-10-18에 공식 /i18n/ko.json의 실제 items 정의를 읽었습니다. category=devils, ability=dealDamage의 소악마/중악마/대악마는 imageName=small-devil/medium-devil/large-devil, abilityValue=10/20/30입니다. main.dart.js의 fB가 items/{category}/{imageName}.webp를 생성함을 읽은 뒤 대응3개 파일을 받아 실제로 열었습니다. URL·SHA256·크기·피해별 대응은 data/ui-asset-manifest.json에 추가했습니다. 원본 프로그램이나 전체 번역 JSON은 배포하지 않습니다. 사용자 확인된 허가에 따라 그림3개를 포함하며 AGPL로 재라이선스하지 않습니다.

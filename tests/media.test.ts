@@ -72,7 +72,7 @@ describe('original media registry', () => {
 
 describe('supplied reference-screen assets', () => {
   it('ships the original backgrounds, logo and store badges without modifying their bytes', () => {
-    expect(referenceUI.assets).toHaveLength(6);
+    expect(referenceUI.assets).toHaveLength(9);
     for (const asset of referenceUI.assets) {
       expect(asset.source).toMatch(/^https:\/\/godfield.net\/images\//);
       const data = bytes(asset.url);

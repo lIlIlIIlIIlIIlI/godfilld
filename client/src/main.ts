@@ -1,6 +1,8 @@
 /// <reference types="vite/client" />
 import './style.css';
 import './field.css';
+import './mobile.css';
+import { BattlePresentation } from './presentation';
 import { battleView } from './battle';
 import { esc, icon } from './html';
 import {
@@ -97,6 +99,12 @@ let page = 'home',
   codexAttribute = '',
   codexSearch = '',
   codexLimit = 48;
+const presentation = new BattlePresentation(
+  () => {
+    if (room?.game) render();
+  },
+  () => preferences.motion && !matchMedia('(prefers-reduced-motion: reduce)').matches,
+);
 const icons = {
   Sparkles,
   Swords,
@@ -182,7 +190,7 @@ function header() {
         ? '비밀 결투'
         : room.name
     : ({ menu: '메뉴', lobby: '게임방 목록', codex: '카드 도감', guide: '교전' }[page] ?? '');
-  return `<header class="topbar reference-header">${page !== 'home' || room ? `<button class="reference-back" ${room ? 'data-leave' : 'data-page="home"'} aria-label="뒤로">←</button><strong class="reference-screen-name">${esc(label)}</strong>` : ''}${g ? `<span class="gf-counter ${g.doom >= 100 ? 'is-doom' : ''}" aria-label="현재 ${g.turn}턴, 종말 ${g.rules.doomAt}턴">G.F.<b>${g.turn}</b><span> /${g.rules.doomAt}</span></span>` : ''}<button class="reference-book" data-help><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" fill="currentColor"/><path fill="#eeffee" d="M10 4h5v9l-2.5-2L10 13z"/></svg>교전</button></header>`;
+  return `<header class="topbar reference-header">${page !== 'home' || room ? `<button class="reference-back" ${room ? 'data-leave' : 'data-page="home"'} aria-label="뒤로">←</button><strong class="reference-screen-name">${esc(label)}</strong>` : ''}${g ? `<span class="gf-counter ${g.doom >= 100 ? 'is-doom' : ''}" aria-label="현재 ${g.turn}턴, 종말 ${g.rules.doomAt}턴">G.F.<b>${g.turn}</b><span> /${g.rules.doomAt}</span></span>` : ''}<button class="reference-book" data-help><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" fill="currentColor"/><path fill="#eeffee" d="M10 4h5v9l-2.5-2L10 13z"/></svg><span class="reference-book-label">교전</span></button></header>`;
 }
 function doomOptions(name: string, value = doomAt) {
   return `<fieldset class="doom-options"><legend>재앙 · 종말 시작 턴</legend>${doomStartTurns.map((n) => `<label><input type="radio" name="${name}" value="${n}" ${n === value ? 'checked' : ''}><span>${n}</span></label>`).join('')}<small>선택한 턴부터 악마가 출현할 수 있습니다.</small></fieldset>`;
@@ -218,7 +226,7 @@ function referenceFooter() {
     room?.seats.find((p) => p.id === conn.id)?.name ??
     localStorage.getItem('arena-name') ??
     '';
-  return `<footer class="field-footer reference-footer"><button class="reference-footer-name" ${room?.game ? 'data-toggle-sidebar aria-label="기록·채팅 열기"' : room ? 'data-room-controls aria-label="준비·봇·시작 설정"' : 'data-page="menu"'}>${esc(name)}</button>${page === 'home' && !room ? `<button class="reference-settings" data-settings>${icon('Settings', 22)} 설정</button>` : room && !room.game ? `<form id="chat-form" class="reference-footer-chat"><input id="chat-input" name="message" aria-label="채팅 메시지" maxlength="300" autocomplete="off"><button type="submit">${icon('ScrollText', 18)} 방에 게시를 내리기</button></form><button class="reference-history" data-toggle-sidebar>${icon('Clock', 19)} 게시록</button>` : ''}<button class="reference-volume" data-settings aria-label="효과음 및 배경 음악 설정">${icon('Volume2', 24)}<span class="volume-bars" aria-hidden="true">${Array.from({ length: 10 }, (_, i) => `<i class="${i < Math.round(preferences.effects * 10) ? 'on' : ''}"></i>`).join('')}</span></button></footer>`;
+  return `<footer class="field-footer reference-footer"><button class="reference-footer-name" ${room?.game ? 'data-toggle-sidebar aria-label="기록·채팅 열기"' : room ? 'data-room-controls aria-label="준비·봇·시작 설정"' : 'data-page="menu"'}>${esc(name)}</button>${room?.game?.self ? '<button class="mobile-card-menu" data-hand-menu>카드 메뉴</button>' : ''}${page === 'home' && !room ? `<button class="reference-settings" data-settings>${icon('Settings', 22)} 설정</button>` : room && !room.game ? `<form id="chat-form" class="reference-footer-chat"><input id="chat-input" name="message" aria-label="채팅 메시지" maxlength="300" autocomplete="off"><button type="submit">${icon('ScrollText', 18)} 방에 게시를 내리기</button></form><button class="reference-history" data-toggle-sidebar>${icon('Clock', 19)} 게시록</button>` : ''}<button class="reference-volume" data-settings aria-label="효과음 및 배경 음악 설정">${icon('Volume2', 24)}<span class="volume-bars" aria-hidden="true">${Array.from({ length: 10 }, (_, i) => `<i class="${i < Math.round(preferences.effects * 10) ? 'on' : ''}"></i>`).join('')}</span></button></footer>`;
 }
 function showRoomControls() {
   if (!room || room.game) return;
@@ -382,6 +390,7 @@ function battle() {
     pending,
     connected: conn.connected,
     canAct: canAct(),
+    cue: presentation.current,
     showSidebar,
     showMiracles,
     hoveredUid,
@@ -593,6 +602,15 @@ document.addEventListener('click', (e) => {
     e.preventDefault();
     navigate(b.dataset.page);
   } else if (b.hasAttribute('data-settings')) openSettings();
+  else if (b.hasAttribute('data-hand-menu'))
+    modal(
+      '<h2>카드 메뉴</h2><div class="mobile-hand-controls">' +
+        (room?.game?.phase === 'FINISHED'
+          ? '<button class="button" data-rematch>다시 대전</button><button class="button" data-replay>전투 기록</button>'
+          : '') +
+        (document.querySelector('.deck-menu')?.innerHTML ?? '') +
+        '</div>',
+    );
   else if (b.hasAttribute('data-help'))
     modal(
       '<h2>교전 지침</h2><ol class="tutorial"><li>카드 선택 → 플레이어 선택 → 카드 사용 순서로 진행합니다.</li><li>공격을 받으면 방어 카드를 고르거나 피해 받기를 누르세요.</li><li>일으킨 기적은 MP를 소모해 반복 사용합니다.</li><li>종말에 진입하면 배경이 분홍색으로 바뀌고 악마가 출현할 수 있습니다.</li></ol><p><a href="/source.zip" download>소스 코드 · AGPL-3.0</a></p>',
@@ -603,6 +621,7 @@ document.addEventListener('click', (e) => {
   } else if (b.hasAttribute('data-close')) dialog.close();
   else if (b.dataset.handFilter) {
     handFilter = b.dataset.handFilter;
+    if (dialog.querySelector('.mobile-hand-controls')) dialog.close();
     render();
   } else if (b.hasAttribute('data-enter')) {
     const name = document.querySelector<HTMLInputElement>('#player-name')?.value.trim();
@@ -675,11 +694,14 @@ document.addEventListener('click', (e) => {
     if (tutorialStep === 2) tutorialStep = 3;
     render();
   } else if (b.hasAttribute('data-clear')) {
+    if (dialog.open && dialog.querySelector('.mobile-hand-controls')) dialog.close();
     selected = [];
     render();
   } else if (b.hasAttribute('data-pass')) action({ kind: 'pass' });
-  else if (b.hasAttribute('data-discard')) action({ kind: 'discard', pieces: [...selected] });
-  else if (b.hasAttribute('data-take')) action({ kind: 'defend', pieces: [] });
+  else if (b.hasAttribute('data-discard')) {
+    if (dialog.open && dialog.querySelector('.mobile-hand-controls')) dialog.close();
+    action({ kind: 'discard', pieces: [...selected] });
+  } else if (b.hasAttribute('data-take')) action({ kind: 'defend', pieces: [] });
   else if (b.hasAttribute('data-use')) {
     if (room?.game?.phase === 'DEFENSE_SELECTION')
       action({ kind: 'defend', pieces: [...selected] });
@@ -694,13 +716,16 @@ document.addEventListener('click', (e) => {
     }
   } else if (b.dataset.buy) action({ kind: 'buy', accept: b.dataset.buy === 'true' });
   else if (b.hasAttribute('data-rematch')) {
+    if (dialog.open) dialog.close();
     if (room?.host === conn.id) conn.send({ type: 'start' });
     else {
       conn.send({ type: 'ready', ready: true });
       toast('준비되었습니다. 모두 준비하면 방장이 다시 시작할 수 있습니다.');
     }
-  } else if (b.hasAttribute('data-replay')) conn.send({ type: 'replay' });
-  else if (b.dataset.detail) {
+  } else if (b.hasAttribute('data-replay')) {
+    if (dialog.open) dialog.close();
+    conn.send({ type: 'replay' });
+  } else if (b.dataset.detail) {
     const c = card(Number(b.dataset.detail));
     modal(
       `<div class="eyebrow">CARD #${c.id}</div><h2>${esc(c.name.ko)}</h2><div class="detail-glyph">${cardArt(c, 128)}</div><p>${esc(c.description.ko)}</p><dl><dt>속성</dt><dd>${attributeNames[c.attribute]}</dd><dt>공격 / 방어</dt><dd>${attackValue(c)} / ${defenseValue(c)}</dd><dt>가격 / 가중치</dt><dd>${c.price}G / ${c.weight}</dd><dt>원본 CSV ID</dt><dd>${c.id} · ${c.nameStatus}</dd></dl><small>한국어 이름은 새로 만든 이름이며, 원작 번역 확정 데이터가 아닙니다.</small>`,
@@ -836,6 +861,7 @@ conn.addEventListener('data', (event) => {
   }
   if (msg.type === 'left' || msg.type === 'room_closed') {
     room = null;
+    presentation.reset();
     if (dialog.open) dialog.close();
     lastVersion = -1;
     lastEvent = 0;
@@ -857,6 +883,8 @@ conn.addEventListener('data', (event) => {
       changed = g && (lastMatch !== g.id || lastVersion !== g.version);
     const previous = room?.game;
     room = next;
+    if (g) presentation.sync(g);
+    else presentation.reset();
     if (changed) {
       if (tutorialStep === 4) {
         tutorialStep = 0;

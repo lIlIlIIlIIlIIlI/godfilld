@@ -1226,19 +1226,6 @@
 .field-shell.in-battle .reference-footer {
   display: block;
 }
-@media (orientation: portrait) and (max-width: 600px) {
-  .field-shell {
-    min-width: 640px;
-    display: block;
-    padding: 10px 0;
-    overflow-x: auto;
-  }
-  .field-shell #app {
-    width: 640px;
-    margin: 0;
-  }
-}
-
 /* These controls are visible only for the acting player, as in the supplied battle photos. */
 .reference-battle .action-dock.inactive ~ .reference-divider,
 .reference-battle .action-dock.inactive ~ .deck-options {
