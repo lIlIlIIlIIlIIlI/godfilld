@@ -47,8 +47,11 @@ const freshHuman = (p: Seat, now: number) =>
   !p.bot && !p.left && p.lastSeen > 0 && now - p.lastSeen <= RECONNECT_GRACE_MS;
 function needsCleanup(r: RoomRecord, now: number) {
   const fresh = r.seats.filter((p) => freshHuman(p, now));
-  return !fresh.length || !fresh.some((p) => p.id === r.host) ||
-    ((!r.game || r.game.phase === 'FINISHED') && r.seats.some((p) => !p.bot && !freshHuman(p, now)));
+  return (
+    !fresh.length ||
+    !fresh.some((p) => p.id === r.host) ||
+    ((!r.game || r.game.phase === 'FINISHED') && r.seats.some((p) => !p.bot && !freshHuman(p, now)))
+  );
 }
 function password(value: string, salt: string) {
   return value ? scryptSync(value, salt, 32).toString('hex') : '';
@@ -304,7 +307,24 @@ export class RoomService {
         seat.team = z.enum(['A', 'B', 'C', 'D']).parse(input.team);
         return;
       }
+      if (input.type === 'chooseTeam') {
+        const team = z.enum(['SINGLE', 'A', 'B', 'C', 'D']).parse(input.team);
+        const mode = team === 'SINGLE' ? 'ffa' : 'team';
+        if (mode !== r.mode) {
+          requireRule(host, '방장만 개인전과 팀전을 전환할 수 있습니다.');
+          r.mode = mode;
+          r.seats.forEach((p, i) => {
+            p.team = mode === 'ffa' ? 'SINGLE' : i % 2 ? 'B' : 'A';
+          });
+        }
+        seat.team = team;
+        return;
+      }
       requireRule(host, '방장만 사용할 수 있습니다.');
+      if (input.type === 'doomAt') {
+        r.doomAt = roomSchema.shape.doomAt.parse(input.value);
+        return;
+      }
       if (input.type === 'addBot') {
         this.addBot(r, z.enum(['easy', 'normal', 'hard']).parse(input.difficulty ?? 'normal'));
         return;

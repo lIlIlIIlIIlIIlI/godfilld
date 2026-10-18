@@ -33,6 +33,14 @@ it('connects Korean home controls to a real validated game action and escapes ch
   document.body.innerHTML =
     '<div id="app"></div><div id="toast"></div><dialog id="dialog"></dialog>';
   await import('../client/src/main');
+  expect(document.querySelector('.reference-logo')?.getAttribute('src')).toBe(
+    '/assets/reference/logo.webp',
+  );
+  expect(document.body.textContent).toContain('탄생하기');
+  expect(document.querySelector('[data-practice]')).toBeNull();
+  (document.querySelector('#player-name') as HTMLInputElement).value = '예언자';
+  (document.querySelector('[data-enter]') as HTMLButtonElement).click();
+  expect(localStorage.getItem('arena-name')).toBe('예언자');
   expect(document.body.textContent).toContain('AI 연습 대전');
   expect(
     [...document.querySelectorAll<HTMLInputElement>('input[name="practice-doom"]')].map(
@@ -80,10 +88,10 @@ it('connects Korean home controls to a real validated game action and escapes ch
     );
   }
   update();
-  expect(document.querySelector('.field-board .field-players')).not.toBeNull();
+  expect(document.querySelector('.reference-battle .field-players')).not.toBeNull();
   expect(document.querySelector('.miracle-rack')?.textContent).toContain('일으킨 기적');
   expect(document.body.classList.contains('end-of-world')).toBe(false);
-  expect(document.querySelector('.gf-counter')?.textContent).toContain('/ 100');
+  expect(document.querySelector('.gf-counter')?.textContent).toMatch(/\/\s*100/);
   const originalImage = document.querySelector<HTMLImageElement>('.game-card .card-art')!;
   expect(originalImage.getAttribute('src')).toMatch(/^\/assets\/original\/\d{3}\.webp$/);
   expect(originalImage.alt).toContain(document.querySelector('.card-name')!.textContent!);
@@ -101,7 +109,7 @@ it('connects Korean home controls to a real validated game action and escapes ch
   expect(document.querySelectorAll('.hand-cards [data-card]')).toHaveLength(0);
   (document.querySelector('[data-hand-filter="all"]') as HTMLButtonElement).click();
   expect(document.querySelector('[data-card]')?.getAttribute('data-card')).toBe(selection);
-  expect(document.querySelector('.action-dock [data-use]')).not.toBeNull();
+  expect(document.querySelector('.action-dock [data-pass]')).not.toBeNull();
   expect(document.querySelector('.chat-items script')).toBeNull();
   expect(document.querySelector('.chat-items img')).toBeNull();
   (document.querySelector('[data-card]') as HTMLButtonElement).click();
@@ -117,7 +125,7 @@ it('connects Korean home controls to a real validated game action and escapes ch
   update();
   expect(state.phase).toBe('DEFENSE_SELECTION');
   expect(document.body.textContent).toContain('방어를 기다리는 중');
-  expect((document.querySelector('[data-use]') as HTMLButtonElement).disabled).toBe(true);
+  expect(document.querySelector('.action-dock.inactive')).not.toBeNull();
   state.current!.cards = [
     { ...state.current!.cards[0], id: 1000, name: { ko: '수호자의 파동', en: 'Summon' } },
   ];
@@ -133,10 +141,14 @@ it('connects Korean home controls to a real validated game action and escapes ch
   endgameRisk(state, state.players[0], 1);
   update();
   expect(document.querySelector('.demon-event')?.textContent).toContain('악마 출현');
-  fixture.connection.dispatchEvent(new CustomEvent('data', { detail: { type: 'room_closed', message: '방이 종료되었습니다.' } }));
-  expect(document.querySelector('.field-board')).toBeNull();
+  fixture.connection.dispatchEvent(
+    new CustomEvent('data', { detail: { type: 'room_closed', message: '방이 종료되었습니다.' } }),
+  );
+  expect(document.querySelector('.reference-battle')).toBeNull();
   expect(document.body.classList.contains('end-of-world')).toBe(false);
   expect(document.body.textContent).toContain('게임방 목록');
+  (document.querySelector('[data-page="home"]') as HTMLButtonElement).click();
+  (document.querySelector('[data-enter]') as HTMLButtonElement).click();
   (document.querySelector('[data-page="codex"]') as HTMLButtonElement).click();
   expect(document.body.textContent).toContain('364개 카드 규칙');
   const input = document.querySelector<HTMLInputElement>('#codex-search')!;
@@ -145,6 +157,7 @@ it('connects Korean home controls to a real validated game action and escapes ch
   expect(document.querySelectorAll('.codex-card')).toHaveLength(1);
   expect(document.querySelector('.codex-card')?.textContent).toContain('새벽의 씨앗');
   (document.querySelector('[data-page="home"]') as HTMLButtonElement).click();
+  (document.querySelector('[data-enter]') as HTMLButtonElement).click();
   expect(
     document.querySelector<HTMLInputElement>('input[name="practice-doom"]:checked')?.value,
   ).toBe('50');
@@ -155,6 +168,41 @@ it('connects Korean home controls to a real validated game action and escapes ch
     .querySelector('#create-form')!
     .dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
   expect(fixture.connection.sent.at(-1).options.doomAt).toBe(500);
+  fixture.connection.dispatchEvent(
+    new CustomEvent('data', {
+      detail: { type: 'room', room: { ...room, game: undefined, doomAt: 500 } },
+    }),
+  );
+  expect(document.querySelector('.reference-wait')).not.toBeNull();
+  expect(document.querySelectorAll('.reference-seat')).toHaveLength(9);
+  (document.querySelector('[data-team-choice="A"]') as HTMLButtonElement).click();
+  expect(fixture.connection.sent.at(-1)).toEqual({ type: 'chooseTeam', team: 'A' });
+  (document.querySelector('[data-ready]') as HTMLButtonElement).click();
+  expect(fixture.connection.sent.at(-1)).toEqual({ type: 'ready', ready: false });
+  (document.querySelector('.reference-doom') as HTMLButtonElement).click();
+  (document.querySelector('[data-room-doom="50"]') as HTMLButtonElement).click();
+  expect(fixture.connection.sent.at(-1)).toEqual({ type: 'doomAt', value: 50 });
+  (document.querySelector('.reference-footer-name') as HTMLButtonElement).click();
+  fixture.connection.dispatchEvent(
+    new CustomEvent('data', {
+      detail: {
+        type: 'room',
+        room: { ...room, game: undefined, seats: room.seats.map((p) => ({ ...p, ready: false })) },
+      },
+    }),
+  );
+  expect((document.querySelector('#dialog [data-start]') as HTMLButtonElement).disabled).toBe(true);
+  fixture.connection.dispatchEvent(
+    new CustomEvent('data', {
+      detail: { type: 'room', room: { ...room, game: undefined } },
+    }),
+  );
+  expect((document.querySelector('#dialog [data-start]') as HTMLButtonElement).disabled).toBe(
+    false,
+  );
+  (document.querySelector('#dialog [data-start]') as HTMLButtonElement).click();
+  expect(fixture.connection.sent.at(-1)).toEqual({ type: 'start' });
+  expect((document.querySelector('#dialog') as HTMLDialogElement).open).toBe(false);
   vi.clearAllTimers();
   vi.useRealTimers();
 });

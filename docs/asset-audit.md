@@ -40,6 +40,12 @@ Flash를 실행하지 않고 압축 해제하여 SymbolClass 및 DefineBinaryDat
 
 ## 재현 및 범위
 
-`python3 scripts/import-media.py /path/to/godfield-flash`로 재생성합니다. Python Pillow가 필요합니다. 스크립트 자체가 SWF를 데이터로 읽으므로 FFDec는 실행·배포 의존성이 아닙니다. 신규 게임에는 SWF·Ruffle·Flash 실행 엔진·원본 UI 프로그램을 포함하지 않습니다. 새 한국어 이름과 CSS 프레임, Lucide 아이콘을 유지합니다.
+`python3 scripts/import-media.py /path/to/godfield-flash`로 재생성합니다. Python Pillow가 필요합니다. 스크립트 자체가 SWF를 데이터로 읽으므로 FFDec는 실행·배포 의존성이 아닙니다. 신규 게임에는 SWF·Ruffle·Flash 실행 엔진·원본 UI 프로그램을 포함하지 않습니다. 한국어 카드명은 신규 명칭이며 UI는 사용자 첨부 사진의 구성을 따릅니다.
 
 실제 모바일 기기의 그림 렌더링과 스피커 청취 검수는 별도입니다. 자동 검사와 파일 디코딩을 실제 청취 결과로 표시하지 않습니다.
+
+## 첨부 사진의 원본 화면 자산 — 2026-10-18
+
+공식 godfield.net의 home.webp(1080×746), room.webp(1080×660), tiebreak.webp(1080×660), logo.webp(590×190), 한국어 App Store SVG와 Google Play WebP를 실제로 열어 사진의 배경/로고/배지와 대응을 확인했습니다. 6개는 변형 없이 포함합니다. 경로·원본 URL·바이트 크기·SHA256은 data/ui-asset-manifest.json에 있습니다. 사용자 확인된 원본 미디어 사용 허가와 이번 사진 그대로의 구현 요청을 근거로 하며 별도 라이선스 증빙을 독립 검증한 것은 아닙니다. 원본 미디어는 AGPL로 재라이선스하지 않습니다.
+
+이전에 합성한 field-clouds.svg는 삭제했습니다. 원본 화면 프로그램을 포함하거나 실행하지 않습니다. 새 HTML/CSS/TypeScript가 기존 서버 권위 엔진의 실제 상태를 표시합니다. 스토어 배지는 원작 앱의 실제 주소와 명시적 접근성 이름을 사용합니다.

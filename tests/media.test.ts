@@ -6,6 +6,7 @@ import { eventClips, battleClip } from '../shared/sounds';
 import { createGame, viewFor } from '../server/src/game/GameEngine';
 import art from '../data/asset-manifest.json';
 import sounds from '../data/sound-assets.json';
+import referenceUI from '../data/ui-asset-manifest.json';
 const bytes = (url: string) => readFileSync(new URL('../client/public' + url, import.meta.url));
 const hash = (data: Uint8Array) => createHash('sha256').update(data).digest('hex');
 describe('original media registry', () => {
@@ -66,5 +67,17 @@ describe('original media registry', () => {
     expect(battleClip({ ...event, type: 'game_end' }, game, 'me')).toBe('dead');
     game.winners = [];
     expect(battleClip({ ...event, type: 'game_end' }, game, 'me')).toBe('game_draw');
+  });
+});
+
+describe('supplied reference-screen assets', () => {
+  it('ships the original backgrounds, logo and store badges without modifying their bytes', () => {
+    expect(referenceUI.assets).toHaveLength(6);
+    for (const asset of referenceUI.assets) {
+      expect(asset.source).toMatch(/^https:\/\/godfield.net\/images\//);
+      const data = bytes(asset.url);
+      expect(data.length).toBe(asset.bytes);
+      expect(hash(data)).toBe(asset.sha256);
+    }
   });
 });

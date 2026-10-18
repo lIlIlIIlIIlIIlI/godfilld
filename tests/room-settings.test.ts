@@ -80,3 +80,48 @@ describe('card names and room catastrophe settings', () => {
     }
   });
 });
+
+describe('reference waiting-room controls', () => {
+  it('validates host mode/doom changes, participant team choices and live-game restrictions', async () => {
+    const store = new SQLiteStore(':memory:');
+    try {
+      await store.init();
+      const service = new RoomService(store);
+      const host = (await service.authenticate()).identity;
+      const guest = (await service.authenticate()).identity;
+      let room = await service.create(host, options);
+      await service.join(room.id, guest);
+      await expect(
+        service.command(room.id, guest, { type: 'chooseTeam', team: 'A' }),
+      ).rejects.toThrow('방장');
+      room = await service.command(room.id, host, { type: 'chooseTeam', team: 'A' });
+      expect(room.mode).toBe('team');
+      room = await service.command(room.id, guest, { type: 'chooseTeam', team: 'C' });
+      expect(room.seats.find((p) => p.id === guest.id)?.team).toBe('C');
+      await expect(
+        service.command(room.id, host, { type: 'chooseTeam', team: 'E' }),
+      ).rejects.toThrow();
+      await expect(service.command(room.id, guest, { type: 'doomAt', value: 50 })).rejects.toThrow(
+        '방장',
+      );
+      await expect(service.command(room.id, host, { type: 'doomAt', value: 25 })).rejects.toThrow();
+      room = await service.command(room.id, host, { type: 'doomAt', value: 50 });
+      expect(service.project(room, guest.id).doomAt).toBe(50);
+      room = await service.command(room.id, host, { type: 'chooseTeam', team: 'SINGLE' });
+      expect(room.mode).toBe('ffa');
+      expect(room.seats.every((p) => p.team === 'SINGLE')).toBe(true);
+      await service.command(room.id, host, { type: 'ready', ready: true });
+      await service.command(room.id, guest, { type: 'ready', ready: true });
+      room = await service.command(room.id, host, { type: 'start' });
+      expect(room.game?.rules.doomAt).toBe(50);
+      await expect(
+        service.command(room.id, host, { type: 'chooseTeam', team: 'B' }),
+      ).rejects.toThrow('대전 중');
+      await expect(service.command(room.id, host, { type: 'doomAt', value: 100 })).rejects.toThrow(
+        '대전 중',
+      );
+    } finally {
+      await store.close();
+    }
+  });
+});

@@ -1,0 +1,42 @@
+{
+  "permissionBasis": "user-confirmation-2026-10-17; exact screenshot reproduction requested 2026-10-18",
+  "retrievedAt": "2026-10-18",
+  "assets": [
+    {
+      "source": "https://godfield.net/images/screens/home.webp",
+      "url": "/assets/reference/home.webp",
+      "bytes": 40340,
+      "sha256": "56a448679d9a711c0e37d7923f515919c4bc0c041c51187973295ccd22922ee3"
+    },
+    {
+      "source": "https://godfield.net/images/screens/room.webp",
+      "url": "/assets/reference/room.webp",
+      "bytes": 14758,
+      "sha256": "ecdb47a440b057e5987491c9aabba83ed1efab96d7ac0e390c0cd5efb9569a0a"
+    },
+    {
+      "source": "https://godfield.net/images/screens/tiebreak.webp",
+      "url": "/assets/reference/tiebreak.webp",
+      "bytes": 152684,
+      "sha256": "455297f548df369fdfc48647e7d43547a19de50773f69705cf28efa351682af2"
+    },
+    {
+      "source": "https://godfield.net/images/logo.webp",
+      "url": "/assets/reference/logo.webp",
+      "bytes": 23428,
+      "sha256": "e2d6a73babf4b33795992e04f6e2e25da4fdf3310d8f6f790f8539dd4408f867"
+    },
+    {
+      "source": "https://godfield.net/images/badges/app-store/ko.svg",
+      "url": "/assets/reference/app-store.svg",
+      "bytes": 9260,
+      "sha256": "fc82d5344d0f2919a7ae697e677fc9c62872f1ee47bd70e24a581245423de9c1"
+    },
+    {
+      "source": "https://godfield.net/images/badges/google-play/ko.webp",
+      "url": "/assets/reference/google-play.webp",
+      "bytes": 7214,
+      "sha256": "5606dc922f3029bb399ced13a272c73e7e470394893b4fd2fe7b2dcbccfe9cc1"
+    }
+  ]
+}

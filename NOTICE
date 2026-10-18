@@ -1,6 +1,6 @@
 Aether Arena / 별의 의회
 
-New TypeScript implementation and original UI, 2026.
+New TypeScript implementation, 2026; reference-screen UI requested by owner.
 Licensed under GNU AGPL version 3 only; see LICENSE.
 
 Game-system research and numeric card/assistant data reference:
@@ -20,3 +20,10 @@ No SWF, Ruffle, or Flash runtime is included.
 Lucide icons: ISC license. See node_modules/lucide/LICENSE when installed.
 Dependency licenses remain in their respective packages. The new UI's
 Source Code link offers the corresponding application source archive.
+
+Original reference-screen backgrounds, logo and Korean app-store badges:
+https://godfield.net/images/ (retrieved 2026-10-18).
+Included under the owner's previously confirmed original-media permission
+and explicit request to reproduce the supplied screens.
+Sources and hashes: data/ui-asset-manifest.json.
+These assets retain their original rights and are not relicensed under AGPL.
