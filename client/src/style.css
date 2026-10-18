@@ -2114,3 +2114,77 @@ footer > a {
 .board-heading .mobile-only {
   padding: 4px;
 }
+
+/* Original card artwork: cached individual lossless images with verified source mappings. */
+.card-art-window {
+  position: relative;
+  display: inline-block;
+  width: var(--art-size);
+  height: var(--art-size);
+  flex: 0 0 var(--art-size);
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: 3px;
+  background: #fff;
+}
+.card-art {
+  display: block;
+}
+.card-symbol {
+  opacity: 1;
+}
+.card-value {
+  gap: 6px;
+  min-height: 68px;
+  padding: 0;
+}
+.card-value > span:last-child {
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.card-value strong {
+  font-size: 23px;
+}
+.game-card {
+  min-height: 195px;
+}
+.codex-art {
+  width: 76px;
+}
+.detail-glyph .card-art-window {
+  border: 1px solid #ccd3c2;
+}
+.played-cards > span {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  margin: 3px;
+}
+@media (max-width: 600px) {
+  .card-symbol .card-art-window {
+    --art-size: 54px !important;
+  }
+  .card-value {
+    justify-content: space-between;
+    gap: 2px;
+    min-height: 58px;
+  }
+  .card-value strong {
+    font-size: 22px;
+  }
+  .game-card {
+    min-height: 202px;
+  }
+  .codex-art {
+    width: 76px;
+  }
+}
+@media (max-width: 359px) {
+  .card-symbol .card-art-window {
+    --art-size: 45px !important;
+  }
+  .card-value strong {
+    font-size: 19px;
+  }
+}

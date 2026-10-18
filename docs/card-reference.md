@@ -1,6 +1,6 @@
 # 카드별 규칙 명세
 
-기준 CSV의 0 기반 ID를 그대로 보존합니다. 아래 한국어 이름은 새로 만든 명칭이며 원작 번역 데이터가 아닙니다. image는 모두 권리가 확인된 신규 placeholder입니다. 모든 일반 데이터364행과 소환체 행동42행을 기재합니다.
+기준 CSV의 0 기반 ID를 그대로 보존합니다. 아래 한국어 이름은 새로 만든 명칭이며 원작 번역 데이터가 아닙니다. 사용자 허가 확인에 따라246개 ID에 원본 그림을 매핑했습니다. 가중치0 역사 데이터 중 백업에 그림이 없는118개는 기본 SVG를 표시합니다. 모든 일반 데이터364행과 소환체 행동42행을 기재합니다.
 
 ## 데이터 필드와 해석
 
@@ -379,252 +379,252 @@
 
 ## 카드별 표시 설명
 
-- **#0 숨 고르기**: 대기. 일반 드로우 제외. 자산: `/assets/card-placeholder.svg`.
-- **#1 카드 정리**: 카드 버리기. 일반 드로우 제외. 자산: `/assets/card-placeholder.svg`.
-- **#2 환전**: HP·MP·소지금 총합을 보존하여 재분배. 자산: `/assets/card-placeholder.svg`.
-- **#3 강제 판매**: 카드 한 장을 골라 상대에게 강제 판매. 자산: `/assets/card-placeholder.svg`.
-- **#4 카드 구매**: 상대 카드 무작위 선택 후 구매 확인. 자산: `/assets/card-placeholder.svg`.
-- **#5 여행자의 단검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#6 여행자의 새총**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#7 여행자의 곤봉**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#8 여행자의 숏소드**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#9 연격 손도끼**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#10 여행자의 장창**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#11 여행자의 철퇴**: 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#12 연격 전투 활**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#13 여행자의 긴 검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#14 연격 할버드**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#15 여행자의 대검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#16 여행자의 망치**: 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#17 연격 쌍검**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#18 여행자의 창날**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#19 여행자의 손톱**: 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#20 무기 튕김의 낫**: 공격 · 무기 무작위 튕겨내기. 자산: `/assets/card-placeholder.svg`.
-- **#21 연격 쇠사슬**: 공격 · 추가 공격 · 기적 무작위 튕겨내기. 자산: `/assets/card-placeholder.svg`.
-- **#22 여행자의 투척검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#23 여행자의 석궁**: 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#24 연격 칼날**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#25 여행자의 도끼**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#26 흡혈 창**: 공격 · 피해량만큼 HP 흡수. 자산: `/assets/card-placeholder.svg`.
-- **#27 기적 봉쇄의 보검**: 공격 · 기적 완전 차단. 자산: `/assets/card-placeholder.svg`.
-- **#28 연격 전투봉**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#29 사냥꾼의 단검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#30 지옥병 새총**: 공격 · 지옥병. 자산: `/assets/card-placeholder.svg`.
-- **#31 사냥꾼의 곤봉**: 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#32 연격 숏소드**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#33 사냥꾼의 손도끼**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#34 감기 장창**: 공격 · 감기. 자산: `/assets/card-placeholder.svg`.
-- **#35 연격 철퇴**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#36 사냥꾼의 전투 활**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#37 환영 긴 검**: 공격 · 꿈. 자산: `/assets/card-placeholder.svg`.
-- **#38 사냥꾼의 할버드**: 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#39 무기 반사의 대검**: 공격 · 무기 되돌리기. 자산: `/assets/card-placeholder.svg`.
-- **#40 기적 반사의 망치**: 공격 · 기적 되돌리기. 자산: `/assets/card-placeholder.svg`.
-- **#41 사냥꾼의 쌍검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#42 흡혈 창날**: 공격 · 피해량만큼 HP 흡수. 자산: `/assets/card-placeholder.svg`.
-- **#43 먹구름 손톱**: 공격 · 먹구름. 자산: `/assets/card-placeholder.svg`.
-- **#44 연격 낫**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#45 사냥꾼의 쇠사슬**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#46 환영 투척검**: 공격 · 꿈. 자산: `/assets/card-placeholder.svg`.
-- **#47 무소모 석궁**: 공격 · 바로 앞 기적의 MP 비용 면제. 자산: `/assets/card-placeholder.svg`.
-- **#48 사냥꾼의 칼날**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#49 감기 도끼**: 공격 · 감기. 자산: `/assets/card-placeholder.svg`.
-- **#50 사냥꾼의 창**: 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#51 연격 보검**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#52 사냥꾼의 전투봉**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#53 광란 단검**: 공격 · 같은 피해를 자신도 받음. 자산: `/assets/card-placeholder.svg`.
-- **#54 기적 봉쇄의 새총**: 공격 · 기적 완전 차단. 자산: `/assets/card-placeholder.svg`.
-- **#55 연격 곤봉**: 공격 · 추가 공격 · 기적 완전 차단. 자산: `/assets/card-placeholder.svg`.
-- **#56 기사의 숏소드**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#57 마력의 수정검**: 공격 · 남은 MP 전부를 공격력 두 배로 전환. 자산: `/assets/card-placeholder.svg`.
-- **#58 화염 기사의 손도끼**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#59 물결 기사의 장창**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#60 숲 기사의 철퇴**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#61 대지 감기 전투 활**: 공격 · 감기. 자산: `/assets/card-placeholder.svg`.
-- **#62 빛 연격 긴 검**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#63 어둠 기사의 할버드**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#64 화염 기사의 대검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#65 화염 속성 망치**: 공격 · 속성 덮어쓰기. 자산: `/assets/card-placeholder.svg`.
-- **#66 물결 기사의 쌍검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#67 숲 기사의 창날**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#68 숲 연격 손톱**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#69 대지 기사의 낫**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#70 빛 섬광 쇠사슬**: 공격 · 섬광. 자산: `/assets/card-placeholder.svg`.
-- **#71 화염 기사의 투척검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#72 물결 안개 석궁**: 공격 · 안개. 자산: `/assets/card-placeholder.svg`.
-- **#73 숲 기사의 칼날**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#74 숲 연격 도끼**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#75 빛 기사의 창**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#76 어둠 기사의 보검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#77 화염 기사의 전투봉**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#78 화염 수호자의 단검**: 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#79 물결 수호자의 새총**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#80 숲 환영 곤봉**: 공격 · 꿈. 자산: `/assets/card-placeholder.svg`.
-- **#81 대지 연격 숏소드**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#82 빛 수호자의 손도끼**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#83 어둠 수호자의 장창**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#84 화염 연격 철퇴**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#85 물결 속성 전투 활**: 공격 · 속성 덮어쓰기. 자산: `/assets/card-placeholder.svg`.
-- **#86 숲 수호자의 긴 검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#87 빛 수호자의 할버드**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#88 어둠 수호자의 대검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#89 어둠 연격 망치**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#90 화염 수호자의 쌍검**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#91 물결 수호자의 창날**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#92 대지 연격 손톱**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#93 어둠 수호자의 낫**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#94 화염 연격 쇠사슬**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#95 물결 연격 투척검**: 공격 · 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#96 빛 수호자의 석궁**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#97 어둠 수호자의 칼날**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#98 대지 수호자의 도끼**: 공격. 자산: `/assets/card-placeholder.svg`.
-- **#99 운명의 방망이**: 공격 · 위험한 그릇 소유자에게 999 피해 · 없으면 무작위 대상. 자산: `/assets/card-placeholder.svg`.
-- **#100 화염 수호자의 창**: 공격 · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#101 어둠 수호자의 보검**: 공격 · 대상별 명중 50%. 자산: `/assets/card-placeholder.svg`.
-- **#102 물결 안개 전투봉**: 공격 · 안개 · 대상별 명중 50%. 자산: `/assets/card-placeholder.svg`.
-- **#103 숲 흡혈 단검**: 공격 · 피해량만큼 HP 흡수 · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#104 빛 현자의 새총**: 공격 · 대상별 명중 25%. 자산: `/assets/card-placeholder.svg`.
-- **#105 화염 현자의 곤봉**: 공격 · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#106 물결 현자의 숏소드**: 공격 · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#107 숲 현자의 손도끼**: 공격 · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#108 대지 현자의 장창**: 공격 · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#109 물결 현자의 철퇴**: 공격 · 대상별 명중 50%. 자산: `/assets/card-placeholder.svg`.
-- **#110 대지 현자의 전투 활**: 공격 · 대상별 명중 25%. 자산: `/assets/card-placeholder.svg`.
-- **#111 빛 현자의 긴 검**: 공격 · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#112 화염 현자의 할버드**: 공격 · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#113 숲 현자의 대검**: 공격 · 방어 · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#114 물결 현자의 망치**: 공격 · 대상별 명중 50%. 자산: `/assets/card-placeholder.svg`.
-- **#115 화염 현자의 쌍검**: 공격 · 대상별 명중 50%. 자산: `/assets/card-placeholder.svg`.
-- **#116 대지 현자의 창날**: 공격 · 대상별 명중 25%. 자산: `/assets/card-placeholder.svg`.
-- **#117 황혼의 유언**: 공격 · 사망 시 빛 30 · 적 전체 75% · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#118 여행자의 나무 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#119 기적 튕김의 가죽 갑옷**: 방어 · 기적 무작위 튕겨내기. 자산: `/assets/card-placeholder.svg`.
-- **#120 여행자의 철 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#121 기적 튕김의 사슬 갑옷**: 방어 · 기적 무작위 튕겨내기. 자산: `/assets/card-placeholder.svg`.
-- **#122 화염 여행자의 원형 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#123 물결 여행자의 투구**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#124 숲 여행자의 철갑**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#125 대지 여행자의 수호 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#126 여행자의 수호 망토**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#127 기적 튕김의 보호 장갑**: 방어 · 기적 무작위 튕겨내기. 자산: `/assets/card-placeholder.svg`.
-- **#128 화염 여행자의 기사 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#129 물결 여행자의 판금 갑옷**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#130 숲 여행자의 수호 반지**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#131 대지 여행자의 방벽**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#132 여행자의 흉갑**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#133 연격 전투 장화**: 추가 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#134 기적 튕김의 방호 부적**: 방어 · 기적 무작위 튕겨내기. 자산: `/assets/card-placeholder.svg`.
-- **#135 화염 여행자의 가슴 보호대**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#136 물결 여행자의 수호 관**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#137 숲 여행자의 보호 팔찌**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#138 대지 여행자의 방호복**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#139 여행자의 큰 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#140 기적 튕김의 은빛 갑옷**: 방어 · 기적 무작위 튕겨내기. 자산: `/assets/card-placeholder.svg`.
-- **#141 화염 여행자의 수호 장막**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#142 물결 사냥꾼의 나무 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#143 숲 사냥꾼의 가죽 갑옷**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#144 대지 사냥꾼의 철 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#145 사냥꾼의 사슬 갑옷**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#146 연격 원형 방패**: 추가 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#147 화염 사냥꾼의 투구**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#148 물결 사냥꾼의 철갑**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#149 숲 사냥꾼의 수호 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#150 대지 사냥꾼의 수호 망토**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#151 사냥꾼의 보호 장갑**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#152 기적 봉쇄의 기사 방패**: 방어 · 기적 완전 차단. 자산: `/assets/card-placeholder.svg`.
-- **#153 무소모 판금 갑옷**: 바로 앞 기적의 MP 비용 면제 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#154 화염 사냥꾼의 수호 반지**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#155 물결 사냥꾼의 방벽**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#156 숲 사냥꾼의 흉갑**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#157 대지 사냥꾼의 전투 장화**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#158 빛 사냥꾼의 방호 부적**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#159 사냥꾼의 가슴 보호대**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#160 연격 수호 관**: 추가 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#161 화염 사냥꾼의 보호 팔찌**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#162 물결 사냥꾼의 방호복**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#163 대지 사냥꾼의 큰 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#164 사냥꾼의 은빛 갑옷**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#165 기적 봉쇄의 수호 장막**: 방어 · 기적 완전 차단. 자산: `/assets/card-placeholder.svg`.
-- **#166 화염 기사의 나무 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#167 물결 기사의 가죽 갑옷**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#168 숲 기사의 철 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#169 기사의 사슬 갑옷**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#170 작은 연격 원형 방패**: 추가 공격 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#171 기적 반사의 투구**: 방어 · 기적 되돌리기. 자산: `/assets/card-placeholder.svg`.
-- **#172 무소모 철갑**: 바로 앞 기적의 MP 비용 면제 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#173 기사의 수호 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#174 기적 반사의 수호 망토**: 방어 · 기적 되돌리기. 자산: `/assets/card-placeholder.svg`.
-- **#175 화염 기사의 보호 장갑**: 방어 · 열병. 자산: `/assets/card-placeholder.svg`.
-- **#176 빛 기사의 기사 방패**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#177 기사의 판금 갑옷**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#178 기적 반사의 수호 반지**: 방어 · 기적 되돌리기. 자산: `/assets/card-placeholder.svg`.
-- **#179 기사의 방벽**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#180 무소모 흉갑**: 바로 앞 기적의 MP 비용 면제 · 방어. 자산: `/assets/card-placeholder.svg`.
-- **#181 화염 기사의 전투 장화**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#182 기적 봉쇄의 방호 부적**: 방어 · 기적 완전 차단. 자산: `/assets/card-placeholder.svg`.
-- **#183 기적 봉쇄의 가슴 보호대**: 방어 · 기적 완전 차단. 자산: `/assets/card-placeholder.svg`.
-- **#184 숲 환영 수호 관**: 방어 · 꿈. 자산: `/assets/card-placeholder.svg`.
-- **#185 기적 봉쇄의 보호 팔찌**: 방어 · 기적 완전 차단. 자산: `/assets/card-placeholder.svg`.
-- **#186 기사의 방호복**: 방어. 자산: `/assets/card-placeholder.svg`.
-- **#187 화염 기사의 큰 방패**: 공격 · 받은 피해를 기준으로 반격 · 대상별 명중 75%. 자산: `/assets/card-placeholder.svg`.
-- **#188 물결 안개 은빛 갑옷**: ADD_HARM · 안개 · 받은 피해를 기준으로 반격. 자산: `/assets/card-placeholder.svg`.
-- **#189 숲 환영 수호 장막**: ADD_HARM · 꿈 · 받은 피해를 기준으로 반격. 자산: `/assets/card-placeholder.svg`.
-- **#190 대지 수호자의 나무 방패**: 공격 · 받은 피해를 기준으로 반격. 자산: `/assets/card-placeholder.svg`.
-- **#191 빛 섬광 가죽 갑옷**: ADD_HARM · 섬광 · 받은 피해를 기준으로 반격. 자산: `/assets/card-placeholder.svg`.
-- **#192 어둠 먹구름 철 방패**: ADD_HARM · 먹구름 · 받은 피해를 기준으로 반격. 자산: `/assets/card-placeholder.svg`.
-- **#193 수호자의 사슬 갑옷**: MP 회복 · 받은 피해를 기준으로 반격. 자산: `/assets/card-placeholder.svg`.
-- **#194 수호자의 원형 방패**: 소지금 흡수 · 부족분 MP→HP · 받은 피해를 기준으로 반격. 자산: `/assets/card-placeholder.svg`.
-- **#195 정화의 깃**: 공격 속성 제거. 자산: `/assets/card-placeholder.svg`.
-- **#196 거울의 파편**: 공격 되돌리기. 자산: `/assets/card-placeholder.svg`.
-- **#197 불씨**: 공격 · 추가 공격 · MP 2, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#198 물의 화살**: 공격 · MP 2, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#199 덩굴 채찍**: 공격 · MP 3, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#200 눈부신 섬광**: 공격 · 섬광 · 대상별 명중 25% · MP 3, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#201 안개 부르기**: ADD_HARM · 안개 · MP 3, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#202 작은 정화**: 감기·열병·안개·섬광 해제 · MP 3, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#203 바위 낙하**: 공격 · MP 4, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#204 불꽃 비**: 공격 · 대상별 명중 75% · MP 4, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#205 별빛 소나기**: 공격 · 대상별 명중 25% · MP 4, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#206 화염구**: 공격 · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#207 어둠의 손길**: 공격 · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#208 먹구름 부르기**: ADD_HARM · 먹구름 · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#209 확산의 주문**: 적 전체 공격 · 무속성 전환 · 대상별 명중 100% · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#210 마법 튕기기**: 기적 무작위 튕겨내기 · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#211 완전한 정화**: 모든 재앙 해제 · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#212 감기 주문**: ADD_HARM · 감기 · MP 6, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#213 꿈의 장막**: ADD_HARM · 꿈 · MP 6, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#214 증폭의 주문**: 공격력 두 배 · MP 6, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#215 무기 봉쇄**: 무기 완전 차단 · MP 6, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#216 회복의 빛**: HP 회복 · MP 6, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#217 빛의 창**: 공격 · 추가 공격 · MP 7, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#218 파도 폭풍**: 공격 · 대상별 명중 75% · MP 7, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#219 지진**: 공격 · 대상별 명중 50% · MP 8, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#220 금빛 소원**: 소지금 획득 · MP 8, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#221 생명의 광선**: 공격 · 피해량만큼 HP 흡수 · MP 10, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#222 빙하의 창**: 공격 · MP 12, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#223 화염 폭풍**: 공격 · 대상별 명중 75% · MP 12, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#224 천국의 초대**: ADD_HARM · 천국병 · MP 15, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#225 수호자 강림**: 무작위 수호자 소환 · HP 20 · MP 20, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#226 대해일**: 공격 · 대상별 명중 75% · MP 30, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/card-placeholder.svg`.
-- **#227 작은 회복약**: HP 회복. 자산: `/assets/card-placeholder.svg`.
-- **#228 회복약**: HP 회복. 자산: `/assets/card-placeholder.svg`.
-- **#229 상급 회복약**: HP 회복. 자산: `/assets/card-placeholder.svg`.
-- **#230 생명의 물약**: HP 회복. 자산: `/assets/card-placeholder.svg`.
-- **#231 작은 마력약**: MP 회복. 자산: `/assets/card-placeholder.svg`.
-- **#232 마력약**: MP 회복. 자산: `/assets/card-placeholder.svg`.
-- **#233 상급 마력약**: MP 회복. 자산: `/assets/card-placeholder.svg`.
-- **#234 천상의 마력약**: MP 회복 · 천국병. 자산: `/assets/card-placeholder.svg`.
-- **#235 맑은 약초**: 감기·열병·안개·섬광 해제. 자산: `/assets/card-placeholder.svg`.
-- **#236 정화의 물약**: 모든 재앙 해제. 자산: `/assets/card-placeholder.svg`.
-- **#237 수상한 열매**: 50%로 HP +10 또는 피해 10. 자산: `/assets/card-placeholder.svg`.
-- **#238 힘의 비약**: 추가 공격. 자산: `/assets/card-placeholder.svg`.
-- **#239 마력의 향**: 바로 앞 기적의 MP 비용 면제. 자산: `/assets/card-placeholder.svg`.
-- **#240 망각의 가위**: 상대 일반 카드 1장 제거. 자산: `/assets/card-placeholder.svg`.
-- **#241 침묵의 봉인**: 상대 영구 기적 1개 제거. 자산: `/assets/card-placeholder.svg`.
-- **#242 수호자의 피리**: 무작위 수호자 소환 · HP 20. 자산: `/assets/card-placeholder.svg`.
-- **#243 별의 실타래**: 열 가지 운명 중 무작위 발동. 자산: `/assets/card-placeholder.svg`.
-- **#244 새벽의 씨앗**: 사망 직전 HP 10 부활. 자산: `/assets/card-placeholder.svg`.
-- **#245 위험한 그릇**: 특수 공격의 표적 · 버릴 수 없음. 자산: `/assets/card-placeholder.svg`.
+- **#0 숨 고르기**: 대기. 일반 드로우 제외. 자산: `/assets/original/052.webp`.
+- **#1 카드 정리**: 카드 버리기. 일반 드로우 제외. 자산: `/assets/original/053.webp`.
+- **#2 환전**: HP·MP·소지금 총합을 보존하여 재분배. 자산: `/assets/original/202.webp`.
+- **#3 강제 판매**: 카드 한 장을 골라 상대에게 강제 판매. 자산: `/assets/original/203.webp`.
+- **#4 카드 구매**: 상대 카드 무작위 선택 후 구매 확인. 자산: `/assets/original/201.webp`.
+- **#5 여행자의 단검**: 공격. 자산: `/assets/original/277.webp`.
+- **#6 여행자의 새총**: 공격. 자산: `/assets/original/223.webp`.
+- **#7 여행자의 곤봉**: 공격. 자산: `/assets/original/235.webp`.
+- **#8 여행자의 숏소드**: 공격. 자산: `/assets/original/261.webp`.
+- **#9 연격 손도끼**: 공격 · 추가 공격. 자산: `/assets/original/230.webp`.
+- **#10 여행자의 장창**: 공격. 자산: `/assets/original/287.webp`.
+- **#11 여행자의 철퇴**: 공격 · 방어. 자산: `/assets/original/288.webp`.
+- **#12 연격 전투 활**: 공격 · 추가 공격. 자산: `/assets/original/215.webp`.
+- **#13 여행자의 긴 검**: 공격. 자산: `/assets/original/266.webp`.
+- **#14 연격 할버드**: 공격 · 추가 공격. 자산: `/assets/original/214.webp`.
+- **#15 여행자의 대검**: 공격. 자산: `/assets/original/208.webp`.
+- **#16 여행자의 망치**: 공격 · 방어. 자산: `/assets/original/307.webp`.
+- **#17 연격 쌍검**: 공격 · 추가 공격. 자산: `/assets/original/212.webp`.
+- **#18 여행자의 창날**: 공격. 자산: `/assets/original/241.webp`.
+- **#19 여행자의 손톱**: 공격 · 방어. 자산: `/assets/original/308.webp`.
+- **#20 무기 튕김의 낫**: 공격 · 무기 무작위 튕겨내기. 자산: `/assets/original/282.webp`.
+- **#21 연격 쇠사슬**: 공격 · 추가 공격 · 기적 무작위 튕겨내기. 자산: `/assets/original/298.webp`.
+- **#22 여행자의 투척검**: 공격. 자산: `/assets/original/227.webp`.
+- **#23 여행자의 석궁**: 공격 · 방어. 자산: `/assets/original/226.webp`.
+- **#24 연격 칼날**: 공격 · 추가 공격. 자산: `/assets/original/259.webp`.
+- **#25 여행자의 도끼**: 공격. 자산: `/assets/original/239.webp`.
+- **#26 흡혈 창**: 공격 · 피해량만큼 HP 흡수. 자산: `/assets/original/234.webp`.
+- **#27 기적 봉쇄의 보검**: 공격 · 기적 완전 차단. 자산: `/assets/original/224.webp`.
+- **#28 연격 전투봉**: 공격 · 추가 공격. 자산: `/assets/original/276.webp`.
+- **#29 사냥꾼의 단검**: 공격. 자산: `/assets/original/279.webp`.
+- **#30 지옥병 새총**: 공격 · 지옥병. 자산: `/assets/original/252.webp`.
+- **#31 사냥꾼의 곤봉**: 공격 · 방어. 자산: `/assets/original/273.webp`.
+- **#32 연격 숏소드**: 공격 · 추가 공격. 자산: `/assets/original/312.webp`.
+- **#33 사냥꾼의 손도끼**: 공격. 자산: `/assets/original/304.webp`.
+- **#34 감기 장창**: 공격 · 감기. 자산: `/assets/original/296.webp`.
+- **#35 연격 철퇴**: 공격 · 추가 공격. 자산: `/assets/original/280.webp`.
+- **#36 사냥꾼의 전투 활**: 공격. 자산: `/assets/original/313.webp`.
+- **#37 환영 긴 검**: 공격 · 꿈. 자산: `/assets/original/237.webp`.
+- **#38 사냥꾼의 할버드**: 공격 · 방어. 자산: `/assets/original/303.webp`.
+- **#39 무기 반사의 대검**: 공격 · 무기 되돌리기. 자산: `/assets/original/242.webp`.
+- **#40 기적 반사의 망치**: 공격 · 기적 되돌리기. 자산: `/assets/original/233.webp`.
+- **#41 사냥꾼의 쌍검**: 공격. 자산: `/assets/original/204.webp`.
+- **#42 흡혈 창날**: 공격 · 피해량만큼 HP 흡수. 자산: `/assets/original/283.webp`.
+- **#43 먹구름 손톱**: 공격 · 먹구름. 자산: `/assets/original/286.webp`.
+- **#44 연격 낫**: 공격 · 추가 공격. 자산: `/assets/original/267.webp`.
+- **#45 사냥꾼의 쇠사슬**: 공격. 자산: `/assets/original/281.webp`.
+- **#46 환영 투척검**: 공격 · 꿈. 자산: `/assets/original/207.webp`.
+- **#47 무소모 석궁**: 공격 · 바로 앞 기적의 MP 비용 면제. 자산: `/assets/original/292.webp`.
+- **#48 사냥꾼의 칼날**: 공격. 자산: `/assets/original/316.webp`.
+- **#49 감기 도끼**: 공격 · 감기. 자산: `/assets/original/232.webp`.
+- **#50 사냥꾼의 창**: 공격 · 방어. 자산: `/assets/original/221.webp`.
+- **#51 연격 보검**: 공격 · 추가 공격. 자산: `/assets/original/265.webp`.
+- **#52 사냥꾼의 전투봉**: 공격. 자산: `/assets/original/218.webp`.
+- **#53 광란 단검**: 공격 · 같은 피해를 자신도 받음. 자산: `/assets/original/251.webp`.
+- **#54 기적 봉쇄의 새총**: 공격 · 기적 완전 차단. 자산: `/assets/original/210.webp`.
+- **#55 연격 곤봉**: 공격 · 추가 공격 · 기적 완전 차단. 자산: `/assets/original/209.webp`.
+- **#56 기사의 숏소드**: 공격. 자산: `/assets/original/257.webp`.
+- **#57 마력의 수정검**: 공격 · 남은 MP 전부를 공격력 두 배로 전환. 자산: `/assets/original/271.webp`.
+- **#58 화염 기사의 손도끼**: 공격. 자산: `/assets/original/305.webp`.
+- **#59 물결 기사의 장창**: 공격. 자산: `/assets/original/309.webp`.
+- **#60 숲 기사의 철퇴**: 공격. 자산: `/assets/original/306.webp`.
+- **#61 대지 감기 전투 활**: 공격 · 감기. 자산: `/assets/original/302.webp`.
+- **#62 빛 연격 긴 검**: 공격 · 추가 공격. 자산: `/assets/original/255.webp`.
+- **#63 어둠 기사의 할버드**: 공격. 자산: `/assets/original/216.webp`.
+- **#64 화염 기사의 대검**: 공격. 자산: `/assets/original/206.webp`.
+- **#65 화염 속성 망치**: 공격 · 속성 덮어쓰기. 자산: `/assets/original/240.webp`.
+- **#66 물결 기사의 쌍검**: 공격. 자산: `/assets/original/211.webp`.
+- **#67 숲 기사의 창날**: 공격. 자산: `/assets/original/248.webp`.
+- **#68 숲 연격 손톱**: 공격 · 추가 공격. 자산: `/assets/original/243.webp`.
+- **#69 대지 기사의 낫**: 공격. 자산: `/assets/original/311.webp`.
+- **#70 빛 섬광 쇠사슬**: 공격 · 섬광. 자산: `/assets/original/225.webp`.
+- **#71 화염 기사의 투척검**: 공격. 자산: `/assets/original/275.webp`.
+- **#72 물결 안개 석궁**: 공격 · 안개. 자산: `/assets/original/263.webp`.
+- **#73 숲 기사의 칼날**: 공격. 자산: `/assets/original/249.webp`.
+- **#74 숲 연격 도끼**: 공격 · 추가 공격. 자산: `/assets/original/236.webp`.
+- **#75 빛 기사의 창**: 공격. 자산: `/assets/original/300.webp`.
+- **#76 어둠 기사의 보검**: 공격. 자산: `/assets/original/290.webp`.
+- **#77 화염 기사의 전투봉**: 공격. 자산: `/assets/original/213.webp`.
+- **#78 화염 수호자의 단검**: 공격 · 방어. 자산: `/assets/original/246.webp`.
+- **#79 물결 수호자의 새총**: 공격. 자산: `/assets/original/247.webp`.
+- **#80 숲 환영 곤봉**: 공격 · 꿈. 자산: `/assets/original/315.webp`.
+- **#81 대지 연격 숏소드**: 공격 · 추가 공격. 자산: `/assets/original/268.webp`.
+- **#82 빛 수호자의 손도끼**: 공격. 자산: `/assets/original/270.webp`.
+- **#83 어둠 수호자의 장창**: 공격. 자산: `/assets/original/217.webp`.
+- **#84 화염 연격 철퇴**: 공격 · 추가 공격. 자산: `/assets/original/228.webp`.
+- **#85 물결 속성 전투 활**: 공격 · 속성 덮어쓰기. 자산: `/assets/original/274.webp`.
+- **#86 숲 수호자의 긴 검**: 공격. 자산: `/assets/original/264.webp`.
+- **#87 빛 수호자의 할버드**: 공격. 자산: `/assets/original/253.webp`.
+- **#88 어둠 수호자의 대검**: 공격. 자산: `/assets/original/260.webp`.
+- **#89 어둠 연격 망치**: 공격 · 추가 공격. 자산: `/assets/original/256.webp`.
+- **#90 화염 수호자의 쌍검**: 공격. 자산: `/assets/original/294.webp`.
+- **#91 물결 수호자의 창날**: 공격. 자산: `/assets/original/299.webp`.
+- **#92 대지 연격 손톱**: 공격 · 추가 공격. 자산: `/assets/original/269.webp`.
+- **#93 어둠 수호자의 낫**: 공격. 자산: `/assets/original/289.webp`.
+- **#94 화염 연격 쇠사슬**: 공격 · 추가 공격. 자산: `/assets/original/258.webp`.
+- **#95 물결 연격 투척검**: 공격 · 추가 공격. 자산: `/assets/original/301.webp`.
+- **#96 빛 수호자의 석궁**: 공격. 자산: `/assets/original/291.webp`.
+- **#97 어둠 수호자의 칼날**: 공격. 자산: `/assets/original/293.webp`.
+- **#98 대지 수호자의 도끼**: 공격. 자산: `/assets/original/222.webp`.
+- **#99 운명의 방망이**: 공격 · 위험한 그릇 소유자에게 999 피해 · 없으면 무작위 대상. 자산: `/assets/original/205.webp`.
+- **#100 화염 수호자의 창**: 공격 · 대상별 명중 75%. 자산: `/assets/original/245.webp`.
+- **#101 어둠 수호자의 보검**: 공격 · 대상별 명중 50%. 자산: `/assets/original/220.webp`.
+- **#102 물결 안개 전투봉**: 공격 · 안개 · 대상별 명중 50%. 자산: `/assets/original/262.webp`.
+- **#103 숲 흡혈 단검**: 공격 · 피해량만큼 HP 흡수 · 대상별 명중 75%. 자산: `/assets/original/310.webp`.
+- **#104 빛 현자의 새총**: 공격 · 대상별 명중 25%. 자산: `/assets/original/250.webp`.
+- **#105 화염 현자의 곤봉**: 공격 · 대상별 명중 75%. 자산: `/assets/original/254.webp`.
+- **#106 물결 현자의 숏소드**: 공격 · 대상별 명중 75%. 자산: `/assets/original/284.webp`.
+- **#107 숲 현자의 손도끼**: 공격 · 대상별 명중 75%. 자산: `/assets/original/295.webp`.
+- **#108 대지 현자의 장창**: 공격 · 대상별 명중 75%. 자산: `/assets/original/219.webp`.
+- **#109 물결 현자의 철퇴**: 공격 · 대상별 명중 50%. 자산: `/assets/original/314.webp`.
+- **#110 대지 현자의 전투 활**: 공격 · 대상별 명중 25%. 자산: `/assets/original/231.webp`.
+- **#111 빛 현자의 긴 검**: 공격 · 대상별 명중 75%. 자산: `/assets/original/244.webp`.
+- **#112 화염 현자의 할버드**: 공격 · 대상별 명중 75%. 자산: `/assets/original/285.webp`.
+- **#113 숲 현자의 대검**: 공격 · 방어 · 대상별 명중 75%. 자산: `/assets/original/272.webp`.
+- **#114 물결 현자의 망치**: 공격 · 대상별 명중 50%. 자산: `/assets/original/238.webp`.
+- **#115 화염 현자의 쌍검**: 공격 · 대상별 명중 50%. 자산: `/assets/original/229.webp`.
+- **#116 대지 현자의 창날**: 공격 · 대상별 명중 25%. 자산: `/assets/original/278.webp`.
+- **#117 황혼의 유언**: 공격 · 사망 시 빛 30 · 적 전체 75% · 대상별 명중 75%. 자산: `/assets/original/297.webp`.
+- **#118 여행자의 나무 방패**: 방어. 자산: `/assets/original/173.webp`.
+- **#119 기적 튕김의 가죽 갑옷**: 방어 · 기적 무작위 튕겨내기. 자산: `/assets/original/169.webp`.
+- **#120 여행자의 철 방패**: 방어. 자산: `/assets/original/153.webp`.
+- **#121 기적 튕김의 사슬 갑옷**: 방어 · 기적 무작위 튕겨내기. 자산: `/assets/original/170.webp`.
+- **#122 화염 여행자의 원형 방패**: 방어. 자산: `/assets/original/132.webp`.
+- **#123 물결 여행자의 투구**: 방어. 자산: `/assets/original/108.webp`.
+- **#124 숲 여행자의 철갑**: 방어. 자산: `/assets/original/147.webp`.
+- **#125 대지 여행자의 수호 방패**: 방어. 자산: `/assets/original/167.webp`.
+- **#126 여행자의 수호 망토**: 방어. 자산: `/assets/original/163.webp`.
+- **#127 기적 튕김의 보호 장갑**: 방어 · 기적 무작위 튕겨내기. 자산: `/assets/original/171.webp`.
+- **#128 화염 여행자의 기사 방패**: 방어. 자산: `/assets/original/131.webp`.
+- **#129 물결 여행자의 판금 갑옷**: 방어. 자산: `/assets/original/107.webp`.
+- **#130 숲 여행자의 수호 반지**: 방어. 자산: `/assets/original/143.webp`.
+- **#131 대지 여행자의 방벽**: 방어. 자산: `/assets/original/124.webp`.
+- **#132 여행자의 흉갑**: 방어. 자산: `/assets/original/148.webp`.
+- **#133 연격 전투 장화**: 추가 공격 · 방어. 자산: `/assets/original/158.webp`.
+- **#134 기적 튕김의 방호 부적**: 방어 · 기적 무작위 튕겨내기. 자산: `/assets/original/172.webp`.
+- **#135 화염 여행자의 가슴 보호대**: 방어. 자산: `/assets/original/120.webp`.
+- **#136 물결 여행자의 수호 관**: 방어. 자산: `/assets/original/134.webp`.
+- **#137 숲 여행자의 보호 팔찌**: 방어. 자산: `/assets/original/128.webp`.
+- **#138 대지 여행자의 방호복**: 방어. 자산: `/assets/original/142.webp`.
+- **#139 여행자의 큰 방패**: 방어. 자산: `/assets/original/103.webp`.
+- **#140 기적 튕김의 은빛 갑옷**: 방어 · 기적 무작위 튕겨내기. 자산: `/assets/original/168.webp`.
+- **#141 화염 여행자의 수호 장막**: 방어. 자산: `/assets/original/122.webp`.
+- **#142 물결 사냥꾼의 나무 방패**: 방어. 자산: `/assets/original/135.webp`.
+- **#143 숲 사냥꾼의 가죽 갑옷**: 방어. 자산: `/assets/original/130.webp`.
+- **#144 대지 사냥꾼의 철 방패**: 방어. 자산: `/assets/original/113.webp`.
+- **#145 사냥꾼의 사슬 갑옷**: 방어. 자산: `/assets/original/162.webp`.
+- **#146 연격 원형 방패**: 추가 공격 · 방어. 자산: `/assets/original/157.webp`.
+- **#147 화염 사냥꾼의 투구**: 방어. 자산: `/assets/original/123.webp`.
+- **#148 물결 사냥꾼의 철갑**: 방어. 자산: `/assets/original/136.webp`.
+- **#149 숲 사냥꾼의 수호 방패**: 방어. 자산: `/assets/original/137.webp`.
+- **#150 대지 사냥꾼의 수호 망토**: 방어. 자산: `/assets/original/112.webp`.
+- **#151 사냥꾼의 보호 장갑**: 방어. 자산: `/assets/original/119.webp`.
+- **#152 기적 봉쇄의 기사 방패**: 방어 · 기적 완전 차단. 자산: `/assets/original/116.webp`.
+- **#153 무소모 판금 갑옷**: 바로 앞 기적의 MP 비용 면제 · 방어. 자산: `/assets/original/165.webp`.
+- **#154 화염 사냥꾼의 수호 반지**: 방어. 자산: `/assets/original/121.webp`.
+- **#155 물결 사냥꾼의 방벽**: 방어. 자산: `/assets/original/133.webp`.
+- **#156 숲 사냥꾼의 흉갑**: 방어. 자산: `/assets/original/152.webp`.
+- **#157 대지 사냥꾼의 전투 장화**: 방어. 자산: `/assets/original/111.webp`.
+- **#158 빛 사냥꾼의 방호 부적**: 방어. 자산: `/assets/original/160.webp`.
+- **#159 사냥꾼의 가슴 보호대**: 방어. 자산: `/assets/original/129.webp`.
+- **#160 연격 수호 관**: 추가 공격 · 방어. 자산: `/assets/original/156.webp`.
+- **#161 화염 사냥꾼의 보호 팔찌**: 방어. 자산: `/assets/original/110.webp`.
+- **#162 물결 사냥꾼의 방호복**: 방어. 자산: `/assets/original/175.webp`.
+- **#163 대지 사냥꾼의 큰 방패**: 방어. 자산: `/assets/original/114.webp`.
+- **#164 사냥꾼의 은빛 갑옷**: 방어. 자산: `/assets/original/149.webp`.
+- **#165 기적 봉쇄의 수호 장막**: 방어 · 기적 완전 차단. 자산: `/assets/original/117.webp`.
+- **#166 화염 기사의 나무 방패**: 방어. 자산: `/assets/original/109.webp`.
+- **#167 물결 기사의 가죽 갑옷**: 방어. 자산: `/assets/original/174.webp`.
+- **#168 숲 기사의 철 방패**: 방어. 자산: `/assets/original/146.webp`.
+- **#169 기사의 사슬 갑옷**: 방어. 자산: `/assets/original/178.webp`.
+- **#170 작은 연격 원형 방패**: 추가 공격 · 방어. 자산: `/assets/original/159.webp`.
+- **#171 기적 반사의 투구**: 방어 · 기적 되돌리기. 자산: `/assets/original/125.webp`.
+- **#172 무소모 철갑**: 바로 앞 기적의 MP 비용 면제 · 방어. 자산: `/assets/original/166.webp`.
+- **#173 기사의 수호 방패**: 방어. 자산: `/assets/original/180.webp`.
+- **#174 기적 반사의 수호 망토**: 방어 · 기적 되돌리기. 자산: `/assets/original/126.webp`.
+- **#175 화염 기사의 보호 장갑**: 방어 · 열병. 자산: `/assets/original/154.webp`.
+- **#176 빛 기사의 기사 방패**: 방어. 자산: `/assets/original/145.webp`.
+- **#177 기사의 판금 갑옷**: 방어. 자산: `/assets/original/118.webp`.
+- **#178 기적 반사의 수호 반지**: 방어 · 기적 되돌리기. 자산: `/assets/original/127.webp`.
+- **#179 기사의 방벽**: 방어. 자산: `/assets/original/161.webp`.
+- **#180 무소모 흉갑**: 바로 앞 기적의 MP 비용 면제 · 방어. 자산: `/assets/original/164.webp`.
+- **#181 화염 기사의 전투 장화**: 방어. 자산: `/assets/original/138.webp`.
+- **#182 기적 봉쇄의 방호 부적**: 방어 · 기적 완전 차단. 자산: `/assets/original/105.webp`.
+- **#183 기적 봉쇄의 가슴 보호대**: 방어 · 기적 완전 차단. 자산: `/assets/original/106.webp`.
+- **#184 숲 환영 수호 관**: 방어 · 꿈. 자산: `/assets/original/181.webp`.
+- **#185 기적 봉쇄의 보호 팔찌**: 방어 · 기적 완전 차단. 자산: `/assets/original/104.webp`.
+- **#186 기사의 방호복**: 방어. 자산: `/assets/original/140.webp`.
+- **#187 화염 기사의 큰 방패**: 공격 · 받은 피해를 기준으로 반격 · 대상별 명중 75%. 자산: `/assets/original/141.webp`.
+- **#188 물결 안개 은빛 갑옷**: ADD_HARM · 안개 · 받은 피해를 기준으로 반격. 자산: `/assets/original/176.webp`.
+- **#189 숲 환영 수호 장막**: ADD_HARM · 꿈 · 받은 피해를 기준으로 반격. 자산: `/assets/original/151.webp`.
+- **#190 대지 수호자의 나무 방패**: 공격 · 받은 피해를 기준으로 반격. 자산: `/assets/original/115.webp`.
+- **#191 빛 섬광 가죽 갑옷**: ADD_HARM · 섬광 · 받은 피해를 기준으로 반격. 자산: `/assets/original/179.webp`.
+- **#192 어둠 먹구름 철 방패**: ADD_HARM · 먹구름 · 받은 피해를 기준으로 반격. 자산: `/assets/original/150.webp`.
+- **#193 수호자의 사슬 갑옷**: MP 회복 · 받은 피해를 기준으로 반격. 자산: `/assets/original/139.webp`.
+- **#194 수호자의 원형 방패**: 소지금 흡수 · 부족분 MP→HP · 받은 피해를 기준으로 반격. 자산: `/assets/original/144.webp`.
+- **#195 정화의 깃**: 공격 속성 제거. 자산: `/assets/original/155.webp`.
+- **#196 거울의 파편**: 공격 되돌리기. 자산: `/assets/original/177.webp`.
+- **#197 불씨**: 공격 · 추가 공격 · MP 2, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/068.webp`.
+- **#198 물의 화살**: 공격 · MP 2, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/079.webp`.
+- **#199 덩굴 채찍**: 공격 · MP 3, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/087.webp`.
+- **#200 눈부신 섬광**: 공격 · 섬광 · 대상별 명중 25% · MP 3, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/066.webp`.
+- **#201 안개 부르기**: ADD_HARM · 안개 · MP 3, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/078.webp`.
+- **#202 작은 정화**: 감기·열병·안개·섬광 해제 · MP 3, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/083.webp`.
+- **#203 바위 낙하**: 공격 · MP 4, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/071.webp`.
+- **#204 불꽃 비**: 공격 · 대상별 명중 75% · MP 4, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/077.webp`.
+- **#205 별빛 소나기**: 공격 · 대상별 명중 25% · MP 4, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/075.webp`.
+- **#206 화염구**: 공격 · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/069.webp`.
+- **#207 어둠의 손길**: 공격 · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/091.webp`.
+- **#208 먹구름 부르기**: ADD_HARM · 먹구름 · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/063.webp`.
+- **#209 확산의 주문**: 적 전체 공격 · 무속성 전환 · 대상별 명중 100% · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/086.webp`.
+- **#210 마법 튕기기**: 기적 무작위 튕겨내기 · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/084.webp`.
+- **#211 완전한 정화**: 모든 재앙 해제 · MP 5, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/090.webp`.
+- **#212 감기 주문**: ADD_HARM · 감기 · MP 6, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/076.webp`.
+- **#213 꿈의 장막**: ADD_HARM · 꿈 · MP 6, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/067.webp`.
+- **#214 증폭의 주문**: 공격력 두 배 · MP 6, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/064.webp`.
+- **#215 무기 봉쇄**: 무기 완전 차단 · MP 6, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/073.webp`.
+- **#216 회복의 빛**: HP 회복 · MP 6, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/072.webp`.
+- **#217 빛의 창**: 공격 · 추가 공격 · MP 7, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/085.webp`.
+- **#218 파도 폭풍**: 공격 · 대상별 명중 75% · MP 7, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/082.webp`.
+- **#219 지진**: 공격 · 대상별 명중 50% · MP 8, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/065.webp`.
+- **#220 금빛 소원**: 소지금 획득 · MP 8, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/092.webp`.
+- **#221 생명의 광선**: 공격 · 피해량만큼 HP 흡수 · MP 10, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/080.webp`.
+- **#222 빙하의 창**: 공격 · MP 12, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/088.webp`.
+- **#223 화염 폭풍**: 공격 · 대상별 명중 75% · MP 12, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/081.webp`.
+- **#224 천국의 초대**: ADD_HARM · 천국병 · MP 15, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/089.webp`.
+- **#225 수호자 강림**: 무작위 수호자 소환 · HP 20 · MP 20, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/074.webp`.
+- **#226 대해일**: 공격 · 대상별 명중 75% · MP 30, 획득 후 반복 사용, 보유 공간 1칸. 자산: `/assets/original/070.webp`.
+- **#227 작은 회복약**: HP 회복. 자산: `/assets/original/191.webp`.
+- **#228 회복약**: HP 회복. 자산: `/assets/original/187.webp`.
+- **#229 상급 회복약**: HP 회복. 자산: `/assets/original/193.webp`.
+- **#230 생명의 물약**: HP 회복. 자산: `/assets/original/183.webp`.
+- **#231 작은 마력약**: MP 회복. 자산: `/assets/original/189.webp`.
+- **#232 마력약**: MP 회복. 자산: `/assets/original/185.webp`.
+- **#233 상급 마력약**: MP 회복. 자산: `/assets/original/192.webp`.
+- **#234 천상의 마력약**: MP 회복 · 천국병. 자산: `/assets/original/197.webp`.
+- **#235 맑은 약초**: 감기·열병·안개·섬광 해제. 자산: `/assets/original/190.webp`.
+- **#236 정화의 물약**: 모든 재앙 해제. 자산: `/assets/original/186.webp`.
+- **#237 수상한 열매**: 50%로 HP +10 또는 피해 10. 자산: `/assets/original/184.webp`.
+- **#238 힘의 비약**: 추가 공격. 자산: `/assets/original/199.webp`.
+- **#239 마력의 향**: 바로 앞 기적의 MP 비용 면제. 자산: `/assets/original/194.webp`.
+- **#240 망각의 가위**: 상대 일반 카드 1장 제거. 자산: `/assets/original/200.webp`.
+- **#241 침묵의 봉인**: 상대 영구 기적 1개 제거. 자산: `/assets/original/188.webp`.
+- **#242 수호자의 피리**: 무작위 수호자 소환 · HP 20. 자산: `/assets/original/195.webp`.
+- **#243 별의 실타래**: 열 가지 운명 중 무작위 발동. 자산: `/assets/original/198.webp`.
+- **#244 새벽의 씨앗**: 사망 직전 HP 10 부활. 자산: `/assets/original/196.webp`.
+- **#245 위험한 그릇**: 특수 공격의 표적 · 버릴 수 없음. 자산: `/assets/original/182.webp`.
 - **#246 작은 악마**: 공격. 일반 드로우 제외. 자산: `/assets/card-placeholder.svg`.
 - **#247 붉은 악마**: 공격. 일반 드로우 제외. 자산: `/assets/card-placeholder.svg`.
 - **#248 심연의 악마**: 공격. 일반 드로우 제외. 자산: `/assets/card-placeholder.svg`.

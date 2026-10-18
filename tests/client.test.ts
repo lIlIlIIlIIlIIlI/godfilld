@@ -79,6 +79,14 @@ it('connects Korean home controls to a real validated game action and escapes ch
     );
   }
   update();
+  const originalImage = document.querySelector<HTMLImageElement>('.game-card .card-art')!;
+  expect(originalImage.getAttribute('src')).toMatch(/^\/assets\/original\/\d{3}\.webp$/);
+  expect(originalImage.alt).toContain(document.querySelector('.card-name')!.textContent!);
+  originalImage.dispatchEvent(new Event('error'));
+  expect(originalImage.getAttribute('src')).toBe('/assets/card-placeholder.svg');
+  expect(originalImage.style.left).toBe('0px');
+  originalImage.dispatchEvent(new Event('error'));
+  expect(originalImage.hidden).toBe(true);
   expect(document.querySelector('.card-name')?.textContent?.trim()).toBeTruthy();
   expect(document.querySelector('.game-card')?.getAttribute('aria-label')).toContain(
     document.querySelector('.card-name')!.textContent!,

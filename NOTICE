@@ -9,9 +9,13 @@ https://github.com/Igoorx/godfield-flash
 Commit: fcc83740a3d3cd9968e6e5cd2b7ed781f53abe80
 Reference server-src licensed under AGPL-3.0.
 
-This project does not contain the original client images, sounds, SWF,
-logos, translations, or Flash runtime. Their inclusion in the upstream
-historical backup does not establish reuse permission here.
+Original card artwork and MP3 effects are included following the project
+owner's explicit confirmation on 2026-10-17 that permission was obtained.
+Upstream attributes client-file rights to @guuji. These media retain their
+original rights and are NOT relicensed under the application AGPL. This is
+a record of the user's confirmation, not independent verification of a
+license document. See docs/asset-audit.md and data/asset-manifest.json.
+No SWF, Ruffle, or Flash runtime is included.
 
 Lucide icons: ISC license. See node_modules/lucide/LICENSE when installed.
 Dependency licenses remain in their respective packages. The new UI's

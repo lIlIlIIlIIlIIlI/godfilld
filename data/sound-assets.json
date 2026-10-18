@@ -1,0 +1,282 @@
+{
+  "permissionBasis": "user-confirmation-2026-10-17",
+  "clips": {
+    "alert": {
+      "url": "/sounds/original/alert.mp3",
+      "bytes": 4597,
+      "sha256": "001fdea3c59345465ee0edfa67be90c63804fdf5eea1520400931cd8f78478f8",
+      "source": "client-files/static.godfield.net/sounds/alert.mp3"
+    },
+    "assistant": {
+      "url": "/sounds/original/assistant.mp3",
+      "bytes": 11956,
+      "sha256": "145e9953ebce13affa59259fc79044943516db2160e4fe72f5c73d8cb9e1984f",
+      "source": "client-files/static.godfield.net/sounds/assistant.mp3"
+    },
+    "assistant_add": {
+      "url": "/sounds/original/assistant_add.mp3",
+      "bytes": 22778,
+      "sha256": "7ae1d3008a4a09229a75dc645a6de8e4dae5ddd6b7623c67f46e1520788460eb",
+      "source": "client-files/static.godfield.net/sounds/assistant_add.mp3"
+    },
+    "assistant_remove": {
+      "url": "/sounds/original/assistant_remove.mp3",
+      "bytes": 24450,
+      "sha256": "4473eda64633aa59249b0eb6e88a146176165d395e5d6247121387c5080145ca",
+      "source": "client-files/static.godfield.net/sounds/assistant_remove.mp3"
+    },
+    "block": {
+      "url": "/sounds/original/block.mp3",
+      "bytes": 7567,
+      "sha256": "9f40c3fe9f75422d51681e30d1b497bc2cf97ab73ff5d912bb404ad1a0c4c9d7",
+      "source": "client-files/static.godfield.net/sounds/block.mp3"
+    },
+    "book_tab_down": {
+      "url": "/sounds/original/book_tab_down.mp3",
+      "bytes": 6940,
+      "sha256": "2d25649876c41f816dae27092132378029dca45df9e154a0ee8a9f785654a1f4",
+      "source": "client-files/static.godfield.net/sounds/book_tab_down.mp3"
+    },
+    "book_tab_over": {
+      "url": "/sounds/original/book_tab_over.mp3",
+      "bytes": 5686,
+      "sha256": "6dcbdd9f338535f1020793d8963432537833205a40676e06b66623300f8fd828",
+      "source": "client-files/static.godfield.net/sounds/book_tab_over.mp3"
+    },
+    "button_down": {
+      "url": "/sounds/original/button_down.mp3",
+      "bytes": 5661,
+      "sha256": "e8dcc738e4161bf1f8f35d880c65901b6d56d607ac5c454bb840e604c73838f1",
+      "source": "client-files/static.godfield.net/sounds/button_down.mp3"
+    },
+    "button_over": {
+      "url": "/sounds/original/button_over.mp3",
+      "bytes": 5269,
+      "sha256": "47f919652f9e7ccaf925d62a549356c82db0e49a6daede6032b0dae2bb2a9570",
+      "source": "client-files/static.godfield.net/sounds/button_over.mp3"
+    },
+    "card": {
+      "url": "/sounds/original/card.mp3",
+      "bytes": 5477,
+      "sha256": "b6562900a6d3a8b6674f42a441e81b6246e3402bce420b98e85716bbb709ced9",
+      "source": "client-files/static.godfield.net/sounds/card.mp3"
+    },
+    "client_turn": {
+      "url": "/sounds/original/client_turn.mp3",
+      "bytes": 13165,
+      "sha256": "c56a42dcb388e49f0734a4a3ccde4c1c3972f6262b426da2884f9ca095062b40",
+      "source": "client-files/static.godfield.net/sounds/client_turn.mp3"
+    },
+    "counter": {
+      "url": "/sounds/original/counter.mp3",
+      "bytes": 11424,
+      "sha256": "f419e5b7889060d61c350948bf6395f12bc07ea886a13707b3a2a015094ef294",
+      "source": "client-files/static.godfield.net/sounds/counter.mp3"
+    },
+    "damage": {
+      "url": "/sounds/original/damage.mp3",
+      "bytes": 1698,
+      "sha256": "9c364298ee91e597e0caa79ba6d8924917795643b28394b809270be5e1b3c0fe",
+      "source": "client-files/static.godfield.net/sounds/damage.mp3"
+    },
+    "damage_dark": {
+      "url": "/sounds/original/damage_dark.mp3",
+      "bytes": 16344,
+      "sha256": "5a52b1ad3798783d9dee3609e3d926a8712bfde48a2d5675f1e823fec133d5cf",
+      "source": "client-files/static.godfield.net/sounds/damage_dark.mp3"
+    },
+    "dead": {
+      "url": "/sounds/original/dead.mp3",
+      "bytes": 29257,
+      "sha256": "8ac755cc9daf290838172ec68629680b6dfb592011aa3d1875b74d8ead2349ac",
+      "source": "client-files/static.godfield.net/sounds/dead.mp3"
+    },
+    "defense_harm": {
+      "url": "/sounds/original/defense_harm.mp3",
+      "bytes": 9318,
+      "sha256": "4ef662086730fa5fffe3babb3e45620b3fec5e47884fd5d992b744c86619cf18",
+      "source": "client-files/static.godfield.net/sounds/defense_harm.mp3"
+    },
+    "disease": {
+      "url": "/sounds/original/disease.mp3",
+      "bytes": 5015,
+      "sha256": "ca247320c03ffefff4dafea0cfeeda32226d39f2091464cca6479513c5c47189",
+      "source": "client-files/static.godfield.net/sounds/disease.mp3"
+    },
+    "dying_attack": {
+      "url": "/sounds/original/dying_attack.mp3",
+      "bytes": 15926,
+      "sha256": "b6e6b5e92007f11309ba13dee38686614d241fbb2408c43addb5900bc5d0b673",
+      "source": "client-files/static.godfield.net/sounds/dying_attack.mp3"
+    },
+    "entry_toggle_over": {
+      "url": "/sounds/original/entry_toggle_over.mp3",
+      "bytes": 6314,
+      "sha256": "e61e8bdd83849f066c4ea4b6b95f2868e2dd63bd7d9d662558de9d900e7ccbeb",
+      "source": "client-files/static.godfield.net/sounds/entry_toggle_over.mp3"
+    },
+    "exchange": {
+      "url": "/sounds/original/exchange.mp3",
+      "bytes": 1044,
+      "sha256": "ea8d05cb580ce7a3fb776f0fac40241d86a71ab4ef60cd2b819254f9fc79895e",
+      "source": "client-files/static.godfield.net/sounds/exchange.mp3"
+    },
+    "flick": {
+      "url": "/sounds/original/flick.mp3",
+      "bytes": 4310,
+      "sha256": "ab078a497c3c36febce9d135dc3b822d2b3d7c40e191f65ad412972b11d44b06",
+      "source": "client-files/static.godfield.net/sounds/flick.mp3"
+    },
+    "game_draw": {
+      "url": "/sounds/original/game_draw.mp3",
+      "bytes": 15299,
+      "sha256": "0d2c229595f014b87e1dae30d2f0222cadfe94b9b35c1a0a20aad652ed39c29c",
+      "source": "client-files/static.godfield.net/sounds/game_draw.mp3"
+    },
+    "game_start": {
+      "url": "/sounds/original/game_start.mp3",
+      "bytes": 9273,
+      "sha256": "925df3710629cef68904ee75f8cda3967c999218d55fdbac9b188fcd4a223d2a",
+      "source": "client-files/static.godfield.net/sounds/game_start.mp3"
+    },
+    "game_start_number": {
+      "url": "/sounds/original/game_start_number.mp3",
+      "bytes": 1306,
+      "sha256": "260f7f3de1a288f899872f26d0e06f83166faf31975079ab37cf2824b8095208",
+      "source": "client-files/static.godfield.net/sounds/game_start_number.mp3"
+    },
+    "game_win": {
+      "url": "/sounds/original/game_win.mp3",
+      "bytes": 6060,
+      "sha256": "1111c8de76d3d05ce548d6aed5b87d6ac24ae8dbbdc2719c4c28096411fb70db",
+      "source": "client-files/static.godfield.net/sounds/game_win.mp3"
+    },
+    "harm_add": {
+      "url": "/sounds/original/harm_add.mp3",
+      "bytes": 3657,
+      "sha256": "a83802befaeba131c9a85f2e1d0d8c59caf85f70e261a48c9fcaa93e4fdad8b1",
+      "source": "client-files/static.godfield.net/sounds/harm_add.mp3"
+    },
+    "harm_remove": {
+      "url": "/sounds/original/harm_remove.mp3",
+      "bytes": 24032,
+      "sha256": "badef8749bafb7ae3aa98ced753f85800539f739daa747aa828c05d798c563e9",
+      "source": "client-files/static.godfield.net/sounds/harm_remove.mp3"
+    },
+    "hit": {
+      "url": "/sounds/original/hit.mp3",
+      "bytes": 6314,
+      "sha256": "4273e4c8f7b8f7d4a1f52b9f318779266947269140a1445a1fe0ae712704fa92",
+      "source": "client-files/static.godfield.net/sounds/hit.mp3"
+    },
+    "hp_increase": {
+      "url": "/sounds/original/hp_increase.mp3",
+      "bytes": 18225,
+      "sha256": "36b9a7b86a83d8ed9c6099f936e2ae1110490b0158ca2f0fa110380317d4275d",
+      "source": "client-files/static.godfield.net/sounds/hp_increase.mp3"
+    },
+    "illusion_item": {
+      "url": "/sounds/original/illusion_item.mp3",
+      "bytes": 10702,
+      "sha256": "fc7069021aedfd055fc5b67b08fa813bf9a47fe3f914455d71f6027fafd8c791",
+      "source": "client-files/static.godfield.net/sounds/illusion_item.mp3"
+    },
+    "item_remove": {
+      "url": "/sounds/original/item_remove.mp3",
+      "bytes": 3135,
+      "sha256": "a41ceee48e80a5822d6914089afd4459d2aaa1a8918cd8fadbb297cfb21e07c5",
+      "source": "client-files/static.godfield.net/sounds/item_remove.mp3"
+    },
+    "miss": {
+      "url": "/sounds/original/miss.mp3",
+      "bytes": 1045,
+      "sha256": "ffea3656a816e70ceabaf8a17d51eedb97e34f46a464a33c506f8156ee874185",
+      "source": "client-files/static.godfield.net/sounds/miss.mp3"
+    },
+    "mortar": {
+      "url": "/sounds/original/mortar.mp3",
+      "bytes": 12583,
+      "sha256": "3d83d165d0f08bc6110a2032ab70f6b9cb8fc39c152e20e510c8bf0ddfbd133b",
+      "source": "client-files/static.godfield.net/sounds/mortar.mp3"
+    },
+    "mp_increase": {
+      "url": "/sounds/original/mp_increase.mp3",
+      "bytes": 13374,
+      "sha256": "ad7514fc6e6a2bf49b51be637018b5e06fb2dadde7c53d803f4caa3b85a6e36c",
+      "source": "client-files/static.godfield.net/sounds/mp_increase.mp3"
+    },
+    "mystery": {
+      "url": "/sounds/original/mystery.mp3",
+      "bytes": 14106,
+      "sha256": "1a63ddc78808880a36df32835827a96eee19221323bc724f570e20df87b12657",
+      "source": "client-files/static.godfield.net/sounds/mystery.mp3"
+    },
+    "no_change": {
+      "url": "/sounds/original/no_change.mp3",
+      "bytes": 1175,
+      "sha256": "a72becb8a26784919cc71a205f89a2576bcf3940f056b2f07bff4a3ffa6bd80c",
+      "source": "client-files/static.godfield.net/sounds/no_change.mp3"
+    },
+    "open_cover": {
+      "url": "/sounds/original/open_cover.mp3",
+      "bytes": 1698,
+      "sha256": "3f3cfb8d3eb09705ff2832f9c9cdd7e6206093001249eaaaf24e0159ed80d1ff",
+      "source": "client-files/static.godfield.net/sounds/open_cover.mp3"
+    },
+    "reflect": {
+      "url": "/sounds/original/reflect.mp3",
+      "bytes": 7314,
+      "sha256": "a0c2d19c04ef511411001f7ec8bba77686016f7996f709f75597fcb3b7b77072",
+      "source": "client-files/static.godfield.net/sounds/reflect.mp3"
+    },
+    "revive": {
+      "url": "/sounds/original/revive.mp3",
+      "bytes": 12165,
+      "sha256": "27bdff1248dbc7f3131b8cd878a7deb90c2e0acbdc9a4c9f933e1eb71a13e1e5",
+      "source": "client-files/static.godfield.net/sounds/revive.mp3"
+    },
+    "seizure": {
+      "url": "/sounds/original/seizure.mp3",
+      "bytes": 13419,
+      "sha256": "d056a2ecb20e0e45b62a74b11dfbc51aa947ad628e17cc623a388e257d914a26",
+      "source": "client-files/static.godfield.net/sounds/seizure.mp3"
+    },
+    "target": {
+      "url": "/sounds/original/target.mp3",
+      "bytes": 5661,
+      "sha256": "f4518571a99bc1bf104799e60ee2c3616a23a8b7dbc0eb9e2b9f8772c1c35ff3",
+      "source": "client-files/static.godfield.net/sounds/target.mp3"
+    },
+    "toggle_down": {
+      "url": "/sounds/original/toggle_down.mp3",
+      "bytes": 5477,
+      "sha256": "43f8b4b08faf4686de255f211ae3ce14f1a104e633240e933bb942fe2e924950",
+      "source": "client-files/static.godfield.net/sounds/toggle_down.mp3"
+    },
+    "winner": {
+      "url": "/sounds/original/winner.mp3",
+      "bytes": 6731,
+      "sha256": "161c00367ef8897141eb86d59c81c7c0a53b7ef3c1d8593961afd962de59ab2d",
+      "source": "client-files/static.godfield.net/sounds/winner.mp3"
+    },
+    "worse": {
+      "url": "/sounds/original/worse.mp3",
+      "bytes": 7575,
+      "sha256": "f211e831cfc4ab6203c95157b6c1ba0f5425d0cd3efa86b187398396ff4a251f",
+      "source": "client-files/static.godfield.net/sounds/worse.mp3"
+    },
+    "yen_absorb": {
+      "url": "/sounds/original/yen_absorb.mp3",
+      "bytes": 15508,
+      "sha256": "583f8d6dd497487ea7065a0c5aebd036f1e6afcf0ad8f6cc4e2e3cf9d4f2fe62",
+      "source": "client-files/static.godfield.net/sounds/yen_absorb.mp3"
+    },
+    "yen_increase": {
+      "url": "/sounds/original/yen_increase.mp3",
+      "bytes": 7228,
+      "sha256": "c70c37e9b90f7920e572a19740c6baa83b7fd8f99a7e64c305957a8b989b3a46",
+      "source": "client-files/static.godfield.net/sounds/yen_increase.mp3"
+    }
+  },
+  "originalBackgroundMusicPresent": false
+}

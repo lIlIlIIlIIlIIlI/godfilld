@@ -1,0 +1,7 @@
+God Field original card artwork and sound effects
+Source: https://github.com/Igoorx/godfield-flash
+Commit: fcc83740a3d3cd9968e6e5cd2b7ed781f53abe80
+Upstream attributes client-file rights to @guuji.
+Included based on the project owner's 2026-10-17 confirmation of permission.
+Original media are not relicensed under the application AGPL.
+See docs/asset-audit.md in the corresponding source archive.

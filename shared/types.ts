@@ -16,6 +16,14 @@ export interface CardDefinition {
   name: { ko: string; en: string };
   description: { ko: string; en: string };
   image: string;
+  imageSprite?: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    atlasWidth: number;
+    atlasHeight: number;
+  };
   nameStatus: 'original-new-name';
   targetRule: 'self' | 'any-alive' | 'other-alive';
   contexts: ('attack' | 'defense' | 'passive')[];

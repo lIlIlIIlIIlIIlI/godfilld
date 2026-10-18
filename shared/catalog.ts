@@ -77,14 +77,16 @@ export const effectNames: Record<string, string> = {
 export const cards: CardDefinition[] = raw.map((r) => {
   const type = r.type as CardType,
     effects = [r.attackKind, r.attackExtra, r.defenseKind, r.defenseExtra].filter(Boolean);
-  const name =
-    (koreanNames as Record<string, string>)[String(r.id)] ?? '이름 미등록 카드';
+  const name = (koreanNames as Record<string, string>)[String(r.id)] ?? '이름 미등록 카드';
   const desc =
     effects.map((e) => effectNames[e] ?? statusNames[e] ?? e).join(' · ') +
     (r.hitRate ? ` · 대상별 명중 ${r.hitRate}%` : '') +
     (type === 'MAGIC' ? ` · MP ${r.subValue}, 획득 후 반복 사용, 보유 공간 1칸` : '');
   const approved = (
-    assets.approvedOriginalAssets as Record<string, { url: string; permissionVerified: boolean }>
+    assets.approvedOriginalAssets as Record<
+      string,
+      { url: string; permissionConfirmed: boolean; sprite: CardDefinition['imageSprite'] }
+    >
   )[String(r.id)];
   return {
     ...r,
@@ -92,7 +94,8 @@ export const cards: CardDefinition[] = raw.map((r) => {
     attribute: r.attribute as Attribute,
     name: { ko: name, en: `Aether ${type.toLowerCase()} ${r.id}` },
     description: { ko: desc, en: effects.join(' / ') },
-    image: approved?.permissionVerified ? approved.url : assets.default.url,
+    image: approved?.permissionConfirmed ? approved.url : assets.default.url,
+    imageSprite: approved?.permissionConfirmed ? approved.sprite : undefined,
     nameStatus: 'original-new-name',
     targetRule: ['EXCHANGE', 'MYSTERY', 'DO_NOTHING', 'DISCARD'].includes(r.attackKind)
       ? 'self'
@@ -108,6 +111,13 @@ export const cards: CardDefinition[] = raw.map((r) => {
   };
 });
 export const cardById = new Map(cards.map((c) => [c.id, c]));
+type OriginalArt = { url: string; sprite: NonNullable<CardDefinition['imageSprite']> };
+export function assistantArt(id: number): OriginalArt | undefined {
+  return (assets.assistantActions as Record<string, OriginalArt>)[String(id)];
+}
+export function summonArt(type: string): OriginalArt | undefined {
+  return (assets.summonPortraits as Record<string, OriginalArt>)[type];
+}
 export function card(id: number): CardDefinition {
   const c = cardById.get(id);
   if (!c) throw new Error('존재하지 않는 카드입니다.');

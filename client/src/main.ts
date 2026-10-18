@@ -49,6 +49,8 @@ import {
   statusNames,
   attackValue,
   defenseValue,
+  assistantArt,
+  summonArt,
 } from '../../shared/catalog';
 import type {
   Action,
@@ -64,6 +66,7 @@ import type { RoomService } from '../../server/src/rooms/RoomService';
 import { Connection } from './network';
 import { animateEvent } from './animations';
 import { sound, unlockAudio, preferences, setMusic } from './audio';
+import { battleClip } from '../../shared/sounds';
 type Room = ReturnType<RoomService['project']>;
 const conn = new Connection(),
   app = document.querySelector<HTMLDivElement>('#app')!,
@@ -199,6 +202,20 @@ function waitingRoom() {
   const isHost = room.host === conn.id;
   return `<main class="page-container room-wait"><button class="text-button" data-leave>${icon('ChevronLeft')} 방 나가기</button><div class="page-heading"><div><div class="eyebrow">${room.mode === 'team' ? 'TEAM BATTLE' : 'FREE FOR ALL'}</div><h1>${esc(room.name)}</h1><p>모두 준비하면 방장이 전투를 시작할 수 있습니다. <b>재앙 ${room.doomAt ?? 100}턴</b></p></div><button class="button" data-invite>${icon('Link')} 초대 링크 복사</button></div><div class="wait-layout"><section class="panel"><div class="section-bar"><h2>참가자 <span class="count">${room.seats.length}/${room.capacity}</span></h2>${isHost ? '<button class="button small" data-add-bot>+ AI 추가</button>' : ''}</div><div class="seats">${room.seats.map((s, i) => `<article class="seat"><span class="avatar avatar-${i % 4}">${icon(s.bot ? 'Bot' : 'Star', 24)}</span><div class="grow"><b>${esc(s.name)} ${s.id === room!.host ? icon('Crown', 14) : ''}</b><p>${s.bot ? 'AI · ' + { easy: '쉬움', normal: '보통', hard: '어려움' }[s.difficulty] : s.id === conn.id ? '나' : s.connected ? '온라인' : '연결 대기'} ${room!.mode === 'team' ? ' · 팀 ' + s.team : ''}</p></div><span class="ready ${s.ready ? 'yes' : ''}">${s.ready ? '준비 완료' : '준비 중'}</span>${isHost && s.bot ? `<button class="icon-button" data-remove-bot="${s.id}" aria-label="봇 삭제">${icon('X')}</button>` : ''}</article>`).join('')}</div><div class="wait-actions">${room.mode === 'team' ? `<label>내 팀 <select id="team">${['A', 'B', 'C', 'D'].map((t) => `<option ${room!.seats.find((p) => p.id === conn.id)?.team === t ? 'selected' : ''}>${t}</option>`).join('')}</select></label>` : ''}<button class="button" data-ready>${room.seats.find((s) => s.id === conn.id)?.ready ? '준비 취소' : '준비 완료'}</button>${isHost ? `<button class="button primary" data-start ${room.seats.length < 2 || !room.seats.every((p) => p.ready) ? 'disabled' : ''}>전투 시작 ${icon('ArrowRight')}</button>` : ''}</div></section>${chatPanel()}</div></main>`;
 }
+function artHtml(image: string, sprite: CardDefinition['imageSprite'], name: string, size: number) {
+  const style = sprite
+    ? `position:absolute;width:calc(var(--art-size) * ${sprite.atlasWidth / sprite.width});height:calc(var(--art-size) * ${sprite.atlasHeight / sprite.height});left:calc(var(--art-size) * ${-sprite.x / sprite.width});top:calc(var(--art-size) * ${-sprite.y / sprite.height});max-width:none;`
+    : 'width:100%;height:100%;object-fit:contain;';
+  return `<span class="card-art-window" style="--art-size:${size}px"><img class="card-art" src="${esc(image)}" alt="${esc(name)} 그림" loading="lazy" decoding="async" style="${style}"></span>`;
+}
+function cardArt(c: CardDefinition, size = 64) {
+  const original = assistantArt(c.id);
+  return artHtml(original?.url ?? c.image, original?.sprite ?? c.imageSprite, c.name.ko, size);
+}
+function summonPortrait(type: string) {
+  const art = summonArt(type);
+  return art ? artHtml(art.url, art.sprite, type, 24) : icon('Orbit', 11);
+}
 function cardHint(c: CardDefinition) {
   if (c.hitRate) return `전체 ${c.hitRate}%`;
   if (c.attackExtra === 'INCREASE_ATK') return '추가 조합 가능';
@@ -241,7 +258,7 @@ function cardHtml(piece: Piece, index: number, permanent = false) {
         : c.defenseKind === 'DFS'
           ? '방어'
           : '효과';
-  return `<article class="hand-card ${active ? 'is-selected' : ''}"><button class="game-card ${kind} attr-${c.attribute || 'NONE'} ${active ? 'selected' : ''} ${permanent ? 'permanent' : ''}" data-card="${piece.uid}" aria-pressed="${active}" aria-label="${esc(c.name.ko)} · ${powerLabel} ${power} · ${cardHint(c)}" title="${esc(c.name.ko + ' · ' + c.description.ko)}" style="--card-order:${index}"><span class="card-top"><span>${permanent ? '영구 기적' : typeNames[c.type]}</span><span>${attributeNames[c.attribute]}</span></span><b class="card-name">${esc(c.name.ko)}</b><span class="card-value"><span class="card-symbol">${icon(typeIcon[c.type], 24)}</span><span><strong>${power}</strong><small>${powerLabel}</small></span></span><span class="card-hint">${esc(cardHint(c))}</span><span class="card-bottom"><span>${c.type === 'MAGIC' ? `MP ${c.subValue}` : dfs && c.type === 'WEAPON' ? `방어 ${dfs}` : `${c.price}G`}</span><span>${active ? '선택됨' : '선택'}</span></span>${active ? `<span class="selection-order">${order}</span>` : ''}</button><button class="card-inspect" data-detail="${c.id}" aria-label="${esc(c.name.ko)} 상세 보기">${icon('BookOpen', 15)}</button></article>`;
+  return `<article class="hand-card ${active ? 'is-selected' : ''}"><button class="game-card ${kind} attr-${c.attribute || 'NONE'} ${active ? 'selected' : ''} ${permanent ? 'permanent' : ''}" data-card="${piece.uid}" aria-pressed="${active}" aria-label="${esc(c.name.ko)} · ${powerLabel} ${power} · ${cardHint(c)}" title="${esc(c.name.ko + ' · ' + c.description.ko)}" style="--card-order:${index}"><span class="card-top"><span>${permanent ? '영구 기적' : typeNames[c.type]}</span><span>${attributeNames[c.attribute]}</span></span><b class="card-name">${esc(c.name.ko)}</b><span class="card-value"><span class="card-symbol">${cardArt(c)}</span><span><strong>${power}</strong><small>${powerLabel}</small></span></span><span class="card-hint">${esc(cardHint(c))}</span><span class="card-bottom"><span>${c.type === 'MAGIC' ? `MP ${c.subValue}` : dfs && c.type === 'WEAPON' ? `방어 ${dfs}` : `${c.price}G`}</span><span>${active ? '선택됨' : '선택'}</span></span>${active ? `<span class="selection-order">${order}</span>` : ''}</button><button class="card-inspect" data-detail="${c.id}" aria-label="${esc(c.name.ko)} 상세 보기">${icon('BookOpen', 15)}</button></article>`;
 }
 function canAct() {
   const g = room?.game;
@@ -259,7 +276,7 @@ function playerTile(p: GameView['players'][number], i: number) {
     g = room!.game!,
     active = p.id === g.attacker,
     defending = p.id === g.current?.target;
-  return `<button class="player-tile ${p.dead ? 'dead' : ''} ${target === p.id ? 'targeted' : ''} ${active ? 'current-player' : ''}" data-target="${p.id}" data-player="${p.id}" ${p.dead ? 'disabled' : ''} aria-label="${esc(p.name)} 대상으로 선택"><div class="player-top"><span class="avatar avatar-${i % 4}">${icon(p.bot ? 'Bot' : 'Star', 24)}</span><div class="grow"><b>${esc(p.name)} ${self ? '<small>나</small>' : ''}</b><span>${p.dead ? '탈락' : defending ? '방어 선택 중' : active ? '공격 차례' : room!.mode === 'team' ? '팀 ' + p.team : p.bot ? 'AI 여행자' : '여행자'}</span></div>${target === p.id ? `<span class="target-check">${icon('Check', 16)}</span>` : ''}</div><div class="hp-bar"><div style="width:${p.hp === null ? 100 : Math.min(100, (p.hp / 40) * 100)}%"></div></div><div class="stats"><span class="hp">HP <b>${p.hp ?? '?'}</b></span><span class="mp">MP <b>${p.mp ?? '?'}</b></span><span>G <b>${p.gold ?? '?'}</b></span><span class="hand-count">손패 ${p.handCount} · 기적 ${p.abilityCount}</span></div><div class="status-row">${p.disease ? `<span class="status disease">${statusNames[p.disease]}</span>` : ''}${p.harms.map((h) => `<span class="status">${statusNames[h]}</span>`).join('')}${p.summon ? `<span class="status summon">${icon('Orbit', 11)} ${p.summon.type} · ${p.summon.hp}</span>` : ''}</div></button>`;
+  return `<button class="player-tile ${p.dead ? 'dead' : ''} ${target === p.id ? 'targeted' : ''} ${active ? 'current-player' : ''}" data-target="${p.id}" data-player="${p.id}" ${p.dead ? 'disabled' : ''} aria-label="${esc(p.name)} 대상으로 선택"><div class="player-top"><span class="avatar avatar-${i % 4}">${icon(p.bot ? 'Bot' : 'Star', 24)}</span><div class="grow"><b>${esc(p.name)} ${self ? '<small>나</small>' : ''}</b><span>${p.dead ? '탈락' : defending ? '방어 선택 중' : active ? '공격 차례' : room!.mode === 'team' ? '팀 ' + p.team : p.bot ? 'AI 여행자' : '여행자'}</span></div>${target === p.id ? `<span class="target-check">${icon('Check', 16)}</span>` : ''}</div><div class="hp-bar"><div style="width:${p.hp === null ? 100 : Math.min(100, (p.hp / 40) * 100)}%"></div></div><div class="stats"><span class="hp">HP <b>${p.hp ?? '?'}</b></span><span class="mp">MP <b>${p.mp ?? '?'}</b></span><span>G <b>${p.gold ?? '?'}</b></span><span class="hand-count">손패 ${p.handCount} · 기적 ${p.abilityCount}</span></div><div class="status-row">${p.disease ? `<span class="status disease">${statusNames[p.disease]}</span>` : ''}${p.harms.map((h) => `<span class="status">${statusNames[h]}</span>`).join('')}${p.summon ? `<span class="status summon">${summonPortrait(p.summon.type)} ${p.summon.type} · ${p.summon.hp}</span>` : ''}</div></button>`;
 }
 function logText(e: GameEvent) {
   const g = room?.game;
@@ -367,7 +384,7 @@ function battle() {
     <div class="doom-track"><span>${icon('Sun', 14)} 재앙 <b>${g.rules.doomAt}턴</b></span><div role="progressbar" aria-label="재앙 진행도" aria-valuenow="${g.doom}" aria-valuemin="0" aria-valuemax="100"><i style="width:${g.doom}%"></i></div><b>${g.doom >= 100 ? '종말 시작' : `${g.doom}%`}</b></div>
     ${tutorialStep ? `<div class="tutorial-hint">${['', '1 / 3 · 손패의 카드를 눌러 선택해 보세요.', '2 / 3 · 플레이어를 눌러 대상을 골라 보세요.', '3 / 3 · 카드 사용을 눌러 보세요.', '첫 행동을 처리하고 있습니다.'][tutorialStep]}</div>` : ''}
     <div class="battle-layout"><div class="battle-main"><section class="arena" id="players"><div class="board-heading"><b>플레이어 · 누르면 대상 선택</b><span>${room!.mode === 'team' ? '팀전' : '개인전'}</span><a class="mobile-only" href="#my-hand">내 카드 ↓</a></div><div class="opponents">${g.players.map(playerTile).join('')}</div></section>
-    <section class="battle-center"><div class="turn-banner ${canAct() ? 'your-turn' : ''}" role="status"><span class="live-dot"></span>${esc(banner)}</div>${g.current ? `<div class="attack-summary"><b>${esc(g.players.find((p) => p.id === g.current!.source)?.name)}</b> ${icon('ArrowRight', 14)} <b>${esc(g.players.find((p) => p.id === g.current!.target)?.name)}</b><span class="attack-power">${g.current.damage} ${attributeNames[g.current.attribute ?? '']}</span></div><div class="played-cards">${g.current.cards.map((c) => `<span>${esc(cards[c.id]?.name.ko ?? c.name.ko ?? '수호자의 개입')}</span>`).join(' + ')}</div>` : `<p>${finished ? '전투 결과를 확인하세요.' : '① 카드 선택 → ② 대상 선택 → ③ 카드 사용'}</p>`}
+    <section class="battle-center"><div class="turn-banner ${canAct() ? 'your-turn' : ''}" role="status"><span class="live-dot"></span>${esc(banner)}</div>${g.current ? `<div class="attack-summary"><b>${esc(g.players.find((p) => p.id === g.current!.source)?.name)}</b> ${icon('ArrowRight', 14)} <b>${esc(g.players.find((p) => p.id === g.current!.target)?.name)}</b><span class="attack-power">${g.current.damage} ${attributeNames[g.current.attribute ?? '']}</span></div><div class="played-cards">${g.current.cards.map((c) => `<span>${cardArt(cards[c.id] ?? c, 36)}${esc(cards[c.id]?.name.ko ?? c.name.ko ?? '수호자의 개입')}</span>`).join(' + ')}</div>` : `<p>${finished ? '전투 결과를 확인하세요.' : '① 카드 선택 → ② 대상 선택 → ③ 카드 사용'}</p>`}
     ${finished ? `<div class="result"><h2>${g.winners.includes(conn.id) ? '승리하셨습니다!' : g.winners.length ? '승자가 정해졌습니다' : '무승부입니다'}</h2><p>${g.winners.map((id) => esc(g.players.find((p) => p.id === id)?.name)).join(' · ')}</p><button class="button primary" data-rematch>다시 대전</button> <button class="button" data-replay>전투 기록</button></div>` : ''}</section>
     ${
       g.self
@@ -403,7 +420,7 @@ function codex() {
     .slice(0, codexLimit)
     .map(
       (c) =>
-        `<button class="codex-card" data-detail="${c.id}"><div class="codex-art ${c.type.toLowerCase()}">${icon(typeIcon[c.type], 44)}${icon(attrIcon[c.attribute], 18)}</div><div><small>${typeNames[c.type]} · ${attributeNames[c.attribute]} · #${c.id}</small><h3>${esc(c.name.ko)}</h3><p>${esc(c.description.ko || '별도의 추가 효과 없음')}</p><div class="codex-stats"><span>공격 ${attackValue(c)} / 방어 ${defenseValue(c)}</span><span>${c.type === 'MAGIC' ? 'MP ' + c.subValue : c.price + 'G'}</span></div><small>${c.weight > 0 ? '출현 가중치 ' + c.weight : '일반 드로우 제외 · 특수 데이터'}</small></div></button>`,
+        `<button class="codex-card" data-detail="${c.id}"><div class="codex-art ${c.type.toLowerCase()}">${cardArt(c, 72)}${icon(attrIcon[c.attribute], 18)}</div><div><small>${typeNames[c.type]} · ${attributeNames[c.attribute]} · #${c.id}</small><h3>${esc(c.name.ko)}</h3><p>${esc(c.description.ko || '별도의 추가 효과 없음')}</p><div class="codex-stats"><span>공격 ${attackValue(c)} / 방어 ${defenseValue(c)}</span><span>${c.type === 'MAGIC' ? 'MP ' + c.subValue : c.price + 'G'}</span></div><small>${c.weight > 0 ? '출현 가중치 ' + c.weight : '일반 드로우 제외 · 특수 데이터'}</small></div></button>`,
     )
     .join(
       '',
@@ -452,7 +469,7 @@ function guide() {
       '방 생성 시 재앙 시작을 1/50/100/500턴 중 선택합니다. 선택한 턴 이후 카드 사용·지급마다 25% 악마 위험이 생깁니다. 시작 턴과 피해량 5/10/15는 이 게임의 설정이며 원본 확정 수치가 아닙니다. 입력 제한은 30초이며, 시간이 지나면 AI가 대신 행동합니다. 재접속하면 저장된 경기와 조작권을 복구합니다.',
     ],
   ];
-  return `<main class="page-container guide"><div class="page-heading"><div><div class="eyebrow">A LITTLE HELP, A GREAT ADVENTURE</div><h1>당신의 첫 번째 의회</h1><p>작은 선택들이 모여 하나의 전략이 됩니다.</p></div><button class="button primary" data-practice>연습하며 배우기 ${icon('ArrowRight')}</button></div><div class="guide-grid">${sections.map(([n, h, t]) => `<article class="panel guide-section"><span>${n}</span><h2>${h}</h2><p>${t}</p></article>`).join('')}</div><p class="muted">원본 Flash 화면·이미지·음원은 사용하지 않습니다. 한국어 카드명은 원작 번역명이 아닌 새 이름입니다. 상세 규칙과 원본과의 차이는 소스의 docs/game-rules.md를 참고해 주세요.</p></main>`;
+  return `<main class="page-container guide"><div class="page-heading"><div><div class="eyebrow">A LITTLE HELP, A GREAT ADVENTURE</div><h1>당신의 첫 번째 의회</h1><p>작은 선택들이 모여 하나의 전략이 됩니다.</p></div><button class="button primary" data-practice>연습하며 배우기 ${icon('ArrowRight')}</button></div><div class="guide-grid">${sections.map(([n, h, t]) => `<article class="panel guide-section"><span>${n}</span><h2>${h}</h2><p>${t}</p></article>`).join('')}</div><p class="muted">원본 Flash 실행 엔진은 사용하지 않으며, 허가 확인된 카드 그림·효과음을 사용합니다. 한국어 카드명은 원작 번역명이 아닌 새 이름입니다. 상세 규칙과 원본과의 차이는 소스의 docs/game-rules.md를 참고해 주세요.</p></main>`;
 }
 function render() {
   document.body.classList.toggle('in-battle', Boolean(room?.game));
@@ -540,7 +557,7 @@ function navigate(p: string) {
 }
 function openSettings() {
   modal(
-    `<div class="eyebrow">PREFERENCES</div><h2>나만의 플레이 환경</h2><form id="settings-form"><label>플레이어 이름<input name="name" maxlength="20" value="${esc(localStorage.getItem('arena-name') || '여행자')}"></label><label>효과음 <span id="effects-value">${Math.round(preferences.effects * 100)}%</span><input name="effects" type="range" min="0" max="1" step="0.05" value="${preferences.effects}"></label><label>배경 음악<input name="music" type="range" min="0" max="1" step="0.05" value="${preferences.music}"></label><label class="check-label"><input name="motion" type="checkbox" ${preferences.motion ? 'checked' : ''}> 전투 애니메이션</label><button class="button primary" type="submit">설정 저장</button></form><p class="muted">음악과 효과음은 이 게임에서 합성한 사운드입니다. 이름은 새 방을 만들 때 적용됩니다.</p>`,
+    `<div class="eyebrow">PREFERENCES</div><h2>나만의 플레이 환경</h2><form id="settings-form"><label>플레이어 이름<input name="name" maxlength="20" value="${esc(localStorage.getItem('arena-name') || '여행자')}"></label><label>효과음 <span id="effects-value">${Math.round(preferences.effects * 100)}%</span><input name="effects" type="range" min="0" max="1" step="0.05" value="${preferences.effects}"></label><label>배경 음악<input name="music" type="range" min="0" max="1" step="0.05" value="${preferences.music}"></label><label class="check-label"><input name="motion" type="checkbox" ${preferences.motion ? 'checked' : ''}> 전투 애니메이션</label><button class="button primary" type="submit">설정 저장</button></form><p class="muted">효과음과 배경 음악의 볼륨을 따로 조절할 수 있습니다. 이름은 새 방을 만들 때 적용됩니다.</p>`,
   );
 }
 function showCreate() {
@@ -558,6 +575,8 @@ document.addEventListener('click', (e) => {
   if (!b) return;
   unlockAudio();
   if (b.hasAttribute('disabled')) return;
+  if (!b.dataset.card && !b.dataset.target && !b.dataset.detail) sound('button');
+  if (b.dataset.detail) sound('card_detail');
   if (b.dataset.page) {
     e.preventDefault();
     navigate(b.dataset.page);
@@ -618,6 +637,7 @@ document.addEventListener('click', (e) => {
     render();
   } else if (b.dataset.target) {
     target = b.dataset.target;
+    sound('target');
     if (tutorialStep === 2) tutorialStep = 3;
     render();
   } else if (b.hasAttribute('data-clear')) {
@@ -649,7 +669,7 @@ document.addEventListener('click', (e) => {
   else if (b.dataset.detail) {
     const c = card(Number(b.dataset.detail));
     modal(
-      `<div class="eyebrow">CARD #${c.id}</div><h2>${esc(c.name.ko)}</h2><div class="detail-glyph">${icon(typeIcon[c.type], 64)}</div><p>${esc(c.description.ko)}</p><dl><dt>속성</dt><dd>${attributeNames[c.attribute]}</dd><dt>공격 / 방어</dt><dd>${attackValue(c)} / ${defenseValue(c)}</dd><dt>가격 / 가중치</dt><dd>${c.price}G / ${c.weight}</dd><dt>원본 CSV ID</dt><dd>${c.id} · ${c.nameStatus}</dd></dl><small>한국어 이름은 새로 만든 이름이며, 원작 번역 확정 데이터가 아닙니다.</small>`,
+      `<div class="eyebrow">CARD #${c.id}</div><h2>${esc(c.name.ko)}</h2><div class="detail-glyph">${cardArt(c, 128)}</div><p>${esc(c.description.ko)}</p><dl><dt>속성</dt><dd>${attributeNames[c.attribute]}</dd><dt>공격 / 방어</dt><dd>${attackValue(c)} / ${defenseValue(c)}</dd><dt>가격 / 가중치</dt><dd>${c.price}G / ${c.weight}</dd><dt>원본 CSV ID</dt><dd>${c.id} · ${c.nameStatus}</dd></dl><small>한국어 이름은 새로 만든 이름이며, 원작 번역 확정 데이터가 아닙니다.</small>`,
     );
   } else if (b.hasAttribute('data-load-more')) {
     codexLimit += 48;
@@ -809,6 +829,7 @@ conn.addEventListener('data', (event) => {
     render();
     if (g) {
       if (!previous || previous.id !== g.id || g.version < previous.version) {
+        sound('game_start');
         lastEvent = g.events.at(-1)?.seq ?? 0;
       }
       const fresh = g.events.filter((e) => e.seq > lastEvent);
@@ -816,20 +837,8 @@ conn.addEventListener('data', (event) => {
       lastMatch = g.id;
       for (const e of fresh.slice(-6)) {
         animateEvent(e);
-        if (
-          [
-            'attack',
-            'damage',
-            'heal',
-            'reflect',
-            'block',
-            'status',
-            'summon',
-            'death',
-            'game_end',
-          ].includes(e.type)
-        )
-          sound(e.type);
+        const clip = battleClip(e, g, conn.id);
+        if (clip) sound(clip);
       }
       if (g.self && !localStorage.getItem('arena-tutorial')) {
         localStorage.setItem('arena-tutorial', '1');
@@ -874,6 +883,8 @@ document.addEventListener(
     if (el instanceof HTMLImageElement && el.classList.contains('card-art')) {
       if (!el.dataset.fallback) {
         el.dataset.fallback = '1';
+        el.style.cssText =
+          'position:absolute;left:0;top:0;width:100%;height:100%;object-fit:contain;';
         el.src = '/assets/card-placeholder.svg';
       } else el.hidden = true;
     }

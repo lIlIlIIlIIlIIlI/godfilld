@@ -1,0 +1,232 @@
+[
+  {
+    "file": "alert.mp3",
+    "seconds": 0.574625,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "assistant.mp3",
+    "seconds": 0.9825,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "assistant_add.mp3",
+    "seconds": 2.84725,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "assistant_remove.mp3",
+    "seconds": 3.05625,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "block.mp3",
+    "seconds": 0.433875,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "book_tab_down.mp3",
+    "seconds": 0.3555,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "book_tab_over.mp3",
+    "seconds": 0.19875,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "button_down.mp3",
+    "seconds": 0.313,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "button_over.mp3",
+    "seconds": 0.2346,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "card.mp3",
+    "seconds": 0.172625,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "client_turn.mp3",
+    "seconds": 1.645625,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "counter.mp3",
+    "seconds": 1.4656,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "damage.mp3",
+    "seconds": 0.3396,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "damage_dark.mp3",
+    "seconds": 1.531,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "dead.mp3",
+    "seconds": 3.657125,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "defense_harm.mp3",
+    "seconds": 1.0444,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "disease.mp3",
+    "seconds": 0.626875,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "dying_attack.mp3",
+    "seconds": 1.47875,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "entry_toggle_over.mp3",
+    "seconds": 0.4436,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "exchange.mp3",
+    "seconds": 0.1305,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "flick.mp3",
+    "seconds": 0.862,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "game_draw.mp3",
+    "seconds": 1.400375,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "game_start.mp3",
+    "seconds": 1.8546,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "game_start_number.mp3",
+    "seconds": 0.2612,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "game_win.mp3",
+    "seconds": 0.7575,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "harm_add.mp3",
+    "seconds": 0.7314,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "harm_remove.mp3",
+    "seconds": 3.004,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "hit.mp3",
+    "seconds": 0.2218,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "hp_increase.mp3",
+    "seconds": 1.766125,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "illusion_item.mp3",
+    "seconds": 0.82575,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "item_remove.mp3",
+    "seconds": 0.627,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "miss.mp3",
+    "seconds": 0.209,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "mortar.mp3",
+    "seconds": 1.060875,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "mp_increase.mp3",
+    "seconds": 1.67175,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "mystery.mp3",
+    "seconds": 2.8212,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "no_change.mp3",
+    "seconds": 0.235,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "open_cover.mp3",
+    "seconds": 0.3396,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "reflect.mp3",
+    "seconds": 0.91425,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "revive.mp3",
+    "seconds": 1.008625,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "seizure.mp3",
+    "seconds": 1.165375,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "target.mp3",
+    "seconds": 0.313,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "toggle_down.mp3",
+    "seconds": 0.172625,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "winner.mp3",
+    "seconds": 0.329375,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "worse.mp3",
+    "seconds": 1.515,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "yen_absorb.mp3",
+    "seconds": 1.4265,
+    "fullPCMDecodePassed": true
+  },
+  {
+    "file": "yen_increase.mp3",
+    "seconds": 0.6264,
+    "fullPCMDecodePassed": true
+  }
+]
