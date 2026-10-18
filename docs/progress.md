@@ -1,6 +1,6 @@
 # 구현 및 검증 현황
 
-2026-10-17 / v0.1.0. **실행 가능한 개발 빌드이며 공개 운영 완성판은 아닙니다.**
+2026-10-18 / v0.1.0. **실행 가능한 개발 빌드이며 공개 운영 완성판은 아닙니다.**
 
 ## 작업 파일
 
@@ -10,7 +10,7 @@
 | 엔진           | server/src/game/GameEngine.ts, Rules.ts, Random.ts, State.ts, CardRegistry.ts, CombatResolver.ts, DefenseResolver.ts, CardEffectResolver.ts, StatusEffectEngine.ts, TradeManager.ts, SummonManager.ts, EndgameManager.ts |
 | AI             | server/src/ai/ActionEvaluator.ts, BotController.ts                                                                                                                                                                       |
 | 로비·통신·저장 | server/src/rooms/RoomService.ts, network/server.ts, persistence/Store.ts                                                                                                                                                 |
-| HTML5 UI       | client/src/main.ts, style.css, network.ts, audio.ts, animations.ts / client/public/assets/card-placeholder.svg                                                                                                           |
+| HTML5 UI       | client/src/main.ts, battle.ts, html.ts, style.css, field.css, network.ts, audio.ts, animations.ts / client/public/assets/card-placeholder.svg                                                                                                           |
 | 배포·실행      | api/server.ts, vercel.json, package.json, package-lock.json, .env.example                                                                                                                                                |
 | 분석·명세      | game-system-analysis.md, game-rules.md, card-reference.md, asset-audit.md, asset-inventory.json                                                                                                                          |
 | 검사           | tests/engine.test.ts, coverage.test.ts, multiplayer.test.ts, client.test.ts / scripts/simulate.ts                                                                                                                        |
@@ -22,11 +22,13 @@
 
 AI는 공개 관측에서 후보를 평가하고 같은 서버 검증을 통과한 행동만 사용합니다. 세 난이도,2~8인 개인/팀전, 연습전, 로비·방장·준비·봇·비밀번호·초대·관전·채팅, 세션 토큰·재접속·AFK 대행·복귀, SQLite 및 PostgreSQL 저장 어댑터가 있습니다.
 
-새 한국어 UI에서 카드 선택 순서·대상 선택·공격/방어·환전·구매를 실제 명령으로 제출합니다. 카드364종의 개별 신규 한국어 이름을 `data/card-names.ko.json`으로 관리합니다. 임시 종류+숫자 이름을 제거하고 손패·상세·사용 중 카드·도감·기록에 같은 이름을 표시합니다. 블로그의 게임 화면을 참고한 간결한 테두리 판형, 수치 중심 카드 그리드, 손패 종류 필터, 상세 보기 버튼을 적용했습니다. 모바일은3열 손패·수직 스크롤과 하단 고정 행동 버튼, 큰 글자·능력치, 카드 영역 스크롤 위치 보존을 제공합니다. 연습전·방 생성에 재앙1/50/100/500턴 선택을 추가하고 서버 규칙·재대전에 연결했습니다. 원본 CSS는 복사하지 않았습니다. 사용자가 미디어 허가를 받았다고 확인한 이후 카드 그림246개 ID·수호자42개 행동/10개 초상화와 원본 MP3 효과음46개를 연결했습니다. 그림317개를 개별 무손실 WebP로 변환했고, 기본 SVG는 백업에 없는 역사 데이터와 로딩 실패에 사용합니다.
+새 한국어 UI에서 카드 선택 순서·대상 선택·공격/방어·환전·구매를 실제 명령으로 제출합니다. 카드364종의 개별 신규 한국어 이름을 `data/card-names.ko.json`으로 관리합니다. 임시 종류+숫자 이름을 제거하고 손패·상세·사용 중 카드·도감·기록에 같은 이름을 표시합니다. 블로그의 게임 화면을 참고한 간결한 테두리 판형, 수치 중심 카드 그리드, 손패 종류 필터, 상세 보기 버튼을 적용했습니다. 모바일은4열 손패·수직 스크롤과 하단 고정 행동 버튼, 큰 글자·능력치, 카드 영역 스크롤 위치 보존을 제공합니다. 연습전·방 생성에 재앙1/50/100/500턴 선택을 추가하고 서버 규칙·재대전에 연결했습니다. 원본 CSS는 복사하지 않았습니다. 사용자가 미디어 허가를 받았다고 확인한 이후 카드 그림246개 ID·수호자42개 행동/10개 초상화와 원본 MP3 효과음46개를 연결했습니다. 그림317개를 개별 무손실 WebP로 변환했고, 기본 SVG는 백업에 없는 역사 데이터와 로딩 실패에 사용합니다.
+
+2026-10-18 첨부 사진5장을 참고하여 초록색 프레임·민트 구름·가로형 능력치·그림 중심 손패·기적 영역을 적용했습니다. 종말은 실제 진행도에 따라 분홍색으로 전환하고 실제 악마 이벤트의 대상/피해만 표시합니다. 마지막 사람이 나간 방의 원자적 삭제,2분 재접속 유예, 오래된 방 정리, 로비/관전자 종료 알림을 추가했습니다. 자세한 원인·정책·검증은 [UI·방 정리 기록](ui-reference-notes.md)에 있습니다.
 
 ## 실행한 검사
 
-- 규칙·카드 레지스트리·각 직접 사용 카드·상태·AI·저장·실제 소켓·UI 입력 테스트: **361개 통과**(마지막 실행 로그 기준).
+- 규칙·카드 레지스트리·각 직접 사용 카드·상태·AI·저장·실제 소켓·UI 입력 테스트: **371개 통과**(마지막 실행 로그 기준).
 - 실제 WebSocket2명: 동시 접속, 준비·시작, 동일 공개 상태, 서로 다른 손패, 중복 행동 거절, 토큰 재접속.
 - 실제 WebSocket8명:8개 연결의 동일 공개 경기와 각자10장 손패 분리. rewrite 방식 health 경로 검사.
 - SQLite 파일을 닫고 다시 열어 인증·손패·단계 복원. 실제 AI 명령 기록으로 동일 상태 재생.
@@ -40,7 +42,7 @@ AI는 공개 관측에서 후보를 평가하고 같은 서버 검증을 통과�
 
 ## 아직 남은 사항
 
-1. **소스 저장소 지정.** 사용자가 제공한 [lIlIlIIlIIlIIlI/godfilld](https://github.com/lIlIlIIlIIlIIlI/godfilld)를 사용합니다. 게임 소스·문서·테스트는 저장소 루트에 배치하며, Vercel 프로젝트와의 Git 연동은 별도 작업입니다.
+1. **소스 저장소 연결 완료.** 사용자가 제공한 [lIlIlIIlIIlIIlI/godfilld](https://github.com/lIlIlIIlIIlIIlI/godfilld)를 사용합니다. 게임 소스·문서·테스트는 저장소 루트에 배치하며, Vercel은 이 저장소의 지정 커밋으로 배포합니다.
 2. **운영 PostgreSQL 기본 연결 확인, 전체 통합 검사 미완료.** Vercel 권한 재확인 후 팀 접근과 Neon 연동 조회가 성공했습니다. 이후 Production·Preview용 `DATABASE_URL` 등이 설정된 것을 값 노출 없이 확인했습니다. 수정 Preview의 `/api/health`는200과 `PostgresStore`, `/api/rooms`는200과 빈 방 목록을 반환했습니다. 이는 DB 초기화와 목록 조회가 성공했다는 근거이며, 경기 저장·경합·재시작 복구까지 검사한 것은 아닙니다. 다른 프로젝트 DB를 임의 재사용하지 않았습니다.
 3. **배포 생성·빌드·기본 API 완료, 전체 대전 검증 미완료.** 최초 배포의 ESM import 오류를 수정하여 서버·공유 코드의 상대 import에 `.js`를 추가하고 JSON import 속성을 명시했습니다. 수정 커밋 `88b0339`의 Preview 배포 `dpl_GCHHe3hb2LWMu9nLQnNoSVyA4VdV`는 READY이고 health·방 목록200을 확인했습니다. 변경 후 최신 병합 의존성에서도348개 테스트와 빌드가 통과했습니다. 보호 인증을 사용한 HTTP 검사이며 실제 WebSocket upgrade·여러 인스턴스 대전·복구와 로그인 없는 공개 접근 검증은 아직 필요합니다. 일반 HTTP GET `/api/ws`404는 WebSocket upgrade 검사 결과가 아닙니다.
 4. **실브라우저/모바일 시각 QA 미실시.** DOM 입력 검사는 통과했지만 사용 가능한 browser-control 환경이 없어 실제 화면 스크린샷·터치·오디오·애니메이션을 기기에서 검수하지 못했습니다. 반응형 CSS를 구현했다고 해서 실기기 검증까지 완료한 것은 아닙니다.

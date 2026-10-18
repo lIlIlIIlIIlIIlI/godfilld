@@ -20,12 +20,14 @@ export interface Seat {
   difficulty: Difficulty;
   lastSeen: number;
   autopilot: boolean;
+  left?: boolean;
 }
 export interface RoomRecord {
   id: string;
   name: string;
   host: string;
   private: boolean;
+  practice?: boolean;
   passwordHash: string;
   capacity: number;
   mode: 'ffa' | 'team';
@@ -40,6 +42,14 @@ export interface RoomRecord {
   createdAt: number;
 }
 export const hash = (s: string) => createHash('sha256').update(s).digest('hex');
+export const RECONNECT_GRACE_MS = 120_000;
+const freshHuman = (p: Seat, now: number) =>
+  !p.bot && !p.left && p.lastSeen > 0 && now - p.lastSeen <= RECONNECT_GRACE_MS;
+function needsCleanup(r: RoomRecord, now: number) {
+  const fresh = r.seats.filter((p) => freshHuman(p, now));
+  return !fresh.length || !fresh.some((p) => p.id === r.host) ||
+    ((!r.game || r.game.phase === 'FINISHED') && r.seats.some((p) => !p.bot && !freshHuman(p, now)));
+}
 function password(value: string, salt: string) {
   return value ? scryptSync(value, salt, 32).toString('hex') : '';
 }
@@ -70,6 +80,7 @@ export class RoomService {
     return { identity, token: newToken };
   }
   async list() {
+    await this.cleanup();
     return (await this.store.list())
       .filter((r) => !r.private)
       .map((r) => ({
@@ -82,6 +93,25 @@ export class RoomService {
         playing: Boolean(r.game && r.game.phase !== 'FINISHED'),
         doomAt: r.doomAt ?? r.game?.rules.doomAt ?? 100,
       }));
+  }
+  async cleanup() {
+    const now = Date.now();
+    for (const candidate of await this.store.list()) {
+      if (!needsCleanup(candidate, now)) continue;
+      try {
+        await this.store.mutate(candidate.id, (r) => {
+          // Recheck after acquiring the database lock: a reconnect may have refreshed it.
+          if (!needsCleanup(r, now)) return;
+          const humans = r.seats.filter((p) => freshHuman(p, now));
+          if (!humans.length) return 'delete';
+          if (!r.game || r.game.phase === 'FINISHED')
+            r.seats = r.seats.filter((p) => p.bot || freshHuman(p, now));
+          if (!humans.some((p) => p.id === r.host)) r.host = humans[0].id;
+        });
+      } catch (e) {
+        if (!(e instanceof Error) || e.message !== '방을 찾을 수 없습니다.') throw e;
+      }
+    }
   }
   async create(identity: Identity, input: unknown, practice = false) {
     const options = roomSchema.parse(input);
@@ -101,6 +131,7 @@ export class RoomService {
       name: options.name,
       host: identity.id,
       private: options.private || practice,
+      practice,
       passwordHash: password(options.password, id),
       capacity: practice ? 4 : options.capacity,
       mode: options.mode,
@@ -167,6 +198,7 @@ export class RoomService {
       if (seat) {
         seat.lastSeen = Date.now();
         seat.autopilot = false;
+        seat.left = false;
         if (r.game && r.game.phase !== 'FINISHED' && waitingActor(r.game) === identity.id)
           this.setDeadline(r);
         return;
@@ -242,12 +274,15 @@ export class RoomService {
       }
       if (input.type === 'leave') {
         seat.autopilot = true;
+        seat.left = true;
         seat.lastSeen = 0;
+        const remaining = r.seats.filter((p) => !p.bot && !p.left && p.lastSeen > 0);
+        if (!remaining.length) return 'delete';
         if (!r.game || r.game.phase === 'FINISHED') {
           r.seats = r.seats.filter((p) => p.id !== identity.id);
-          if (host) r.host = r.seats.find((p) => !p.bot)?.id ?? r.seats[0]?.id ?? '';
+          if (host) r.host = remaining[0].id;
         } else {
-          if (host) r.host = r.seats.find((p) => !p.bot && p.id !== identity.id)?.id ?? identity.id;
+          if (host) r.host = remaining[0].id;
           this.setDeadline(r);
         }
         return;
@@ -322,6 +357,7 @@ export class RoomService {
       name: r.name,
       host: r.host,
       private: r.private,
+      practice: Boolean(r.practice),
       capacity: r.capacity,
       mode: r.mode,
       doomAt: r.doomAt ?? r.game?.rules.doomAt ?? 100,
@@ -334,7 +370,7 @@ export class RoomService {
         team: p.team,
         difficulty: p.difficulty,
         autopilot: p.autopilot,
-        connected: !p.bot && Date.now() - p.lastSeen < 45000,
+        connected: !p.bot && !p.left && Date.now() - p.lastSeen < 45000,
       })),
       deadline: r.deadline,
       chat: r.chat,

@@ -92,7 +92,11 @@ describe('durable room service', () => {
     await store.init();
     const service = new RoomService(store, 0, 0);
     const a = await service.authenticate();
-    let r = await service.create(a.identity, options, true);
+    const b = await service.authenticate();
+    let r = await service.create(a.identity, options);
+    await service.join(r.id, b.identity);
+    for (const p of [a, b]) await service.command(r.id, p.identity, { type: 'ready', ready: true });
+    r = await service.command(r.id, a.identity, { type: 'start' });
     r = await service.command(r.id, a.identity, { type: 'leave' });
     expect(r.seats.find((p) => p.id === a.identity.id)?.autopilot).toBe(true);
     r = await service.command(r.id, a.identity, { type: 'heartbeat' });
@@ -232,6 +236,20 @@ describe('real WebSocket clients', () => {
       expect(recovered.room.game.self.hand).toHaveLength(
         updated.room.game.players.find((p: any) => p.id === authA.id).handCount,
       );
+      const spectator = await client();
+      spectator.send({ type: 'hello', name: '관전자' });
+      await spectator.wait('hello');
+      spectator.send({ type: 'join', roomId, spectate: true });
+      expect((await spectator.wait('room')).room.game.self).toBeNull();
+      b.send({ type: 'leave' });
+      await b.wait('left');
+      expect(await store.get(roomId)).not.toBeNull();
+      resumed.send({ type: 'leave' });
+      await resumed.wait('left');
+      expect((await spectator.wait('room_closed')).roomId).toBe(roomId);
+      await b.wait('lobby', (m: any) => m.rooms.length === 0);
+      expect(await store.get(roomId)).toBeNull();
+      expect(await (await fetch(`http://127.0.0.1:${addr.port}/api/rooms`)).json()).toEqual([]);
     } finally {
       for (const ws of sockets) ws.terminate();
       await arena.close();

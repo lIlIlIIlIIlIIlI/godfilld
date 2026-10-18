@@ -7,12 +7,13 @@ export interface Identity {
   tokenHash: string;
   name: string;
 }
+export type RoomMutation = (room: RoomRecord) => void | 'delete';
 export interface Store {
   init(): Promise<void>;
   list(): Promise<RoomRecord[]>;
   get(id: string): Promise<RoomRecord | null>;
   create(room: RoomRecord): Promise<void>;
-  mutate(id: string, fn: (r: RoomRecord) => void): Promise<RoomRecord>;
+  mutate(id: string, fn: RoomMutation): Promise<RoomRecord>;
   identity(id: string): Promise<Identity | null>;
   saveIdentity(i: Identity): Promise<void>;
   close(): Promise<void>;
@@ -40,16 +41,17 @@ export class SQLiteStore implements Store {
   async create(room: RoomRecord) {
     this.db.prepare('INSERT INTO rooms(id,data) VALUES(?,?)').run(room.id, JSON.stringify(room));
   }
-  async mutate(id: string, fn: (r: RoomRecord) => void) {
+  async mutate(id: string, fn: RoomMutation) {
     this.db.exec('BEGIN IMMEDIATE');
     try {
       const row = this.db.prepare('SELECT data FROM rooms WHERE id=?').get(id) as
         { data: string } | undefined;
       if (!row) throw new Error('방을 찾을 수 없습니다.');
       const r: RoomRecord = JSON.parse(row.data);
-      fn(r);
+      const result = fn(r);
       r.revision++;
-      this.db.prepare('UPDATE rooms SET data=? WHERE id=?').run(JSON.stringify(r), id);
+      if (result === 'delete') this.db.prepare('DELETE FROM rooms WHERE id=?').run(id);
+      else this.db.prepare('UPDATE rooms SET data=? WHERE id=?').run(JSON.stringify(r), id);
       this.db.exec('COMMIT');
       return r;
     } catch (e) {
@@ -102,7 +104,7 @@ export class PostgresStore implements Store {
       JSON.stringify(r),
     ]);
   }
-  async mutate(id: string, fn: (r: RoomRecord) => void) {
+  async mutate(id: string, fn: RoomMutation) {
     const c = await this.pool.connect();
     try {
       await c.query('BEGIN');
@@ -110,9 +112,10 @@ export class PostgresStore implements Store {
         .rows[0];
       if (!row) throw new Error('방을 찾을 수 없습니다.');
       const r = row.data as RoomRecord;
-      fn(r);
+      const result = fn(r);
       r.revision++;
-      await c.query('UPDATE arena_rooms SET data=$1 WHERE id=$2', [JSON.stringify(r), id]);
+      if (result === 'delete') await c.query('DELETE FROM arena_rooms WHERE id=$1', [id]);
+      else await c.query('UPDATE arena_rooms SET data=$1 WHERE id=$2', [JSON.stringify(r), id]);
       await c.query('COMMIT');
       return r;
     } catch (e) {

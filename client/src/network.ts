@@ -34,7 +34,7 @@ export class Connection extends EventTarget {
           this.roomId = msg.room.id;
           localStorage.setItem('arena-room', this.roomId);
         }
-        if (msg.type === 'left') {
+        if (msg.type === 'left' || msg.type === 'room_closed') {
           this.roomId = '';
           localStorage.removeItem('arena-room');
         }
@@ -43,6 +43,8 @@ export class Connection extends EventTarget {
           this.ws?.close();
         }
         if (msg.type === 'error' && msg.message.includes('방을 찾을')) {
+          msg.type = 'room_closed';
+          msg.roomId = this.roomId;
           this.roomId = '';
           localStorage.removeItem('arena-room');
         }

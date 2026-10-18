@@ -120,12 +120,23 @@ export async function createArenaServer(
   }
   async function publish(id: string) {
     const r = await store.get(id);
-    if (!r) return;
+    if (!r) {
+      for (const [ws, c] of clients) if (c.roomId === id) {
+        c.roomId = undefined;
+        c.revision = -1;
+        send(ws, { type: 'room_closed', roomId: id, message: '참가자가 없어 방이 종료되었습니다.' });
+      }
+      return;
+    }
     for (const [ws, c] of clients)
       if (c.roomId === id && c.identity && c.revision !== r.revision) {
         send(ws, { type: 'room', room: service.project(r, c.identity.id) });
         c.revision = r.revision;
       }
+  }
+  async function publishLobby() {
+    const rooms = await service.list();
+    for (const [ws, c] of clients) if (c.identity && !c.roomId) send(ws, { type: 'lobby', rooms });
   }
   wss.on('connection', (ws) => {
     const c = {
@@ -143,6 +154,8 @@ export async function createArenaServer(
     authTimer.unref();
     ws.on('pong', () => {
       c.alive = true;
+      if (c.identity && c.roomId)
+        void service.command(c.roomId, c.identity, { type: 'heartbeat' }).catch(() => {});
     });
     let chain = Promise.resolve();
     ws.on('message', (raw) => {
@@ -178,9 +191,11 @@ export async function createArenaServer(
               c.roomId = r.id;
               c.revision = -1;
               await publish(r.id);
+              await publishLobby();
               return;
             }
             if (input.type === 'join') {
+              requireRule(!c.roomId || c.roomId === String(input.roomId), '먼저 현재 방에서 나가 주세요.');
               const r = await service.join(
                 String(input.roomId),
                 c.identity,
@@ -190,6 +205,7 @@ export async function createArenaServer(
               c.roomId = r.id;
               c.revision = -1;
               await publish(r.id);
+              await publishLobby();
               return;
             }
             requireRule(c.roomId, '참가한 방이 없습니다.');
@@ -206,8 +222,16 @@ export async function createArenaServer(
               c.revision = -1;
               send(ws, { type: 'left' });
               await publish(prev);
+              await publishLobby();
             } else await publish(r.id);
           } catch (e) {
+            if (c.roomId && e instanceof Error && e.message === '방을 찾을 수 없습니다.') {
+              const id = c.roomId;
+              c.roomId = undefined;
+              c.revision = -1;
+              send(ws, { type: 'room_closed', roomId: id, message: '방이 종료되었거나 만료되었습니다.' });
+              return;
+            }
             send(ws, {
               type: 'error',
               message: e instanceof Error ? e.message : '요청을 처리할 수 없습니다.',
@@ -225,11 +249,16 @@ export async function createArenaServer(
     ws.on('error', () => {});
   });
   let ticking = false;
+  let lastCleanup = 0;
   const timer = setInterval(async () => {
     if (ticking) return;
     ticking = true;
     try {
       const ids = new Set([...clients.values()].flatMap((c) => (c.roomId ? [c.roomId] : [])));
+      if (Date.now() - lastCleanup >= 30000) {
+        lastCleanup = Date.now();
+        await publishLobby();
+      }
       for (const id of ids) {
         await service.tick(id);
         await publish(id);

@@ -2,6 +2,7 @@
 import { it, expect, vi } from 'vitest';
 import { createGame, viewFor, applyAction } from '../server/src/game/GameEngine';
 import { give } from '../server/src/game/CardRegistry';
+import { endgameRisk } from '../server/src/game/EndgameManager';
 const fixture = vi.hoisted(() => ({ connection: null as any }));
 vi.mock('../client/src/network', () => ({
   Connection: class extends EventTarget {
@@ -79,6 +80,10 @@ it('connects Korean home controls to a real validated game action and escapes ch
     );
   }
   update();
+  expect(document.querySelector('.field-board .field-players')).not.toBeNull();
+  expect(document.querySelector('.miracle-rack')?.textContent).toContain('일으킨 기적');
+  expect(document.body.classList.contains('end-of-world')).toBe(false);
+  expect(document.querySelector('.gf-counter')?.textContent).toContain('/ 100');
   const originalImage = document.querySelector<HTMLImageElement>('.game-card .card-art')!;
   expect(originalImage.getAttribute('src')).toMatch(/^\/assets\/original\/\d{3}\.webp$/);
   expect(originalImage.alt).toContain(document.querySelector('.card-name')!.textContent!);
@@ -100,6 +105,9 @@ it('connects Korean home controls to a real validated game action and escapes ch
   expect(document.querySelector('.chat-items script')).toBeNull();
   expect(document.querySelector('.chat-items img')).toBeNull();
   (document.querySelector('[data-card]') as HTMLButtonElement).click();
+  expect(document.querySelector('.focus-card h3')?.textContent).toBe(
+    document.querySelector('.card-name')!.textContent,
+  );
   (document.querySelector('[data-target="enemy"]') as HTMLButtonElement).click();
   (document.querySelector('[data-use]') as HTMLButtonElement).click();
   const request = fixture.connection.sent.at(-1);
@@ -115,7 +123,20 @@ it('connects Korean home controls to a real validated game action and escapes ch
   ];
   update();
   expect(document.querySelector('.played-cards')?.textContent).toContain('수호자의 파동');
-  fixture.connection.dispatchEvent(new CustomEvent('data', { detail: { type: 'left' } }));
+  expect(document.querySelector('.focus-card [data-detail="1000"]')).toBeNull();
+  state.rules.doomAt = 1;
+  update();
+  expect(document.body.classList.contains('end-of-world')).toBe(true);
+  expect(document.querySelector('.gf-counter.is-doom')).not.toBeNull();
+  expect(document.querySelector('.demon-event')).toBeNull();
+  state.rules.demonChance = 1;
+  endgameRisk(state, state.players[0], 1);
+  update();
+  expect(document.querySelector('.demon-event')?.textContent).toContain('악마 출현');
+  fixture.connection.dispatchEvent(new CustomEvent('data', { detail: { type: 'room_closed', message: '방이 종료되었습니다.' } }));
+  expect(document.querySelector('.field-board')).toBeNull();
+  expect(document.body.classList.contains('end-of-world')).toBe(false);
+  expect(document.body.textContent).toContain('게임방 목록');
   (document.querySelector('[data-page="codex"]') as HTMLButtonElement).click();
   expect(document.body.textContent).toContain('364개 카드 규칙');
   const input = document.querySelector<HTMLInputElement>('#codex-search')!;
