@@ -29,6 +29,8 @@ describe('durable room service', () => {
     await service.join(r.id, b.identity, 's3cret');
     await expect(service.command(r.id, b.identity, { type: 'addBot' })).rejects.toThrow();
     await expect(service.command(r.id, a.identity, { type: 'start' })).rejects.toThrow();
+    await service.command(r.id, a.identity, { type: 'chooseTeam', team: 'SINGLE' });
+    await service.command(r.id, b.identity, { type: 'chooseTeam', team: 'SINGLE' });
     await service.command(r.id, a.identity, { type: 'ready', ready: true });
     await service.command(r.id, b.identity, { type: 'ready', ready: true });
     const started = await service.command(r.id, a.identity, { type: 'start' });
@@ -95,7 +97,10 @@ describe('durable room service', () => {
     const b = await service.authenticate();
     let r = await service.create(a.identity, options);
     await service.join(r.id, b.identity);
-    for (const p of [a, b]) await service.command(r.id, p.identity, { type: 'ready', ready: true });
+    for (const p of [a, b]) {
+      await service.command(r.id, p.identity, { type: 'chooseTeam', team: 'SINGLE' });
+      await service.command(r.id, p.identity, { type: 'ready', ready: true });
+    }
     r = await service.command(r.id, a.identity, { type: 'start' });
     r = await service.command(r.id, a.identity, { type: 'leave' });
     expect(r.seats.find((p) => p.id === a.identity.id)?.autopilot).toBe(true);
@@ -145,6 +150,12 @@ describe('real WebSocket clients', () => {
         c.ws.send(JSON.stringify({ type: 'join', roomId: id }));
         await wait(c, 'room');
       }
+      await wait(
+        clients[0],
+        'room',
+        (m: any) => m.room.members.length === 8 && m.room.seats.length === 0,
+      );
+      for (const c of clients) c.ws.send(JSON.stringify({ type: 'chooseTeam', team: 'SINGLE' }));
       for (const c of clients) c.ws.send(JSON.stringify({ type: 'ready', ready: true }));
       await wait(
         clients[0],
@@ -208,11 +219,20 @@ describe('real WebSocket clients', () => {
       a.send({ type: 'create', options });
       const created = await a.wait('room');
       const roomId = created.room.id;
+      expect(created.room.seats).toHaveLength(0);
+      expect(created.room.members).toHaveLength(1);
       b.send({ type: 'join', roomId });
-      await b.wait('room');
+      const entered = await b.wait('room');
+      expect(entered.room.seats).toHaveLength(0);
+      expect(entered.room.members).toHaveLength(2);
+      a.send({ type: 'chooseTeam', team: 'SINGLE' });
+      b.send({ type: 'chooseTeam', team: 'SINGLE' });
       a.send({ type: 'ready', ready: true });
       b.send({ type: 'ready', ready: true });
-      await a.wait('room', (m: any) => m.room.seats.every((p: any) => p.ready));
+      await a.wait(
+        'room',
+        (m: any) => m.room.seats.length === 2 && m.room.seats.every((p: any) => p.ready),
+      );
       a.send({ type: 'start' });
       const ga = (await a.wait('room', (m: any) => Boolean(m.room.game))).room.game,
         gb = (await b.wait('room', (m: any) => Boolean(m.room.game))).room.game;

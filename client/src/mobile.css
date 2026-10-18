@@ -308,7 +308,6 @@
     font-weight: 700;
     color: var(--card-accent, #445566);
   }
-  .reference-divider,
   .reference-battle .deck-options {
     display: none;
   }
@@ -806,5 +805,19 @@
     max-height: calc(150 * var(--u));
     overflow: auto;
     pointer-events: auto;
+  }
+}
+
+@media (max-width: 760px) and (orientation: portrait) {
+  .reference-battle .reference-divider {
+    top: calc(var(--stage-height) - 20 * var(--u));
+    width: 100%;
+    height: calc(12 * var(--u));
+  }
+  .reference-queue-hint {
+    left: calc(170 * var(--u));
+    top: calc(445 * var(--u));
+    width: calc(400 * var(--u));
+    font-size: max(14px, calc(22 * var(--u)));
   }
 }

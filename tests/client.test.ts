@@ -76,20 +76,41 @@ it('connects Korean home controls to a real validated game action and escapes ch
     mode: 'ffa',
     revision: 0,
     seats: state.players.map((p) => ({ ...p, ready: true, connected: true, autopilot: false })),
-    deadline: Date.now() + 30000,
+    deadline: Date.now() + 60000,
+    timer: {
+      deadline: Date.now() + 60000,
+      durationMs: 60000,
+      startedAt: Date.now(),
+      serverNow: Date.now(),
+      actor: 'me',
+    },
     chat: [{ id: 'x', name: '<script>', text: '<img src=x onerror=alert(1)>' }],
     game: viewFor(state, 'me'),
   };
   function update() {
     fixture.connection.dispatchEvent(
       new CustomEvent('data', {
-        detail: { type: 'room', room: { ...room, game: viewFor(state, 'me') } },
+        detail: {
+          type: 'room',
+          room: {
+            ...room,
+            timer: { ...room.timer, serverNow: Date.now() },
+            game: viewFor(state, 'me'),
+          },
+        },
       }),
     );
   }
   update();
   expect(document.querySelector('.reference-battle .field-players')).not.toBeNull();
   expect(document.querySelector('.miracle-rack')?.textContent).toContain('일으킨 기적');
+  expect(document.querySelector('#turn-timebar')?.getAttribute('aria-valuenow')).toBe('60');
+  vi.advanceTimersByTime(5000);
+  expect(document.querySelector('#turn-timebar')?.getAttribute('aria-valuenow')).toBe('55');
+  expect(
+    parseFloat((document.querySelector('.turn-time-fill') as HTMLElement).style.width),
+  ).toBeCloseTo((55 / 60) * 100);
+
   expect(document.body.classList.contains('end-of-world')).toBe(false);
   expect(document.querySelector('.gf-counter')?.textContent).toMatch(/\/\s*100/);
   const originalImage = document.querySelector<HTMLImageElement>('.game-card .card-art')!;
@@ -168,20 +189,38 @@ it('connects Korean home controls to a real validated game action and escapes ch
     .querySelector('#create-form')!
     .dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
   expect(fixture.connection.sent.at(-1).options.doomAt).toBe(500);
+  const waiting = {
+    ...room,
+    game: undefined,
+    doomAt: 500,
+    seats: [],
+    members: [{ id: 'me', name: '예언자', queued: false, connected: true }],
+  };
+  fixture.connection.dispatchEvent(
+    new CustomEvent('data', { detail: { type: 'room', room: waiting } }),
+  );
+  expect(document.querySelector('.reference-wait')).not.toBeNull();
+  expect(document.querySelectorAll('.reference-seat')).toHaveLength(9);
+  expect(document.querySelectorAll('.reference-seat:not(.empty-seat)')).toHaveLength(0);
+  expect(document.querySelector('[data-ready]')).toBeNull();
+  expect(document.querySelector('.reference-members')?.textContent).toContain('예언자');
+  (document.querySelector('[data-team-choice="SINGLE"]') as HTMLButtonElement).click();
+  expect(fixture.connection.sent.at(-1)).toEqual({ type: 'chooseTeam', team: 'SINGLE' });
+  expect(document.querySelectorAll('.reference-seat:not(.empty-seat)')).toHaveLength(0);
   fixture.connection.dispatchEvent(
     new CustomEvent('data', {
       detail: { type: 'room', room: { ...room, game: undefined, doomAt: 500 } },
     }),
   );
-  expect(document.querySelector('.reference-wait')).not.toBeNull();
-  expect(document.querySelectorAll('.reference-seat')).toHaveLength(9);
-  (document.querySelector('[data-team-choice="A"]') as HTMLButtonElement).click();
-  expect(fixture.connection.sent.at(-1)).toEqual({ type: 'chooseTeam', team: 'A' });
   (document.querySelector('[data-ready]') as HTMLButtonElement).click();
   expect(fixture.connection.sent.at(-1)).toEqual({ type: 'ready', ready: false });
   (document.querySelector('.reference-doom') as HTMLButtonElement).click();
   (document.querySelector('[data-room-doom="50"]') as HTMLButtonElement).click();
   expect(fixture.connection.sent.at(-1)).toEqual({ type: 'doomAt', value: 50 });
+  (document.querySelector('.reference-footer-name') as HTMLButtonElement).click();
+  (document.querySelector('[data-cancel-queue]') as HTMLButtonElement).click();
+  expect(fixture.connection.sent.at(-1)).toEqual({ type: 'cancelQueue' });
+
   (document.querySelector('.reference-footer-name') as HTMLButtonElement).click();
   fixture.connection.dispatchEvent(
     new CustomEvent('data', {
@@ -297,6 +336,48 @@ it('connects Korean home controls to a real validated game action and escapes ch
   expect(fixture.connection.sent.at(-1)).toEqual({ type: 'leave' });
   fixture.connection.dispatchEvent(new CustomEvent('data', { detail: { type: 'left' } }));
   expect(document.querySelector('.reference-cue')).toBeNull();
+
+  state = createGame(
+    'expired-input',
+    [
+      { id: 'me', name: '나' },
+      { id: 'enemy', name: '상대' },
+    ],
+    4,
+  );
+  state.attacker = 'me';
+  const expiredAt = Date.now() + 1000;
+  fixture.connection.dispatchEvent(
+    new CustomEvent('data', {
+      detail: {
+        type: 'room',
+        room: {
+          ...room,
+          deadline: expiredAt,
+          timer: {
+            deadline: expiredAt,
+            startedAt: Date.now(),
+            durationMs: 1000,
+            serverNow: Date.now(),
+            actor: 'me',
+          },
+          game: viewFor(state, 'me'),
+        },
+      },
+    }),
+  );
+  expect(document.querySelector('#turn-timebar')?.getAttribute('aria-valuenow')).toBe('1');
+  vi.advanceTimersByTime(1000);
+  expect(document.querySelector('#turn-timebar')?.getAttribute('aria-valuenow')).toBe('0');
+  expect((document.querySelector('.action-dock [data-pass]') as HTMLButtonElement).disabled).toBe(
+    true,
+  );
+  const actionsBefore = fixture.connection.sent.filter((m: any) => m.type === 'action').length;
+  (document.querySelector('.action-dock [data-pass]') as HTMLButtonElement).click();
+  expect(fixture.connection.sent.filter((m: any) => m.type === 'action')).toHaveLength(
+    actionsBefore,
+  );
+  fixture.connection.dispatchEvent(new CustomEvent('data', { detail: { type: 'left' } }));
   vi.clearAllTimers();
   vi.useRealTimers();
 });

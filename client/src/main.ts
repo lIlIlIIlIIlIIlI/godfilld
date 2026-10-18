@@ -3,6 +3,7 @@ import './style.css';
 import './field.css';
 import './mobile.css';
 import { BattlePresentation } from './presentation';
+import { remainingTurnTime } from './turn-clock';
 import { battleView } from './battle';
 import { esc, icon } from './html';
 import {
@@ -80,6 +81,7 @@ let showSidebar = false;
 let showMiracles = false;
 let hoveredUid = '';
 let handFilter = 'all';
+let serverClockOffset = 0;
 const storedDoom = Number(localStorage.getItem('arena-doom-at'));
 let doomAt: DoomStartTurn = doomStartTurns.includes(storedDoom as DoomStartTurn)
   ? (storedDoom as DoomStartTurn)
@@ -208,7 +210,11 @@ function waitingRoom() {
   if (!room) return '';
   const host = room.host === conn.id;
   const own = room.seats.find((p) => p.id === conn.id);
-  return `<main class="reference-wait"><div class="reference-solo"><button class="reference-mode-title" data-team-choice="SINGLE">개인전</button><button class="reference-team solo-choice ${room.mode === 'ffa' ? 'chosen' : ''}" data-team-choice="SINGLE" aria-label="개인전 선택"><span class="team-mark team-solo"></span></button></div><section class="reference-seats" aria-label="참가자">${Array.from(
+  const members = room.members ?? room.seats.filter((p) => !p.bot);
+  const full = !own && room.seats.length >= room.capacity;
+  const singleDisabled = full || (room.seats.length > 0 && room.mode !== 'ffa');
+  const teamDisabled = full || (room.seats.length > 0 && room.mode !== 'team');
+  return `<main class="reference-wait"><div class="reference-solo"><button class="reference-mode-title" data-team-choice="SINGLE" ${singleDisabled ? 'disabled' : ''}>개인전</button><button class="reference-team solo-choice ${own && room.mode === 'ffa' ? 'chosen' : ''}" data-team-choice="SINGLE" ${singleDisabled ? 'disabled' : ''} aria-label="개인전 선택"><span class="team-mark team-solo"></span></button></div><section class="reference-seats" aria-label="참가자">${Array.from(
     { length: 9 },
     (_, i) => {
       const seat = room!.seats[i];
@@ -218,11 +224,12 @@ function waitingRoom() {
     },
   ).join(
     '',
-  )}</section><section class="reference-teams"><h2 class="reference-mode-title">팀전</h2>${['A', 'B', 'C', 'D'].map((team) => `<button class="reference-team team-choice-${team} ${room!.mode === 'team' && own?.team === team ? 'chosen' : ''}" data-team-choice="${team}" aria-label="${team} 팀 선택"><span class="team-mark team-${team}"></span></button>`).join('')}</section><button class="reference-doom" data-room-controls><b>종말의 시간</b><span>G.F.${room.doomAt ?? 100}</span></button><div class="reference-members">${room.seats.map((seat) => `<button data-room-controls>${esc(seat.name)}${seat.id === room!.host ? '(방장)' : ''}</button>`).join('')}${host && room.seats.length >= 2 && room.seats.every((p) => p.ready) ? '<button data-start>시작하기</button>' : ''}</div><aside class="reference-chat-log ${showSidebar ? 'expanded' : ''}" ${showSidebar ? '' : 'hidden'}><button class="reference-close" data-toggle-sidebar aria-label="게시록 닫기">×</button>${room.chat.map((c) => `<p><b>${esc(c.name)}</b> ${esc(c.text)}</p>`).join('') || '<p>아직 게시물이 없습니다.</p>'}</aside></main>`;
+  )}</section>${!own ? '<p class="reference-queue-hint">' + (full ? '대기열이 가득 찼습니다.<br>참가자가 나갈 때까지 기다려 주세요.' : '개인전 또는 팀을 눌러<br>대기열에 참가하세요.') + '</p>' : ''}<section class="reference-teams"><h2 class="reference-mode-title">팀전</h2>${['A', 'B', 'C', 'D'].map((team) => `<button class="reference-team team-choice-${team} ${room!.mode === 'team' && own?.team === team ? 'chosen' : ''}" data-team-choice="${team}" ${teamDisabled ? 'disabled' : ''} aria-label="${team} 팀 선택"><span class="team-mark team-${team}"></span></button>`).join('')}</section><button class="reference-doom" data-room-controls><b>종말의 시간</b><span>G.F.${room.doomAt ?? 100}</span></button><div class="reference-members">${members.map((seat) => `<button data-room-controls title="${room!.seats.some((p) => p.id === seat.id) ? '대기열 참가 중' : '대기실 입장 · 대기열 미참가'}">${esc(seat.name)}${seat.id === room!.host ? '(방장)' : ''}</button>`).join('')}${host && room.seats.length >= 2 && room.seats.every((p) => p.ready) ? '<button data-start>시작하기</button>' : ''}</div><aside class="reference-chat-log ${showSidebar ? 'expanded' : ''}" ${showSidebar ? '' : 'hidden'}><button class="reference-close" data-toggle-sidebar aria-label="게시록 닫기">×</button>${room.chat.map((c) => `<p><b>${esc(c.name)}</b> ${esc(c.text)}</p>`).join('') || '<p>아직 게시물이 없습니다.</p>'}</aside></main>`;
 }
 function referenceFooter() {
   const name =
     room?.game?.players.find((p) => p.id === conn.id)?.name ??
+    room?.members?.find((p) => p.id === conn.id)?.name ??
     room?.seats.find((p) => p.id === conn.id)?.name ??
     localStorage.getItem('arena-name') ??
     '';
@@ -231,8 +238,9 @@ function referenceFooter() {
 function showRoomControls() {
   if (!room || room.game) return;
   const host = room.host === conn.id;
+  const own = room.seats.find((p) => p.id === conn.id);
   modal(
-    `<h2>방 설정</h2><p>${esc(room.name)}</p><div class="reference-modal-controls"><button class="button" data-ready>${room.seats.find((p) => p.id === conn.id)?.ready ? '준비 취소' : '준비 완료'}</button><button class="button" data-invite>초대 링크 복사</button>${
+    `<h2>방 설정</h2><p>${esc(room.name)}</p><div class="reference-modal-controls">${own ? `<button class="button" data-ready>${own.ready ? '준비 취소' : '준비 완료'}</button><button class="button" data-cancel-queue>대기열 참가 취소</button>` : '<p>개인전 또는 팀 버튼을 눌러 대기열에 먼저 참가해 주세요.</p>'}<button class="button" data-invite>초대 링크 복사</button>${
       host
         ? `<button class="button" data-add-bot ${room.seats.length >= room.capacity ? 'disabled' : ''}>AI 추가</button><button class="button primary" data-start ${room.seats.length < 2 || !room.seats.every((p) => p.ready) ? 'disabled' : ''}>시작하기</button><fieldset><legend>종말의 시간</legend>${doomStartTurns.map((n) => `<button class="button" data-room-doom="${n}">${n}</button>`).join('')}</fieldset>${room.seats
             .filter((p) => p.bot)
@@ -293,6 +301,14 @@ function cardHtml(piece: Piece, index: number, permanent = false) {
 function canAct() {
   const g = room?.game;
   if (!g || g.phase === 'FINISHED' || pending || !conn.connected) return false;
+  if (
+    room?.deadline &&
+    remainingTurnTime(
+      room.timer ?? { deadline: room.deadline, durationMs: 60000 },
+      Date.now() + serverClockOffset,
+    ).remainingMs <= 0
+  )
+    return false;
   return g.phase === 'ATTACK_SELECTION'
     ? g.attacker === conn.id
     : g.phase === 'DEFENSE_SELECTION'
@@ -474,7 +490,7 @@ function guide() {
     [
       '08',
       '종말과 연결 끊김',
-      '방 생성 시 재앙 시작을 1/50/100/500턴 중 선택합니다. 선택한 턴 이후 카드 사용·지급마다 25% 악마 위험이 생깁니다. 시작 턴과 피해량 5/10/15는 이 게임의 설정이며 원본 확정 수치가 아닙니다. 입력 제한은 30초이며, 시간이 지나면 AI가 대신 행동합니다. 재접속하면 저장된 경기와 조작권을 복구합니다.',
+      '방 생성 시 재앙 시작을 1/50/100/500턴 중 선택합니다. 선택한 턴 이후 카드 사용·지급마다 25% 악마 위험이 생깁니다. 시작 턴과 피해량 5/10/15는 이 게임의 설정이며 원본 확정 수치가 아닙니다. 입력 제한은 기본 60초이며, 시간이 지나면 AI가 대신 행동합니다. 재접속하면 저장된 경기와 조작권을 복구합니다.',
     ],
   ];
   return `<main class="page-container guide"><div class="page-heading"><div><div class="eyebrow">A LITTLE HELP, A GREAT ADVENTURE</div><h1>처음 시작하기</h1><p>작은 선택들이 모여 하나의 전략이 됩니다.</p></div><button class="button primary" data-practice>연습하며 배우기 ${icon('ArrowRight')}</button></div><div class="guide-grid">${sections.map(([n, h, t]) => `<article class="panel guide-section"><span>${n}</span><h2>${h}</h2><p>${t}</p></article>`).join('')}</div><p class="muted">원본 Flash 실행 엔진은 사용하지 않으며, 허가 확인된 카드 그림·효과음을 사용합니다. 한국어 카드명은 원작 번역명이 아닌 새 이름입니다. 상세 규칙과 원본과의 차이는 소스의 docs/game-rules.md를 참고해 주세요.</p></main>`;
@@ -524,11 +540,28 @@ function render() {
   countdown();
 }
 function countdown() {
+  const clock = remainingTurnTime(
+    room?.timer ?? { deadline: room?.deadline ?? 0, durationMs: 60000 },
+    Date.now() + serverClockOffset,
+  );
   const t = document.querySelector('#turn-countdown');
-  if (t)
-    t.textContent = room?.deadline
-      ? `${Math.max(0, Math.ceil((room.deadline - Date.now()) / 1000))}초`
-      : '--';
+  const secondsText = room?.deadline ? clock.seconds + '초' : '--';
+  if (t && t.textContent !== secondsText) t.textContent = secondsText;
+  const bar = document.querySelector<HTMLElement>('#turn-timebar');
+  if (bar) {
+    bar.setAttribute('aria-valuemin', '0');
+    bar.setAttribute('aria-valuemax', String(clock.totalSeconds));
+    bar.setAttribute('aria-valuenow', String(clock.seconds));
+    bar.setAttribute('aria-valuetext', clock.seconds + '초 남음');
+    bar.title = clock.seconds + '초 남음';
+    bar.classList.toggle('urgent', clock.urgent);
+    const fill = bar.querySelector<HTMLElement>('.turn-time-fill');
+    if (fill) fill.style.width = clock.percent + '%';
+    if (room?.deadline && clock.remainingMs <= 0)
+      document.querySelectorAll<HTMLButtonElement>('.action-dock button').forEach((b) => {
+        b.disabled = true;
+      });
+  }
 }
 function action(a: Action) {
   if (!room?.game || !canAct()) return;
@@ -632,8 +665,13 @@ document.addEventListener('click', (e) => {
     localStorage.setItem('arena-name', name);
     navigate('menu');
   } else if (b.hasAttribute('data-room-controls')) showRoomControls();
-  else if (b.dataset.teamChoice) conn.send({ type: 'chooseTeam', team: b.dataset.teamChoice });
-  else if (b.dataset.roomDoom) {
+  else if (b.dataset.teamChoice) {
+    conn.send({ type: 'chooseTeam', team: b.dataset.teamChoice });
+    if (dialog.open) dialog.close();
+  } else if (b.hasAttribute('data-cancel-queue')) {
+    conn.send({ type: 'cancelQueue' });
+    if (dialog.open) dialog.close();
+  } else if (b.dataset.roomDoom) {
     conn.send({ type: 'doomAt', value: Number(b.dataset.roomDoom) });
     dialog.close();
   } else if (b.hasAttribute('data-toggle-miracles')) {
@@ -883,6 +921,7 @@ conn.addEventListener('data', (event) => {
       changed = g && (lastMatch !== g.id || lastVersion !== g.version);
     const previous = room?.game;
     room = next;
+    serverClockOffset = next.timer ? next.timer.serverNow - Date.now() : 0;
     if (g) presentation.sync(g);
     else presentation.reset();
     if (changed) {
@@ -947,7 +986,7 @@ setInterval(() => {
   if (conn.connected && conn.roomId) conn.send({ type: 'heartbeat' });
   else if (conn.connected && page === 'lobby') conn.send({ type: 'lobby' });
 }, 10000);
-setInterval(countdown, 1000);
+setInterval(countdown, 100);
 render();
 conn.connect();
 

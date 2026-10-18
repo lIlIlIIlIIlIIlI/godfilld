@@ -874,7 +874,7 @@
   top: calc(420 * var(--u));
   width: calc(660 * var(--u));
   height: calc(20 * var(--u));
-  background: #008f6f;
+  background: transparent;
   border-radius: 0 calc(5 * var(--u)) calc(5 * var(--u)) 0;
 }
 .reference-battle .hand-area {
@@ -1236,4 +1236,30 @@
 }
 .reference-battle .card-art-window {
   border-radius: 0;
+}
+
+.turn-time-fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #008f6f;
+  border-radius: inherit;
+  transition: width 0.1s linear;
+}
+.reference-divider.urgent .turn-time-fill {
+  background: #dd4444;
+}
+.reference-queue-hint {
+  position: absolute;
+  left: calc(360 * var(--u));
+  top: calc(435 * var(--u));
+  width: calc(360 * var(--u));
+  text-align: center;
+  color: #008f6f;
+  font-size: calc(20 * var(--u));
+}
+@media (prefers-reduced-motion: reduce) {
+  .turn-time-fill {
+    transition: none;
+  }
 }

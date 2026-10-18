@@ -121,11 +121,16 @@ export async function createArenaServer(
   async function publish(id: string) {
     const r = await store.get(id);
     if (!r) {
-      for (const [ws, c] of clients) if (c.roomId === id) {
-        c.roomId = undefined;
-        c.revision = -1;
-        send(ws, { type: 'room_closed', roomId: id, message: '참가자가 없어 방이 종료되었습니다.' });
-      }
+      for (const [ws, c] of clients)
+        if (c.roomId === id) {
+          c.roomId = undefined;
+          c.revision = -1;
+          send(ws, {
+            type: 'room_closed',
+            roomId: id,
+            message: '참가자가 없어 방이 종료되었습니다.',
+          });
+        }
       return;
     }
     for (const [ws, c] of clients)
@@ -195,7 +200,10 @@ export async function createArenaServer(
               return;
             }
             if (input.type === 'join') {
-              requireRule(!c.roomId || c.roomId === String(input.roomId), '먼저 현재 방에서 나가 주세요.');
+              requireRule(
+                !c.roomId || c.roomId === String(input.roomId),
+                '먼저 현재 방에서 나가 주세요.',
+              );
               const r = await service.join(
                 String(input.roomId),
                 c.identity,
@@ -223,13 +231,23 @@ export async function createArenaServer(
               send(ws, { type: 'left' });
               await publish(prev);
               await publishLobby();
-            } else await publish(r.id);
+            } else {
+              await publish(r.id);
+              if (
+                ['chooseTeam', 'cancelQueue', 'addBot', 'removeBot', 'start'].includes(input.type)
+              )
+                await publishLobby();
+            }
           } catch (e) {
             if (c.roomId && e instanceof Error && e.message === '방을 찾을 수 없습니다.') {
               const id = c.roomId;
               c.roomId = undefined;
               c.revision = -1;
-              send(ws, { type: 'room_closed', roomId: id, message: '방이 종료되었거나 만료되었습니다.' });
+              send(ws, {
+                type: 'room_closed',
+                roomId: id,
+                message: '방이 종료되었거나 만료되었습니다.',
+              });
               return;
             }
             send(ws, {

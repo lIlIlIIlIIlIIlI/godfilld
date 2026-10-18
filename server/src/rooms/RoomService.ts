@@ -22,6 +22,11 @@ export interface Seat {
   autopilot: boolean;
   left?: boolean;
 }
+export interface RoomVisitor {
+  id: string;
+  name: string;
+  lastSeen: number;
+}
 export interface RoomRecord {
   id: string;
   name: string;
@@ -33,23 +38,27 @@ export interface RoomRecord {
   mode: 'ffa' | 'team';
   doomAt?: DoomStartTurn;
   seats: Seat[];
+  visitors?: RoomVisitor[];
   spectators: string[];
   revision: number;
   game: GameState | null;
   deadline: number;
+  turnStartedAt?: number;
+  turnDurationMs?: number;
   chat: { id: string; name: string; text: string }[];
   commands: { actor: string; envelope: ActionEnvelope }[];
   createdAt: number;
 }
 export const hash = (s: string) => createHash('sha256').update(s).digest('hex');
 export const RECONNECT_GRACE_MS = 120_000;
-const freshHuman = (p: Seat, now: number) =>
+const freshHuman = (p: { lastSeen: number; bot?: boolean; left?: boolean }, now: number) =>
   !p.bot && !p.left && p.lastSeen > 0 && now - p.lastSeen <= RECONNECT_GRACE_MS;
 function needsCleanup(r: RoomRecord, now: number) {
-  const fresh = r.seats.filter((p) => freshHuman(p, now));
+  const fresh = [...r.seats, ...(r.visitors ?? [])].filter((p) => freshHuman(p, now));
   return (
     !fresh.length ||
     !fresh.some((p) => p.id === r.host) ||
+    (r.visitors ?? []).some((p) => !freshHuman(p, now)) ||
     ((!r.game || r.game.phase === 'FINISHED') && r.seats.some((p) => !p.bot && !freshHuman(p, now)))
   );
 }
@@ -60,7 +69,7 @@ export class RoomService {
   constructor(
     public store: Store,
     public botDelay = 650,
-    public turnMs = 30000,
+    public turnMs = 60000,
   ) {}
   async authenticate(token?: string, name = '여행자') {
     if (token) {
@@ -91,6 +100,7 @@ export class RoomService {
         name: r.name,
         mode: r.mode,
         count: r.seats.length,
+        visitors: (r.visitors ?? []).length,
         capacity: r.capacity,
         locked: Boolean(r.passwordHash),
         playing: Boolean(r.game && r.game.phase !== 'FINISHED'),
@@ -105,8 +115,9 @@ export class RoomService {
         await this.store.mutate(candidate.id, (r) => {
           // Recheck after acquiring the database lock: a reconnect may have refreshed it.
           if (!needsCleanup(r, now)) return;
-          const humans = r.seats.filter((p) => freshHuman(p, now));
+          const humans = [...r.seats, ...(r.visitors ?? [])].filter((p) => freshHuman(p, now));
           if (!humans.length) return 'delete';
+          r.visitors = (r.visitors ?? []).filter((p) => freshHuman(p, now));
           if (!r.game || r.game.phase === 'FINISHED')
             r.seats = r.seats.filter((p) => p.bot || freshHuman(p, now));
           if (!humans.some((p) => p.id === r.host)) r.host = humans[0].id;
@@ -139,7 +150,8 @@ export class RoomService {
       capacity: practice ? 4 : options.capacity,
       mode: options.mode,
       doomAt: options.doomAt,
-      seats: [seat],
+      seats: practice ? [seat] : [],
+      visitors: practice ? [] : [{ id: seat.id, name: seat.name, lastSeen: seat.lastSeen }],
       spectators: [],
       revision: 0,
       game: null,
@@ -167,7 +179,7 @@ export class RoomService {
         '별 수집가',
         '모래 현자',
         '안개 사냥꾼',
-      ][r.seats.length - 1],
+      ][r.seats.filter((p) => p.bot).length % 7],
       bot: true,
       ready: true,
       team: r.mode === 'team' ? (r.seats.length % 2 ? 'B' : 'A') : 'SINGLE',
@@ -179,10 +191,14 @@ export class RoomService {
   setDeadline(r: RoomRecord) {
     if (!r.game || r.game.phase === 'FINISHED') {
       r.deadline = 0;
+      r.turnStartedAt = 0;
+      r.turnDurationMs = 0;
       return;
     }
     const seat = r.seats.find((p) => p.id === waitingActor(r.game!));
-    r.deadline = Date.now() + (seat?.bot || seat?.autopilot ? this.botDelay : this.turnMs);
+    r.turnStartedAt = Date.now();
+    r.turnDurationMs = seat?.bot || seat?.autopilot ? this.botDelay : this.turnMs;
+    r.deadline = r.turnStartedAt + r.turnDurationMs;
   }
   start(r: RoomRecord, id: string) {
     requireRule(r.host === id, '방장만 시작할 수 있습니다.');
@@ -199,13 +215,25 @@ export class RoomService {
     return this.store.mutate(id, (r) => {
       const seat = r.seats.find((p) => p.id === identity.id);
       if (seat) {
+        const reclaim = seat.autopilot;
         seat.lastSeen = Date.now();
         seat.autopilot = false;
         seat.left = false;
-        if (r.game && r.game.phase !== 'FINISHED' && waitingActor(r.game) === identity.id)
+        if (
+          reclaim &&
+          r.game &&
+          r.game.phase !== 'FINISHED' &&
+          waitingActor(r.game) === identity.id
+        )
           this.setDeadline(r);
         return;
       }
+      const visitor = r.visitors?.find((p) => p.id === identity.id);
+      if (visitor) {
+        visitor.lastSeen = Date.now();
+        return;
+      }
+      if (r.spectators.includes(identity.id)) return;
       requireRule(
         !r.passwordHash ||
           timingSafeEqual(
@@ -215,32 +243,27 @@ export class RoomService {
         '비밀번호가 올바르지 않습니다.',
       );
       if (spectate) {
-        if (!r.spectators.includes(identity.id)) r.spectators.push(identity.id);
+        r.spectators.push(identity.id);
         return;
       }
       requireRule(
         !r.game || r.game.phase === 'FINISHED',
         '진행 중인 방에는 관전으로 참가해 주세요.',
       );
-      requireRule(r.seats.length < r.capacity, '방이 가득 찼습니다.');
-      if (!r.seats.some((p) => !p.bot)) r.host = identity.id;
-      r.seats.push({
-        id: identity.id,
-        name: identity.name,
-        bot: false,
-        ready: false,
-        team: r.mode === 'team' ? (r.seats.length % 2 ? 'B' : 'A') : 'SINGLE',
-        difficulty: 'normal',
-        lastSeen: Date.now(),
-        autopilot: false,
-      });
+      r.visitors ??= [];
+      r.visitors.push({ id: identity.id, name: identity.name, lastSeen: Date.now() });
     });
   }
   async command(id: string, identity: Identity, input: any) {
     return this.store.mutate(id, (r) => {
       const seat = r.seats.find((p) => p.id === identity.id);
+      const visitor = r.visitors?.find((p) => p.id === identity.id);
       const host = r.host === identity.id;
-      requireRule(seat || r.spectators.includes(identity.id), '이 방에 참가하지 않았습니다.');
+      requireRule(
+        seat || visitor || r.spectators.includes(identity.id),
+        '이 방에 참가하지 않았습니다.',
+      );
+      if (visitor) visitor.lastSeen = Date.now();
       if (seat) {
         seat.lastSeen = Date.now();
         if (input.type !== 'heartbeat') {
@@ -258,36 +281,42 @@ export class RoomService {
       if (input.type === 'heartbeat') return;
       if (input.type === 'chat') {
         const text = z.string().trim().min(1).max(300).parse(input.text);
-        r.chat.push({ id: randomUUID(), name: seat?.name ?? '관전자', text });
+        r.chat.push({ id: randomUUID(), name: seat?.name ?? visitor?.name ?? '관전자', text });
         r.chat = r.chat.slice(-100);
         return;
       }
-      if (input.type === 'leave' && !seat) {
+      if (input.type === 'leave') {
         r.spectators = r.spectators.filter((id) => id !== identity.id);
+        if (!seat && !visitor) return;
+        r.visitors = (r.visitors ?? []).filter((p) => p.id !== identity.id);
+        if (seat) {
+          seat.autopilot = true;
+          seat.left = true;
+          seat.lastSeen = 0;
+          if (!r.game || r.game.phase === 'FINISHED')
+            r.seats = r.seats.filter((p) => p.id !== identity.id);
+        }
+        const remaining = [...r.seats, ...(r.visitors ?? [])].filter((p) =>
+          freshHuman(p, Date.now()),
+        );
+        if (!remaining.length) return 'delete';
+        if (host) r.host = remaining[0].id;
+        if (seat && r.game && r.game.phase !== 'FINISHED' && waitingActor(r.game) === seat.id)
+          this.setDeadline(r);
         return;
       }
-      requireRule(seat, '관전자는 게임을 조작할 수 없습니다.');
+      requireRule(seat || visitor, '관전자는 게임을 조작할 수 없습니다.');
       if (input.type === 'action') {
+        requireRule(seat, '대기열에 참가한 플레이어만 조작할 수 있습니다.');
         requireRule(r.game, '경기를 시작해 주세요.');
+        requireRule(
+          !r.deadline || Date.now() < r.deadline,
+          '입력 시간이 지났습니다. 자동 진행을 기다려 주세요.',
+        );
         const envelope = envelopeSchema.parse(input.envelope);
         r.game = applyAction(r.game, identity.id, envelope);
         r.commands.push({ actor: identity.id, envelope });
         this.setDeadline(r);
-        return;
-      }
-      if (input.type === 'leave') {
-        seat.autopilot = true;
-        seat.left = true;
-        seat.lastSeen = 0;
-        const remaining = r.seats.filter((p) => !p.bot && !p.left && p.lastSeen > 0);
-        if (!remaining.length) return 'delete';
-        if (!r.game || r.game.phase === 'FINISHED') {
-          r.seats = r.seats.filter((p) => p.id !== identity.id);
-          if (host) r.host = remaining[0].id;
-        } else {
-          if (host) r.host = remaining[0].id;
-          this.setDeadline(r);
-        }
         return;
       }
       if (input.type === 'start') {
@@ -298,26 +327,52 @@ export class RoomService {
         !r.game || r.game.phase === 'FINISHED',
         '대전 중에는 방 설정을 바꿀 수 없습니다.',
       );
-      if (input.type === 'ready') {
-        seat.ready = z.boolean().parse(input.ready);
-        return;
-      }
-      if (input.type === 'team') {
-        requireRule(r.mode === 'team', '팀전 방이 아닙니다.');
-        seat.team = z.enum(['A', 'B', 'C', 'D']).parse(input.team);
-        return;
-      }
       if (input.type === 'chooseTeam') {
         const team = z.enum(['SINGLE', 'A', 'B', 'C', 'D']).parse(input.team);
         const mode = team === 'SINGLE' ? 'ffa' : 'team';
-        if (mode !== r.mode) {
-          requireRule(host, '방장만 개인전과 팀전을 전환할 수 있습니다.');
-          r.mode = mode;
-          r.seats.forEach((p, i) => {
-            p.team = mode === 'ffa' ? 'SINGLE' : i % 2 ? 'B' : 'A';
+        requireRule(
+          !r.seats.length || mode === r.mode,
+          '현재 대기열과 같은 개인전 또는 팀전을 선택해 주세요.',
+        );
+        if (!seat) {
+          requireRule(visitor, '대기실에 입장해 주세요.');
+          requireRule(r.seats.length < r.capacity, '대기열이 가득 찼습니다.');
+          r.seats.push({
+            id: visitor.id,
+            name: visitor.name,
+            bot: false,
+            ready: false,
+            team,
+            difficulty: 'normal',
+            lastSeen: Date.now(),
+            autopilot: false,
           });
+          r.visitors = (r.visitors ?? []).filter((p) => p.id !== identity.id);
+        } else if (seat.team !== team) {
+          seat.team = team;
+          seat.ready = false;
         }
-        seat.team = team;
+        r.mode = mode;
+        return;
+      }
+      if (input.type === 'cancelQueue') {
+        requireRule(seat && !seat.bot, '대기열에 참가하지 않았습니다.');
+        r.seats = r.seats.filter((p) => p.id !== identity.id);
+        r.visitors ??= [];
+        r.visitors.push({ id: seat.id, name: seat.name, lastSeen: Date.now() });
+        return;
+      }
+      if (input.type === 'ready' || input.type === 'team') {
+        requireRule(seat, '개인전 또는 팀을 눌러 대기열에 먼저 참가해 주세요.');
+        if (input.type === 'ready') seat.ready = z.boolean().parse(input.ready);
+        else {
+          requireRule(r.mode === 'team', '팀전 방이 아닙니다.');
+          const team = z.enum(['A', 'B', 'C', 'D']).parse(input.team);
+          if (seat.team !== team) {
+            seat.team = team;
+            seat.ready = false;
+          }
+        }
         return;
       }
       requireRule(host, '방장만 사용할 수 있습니다.');
@@ -364,7 +419,9 @@ export class RoomService {
     const r = await this.store.get(id);
     if (!r) return null;
     requireRule(
-      r.seats.some((p) => p.id === viewer) || r.spectators.includes(viewer),
+      r.seats.some((p) => p.id === viewer) ||
+        r.visitors?.some((p) => p.id === viewer) ||
+        r.spectators.includes(viewer),
       '방에 참가해 주세요.',
     );
     return this.project(r, viewer);
@@ -382,6 +439,19 @@ export class RoomService {
       mode: r.mode,
       doomAt: r.doomAt ?? r.game?.rules.doomAt ?? 100,
       revision: r.revision,
+      members: [...r.seats.filter((p) => !p.bot && !p.left), ...(r.visitors ?? [])].map((p) => ({
+        id: p.id,
+        name: fog && p.id !== viewer ? '안개 속 여행자' : p.name,
+        queued: r.seats.some((seat) => seat.id === p.id),
+        connected: Date.now() - p.lastSeen < 45000,
+      })),
+      timer: {
+        deadline: r.deadline,
+        durationMs: r.turnDurationMs ?? this.turnMs,
+        startedAt: r.turnStartedAt ?? Math.max(0, r.deadline - this.turnMs),
+        serverNow: Date.now(),
+        actor: r.game && r.game.phase !== 'FINISHED' ? waitingActor(r.game) : '',
+      },
       seats: r.seats.map((p) => ({
         id: p.id,
         name: fog && p.id !== viewer ? '안개 속 여행자' : p.name,

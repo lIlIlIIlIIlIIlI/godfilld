@@ -2,7 +2,13 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { SQLiteStore, PostgresStore } from '../server/src/persistence/Store';
 import { RoomService } from '../server/src/rooms/RoomService';
 
-const options = { name: '수명 주기 검사', namePlayer: '방장', capacity: 4, mode: 'ffa', difficulty: 'normal' };
+const options = {
+  name: '수명 주기 검사',
+  namePlayer: '방장',
+  capacity: 4,
+  mode: 'ffa',
+  difficulty: 'normal',
+};
 const stores: SQLiteStore[] = [];
 async function setup() {
   const store = new SQLiteStore(':memory:');
@@ -37,7 +43,10 @@ describe('room lifetime', () => {
     const { service, store, a, b } = await setup();
     const r = await service.create(a, options);
     await service.join(r.id, b);
-    for (const p of [a, b]) await service.command(r.id, p, { type: 'ready', ready: true });
+    for (const p of [a, b]) {
+      await service.command(r.id, p, { type: 'chooseTeam', team: 'SINGLE' });
+      await service.command(r.id, p, { type: 'ready', ready: true });
+    }
     await service.command(r.id, a, { type: 'start' });
     const left = await service.command(r.id, a, { type: 'leave' });
     expect(left.host).toBe(b.id);
@@ -74,7 +83,8 @@ describe('room lifetime', () => {
     const visible = await service.list();
     expect(visible.map((r) => r.id)).toEqual([active.id]);
     expect((await store.get(active.id))?.host).toBe(b.id);
-    expect((await store.get(active.id))?.seats.map((p) => p.id)).toEqual([b.id]);
+    expect((await store.get(active.id))?.seats).toEqual([]);
+    expect((await store.get(active.id))?.visitors?.map((p) => p.id)).toEqual([b.id]);
     expect(await store.get(abandoned.id)).toBeNull();
   });
   it('rechecks freshness under the mutation lock so cleanup cannot erase a reconnect', async () => {
@@ -95,27 +105,39 @@ describe('room lifetime', () => {
   it('deletes PostgreSQL rooms inside the same locked transaction', async () => {
     const { service, a } = await setup();
     const room = await service.create(a, options);
-    const query = vi.fn(async (sql: string) => sql.includes('SELECT') ? { rows: [{ data: structuredClone(room) }] } : { rows: [] });
+    const query = vi.fn(async (sql: string) =>
+      sql.includes('SELECT') ? { rows: [{ data: structuredClone(room) }] } : { rows: [] },
+    );
     const release = vi.fn();
     const store = Object.create(PostgresStore.prototype) as PostgresStore;
     store.pool = { connect: async () => ({ query, release }) } as any;
     await store.mutate(room.id, () => 'delete');
     expect(query.mock.calls.map(([sql]) => sql)).toEqual([
-      'BEGIN', 'SELECT data FROM arena_rooms WHERE id=$1 FOR UPDATE',
-      'DELETE FROM arena_rooms WHERE id=$1', 'COMMIT',
+      'BEGIN',
+      'SELECT data FROM arena_rooms WHERE id=$1 FOR UPDATE',
+      'DELETE FROM arena_rooms WHERE id=$1',
+      'COMMIT',
     ]);
     expect(release).toHaveBeenCalledOnce();
   });
   it('rolls back PostgreSQL changes and releases the lock on a rejected command', async () => {
     const { service, a } = await setup();
     const room = await service.create(a, options);
-    const query = vi.fn(async (sql: string) => sql.includes('SELECT') ? { rows: [{ data: structuredClone(room) }] } : { rows: [] });
+    const query = vi.fn(async (sql: string) =>
+      sql.includes('SELECT') ? { rows: [{ data: structuredClone(room) }] } : { rows: [] },
+    );
     const release = vi.fn();
     const store = Object.create(PostgresStore.prototype) as PostgresStore;
     store.pool = { connect: async () => ({ query, release }) } as any;
-    await expect(store.mutate(room.id, () => { throw Error('잘못된 명령'); })).rejects.toThrow('잘못된 명령');
+    await expect(
+      store.mutate(room.id, () => {
+        throw Error('잘못된 명령');
+      }),
+    ).rejects.toThrow('잘못된 명령');
     expect(query.mock.calls.at(-1)?.[0]).toBe('ROLLBACK');
-    expect(query.mock.calls.some(([sql]) => /DELETE|UPDATE/.test(sql) && !sql.includes('SELECT'))).toBe(false);
+    expect(
+      query.mock.calls.some(([sql]) => /DELETE|UPDATE/.test(sql) && !sql.includes('SELECT')),
+    ).toBe(false);
     expect(release).toHaveBeenCalledOnce();
   });
 });

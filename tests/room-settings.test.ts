@@ -91,9 +91,8 @@ describe('reference waiting-room controls', () => {
       const guest = (await service.authenticate()).identity;
       let room = await service.create(host, options);
       await service.join(room.id, guest);
-      await expect(
-        service.command(room.id, guest, { type: 'chooseTeam', team: 'A' }),
-      ).rejects.toThrow('방장');
+      expect(room.seats).toHaveLength(0);
+      await service.command(room.id, guest, { type: 'chooseTeam', team: 'A' });
       room = await service.command(room.id, host, { type: 'chooseTeam', team: 'A' });
       expect(room.mode).toBe('team');
       room = await service.command(room.id, guest, { type: 'chooseTeam', team: 'C' });
@@ -107,7 +106,13 @@ describe('reference waiting-room controls', () => {
       await expect(service.command(room.id, host, { type: 'doomAt', value: 25 })).rejects.toThrow();
       room = await service.command(room.id, host, { type: 'doomAt', value: 50 });
       expect(service.project(room, guest.id).doomAt).toBe(50);
+      await expect(
+        service.command(room.id, host, { type: 'chooseTeam', team: 'SINGLE' }),
+      ).rejects.toThrow('대기열');
+      await service.command(room.id, host, { type: 'cancelQueue' });
+      await service.command(room.id, guest, { type: 'cancelQueue' });
       room = await service.command(room.id, host, { type: 'chooseTeam', team: 'SINGLE' });
+      room = await service.command(room.id, guest, { type: 'chooseTeam', team: 'SINGLE' });
       expect(room.mode).toBe('ffa');
       expect(room.seats.every((p) => p.team === 'SINGLE')).toBe(true);
       await service.command(room.id, host, { type: 'ready', ready: true });
