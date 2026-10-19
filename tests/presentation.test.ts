@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { battleCues, BattlePresentation } from '../client/src/presentation';
+import { battleTiming } from '../shared/battle-pacing';
 import { createGame, viewFor } from '../server/src/game/GameEngine';
 import type { GameEvent } from '../shared/types';
 
@@ -80,9 +81,9 @@ describe('server event presentation', () => {
     p.sync(g);
     p.sync(g);
     expect(p.current?.kind).toBe('damage');
-    vi.advanceTimersByTime(1100);
+    vi.advanceTimersByTime(battleTiming.damage);
     expect(p.current?.kind).toBe('death');
-    vi.advanceTimersByTime(1100);
+    vi.advanceTimersByTime(battleTiming.death);
     expect(p.current).toBeNull();
     p.sync(g);
     expect(p.current).toBeNull();
@@ -101,7 +102,7 @@ describe('server event presentation', () => {
   it('starts a rematch with a fresh sequence and leaves server data unchanged', () => {
     vi.useFakeTimers();
     const changed = vi.fn(),
-      p = new BattlePresentation(changed, () => false),
+      p = new BattlePresentation(changed),
       g = game();
     g.version = 10;
     p.sync(g);
@@ -110,6 +111,8 @@ describe('server event presentation', () => {
     p.sync(rematch);
     expect(p.current?.kind).toBe('start');
     vi.advanceTimersByTime(200);
+    expect(p.current?.kind).toBe('start');
+    vi.advanceTimersByTime(battleTiming.start - 200);
     expect(p.current).toBeNull();
     expect(changed).toHaveBeenCalledOnce();
     expect(JSON.stringify(rematch)).toBe(before);
@@ -128,7 +131,7 @@ describe('server event presentation', () => {
     const shown: string[] = [];
     while (p.current) {
       shown.push(p.current.kind);
-      vi.advanceTimersByTime(1100);
+      vi.advanceTimersByTime(battleTiming[p.current.kind]);
     }
     expect(shown.length).toBeLessThanOrEqual(8);
     expect(shown.at(-1)).toBe('death');

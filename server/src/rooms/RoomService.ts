@@ -6,7 +6,9 @@ import type {
   Difficulty,
   ActionEnvelope,
   DoomStartTurn,
+  GameEvent,
 } from '../../../shared/types.js';
+import { battleTiming, battleReadTime } from '../../../shared/battle-pacing.js';
 import { createGame, applyAction, viewFor } from '../game/GameEngine.js';
 import { requireRule } from '../game/State.js';
 import { botDecision, waitingActor } from '../ai/BotController.js';
@@ -68,7 +70,7 @@ function password(value: string, salt: string) {
 export class RoomService {
   constructor(
     public store: Store,
-    public botDelay = 650,
+    public botDelay: number = battleTiming.botActionMs,
     public turnMs = 60000,
   ) {}
   async authenticate(token?: string, name = '여행자') {
@@ -190,7 +192,7 @@ export class RoomService {
       autopilot: true,
     });
   }
-  setDeadline(r: RoomRecord) {
+  setDeadline(r: RoomRecord, events: GameEvent[] = []) {
     if (!r.game || r.game.phase === 'FINISHED') {
       r.deadline = 0;
       r.turnStartedAt = 0;
@@ -199,7 +201,12 @@ export class RoomService {
     }
     const seat = r.seats.find((p) => p.id === waitingActor(r.game!));
     r.turnStartedAt = Date.now();
-    r.turnDurationMs = seat?.bot || seat?.autopilot ? this.botDelay : this.turnMs;
+    r.turnDurationMs =
+      seat?.bot || seat?.autopilot
+        ? this.botDelay === 0
+          ? 0
+          : Math.max(this.botDelay, battleReadTime(events))
+        : this.turnMs;
     r.deadline = r.turnStartedAt + r.turnDurationMs;
   }
   start(r: RoomRecord, id: string) {
@@ -211,7 +218,7 @@ export class RoomService {
     );
     r.commands = [];
     r.game = createGame(r.id, r.seats, randomBytes(4).readUInt32LE(), { doomAt: r.doomAt ?? 100 });
-    this.setDeadline(r);
+    this.setDeadline(r, r.game.events);
   }
   async join(id: string, identity: Identity, pass = '', spectate = false) {
     return this.store.mutate(id, (r) => {
@@ -316,9 +323,13 @@ export class RoomService {
           '입력 시간이 지났습니다. 자동 진행을 기다려 주세요.',
         );
         const envelope = envelopeSchema.parse(input.envelope);
+        const previousSeq = r.game.eventSeq;
         r.game = applyAction(r.game, identity.id, envelope);
         r.commands.push({ actor: identity.id, envelope });
-        this.setDeadline(r);
+        this.setDeadline(
+          r,
+          r.game.events.filter((e) => e.seq > previousSeq),
+        );
         return;
       }
       if (input.type === 'start') {
@@ -411,10 +422,14 @@ export class RoomService {
       const actor = waitingActor(r.game),
         seat = r.seats.find((p) => p.id === actor);
       if (seat && !seat.bot) seat.autopilot = true;
+      const previousSeq = r.game.eventSeq;
       const decision = botDecision(r.game, actor);
       r.game = decision.state;
       r.commands.push({ actor, envelope: decision.envelope });
-      this.setDeadline(r);
+      this.setDeadline(
+        r,
+        r.game.events.filter((e) => e.seq > previousSeq),
+      );
     });
   }
   async snapshot(id: string, viewer: string) {

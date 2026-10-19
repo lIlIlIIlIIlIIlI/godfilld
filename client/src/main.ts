@@ -103,12 +103,9 @@ let page = 'home',
   codexAttribute = '',
   codexSearch = '',
   codexLimit = 48;
-const presentation = new BattlePresentation(
-  () => {
-    if (room?.game) render();
-  },
-  () => preferences.motion && !matchMedia('(prefers-reduced-motion: reduce)').matches,
-);
+const presentation = new BattlePresentation(() => {
+  if (room?.game) render();
+});
 const icons = {
   Sparkles,
   Swords,

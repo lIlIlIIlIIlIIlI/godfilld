@@ -2,6 +2,7 @@
 import { it, expect, vi } from 'vitest';
 import { createGame, viewFor, applyAction } from '../server/src/game/GameEngine';
 import { give } from '../server/src/game/CardRegistry';
+import { battleTiming } from '../shared/battle-pacing';
 import { endgameRisk } from '../server/src/game/EndgameManager';
 const fixture = vi.hoisted(() => ({ connection: null as any }));
 vi.mock('../client/src/network', () => ({
@@ -333,9 +334,9 @@ it('connects Korean home controls to a real validated game action and escapes ch
   update();
   expect(state.phase).toBe('FINISHED');
   expect(document.querySelector('.reference-impact b')?.textContent).toBe('1');
-  vi.advanceTimersByTime(200);
+  vi.advanceTimersByTime(battleTiming.damage);
   expect(document.querySelector('.reference-ascension')?.textContent).toBe('승천');
-  vi.advanceTimersByTime(200);
+  vi.advanceTimersByTime(battleTiming.death);
   expect(document.querySelector('.result.awaiting-cue')).toBeNull();
   expect(document.querySelector('.result h2')?.textContent).toBe('승리');
   expect(document.querySelector('.result-winners')?.textContent).toContain('나');
