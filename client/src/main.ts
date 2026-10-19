@@ -6,6 +6,7 @@ import { BattlePresentation } from './presentation';
 import { remainingTurnTime } from './turn-clock';
 import { battleView } from './battle';
 import { esc, icon } from './html';
+import { referenceIcon } from './reference-icons';
 import {
   createIcons,
   Sparkles,
@@ -77,6 +78,8 @@ type Room = ReturnType<RoomService['project']>;
 const conn = new Connection(),
   app = document.querySelector<HTMLDivElement>('#app')!,
   dialog = document.querySelector<HTMLDialogElement>('#dialog')!;
+let overlayPage = '';
+let bookTab = 'attributes';
 let showSidebar = false;
 let showMiracles = false;
 let hoveredUid = '';
@@ -176,10 +179,29 @@ function toast(text: string) {
   window.setTimeout(() => t.classList.remove('visible'), 4000);
 }
 function modal(html: string) {
+  const frame = app.getBoundingClientRect();
+  for (const [key, value] of Object.entries({
+    left: frame.left,
+    top: frame.top,
+    width: frame.width,
+  }))
+    dialog.style.setProperty('--frame-' + key, value + 'px');
+  dialog.classList.toggle('reference-password-dialog', html.includes('id="private-form"'));
   dialog.innerHTML = `<button class="icon-button dialog-close" data-close aria-label="닫기">${icon('X')}</button>${html}`;
   dialog.showModal();
   hydrate();
 }
+dialog.addEventListener('click', (event) => {
+  if (event.target !== dialog) return;
+  const rect = dialog.getBoundingClientRect();
+  if (
+    event.clientX < rect.left ||
+    event.clientX > rect.right ||
+    event.clientY < rect.top ||
+    event.clientY > rect.bottom
+  )
+    dialog.close();
+});
 function header() {
   const g = room?.game;
   const label = room
@@ -190,8 +212,16 @@ function header() {
       : room.private
         ? '비밀 결투'
         : room.name
-    : ({ menu: '메뉴', lobby: '게임방 목록', codex: '카드 도감', guide: '교전' }[page] ?? '');
-  return `<header class="topbar reference-header">${page !== 'home' || room ? `<button class="reference-back" ${room ? 'data-leave' : 'data-page="home"'} aria-label="뒤로">←</button><strong class="reference-screen-name">${esc(label)}</strong>` : ''}${g ? `<span class="gf-counter ${g.doom >= 100 ? 'is-doom' : ''}" aria-label="현재 ${g.turn}턴, 종말 ${g.rules.doomAt}턴">G.F.<b>${g.turn}</b><span> /${g.rules.doomAt}</span></span>` : ''}<button class="reference-book" data-help><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" fill="currentColor"/><path fill="#eeffee" d="M10 4h5v9l-2.5-2L10 13z"/></svg><span class="reference-book-label">교전</span></button></header>`;
+    : ({
+        menu: '',
+        training: '훈련',
+        private: '비밀 결투',
+        duel: '진지 1:1 전투',
+        lobby: '게임방 목록',
+        codex: '카드 도감',
+        guide: '교전',
+      }[page] ?? '');
+  return `<header class="topbar reference-header">${page !== 'home' || room || overlayPage ? `<button class="reference-back" ${overlayPage ? 'data-close-overlay' : room ? 'data-leave' : 'data-page="' + (page === 'menu' ? 'home' : 'menu') + '"'} aria-label="뒤로">${referenceIcon('back')}</button><strong class="reference-screen-name">${esc(overlayPage === 'book' ? '교전' : overlayPage === 'settings' ? '설정' : label)}</strong>` : ''}${g && !overlayPage ? `<span class="gf-counter ${g.doom >= 100 ? 'is-doom' : ''}" aria-label="현재 ${g.turn}턴, 종말 ${g.rules.doomAt}턴">G.F.<b>${g.turn}</b><span class="sr-only"> /${g.rules.doomAt}</span></span>` : ''}<button class="reference-book" data-help>${referenceIcon('book')}<span class="reference-book-label">교전</span></button></header>`;
 }
 function doomOptions(name: string, value = doomAt) {
   return `<fieldset class="doom-options"><legend>재앙 · 종말 시작 턴</legend>${doomStartTurns.map((n) => `<label><input type="radio" name="${name}" value="${n}" ${n === value ? 'checked' : ''}><span>${n}</span></label>`).join('')}<small>선택한 턴부터 악마가 출현할 수 있습니다.</small></fieldset>`;
@@ -200,7 +230,61 @@ function home() {
   return `<main class="reference-home"><img class="reference-logo" src="/assets/reference/logo.webp" alt="GOD FIELD"><label class="reference-name-label" for="player-name">예언자의 이름</label><input class="reference-name-input" id="player-name" maxlength="20" value="${esc(localStorage.getItem('arena-name') || '')}" aria-label="예언자의 이름"><button class="reference-birth" data-enter>탄생하기</button><a class="reference-app-store" href="https://apps.apple.com/kr/app/id1536427424?l=ko" target="_blank" rel="noopener" aria-label="원작 God Field App Store"><img src="/assets/reference/app-store.svg" alt="App Store에서 다운로드하기"></a><a class="reference-google-play" href="https://play.google.com/store/apps/details?id=net.godfield&hl=ko" target="_blank" rel="noopener" aria-label="원작 God Field Google Play"><img src="/assets/reference/google-play.webp" alt="Google Play에서 다운로드하기"></a></main>`;
 }
 function modeMenu() {
-  return `<main class="reference-menu"><section><h1>훈련</h1><label>참가 인원<select id="practice-players">${playerCounts.map((n) => `<option value="${n}" ${n === practicePlayers ? 'selected' : ''}>${n}명 · 나 + AI ${n - 1}명</option>`).join('')}</select></label><label>AI 난이도<select id="difficulty">${difficultyOptions()}</select></label>${doomOptions('practice-doom')}<button class="button primary" data-practice>AI 연습 대전</button></section><section><h1>결투</h1><button class="button primary" data-create>비밀 결투 · 방 만들기</button><button class="button" data-page="lobby">게임방 목록</button><button class="button" data-join-code>초대 코드로 참가</button><button class="button" data-page="codex">카드 도감</button><button class="button" data-page="guide">게임 방법</button></section></main>`;
+  const count = (duel: boolean) =>
+    lobby.filter((r) => !r.playing && (!duel || r.capacity === 2)).reduce((n, r) => n + r.count, 0);
+  return `<main class="reference-menu"><button class="mode-card mode-training" data-page="training"><strong>훈련</strong><span class="mode-population">수행자 ${practicePlayers}명</span><small>CPU와 대결</small></button><button class="mode-card mode-private" data-page="private"><strong>비밀 결투</strong><span class="mode-population">예언자 ${count(false)}명</span><small>친선 대결</small></button><button class="mode-card mode-duel" data-page="duel"><strong>진지 1:1 전투</strong><span class="mode-population">예언자 ${count(true)}명</span><small>2인 개인전</small></button></main>`;
+}
+function trainingPage() {
+  return `<main class="reference-training"><label class="training-count"><span class="sr-only">수행자 인원</span><select id="practice-players">${playerCounts.map((n) => `<option value="${n}" ${n === practicePlayers ? 'selected' : ''}>수행자 ${n}명</option>`).join('')}</select></label><label class="training-doom"><b>종말의 시간</b><select name="practice-doom" aria-label="종말의 시간">${doomStartTurns.map((n) => `<option value="${n}" ${n === doomAt ? 'selected' : ''}>G.F.${n}</option>`).join('')}</select></label><button class="reference-start-battle" data-practice aria-label="AI 연습 대전">배틀 시작하기</button></main>`;
+}
+function openPrivate() {
+  modal(
+    `<form id="private-form"><label for="private-password">방 패스워드</label><input id="private-password" name="password" type="password" maxlength="80" autocomplete="off" required aria-label="방 패스워드"><button type="submit">외치기</button></form>`,
+  );
+}
+function duelPage() {
+  return `<main class="reference-duel"><div class="duel-heading">2인 개인전</div><p>친구와 1:1로 대전합니다.</p><button class="reference-start-battle" data-create>방 만들기</button><button class="private-room-list" data-page="lobby">게임방 목록</button></main>`;
+}
+function bookView() {
+  const tabs = [
+    ['attributes', '속성'],
+    ['status', '재앙'],
+    ['TRADE', '거래'],
+    ['WEAPON', '무기'],
+    ['PROTECTOR', '방어구'],
+    ['SUNDRY', '잡화'],
+    ['MAGIC', '기적'],
+    ['devils', '악마'],
+    ['guardians', '수호신'],
+    ['supernatural', '초자연 현상'],
+  ];
+  let content = '';
+  if (bookTab === 'attributes') {
+    content = `<section class="book-attributes"><div>무속성의 공격은 모든 속성으로 방어할 수 있다.</div><div><img class="book-element" src="/assets/reference/element-fire.webp" alt=""><span class="element-fire">화속성</span>의 공격은 <span class="element-water">수속성</span>으로 방어할 수 있다.</div><div><img class="book-element" src="/assets/reference/element-water.webp" alt=""><span class="element-water">수속성</span>의 공격은 <span class="element-fire">화속성</span>으로 방어할 수 있다.</div><div><img class="book-element" src="/assets/reference/element-wood.webp" alt=""><span class="element-tree">목속성</span>의 공격은 <span class="element-soil">토속성</span>으로 방어할 수 있다.</div><div><img class="book-element" src="/assets/reference/element-stone.webp" alt=""><span class="element-soil">토속성</span>의 공격은 <span class="element-tree">목속성</span>으로 방어할 수 있다.</div><div><img class="book-element" src="/assets/reference/element-light.webp" alt=""><span class="element-light">광속성</span>의 공격은 이 게임에서 암속성으로 방어할 수 있다.</div><div><img class="book-element" src="/assets/reference/element-darkness.webp" alt=""><span class="element-dark">암속성</span>의 공격은 어떠한 속성으로도 방어 가능하다.<br>　 단, 피해를 입으면 HP0이 된다.</div></section><p class="book-note">다른 속성의 성물을 함께 사용하면 무속성이 된다.</p><p class="book-note"><span class="element-light">광속성</span>은 <span class="element-fire">화속성</span>, <span class="element-water">수속성</span>, <span class="element-tree">목속성</span>, <span class="element-soil">토속성</span>을 대신할 수 있다.</p>`;
+  } else if (bookTab === 'status') {
+    content = `<div class="book-rows">${Object.entries(statusNames)
+      .map(
+        ([key, name]) =>
+          `<article><b>${esc(name)}</b><p>${esc(key === 'COLD' ? '턴이 끝날 때 HP 1 감소' : key === 'FEVER' ? '턴이 끝날 때 HP 2 감소' : key === 'HELL' ? '턴이 끝날 때 HP 5 감소' : key === 'HEAVEN' ? '턴이 끝날 때 HP 5 회복. 다시 질병을 받으면 즉사.' : key === 'GLORY' ? '방어 성물을 한 개만 사용할 수 있다.' : key === 'DARK_CLOUD' ? '확률 공격이 확정 명중한다.' : key === 'FOG' ? '대상 정보가 안개에 가려진다.' : '새로 받는 카드의 표시가 달라진다.')}</p></article>`,
+      )
+      .join('')}</div>`;
+  } else if (['WEAPON', 'PROTECTOR', 'SUNDRY', 'MAGIC', 'TRADE'].includes(bookTab)) {
+    content = `<div class="book-rows">${cards
+      .filter((c) => c.type === bookTab && c.weight > 0)
+      .map(
+        (c) =>
+          `<button class="book-card-row" data-detail="${c.id}">${cardArt(c, 60)}<span><b>${esc(c.name.ko)}</b><small>${esc(c.description.ko)}</small></span><em>${c.type === 'MAGIC' ? 'MP ' + c.subValue : '₩' + c.price}</em></button>`,
+      )
+      .join('')}</div>`;
+  } else if (bookTab === 'devils') {
+    content = `<div class="book-rows">${[5, 10, 15].map((n) => `<article><b>악마</b><p>${n}대미지</p></article>`).join('')}<article><b>종말의 시간</b><p>성물을 받을 때마다 25%의 확률로 악마가 나타난다.</p></article></div>`;
+  } else {
+    content = `<div class="book-rows"><article><b>${bookTab === 'guardians' ? '수호신' : '초자연 현상'}</b><p>${bookTab === 'guardians' ? '수호자는 HP 20으로 피해를 대신 받고, 적의 행동 뒤 30% 확률로 개입한다.' : '운명 카드는 열 가지 사건 중 하나를 일으킨다.'}</p></article></div>`;
+  }
+  return `<main class="reference-book-page"><nav class="book-tabs">${tabs.map(([key, name], i) => `<button data-book-tab="${key}" class="book-tab book-tab-${i} ${bookTab === key ? 'selected' : ''}">${name}</button>`).join('')}</nav><section class="book-content">${content}</section><div class="book-links"><button data-page="guide">게임 방법 · 조사 근거</button><button data-page="codex">카드 도감</button>${!room ? '<button data-page="lobby">게임방 목록</button><button data-join-code>초대 코드</button>' : ''}<a href="/source.zip" download>소스 코드</a></div></main>`;
+}
+function settingsView() {
+  return `<main class="reference-settings-page"><select class="settings-language" aria-label="언어"><option>한국어</option></select><form id="settings-form"><label>예언자의 이름<input name="name" maxlength="20" value="${esc(localStorage.getItem('arena-name') || '여행자')}"></label><label>효과음<input name="effects" type="range" min="0" max="1" step="0.05" value="${preferences.effects}"></label><label>배경 음악<input name="music" type="range" min="0" max="1" step="0.05" value="${preferences.music}"></label><label class="settings-motion"><input name="motion" type="checkbox" ${preferences.motion ? 'checked' : ''}> 전투 애니메이션</label><button type="submit">설정 저장</button></form><p class="settings-attribution">원작 <a href="https://godfield.net/?lang=ko" target="_blank" rel="noopener">God Field</a><br><a href="https://github.com/lIlIlIIlIIlIIlI/godfilld" target="_blank" rel="noopener">프로젝트 소스 코드</a></p></main>`;
 }
 function lobbyPage() {
   return `<main class="page-container"><div class="page-heading"><div><div class="eyebrow">MULTIPLAYER</div><h1>게임방 목록</h1><p>방을 만들고 친구와 실시간으로 대전해 보세요.</p></div><button class="button primary" data-create>${icon('Plus')} 방 만들기</button></div><div class="section-bar"><h2>공개 게임방 <span class="count">${lobby.length}</span></h2><div><button class="button small" data-join-code>${icon('Link')} 초대 코드로 참가</button><button class="icon-button" data-refresh aria-label="새로 고침">${icon('RotateCcw')}</button></div></div><div class="room-list">${lobby.length ? lobby.map((r) => `<article class="lobby-card"><span class="path-icon ${r.mode === 'team' ? 'gold' : 'mint'}">${icon('Users', 28)}</span><div class="grow"><div class="tags"><span>${r.mode === 'team' ? '팀전' : '개인전'}</span>${r.locked ? '<span>비밀번호</span>' : ''}${r.playing ? '<span>대전 중</span>' : ''}</div><h3>${esc(r.name)}</h3><p>${r.count} / ${r.capacity} 명 · 재앙 ${r.doomAt ?? 100}턴</p></div><button class="button" data-join="${esc(r.id)}" data-locked="${r.locked}" data-spectate="${r.playing}">${r.playing ? '관전하기' : '참가하기'} ${icon('ArrowRight')}</button></article>`).join('') : `<div class="empty-state">${icon('Orbit', 48)}<h3>${conn.connected ? '아직 열린 방이 없어요' : '서버와 연결하고 있어요'}</h3><p>${conn.connected ? '첫 번째 방을 만들거나, AI와 먼저 연습해 보세요.' : '연결되면 게임방 목록을 불러옵니다.'}</p><button class="button primary" data-create>새로운 방 만들기</button></div>`}</div></main>`;
@@ -223,7 +307,7 @@ function waitingRoom() {
     },
   ).join(
     '',
-  )}</section>${!own ? '<p class="reference-queue-hint">' + (full ? '대기열이 가득 찼습니다.<br>참가자가 나갈 때까지 기다려 주세요.' : '개인전 또는 팀을 눌러<br>대기열에 참가하세요.') + '</p>' : ''}<section class="reference-teams"><h2 class="reference-mode-title">팀전</h2>${['A', 'B', 'C', 'D'].map((team) => `<button class="reference-team team-choice-${team} ${room!.mode === 'team' && own?.team === team ? 'chosen' : ''}" data-team-choice="${team}" ${teamDisabled ? 'disabled' : ''} aria-label="${team} 팀 선택"><span class="team-mark team-${team}"></span></button>`).join('')}</section><button class="reference-doom" data-room-controls><b>종말의 시간</b><span>G.F.${room.doomAt ?? 100}</span></button><div class="reference-members">${members.map((seat) => `<button data-room-controls title="${room!.seats.some((p) => p.id === seat.id) ? '대기열 참가 중' : '대기실 입장 · 대기열 미참가'}">${esc(seat.name)}${seat.id === room!.host ? '(방장)' : ''}</button>`).join('')}${host && room.seats.length >= 2 && room.seats.every((p) => p.ready) ? '<button data-start>시작하기</button>' : ''}</div><aside class="reference-chat-log ${showSidebar ? 'expanded' : ''}" ${showSidebar ? '' : 'hidden'}><button class="reference-close" data-toggle-sidebar aria-label="게시록 닫기">×</button>${room.chat.map((c) => `<p><b>${esc(c.name)}</b> ${esc(c.text)}</p>`).join('') || '<p>아직 게시물이 없습니다.</p>'}</aside></main>`;
+  )}</section>${!own ? '<p class="reference-queue-hint">' + (full ? '대기열이 가득 찼습니다.<br>참가자가 나갈 때까지 기다려 주세요.' : '개인전 또는 팀을 눌러<br>대기열에 참가하세요.') + '</p>' : ''}<section class="reference-teams"><h2 class="reference-mode-title">팀전</h2>${['A', 'B', 'C', 'D'].map((team) => `<button class="reference-team team-choice-${team} ${room!.mode === 'team' && own?.team === team ? 'chosen' : ''}" data-team-choice="${team}" ${teamDisabled ? 'disabled' : ''} aria-label="${team} 팀 선택"><span class="team-mark team-${team}"></span></button>`).join('')}</section><button class="reference-doom" data-room-controls><b>종말의 시간</b><span>G.F.${room.doomAt ?? 100}</span></button><button class="reference-start-battle reference-shuffle" data-shuffle-teams ${!host || room.mode !== 'team' || room.seats.length < 2 ? 'disabled' : ''}>팀 섞기</button><button class="reference-start-battle reference-wait-start" data-start ${!host || room.seats.length < 2 || !room.seats.every((p) => p.ready) ? 'disabled' : ''}>배틀 시작하기</button><div class="reference-members">${members.map((seat) => `<button data-room-controls title="${room!.seats.some((p) => p.id === seat.id) ? '대기열 참가 중' : '대기실 입장 · 대기열 미참가'}">${esc(seat.name)}${seat.id === room!.host ? '(방장)' : ''}</button>`).join('')}</div><aside class="reference-chat-log ${showSidebar ? 'expanded' : ''}" ${showSidebar ? '' : 'hidden'}><button class="reference-close" data-toggle-sidebar aria-label="계시록 닫기">×</button>${room.chat.map((c) => `<p><b>${esc(c.name)}</b> ${esc(c.text)}</p>`).join('') || '<p>아직 게시물이 없습니다.</p>'}</aside></main>`;
 }
 function referenceFooter() {
   const name =
@@ -232,7 +316,7 @@ function referenceFooter() {
     room?.seats.find((p) => p.id === conn.id)?.name ??
     localStorage.getItem('arena-name') ??
     '';
-  return `<footer class="field-footer reference-footer"><button class="reference-footer-name" ${room?.game ? 'data-toggle-sidebar aria-label="기록·채팅 열기"' : room ? 'data-room-controls aria-label="준비·봇·시작 설정"' : 'data-page="menu"'}>${esc(name)}</button>${room?.game?.self ? '<button class="mobile-card-menu" data-hand-menu>카드 메뉴</button>' : ''}${page === 'home' && !room ? `<button class="reference-settings" data-settings>${icon('Settings', 22)} 설정</button>` : room && !room.game ? `<form id="chat-form" class="reference-footer-chat"><input id="chat-input" name="message" aria-label="채팅 메시지" maxlength="300" autocomplete="off"><button type="submit">${icon('ScrollText', 18)} 방에 게시를 내리기</button></form><button class="reference-history" data-toggle-sidebar>${icon('Clock', 19)} 게시록</button>` : ''}<button class="reference-volume" data-settings aria-label="효과음 및 배경 음악 설정">${icon('Volume2', 24)}<span class="volume-bars" aria-hidden="true">${Array.from({ length: 10 }, (_, i) => `<i class="${i < Math.round(preferences.effects * 10) ? 'on' : ''}"></i>`).join('')}</span></button></footer>`;
+  return `<footer class="field-footer reference-footer"><button class="reference-footer-name" ${room?.game ? 'data-toggle-sidebar aria-label="기록·채팅 열기"' : room ? 'data-room-controls aria-label="준비·봇·시작 설정"' : page === 'training' ? 'data-training-options aria-label="훈련 설정 · 난이도"' : 'data-page="menu"'}>${page === 'home' ? '' : esc(name)}</button>${room?.game?.self ? '<button class="mobile-card-menu" data-hand-menu>카드 메뉴</button>' : ''}${page === 'home' && !room ? `<button class="reference-settings" data-settings>${referenceIcon('settings')}<span>설정</span></button>` : room && !room.game ? `<form id="chat-form" class="reference-footer-chat"><input id="chat-input" name="message" aria-label="채팅 메시지" maxlength="300" autocomplete="off"><button type="submit">${icon('ScrollText', 18)} 방에 계시를 내리기</button></form><button class="reference-history" data-toggle-sidebar>${icon('Clock', 19)} 계시록</button>` : ''}<button class="reference-volume" data-settings aria-label="효과음 및 배경 음악 설정">${referenceIcon('volume')}<span class="volume-bars" aria-hidden="true">${Array.from({ length: 10 }, (_, i) => `<i class="${i < Math.round(preferences.effects * 10) ? 'on' : ''}"></i>`).join('')}</span></button></footer>`;
 }
 function showRoomControls() {
   if (!room || room.game) return;
@@ -295,7 +379,7 @@ function cardHtml(piece: Piece, index: number, permanent = false) {
         ? defenseValue(c)
         : null;
   const label = c.attackKind === 'ATK' || c.attackExtra === 'INCREASE_ATK' ? '공격' : '방어';
-  return `<article class="hand-card ${active ? 'is-selected' : ''}"><button class="game-card attr-${c.attribute || 'NONE'} ${active ? 'selected' : ''} ${permanent ? 'permanent' : ''}" data-card="${piece.uid}" aria-pressed="${active}" aria-label="${esc(c.name.ko + ' · ' + c.description.ko)}" title="${esc(c.name.ko + ' · ' + c.description.ko)}">${cardArt(c, 80)}<b class="card-name sr-only">${esc(c.name.ko)}</b>${power !== null ? `<span class="reference-card-stat ${c.hitRate ? 'probability-stat' : ''}">${c.hitRate ? c.hitRate + '% ' : ''}${label}${power}</span>` : ''}${active ? `<span class="selection-order">${selected.indexOf(piece.uid) + 1}</span>` : ''}</button><button class="card-inspect" data-detail="${c.id}" aria-label="${esc(c.name.ko)} 상세 보기">${icon('BookOpen', 15)}</button></article>`;
+  return `<article class="hand-card ${active ? 'is-selected' : ''}"><button class="game-card attr-${c.attribute || 'NONE'} ${active ? 'selected' : ''} ${permanent ? 'permanent' : ''}" data-card="${piece.uid}" aria-pressed="${active}" aria-label="${esc(c.name.ko + ' · ' + c.description.ko)}" title="${esc(c.name.ko + ' · ' + c.description.ko)}">${cardArt(c, 80)}<b class="card-name sr-only">${esc(c.name.ko)}</b>${power !== null ? `<span class="reference-card-stat ${c.hitRate ? 'probability-stat' : ''}">${c.hitRate ? c.hitRate + '% ' : ''}${label}${power}</span>` : ''}${active ? `<span class="selection-order sr-only">${selected.indexOf(piece.uid) + 1}</span>` : ''}</button><button class="card-inspect" data-detail="${c.id}" aria-label="${esc(c.name.ko)} 상세 보기">${icon('BookOpen', 15)}</button></article>`;
 }
 function canAct() {
   const g = room?.game;
@@ -324,7 +408,7 @@ function playerTile(p: GameView['players'][number], i: number) {
     const c = cards.find((c) => c.attackExtra === h);
     return c ? cardArt(c, 28) : '';
   };
-  return `<button class="player-tile field-player ${p.dead ? 'dead' : ''} ${target === p.id ? 'targeted' : ''} ${active ? 'current-player' : ''} ${self ? 'is-self' : ''}" data-target="${p.id}" data-player="${p.id}" ${p.dead ? 'disabled' : ''} aria-pressed="${target === p.id}" aria-label="${esc(p.name)} 대상으로 선택" title="${esc(p.name)}"><span class="team-mark team-${room!.mode === 'team' ? esc(p.team) : 'solo'}"></span><b class="reference-player-name ${p.name.length > 5 ? 'long-name' : ''}">${esc(p.name)}</b><span class="stats"><span>HP <b>${p.hp ?? '?'}</b></span><span>MP <b>${p.mp ?? '?'}</b></span><span>₩ <b>${p.gold ?? '?'}</b></span></span><span class="status-row">${p.disease ? `<span title="${statusNames[p.disease]}">${glyph(p.disease)}<span class="sr-only">${statusNames[p.disease]}</span></span>` : ''}${p.harms.map((h) => `<span title="${statusNames[h]}">${glyph(h)}<span class="sr-only">${statusNames[h]}</span></span>`).join('')}${p.summon ? `<span title="${esc(p.summon.type)} HP ${p.summon.hp}">${summonPortrait(p.summon.type)}</span>` : ''}</span></button>`;
+  return `<button class="player-tile field-player ${p.dead ? 'dead' : ''} ${target === p.id ? 'targeted' : ''} ${active ? 'current-player' : ''} ${self ? 'is-self' : ''}" data-target="${p.id}" data-player="${p.id}" ${p.dead ? 'disabled' : ''} aria-pressed="${target === p.id}" aria-label="${esc(p.name)} 대상으로 선택" title="${esc(p.name)}"><span class="team-mark team-${room!.mode === 'team' ? esc(p.team) : 'solo'}"></span><b class="reference-player-name ${p.name.length > 5 ? 'long-name' : ''}">${esc(p.name)}</b><span class="stats"><span><i>HP</i><b>${p.hp ?? '?'}</b></span><span><i>MP</i><b>${p.mp ?? '?'}</b></span><span><i>₩</i><b>${p.gold ?? '?'}</b></span></span><span class="status-row">${p.disease ? `<span title="${statusNames[p.disease]}">${glyph(p.disease)}<span class="sr-only">${statusNames[p.disease]}</span></span>` : ''}${p.harms.map((h) => `<span title="${statusNames[h]}">${glyph(h)}<span class="sr-only">${statusNames[h]}</span></span>`).join('')}${p.summon ? `<span title="${esc(p.summon.type)} HP ${p.summon.hp}">${summonPortrait(p.summon.type)}</span>` : ''}</span></button>`;
 }
 function logText(e: GameEvent) {
   const g = room?.game;
@@ -511,19 +595,27 @@ function render() {
   const abilityScroll = document.querySelector('.abilities > div')?.scrollTop ?? 0;
   app.innerHTML =
     header() +
-    (room
-      ? room.game
-        ? battle()
-        : waitingRoom()
-      : page === 'home'
-        ? home()
-        : page === 'menu'
-          ? modeMenu()
-          : page === 'lobby'
-            ? lobbyPage()
-            : page === 'codex'
-              ? codex()
-              : guide()) +
+    (overlayPage === 'book'
+      ? bookView()
+      : overlayPage === 'settings'
+        ? settingsView()
+        : room
+          ? room.game
+            ? battle()
+            : waitingRoom()
+          : page === 'home'
+            ? home()
+            : page === 'menu'
+              ? modeMenu()
+              : page === 'training'
+                ? trainingPage()
+                : page === 'duel'
+                  ? duelPage()
+                  : page === 'lobby'
+                    ? lobbyPage()
+                    : page === 'codex'
+                      ? codex()
+                      : guide()) +
     referenceFooter();
   hydrate();
   if (chatValue) {
@@ -594,23 +686,23 @@ function startPractice() {
   });
 }
 function navigate(p: string) {
+  if (overlayPage) overlayPage = '';
   if (room) {
     toast('현재 방에서 나가면 다른 메뉴를 사용할 수 있습니다.');
     return;
   }
   page = p;
-  if (p === 'lobby') conn.send({ type: 'lobby' });
+  if (['menu', 'lobby', 'duel'].includes(p)) conn.send({ type: 'lobby' });
   render();
   window.scrollTo(0, 0);
 }
 function openSettings() {
-  modal(
-    `<div class="eyebrow">PREFERENCES</div><h2>나만의 플레이 환경</h2><form id="settings-form"><label>플레이어 이름<input name="name" maxlength="20" value="${esc(localStorage.getItem('arena-name') || '여행자')}"></label><label>효과음 <span id="effects-value">${Math.round(preferences.effects * 100)}%</span><input name="effects" type="range" min="0" max="1" step="0.05" value="${preferences.effects}"></label><label>배경 음악<input name="music" type="range" min="0" max="1" step="0.05" value="${preferences.music}"></label><label class="check-label"><input name="motion" type="checkbox" ${preferences.motion ? 'checked' : ''}> 전투 애니메이션</label><button class="button primary" type="submit">설정 저장</button></form><p class="muted">효과음과 배경 음악의 볼륨을 따로 조절할 수 있습니다. 이름은 새 방을 만들 때 적용됩니다.</p>`,
-  );
+  overlayPage = 'settings';
+  render();
 }
 function showCreate() {
   modal(
-    `<div class="eyebrow">ROOM</div><h2>게임방 만들기</h2><form id="create-form"><label>방 이름<input name="name" required maxlength="40" value="비밀 결투"></label><div class="form-grid"><label>게임 모드<select name="mode"><option value="ffa">개인전</option><option value="team">팀전</option></select></label><label>최대 인원<select name="capacity">${playerCounts.map((n) => `<option ${n === 4 ? 'selected' : ''}>${n}</option>`).join('')}</select></label></div>${doomOptions('doomAt')}<label>비밀번호 · 선택<input name="password" type="password" maxlength="80" autocomplete="new-password" placeholder="친구만 초대하고 싶다면 입력해 주세요"></label><label class="check-label"><input name="private" type="checkbox"> 공개 목록에 표시하지 않기</label><button class="button primary">게임방 만들기 ${icon('ArrowRight')}</button></form>`,
+    `<div class="eyebrow">ROOM</div><h2>게임방 만들기</h2><form id="create-form"><label>방 이름<input name="name" required maxlength="40" value="비밀 결투"></label><div class="form-grid"><label>게임 모드<select name="mode"><option value="ffa">개인전</option><option value="team">팀전</option></select></label><label>최대 인원<select name="capacity">${playerCounts.map((n) => `<option ${n === (page === 'duel' ? 2 : 4) ? 'selected' : ''}>${n}</option>`).join('')}</select></label></div>${doomOptions('doomAt')}<label>비밀번호 · 선택<input name="password" type="password" maxlength="80" autocomplete="new-password" placeholder="친구만 초대하고 싶다면 입력해 주세요"></label><label class="check-label"><input name="private" type="checkbox"> 공개 목록에 표시하지 않기</label><button class="button primary">게임방 만들기 ${icon('ArrowRight')}</button></form>`,
   );
 }
 function showJoin(id = '', locked = false, spectate = false) {
@@ -633,9 +725,20 @@ document.addEventListener('click', (e) => {
   if (b.hasAttribute('disabled')) return;
   if (!b.dataset.card && !b.dataset.target && !b.dataset.detail) sound('button');
   if (b.dataset.detail) sound('card_detail');
-  if (b.dataset.page) {
+  if (b.hasAttribute('data-close-overlay')) {
+    overlayPage = '';
+    render();
+  } else if (b.dataset.bookTab) {
+    bookTab = b.dataset.bookTab;
+    render();
+  } else if (b.hasAttribute('data-training-options')) {
+    modal(
+      `<h2>훈련 설정</h2><label>AI 난이도<select id="difficulty">${difficultyOptions()}</select></label>`,
+    );
+  } else if (b.dataset.page) {
     e.preventDefault();
-    navigate(b.dataset.page);
+    if (b.dataset.page === 'private') openPrivate();
+    else navigate(b.dataset.page);
   } else if (b.hasAttribute('data-settings')) openSettings();
   else if (b.hasAttribute('data-hand-menu'))
     modal(
@@ -646,11 +749,10 @@ document.addEventListener('click', (e) => {
         (document.querySelector('.deck-menu')?.innerHTML ?? '') +
         '</div>',
     );
-  else if (b.hasAttribute('data-help'))
-    modal(
-      '<h2>교전 지침</h2><ol class="tutorial"><li>카드 선택 → 플레이어 선택 → 카드 사용 순서로 진행합니다.</li><li>공격을 받으면 방어 카드를 고르거나 피해 받기를 누르세요.</li><li>일으킨 기적은 MP를 소모해 반복 사용합니다.</li><li>종말에 진입하면 배경이 분홍색으로 바뀌고 악마가 출현할 수 있습니다.</li></ol><p><a href="/source.zip" download>소스 코드 · AGPL-3.0</a></p>',
-    );
-  else if (b.hasAttribute('data-toggle-sidebar')) {
+  else if (b.hasAttribute('data-help')) {
+    overlayPage = 'book';
+    render();
+  } else if (b.hasAttribute('data-toggle-sidebar')) {
     showSidebar = !showSidebar;
     render();
   } else if (b.hasAttribute('data-close')) dialog.close();
@@ -689,6 +791,7 @@ document.addEventListener('click', (e) => {
     conn.send({ type: 'leave' });
   } else if (b.hasAttribute('data-ready'))
     conn.send({ type: 'ready', ready: !room?.seats.find((p) => p.id === conn.id)?.ready });
+  else if (b.hasAttribute('data-shuffle-teams')) conn.send({ type: 'shuffleTeams' });
   else if (b.hasAttribute('data-start')) {
     conn.send({ type: 'start' });
     dialog.close();
@@ -829,6 +932,27 @@ document.addEventListener('submit', (e) => {
   e.preventDefault();
   const form = e.target as HTMLFormElement,
     data = new FormData(form);
+  if (form.id === 'private-form') {
+    const password = String(data.get('password') ?? '');
+    if (!conn.connected) {
+      toast('서버 연결 후 입장할 수 있습니다.');
+      return;
+    }
+    conn.send({
+      type: 'create',
+      options: {
+        name: '비밀 결투',
+        namePlayer: localStorage.getItem('arena-name') || '여행자',
+        password,
+        private: true,
+        capacity: 9,
+        mode: 'ffa',
+        difficulty,
+        doomAt,
+      },
+    });
+    dialog.close();
+  }
   if (form.id === 'create-form') {
     conn.send({
       type: 'create',
@@ -870,6 +994,7 @@ document.addEventListener('submit', (e) => {
     setMusic();
     sound('select');
     dialog.close();
+    overlayPage = '';
     render();
     toast('설정을 저장했습니다.');
   }

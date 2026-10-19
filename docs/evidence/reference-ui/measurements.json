@@ -1,0 +1,105 @@
+{
+  "capturedAt": "2026-10-19",
+  "source": "https://godfield.net/?lang=ko",
+  "method": "Chromium DOM.getBoundingClientRect, getComputedStyle, Page.captureScreenshot; independent local game state",
+  "measurements": {
+    "frame": {
+      "expected": {
+        "x": 100,
+        "y": 8,
+        "width": 1080,
+        "height": 720
+      },
+      "actual": {
+        "x": 100,
+        "y": 8,
+        "width": 1080,
+        "height": 720
+      }
+    },
+    "menuFirstButton": {
+      "expected": {
+        "x": 390,
+        "y": 58,
+        "width": 500,
+        "height": 200
+      },
+      "actual": {
+        "x": 390,
+        "y": 58,
+        "width": 500,
+        "height": 200
+      }
+    },
+    "passwordDialog": {
+      "expected": {
+        "x": 400,
+        "y": 218,
+        "width": 480,
+        "height": 300
+      },
+      "actual": {
+        "x": 400,
+        "y": 218,
+        "width": 480,
+        "height": 300
+      }
+    },
+    "handNoOverflow": {
+      "clientWidth": 736,
+      "scrollWidth": 736,
+      "clientHeight": 205,
+      "scrollHeight": 205
+    }
+  },
+  "screenshots": {
+    "original-home.png": {
+      "sha256": "bbdf969897b39913706e9ba10c81cc3c064115805664cd39cc00b263f430d39b",
+      "bytes": 424118
+    },
+    "implemented-home.png": {
+      "sha256": "f9474a8bdff5e05287252a613adf84e0a8faa1c5df24bf896e699153f65bf0a6",
+      "bytes": 425614
+    },
+    "original-menu.png": {
+      "sha256": "51907c02e39b6f306419a3a43390bd97e7f7e9a51d430a4f126a3022aec69ebe",
+      "bytes": 183061
+    },
+    "implemented-menu.png": {
+      "sha256": "1bbf60c4d6db489ebfbb1289a21e9276062d18fb9b3908983f33c5eea82291f3",
+      "bytes": 182327
+    },
+    "original-private.png": {
+      "sha256": "c0de47e8a235e70e58cb1fbaa1543dad150b58eafc884c47351092874f7c92c4",
+      "bytes": 116711
+    },
+    "implemented-private.png": {
+      "sha256": "683676374ce2b96fac739a42db36862a729fa5c6d6b8985955ee43f8c65e5a31",
+      "bytes": 116497
+    },
+    "original-waiting.png": {
+      "sha256": "c7e886b4bd0148d3c6a051a3a396d85834cecf0701050e3266ae18f69955661d",
+      "bytes": 179073
+    },
+    "implemented-waiting.png": {
+      "sha256": "3f98e8e918410a54bfd5c13129c0a88ad84e5aaecb036b1279dfc7c4d6730dbf",
+      "bytes": 179737
+    },
+    "original-battle.png": {
+      "sha256": "5c925784de67cac311d5489230ee140373a67d52defeb0edb5fd56f347ff3d2b",
+      "bytes": 291609
+    },
+    "implemented-battle.png": {
+      "sha256": "7de2505f6687d748bd4726671150da7437e90752f625ca308e4aa7099cb15a9f",
+      "bytes": 284666
+    },
+    "original-book.png": {
+      "sha256": "539832a021cb9552b1f90118076cd0f0e660a815a674a56c115072608abfb473",
+      "bytes": 84382
+    },
+    "implemented-book.png": {
+      "sha256": "3556139d2861159487a17100a9a722dd7eb58bb61051182b273ec25079eab2f3",
+      "bytes": 90513
+    }
+  }
+}

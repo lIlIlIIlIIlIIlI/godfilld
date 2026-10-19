@@ -1,4 +1,11 @@
-import { randomUUID, randomBytes, createHash, scryptSync, timingSafeEqual } from 'node:crypto';
+import {
+  randomUUID,
+  randomBytes,
+  randomInt,
+  createHash,
+  scryptSync,
+  timingSafeEqual,
+} from 'node:crypto';
 import { z } from 'zod';
 import { roomSchema, envelopeSchema } from '../../../shared/schemas.js';
 import type {
@@ -389,6 +396,24 @@ export class RoomService {
         return;
       }
       requireRule(host, '방장만 사용할 수 있습니다.');
+      if (input.type === 'shuffleTeams') {
+        requireRule(
+          r.mode === 'team' && r.seats.length >= 2,
+          '팀전 참가자가 두 명 이상 필요합니다.',
+        );
+        const seats = [...r.seats];
+        for (let i = seats.length - 1; i > 0; i--) {
+          const j = randomInt(i + 1);
+          [seats[i], seats[j]] = [seats[j], seats[i]];
+        }
+        const teams = [...new Set(r.seats.map((p) => p.team))];
+        if (teams.length < 2) teams.push(teams[0] === 'A' ? 'B' : 'A');
+        seats.forEach((p, i) => {
+          p.team = teams[i % teams.length];
+          p.ready = p.bot;
+        });
+        return;
+      }
       if (input.type === 'doomAt') {
         r.doomAt = roomSchema.shape.doomAt.parse(input.value);
         return;

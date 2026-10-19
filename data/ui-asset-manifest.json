@@ -1,6 +1,6 @@
 {
   "permissionBasis": "user-confirmation-2026-10-17; exact screenshot reproduction requested 2026-10-18",
-  "retrievedAt": "2026-10-18",
+  "retrievedAt": "2026-10-19",
   "assets": [
     {
       "source": "https://godfield.net/images/screens/home.webp",
@@ -64,6 +64,54 @@
       "effect": "demon",
       "damage": 30,
       "name": "대악마"
+    },
+    {
+      "source": "https://godfield.net/images/screens/menu.webp",
+      "url": "/assets/reference/menu.webp",
+      "bytes": 21444,
+      "sha256": "56eac7e3d7f2b7ce17356d7fb2f5ed116079f96b48dde05361060c6f3a2a0cc3"
+    },
+    {
+      "source": "https://godfield.net/images/items/trade/discard.webp",
+      "url": "/assets/reference/discard.webp",
+      "bytes": 84,
+      "sha256": "fe7ba2b37c727030ffcc863d2a906e92fdb26005da05ba08bc1601ff2e2abaff"
+    },
+    {
+      "source": "https://godfield.net/images/elements/fire.webp",
+      "url": "/assets/reference/element-fire.webp",
+      "bytes": 74,
+      "sha256": "ace181e060d687e8dc5b50755b37d09f06a807e315d37a205f8e17e9945e9d99"
+    },
+    {
+      "source": "https://godfield.net/images/elements/water.webp",
+      "url": "/assets/reference/element-water.webp",
+      "bytes": 76,
+      "sha256": "108c5d0e3f36d0b075ac59100c66fa0ef1fbbe7477964cd109949f121460609d"
+    },
+    {
+      "source": "https://godfield.net/images/elements/wood.webp",
+      "url": "/assets/reference/element-wood.webp",
+      "bytes": 90,
+      "sha256": "e4f68f50ee7436316b7cd8ac30159556378bd274371cf18b79e76e33ebe8cb51"
+    },
+    {
+      "source": "https://godfield.net/images/elements/light.webp",
+      "url": "/assets/reference/element-light.webp",
+      "bytes": 88,
+      "sha256": "5df375380785f902070d47b9429d7bf02033b7fb75d7e95df7fa6e7c92d137d1"
+    },
+    {
+      "source": "https://godfield.net/images/elements/stone.webp",
+      "url": "/assets/reference/element-stone.webp",
+      "bytes": 80,
+      "sha256": "cce3714eb0214143a27fa814ca4f0e9a9546b558dede8f8dd46b45ac6b3356d4"
+    },
+    {
+      "source": "https://godfield.net/images/elements/darkness.webp",
+      "url": "/assets/reference/element-darkness.webp",
+      "bytes": 90,
+      "sha256": "306be4624279219580f531b967c7ed3a13dd8f8caaf91070c4e397a451f05397"
     }
   ]
 }

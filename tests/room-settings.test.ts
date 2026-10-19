@@ -82,6 +82,37 @@ describe('card names and room catastrophe settings', () => {
 });
 
 describe('reference waiting-room controls', () => {
+  it('lets only the host shuffle balanced teams and resets human readiness', async () => {
+    const store = new SQLiteStore(':memory:');
+    try {
+      await store.init();
+      const service = new RoomService(store);
+      const host = (await service.authenticate()).identity;
+      const guest = (await service.authenticate()).identity;
+      let room = await service.create(host, options);
+      await service.join(room.id, guest);
+      await service.command(room.id, host, { type: 'chooseTeam', team: 'A' });
+      await service.command(room.id, guest, { type: 'chooseTeam', team: 'A' });
+      await service.command(room.id, host, { type: 'addBot' });
+      await service.command(room.id, host, { type: 'ready', ready: true });
+      room = await service.command(room.id, guest, { type: 'ready', ready: true });
+      await expect(service.command(room.id, guest, { type: 'shuffleTeams' })).rejects.toThrow(
+        '방장',
+      );
+      const ids = room.seats.map((p) => p.id);
+      expect(ids).toHaveLength(3);
+      room = await service.command(room.id, host, { type: 'shuffleTeams' });
+      expect(room.seats.map((p) => p.id)).toEqual(expect.arrayContaining(ids));
+      expect(new Set(room.seats.map((p) => p.team)).size).toBeGreaterThanOrEqual(2);
+      expect(room.seats.every((p) => p.ready === p.bot)).toBe(true);
+      const counts = [...new Set(room.seats.map((p) => p.team))].map(
+        (team) => room.seats.filter((p) => p.team === team).length,
+      );
+      expect(Math.max(...counts) - Math.min(...counts)).toBeLessThanOrEqual(1);
+    } finally {
+      await store.close();
+    }
+  });
   it('validates host mode/doom changes, participant team choices and live-game restrictions', async () => {
     const store = new SQLiteStore(':memory:');
     try {

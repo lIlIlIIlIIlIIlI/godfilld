@@ -42,17 +42,27 @@ it('connects Korean home controls to a real validated game action and escapes ch
   (document.querySelector('#player-name') as HTMLInputElement).value = '예언자';
   (document.querySelector('[data-enter]') as HTMLButtonElement).click();
   expect(localStorage.getItem('arena-name')).toBe('예언자');
-  expect(document.body.textContent).toContain('AI 연습 대전');
+  expect(document.querySelectorAll('.mode-card')).toHaveLength(3);
+  (document.querySelector('[data-page="private"]') as HTMLButtonElement).click();
+  expect(document.querySelector('#private-form')).not.toBeNull();
+  expect(document.querySelector('#dialog')?.classList.contains('reference-password-dialog')).toBe(
+    true,
+  );
+  (document.querySelector('#dialog') as HTMLDialogElement).close();
+  (document.querySelector('[data-page="training"]') as HTMLButtonElement).click();
+  expect(document.body.textContent).toContain('배틀 시작하기');
   expect(
-    [...document.querySelectorAll<HTMLInputElement>('input[name="practice-doom"]')].map(
+    [...document.querySelectorAll<HTMLOptionElement>('select[name="practice-doom"] option')].map(
       (e) => e.value,
     ),
   ).toEqual(['1', '50', '100', '500']);
-  const doom = document.querySelector<HTMLInputElement>('input[name="practice-doom"][value="50"]')!;
-  doom.checked = true;
+  const doom = document.querySelector<HTMLSelectElement>('select[name="practice-doom"]')!;
+  doom.value = '50';
   doom.dispatchEvent(new Event('change', { bubbles: true }));
+  (document.querySelector('[data-training-options]') as HTMLButtonElement).click();
   (document.querySelector('#difficulty') as HTMLSelectElement).value = 'hard';
   document.querySelector('#difficulty')!.dispatchEvent(new Event('change', { bubbles: true }));
+  (document.querySelector('#dialog') as HTMLDialogElement).close();
   expect(
     [...document.querySelectorAll('#practice-players option')].map((e) => e.getAttribute('value')),
   ).toEqual(['2', '3', '4', '5', '6', '7', '8', '9']);
@@ -178,8 +188,13 @@ it('connects Korean home controls to a real validated game action and escapes ch
   expect(document.querySelector('.reference-battle')).toBeNull();
   expect(document.body.classList.contains('end-of-world')).toBe(false);
   expect(document.body.textContent).toContain('게임방 목록');
+  (document.querySelector('[data-page="menu"]') as HTMLButtonElement).click();
   (document.querySelector('[data-page="home"]') as HTMLButtonElement).click();
   (document.querySelector('[data-enter]') as HTMLButtonElement).click();
+  (document.querySelector('[data-help]') as HTMLButtonElement).click();
+  expect(document.querySelector('.book-attributes')).not.toBeNull();
+  (document.querySelector('[data-book-tab="WEAPON"]') as HTMLButtonElement).click();
+  expect(document.querySelector('.book-card-row')).not.toBeNull();
   (document.querySelector('[data-page="codex"]') as HTMLButtonElement).click();
   expect(document.body.textContent).toContain('364개 카드 규칙');
   const input = document.querySelector<HTMLInputElement>('#codex-search')!;
@@ -187,11 +202,15 @@ it('connects Korean home controls to a real validated game action and escapes ch
   input.dispatchEvent(new Event('input', { bubbles: true }));
   expect(document.querySelectorAll('.codex-card')).toHaveLength(1);
   expect(document.querySelector('.codex-card')?.textContent).toContain('새벽의 씨앗');
+  (document.querySelector('[data-page="menu"]') as HTMLButtonElement).click();
   (document.querySelector('[data-page="home"]') as HTMLButtonElement).click();
   (document.querySelector('[data-enter]') as HTMLButtonElement).click();
-  expect(
-    document.querySelector<HTMLInputElement>('input[name="practice-doom"]:checked')?.value,
-  ).toBe('50');
+  (document.querySelector('[data-page="training"]') as HTMLButtonElement).click();
+  expect(document.querySelector<HTMLSelectElement>('select[name="practice-doom"]')?.value).toBe(
+    '50',
+  );
+  (document.querySelector('[data-page="menu"]') as HTMLButtonElement).click();
+  (document.querySelector('[data-page="duel"]') as HTMLButtonElement).click();
   (document.querySelector('[data-create]') as HTMLButtonElement).click();
   const lateDoom = document.querySelector<HTMLInputElement>('input[name="doomAt"][value="500"]')!;
   lateDoom.checked = true;
@@ -389,6 +408,7 @@ it('connects Korean home controls to a real validated game action and escapes ch
   );
   fixture.connection.dispatchEvent(new CustomEvent('data', { detail: { type: 'left' } }));
   (document.querySelector('[data-page="menu"]') as HTMLButtonElement).click();
+  (document.querySelector('[data-help]') as HTMLButtonElement).click();
   (document.querySelector('[data-page="guide"]') as HTMLButtonElement).click();
   expect(document.querySelector('#research-heading')?.textContent).toBe('조사 근거와 구현 범위');
   expect(
