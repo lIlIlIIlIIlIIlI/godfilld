@@ -1,5 +1,7 @@
 # 운영 및 배포 지침
 
+> 2026-10-19 공개 운영 배포 완료: **https://aether-arena-gamma.vercel.app/**. Production `5572dcf`의 9인 WSS·손패 분리·재접속과 브라우저 훈련 시작을 확인했습니다. [최신 배포 기록](releases/2026-10-19.md). 아래 미배포·미검증 표현은 해당 시점의 이력입니다.
+
 ## Docker로 단일 서버 배포
 
 Docker Engine과 Compose가 있는 서버에서 저장소 루트의 다음 명령을 실행합니다.

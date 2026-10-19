@@ -1,5 +1,7 @@
 # 구현 및 검증 현황
 
+> 2026-10-19 공개 운영 배포 완료: **https://aether-arena-gamma.vercel.app/**. Production `5572dcf`의 9인 WSS·손패 분리·재접속과 브라우저 훈련 시작을 확인했습니다. [최신 배포 기록](releases/2026-10-19.md). 아래 미배포·미검증 표현은 해당 시점의 이력입니다.
+
 ## 2026-10-19 추가 조사·9인·배포 준비
 
 기존 코드에서 이어서 공식 HTML·공개 번들·한국어 설명 JSON과 나무위키를 조사했습니다. [근거 보고서](godfield-research-2026-10-19.md)와 [해시·코드 위치](evidence/source-observations.json)에 실제 자료를 보관했습니다. REA 전체 정적 파싱은 1 GiB·3 GiB에서 메모리 한도에 걸려 부분 결과입니다. 원작 브라우저는 한국어 JSON 로딩 오류가 발생해 원작 대전 전체를 확인하지 못했습니다.
@@ -13,7 +15,6 @@
 
 이번 변경은 GitHub에서 소스를 가져와 Docker 또는 기존 Vercel 구성으로 배포할 수 있게 준비한 것입니다. **새 외부 사이트 게시·Vercel 운영 승격·실제 운영 PostgreSQL 대전 검사는 이번에 수행하지 않았습니다.** 아래 2026-10-18 항목은 과거 기록이며, 최대 8인·실브라우저 미검증 표현은 당시 범위를 뜻합니다.
 
-
 2026-10-18 / v0.1.0. **실행 가능한 개발 빌드이며 공개 운영 완성판은 아닙니다.**
 
 ## 작업 파일
@@ -24,7 +25,7 @@
 | 엔진           | server/src/game/GameEngine.ts, Rules.ts, Random.ts, State.ts, CardRegistry.ts, CombatResolver.ts, DefenseResolver.ts, CardEffectResolver.ts, StatusEffectEngine.ts, TradeManager.ts, SummonManager.ts, EndgameManager.ts |
 | AI             | server/src/ai/ActionEvaluator.ts, BotController.ts                                                                                                                                                                       |
 | 로비·통신·저장 | server/src/rooms/RoomService.ts, network/server.ts, persistence/Store.ts                                                                                                                                                 |
-| HTML5 UI       | client/src/main.ts, battle.ts, html.ts, style.css, field.css, network.ts, audio.ts, animations.ts / client/public/assets/card-placeholder.svg                                                                                                           |
+| HTML5 UI       | client/src/main.ts, battle.ts, html.ts, style.css, field.css, network.ts, audio.ts, animations.ts / client/public/assets/card-placeholder.svg                                                                            |
 | 배포·실행      | api/server.ts, vercel.json, package.json, package-lock.json, .env.example                                                                                                                                                |
 | 분석·명세      | game-system-analysis.md, game-rules.md, card-reference.md, asset-audit.md, asset-inventory.json                                                                                                                          |
 | 검사           | tests/engine.test.ts, coverage.test.ts, multiplayer.test.ts, client.test.ts / scripts/simulate.ts                                                                                                                        |

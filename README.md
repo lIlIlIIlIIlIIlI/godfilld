@@ -2,7 +2,7 @@
 
 갓필드의 카드 전투에서 영감을 받은 독립 HTML5 카드 배틀 게임입니다. TypeScript/Vite 클라이언트, Node.js 서버 권위형 게임 엔진, WebSocket, SQLite 개발 저장, PostgreSQL 운영 저장을 사용합니다. Flash·SWF·Ruffle은 포함하지 않습니다.
 
-현재 버전은 **실행 가능한 개발 빌드**입니다. 원본 규칙의 완전 재현이나 공개 운영 완료 상태가 아닙니다. 검증 범위와 남은 작업은 [진행 현황](docs/progress.md)에 기록합니다.
+현재 버전은 **공개 배포된 개발 빌드**입니다. 원본 규칙의 완전 재현을 보장하지 않습니다. 검증 범위와 남은 작업은 [진행 현황](docs/progress.md)에 기록합니다.
 
 ## 이번 조사와 배포 준비 (2026-10-19)
 
@@ -16,7 +16,7 @@ docker compose up --build -d
 
 `http://localhost:3000`으로 접속합니다. SQLite는 `arena-data` 볼륨에 보존됩니다. 외부 서비스는 도메인의 HTTPS/WSS를 같은 서버로 연결하세요. 여러 인스턴스·Vercel 운영은 전용 PostgreSQL이 필요합니다. [배포·복구 지침](docs/operations.md)을 참고하세요.
 
-GitHub Actions가 테스트·100경기·운영 빌드·Docker 이미지·실제 9인 소켓과 재접속을 검사하고 `dist` 산출물을 보관합니다. 자체 호스팅 서버에 대한 검사는 `npm run smoke -- https://서버주소`로 실행하며 임시 비공개 검사 방을 만듭니다. 실제 외부 호스팅의 신규 게시·운영 승격은 이번 변경에 포함하지 않습니다.
+GitHub Actions가 테스트·100경기·운영 빌드·Docker 이미지·실제 9인 소켓과 재접속을 검사하고 `dist` 산출물을 보관합니다. 자체 호스팅 서버에 대한 검사는 `npm run smoke -- https://서버주소`로 실행하며 임시 비공개 검사 방을 만듭니다. 공개 운영 배포를 완료했습니다: **https://aether-arena-gamma.vercel.app/**. [배포 커밋·실제 9인 검사 기록](docs/releases/2026-10-19.md)을 확인하세요.
 
 ## 바로 실행
 
@@ -77,6 +77,8 @@ npm run simulate -- 1000
 순수 엔진·데이터 커버리지, SQLite 재시작 복구, 실 WebSocket 두 클라이언트의 준비/시작/동기화/중복 입력 거부/재접속을 검사합니다. 시뮬레이션은2~9인, 세 난이도, 일부 팀전의 결정적 시드로 실행합니다. PostgreSQL, 실제 Vercel 런타임과 기기별 브라우저 실사용 검증은 별도입니다.
 
 ## 운영 배포
+
+2026-10-19 최신 공개 운영: **https://aether-arena-gamma.vercel.app/**. 기능 커밋 `5572dcf`의 Production이 READY이며 로그인 없이 홈·API·9인 실시간 대전·토큰 재접속을 검증했습니다. [배포 기록](docs/releases/2026-10-19.md). 아래는 초기 배포 이력입니다.
 
 Vercel 프로젝트 `aether-arena`에 배포했습니다. 최초 실행 로그의 ESM import 오류를 수정하여 `.js` 경로와 JSON import 속성을 추가했습니다. 수정 커밋 `88b0339`의 Preview 배포는 READY이며 인증 후 `/api/health`200(`PostgresStore`)과 `/api/rooms`200을 확인했습니다. DB 환경 변수도 설정된 상태입니다. 실제 운영 WebSocket 대전·재접속·모바일 검증과 로그인 없는 공개 접근 검증은 아직 남아 있습니다. Vercel에서는 SQLite로 조용히 대체하지 않고 DB 설정 오류로 중단하도록 했습니다. 운영 설정·시크릿은 저장소에 넣지 않습니다.
 
