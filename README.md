@@ -80,7 +80,7 @@ npm run simulate -- 1000
 
 ## 운영 배포
 
-2026-10-19 최신 공개 운영: **https://aether-arena-gamma.vercel.app/**. 기능 커밋 `5572dcf`의 Production이 READY이며 로그인 없이 홈·API·9인 실시간 대전·토큰 재접속을 검증했습니다. [배포 기록](docs/releases/2026-10-19.md). 아래는 초기 배포 이력입니다.
+2026-10-19 최신 공개 운영: **https://aether-arena-gamma.vercel.app/**. 속도 보정 커밋 `3b1c934`의 Production이 READY이며 로그인 없이 홈·API·9인 실시간 대전·토큰 재접속을 검증했습니다. [배포 기록](docs/releases/2026-10-19.md). 아래는 초기 배포 이력입니다.
 
 Vercel 프로젝트 `aether-arena`에 배포했습니다. 최초 실행 로그의 ESM import 오류를 수정하여 `.js` 경로와 JSON import 속성을 추가했습니다. 수정 커밋 `88b0339`의 Preview 배포는 READY이며 인증 후 `/api/health`200(`PostgresStore`)과 `/api/rooms`200을 확인했습니다. DB 환경 변수도 설정된 상태입니다. 실제 운영 WebSocket 대전·재접속·모바일 검증과 로그인 없는 공개 접근 검증은 아직 남아 있습니다. Vercel에서는 SQLite로 조용히 대체하지 않고 DB 설정 오류로 중단하도록 했습니다. 운영 설정·시크릿은 저장소에 넣지 않습니다.
 
