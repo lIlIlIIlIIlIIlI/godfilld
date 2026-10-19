@@ -147,7 +147,7 @@ export class RoomService {
       private: options.private || practice,
       practice,
       passwordHash: password(options.password, id),
-      capacity: practice ? 4 : options.capacity,
+      capacity: options.capacity,
       mode: options.mode,
       doomAt: options.doomAt,
       seats: practice ? [seat] : [],
@@ -161,7 +161,7 @@ export class RoomService {
       createdAt: Date.now(),
     };
     if (practice) {
-      for (let i = 0; i < 3; i++) this.addBot(room, options.difficulty);
+      for (let i = 1; i < room.capacity; i++) this.addBot(room, options.difficulty);
       this.start(room, identity.id);
     }
     await this.store.create(room);
@@ -169,17 +169,19 @@ export class RoomService {
   }
   addBot(r: RoomRecord, difficulty: Difficulty) {
     requireRule(r.seats.length < r.capacity, '방이 가득 찼습니다.');
+    const names = [
+      '이슬 마법사',
+      '새벽 기사',
+      '달빛 정령',
+      '숲의 여행자',
+      '별 수집가',
+      '모래 현자',
+      '안개 사냥꾼',
+      '구름 사서',
+    ];
     r.seats.push({
       id: randomUUID(),
-      name: [
-        '이슬 마법사',
-        '새벽 기사',
-        '달빛 정령',
-        '숲의 여행자',
-        '별 수집가',
-        '모래 현자',
-        '안개 사냥꾼',
-      ][r.seats.filter((p) => p.bot).length % 7],
+      name: names[r.seats.filter((p) => p.bot).length % names.length],
       bot: true,
       ready: true,
       team: r.mode === 'team' ? (r.seats.length % 2 ? 'B' : 'A') : 'SINGLE',

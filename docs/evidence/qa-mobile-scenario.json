@@ -1,0 +1,114 @@
+{
+  "browser": {
+    "mode": "launch",
+    "executable_path": "/usr/bin/chromium"
+  },
+  "start_url": {
+    "url": "http://127.0.0.1:3100/"
+  },
+  "environment": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "locale": "ko-KR"
+  },
+  "storage": {
+    "local_storage": [
+      {
+        "origin": "http://127.0.0.1:3100",
+        "entries": [
+          {
+            "name": "arena-tutorial",
+            "value": {
+              "source": "literal",
+              "value": "1"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "actions": [
+    {
+      "step_id": "home",
+      "action": "wait_for",
+      "locator": {
+        "kind": "css",
+        "selector": "#player-name"
+      },
+      "state": "visible",
+      "timeout_ms": 10000
+    },
+    {
+      "step_id": "name",
+      "action": "fill",
+      "locator": {
+        "kind": "css",
+        "selector": "#player-name"
+      },
+      "value": {
+        "source": "literal",
+        "value": "조사 검증"
+      }
+    },
+    {
+      "step_id": "enter",
+      "action": "click",
+      "locator": {
+        "kind": "css",
+        "selector": "[data-enter]"
+      }
+    },
+    {
+      "step_id": "players",
+      "action": "select_option",
+      "locator": {
+        "kind": "css",
+        "selector": "#practice-players"
+      },
+      "value": {
+        "source": "literal",
+        "value": "9"
+      }
+    },
+    {
+      "step_id": "difficulty",
+      "action": "select_option",
+      "locator": {
+        "kind": "css",
+        "selector": "#difficulty"
+      },
+      "value": {
+        "source": "literal",
+        "value": "hard"
+      }
+    },
+    {
+      "step_id": "start",
+      "action": "click",
+      "locator": {
+        "kind": "css",
+        "selector": "[data-practice]"
+      }
+    },
+    {
+      "step_id": "battle",
+      "action": "wait_for",
+      "locator": {
+        "kind": "css",
+        "selector": ".field-player:nth-child(9)"
+      },
+      "state": "visible",
+      "timeout_ms": 15000
+    }
+  ],
+  "capture": {
+    "at_end": [
+      "screenshot",
+      "dom",
+      "accessibility",
+      "url"
+    ]
+  }
+}

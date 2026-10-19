@@ -814,8 +814,8 @@
 .field-player .status-row > span {
   display: inline-flex;
 }
-.many-players .field-player {
-  height: calc(28 * var(--u));
+.field-shell .many-players .field-player {
+  height: min(calc(28 * var(--u)), calc(250 * var(--u) / var(--players)));
 }
 .many-players .reference-player-name {
   font-size: calc(17 * var(--u));

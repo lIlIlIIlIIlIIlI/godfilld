@@ -114,7 +114,7 @@ describe('durable room service', () => {
   });
 });
 describe('real WebSocket clients', () => {
-  it('eight clients receive the same game with eight isolated hands', async () => {
+  it('nine clients receive the same game with nine isolated hands', async () => {
     const arena = await createArenaServer(new SQLiteStore(':memory:'), {
       pollMs: 10,
       turnMs: 30000,
@@ -133,9 +133,9 @@ describe('real WebSocket clients', () => {
           if (i >= 0) return c.messages.splice(i, 1)[0];
           await new Promise((r) => setTimeout(r, 5));
         }
-        throw new Error('8-client response timeout');
+        throw new Error('9-client response timeout');
       }
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 9; i++) {
         const ws = new WebSocket(`ws://127.0.0.1:${port}/api/ws`),
           c = { ws, messages: [] as any[], id: '' };
         clients.push(c);
@@ -144,7 +144,7 @@ describe('real WebSocket clients', () => {
         ws.send(JSON.stringify({ type: 'hello', name: `여행자${i}` }));
         c.id = (await wait(c, 'hello')).id;
       }
-      clients[0].ws.send(JSON.stringify({ type: 'create', options: { ...options, capacity: 8 } }));
+      clients[0].ws.send(JSON.stringify({ type: 'create', options: { ...options, capacity: 9 } }));
       const id = (await wait(clients[0], 'room')).room.id;
       for (const c of clients.slice(1)) {
         c.ws.send(JSON.stringify({ type: 'join', roomId: id }));
@@ -153,20 +153,20 @@ describe('real WebSocket clients', () => {
       await wait(
         clients[0],
         'room',
-        (m: any) => m.room.members.length === 8 && m.room.seats.length === 0,
+        (m: any) => m.room.members.length === 9 && m.room.seats.length === 0,
       );
       for (const c of clients) c.ws.send(JSON.stringify({ type: 'chooseTeam', team: 'SINGLE' }));
       for (const c of clients) c.ws.send(JSON.stringify({ type: 'ready', ready: true }));
       await wait(
         clients[0],
         'room',
-        (m) => m.room.seats.length === 8 && m.room.seats.every((p: any) => p.ready),
+        (m) => m.room.seats.length === 9 && m.room.seats.every((p: any) => p.ready),
       );
       clients[0].ws.send(JSON.stringify({ type: 'start' }));
       const games = await Promise.all(
         clients.map(async (c) => (await wait(c, 'room', (m) => Boolean(m.room.game))).room.game),
       );
-      expect(games.every((g) => g.players.length === 8 && g.self.hand.length === 10)).toBe(true);
+      expect(games.every((g) => g.players.length === 9 && g.self.hand.length === 10)).toBe(true);
       expect(games.map((g) => g.self.id)).toEqual(clients.map((c) => c.id));
       expect(
         games.every((g) => JSON.stringify(g.players) === JSON.stringify(games[0].players)),

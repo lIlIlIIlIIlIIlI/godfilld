@@ -130,7 +130,7 @@ describe('separate room presence and player queue', () => {
     await store.mutate(legacy.id, (r) => {
       delete r.visitors;
     });
-    expect((await service.join(legacy.id, host)).seats).toHaveLength(4);
+    expect((await service.join(legacy.id, host)).seats).toHaveLength(options.capacity);
     expect((await service.snapshot(legacy.id, host.id))?.game?.self?.hand).toHaveLength(10);
   });
 });

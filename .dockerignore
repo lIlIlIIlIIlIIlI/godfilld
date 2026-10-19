@@ -1,0 +1,11 @@
+.git
+node_modules
+dist
+.vercel
+coverage
+.env
+.env.*
+!.env.example
+*.sqlite*
+client/public/source.zip
+data/source-revision.json

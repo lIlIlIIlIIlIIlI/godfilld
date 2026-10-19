@@ -1,0 +1,15 @@
+services:
+  arena:
+    build: .
+    init: true
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      SQLITE_PATH: /app/var/arena.sqlite
+    volumes:
+      - arena-data:/app/var
+    restart: unless-stopped
+    stop_grace_period: 15s
+
+volumes:
+  arena-data:

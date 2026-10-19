@@ -8,6 +8,7 @@ import type {
   Attack,
 } from '../../../shared/types.js';
 import { defaultRules } from './Rules.js';
+import { maxPlayers } from '../../../shared/settings.js';
 import { draw, owned, card } from './CardRegistry.js';
 import { emit, requireRule, uid, player, alive, enemy } from './State.js';
 import { shuffle, random } from './Random.js';
@@ -30,7 +31,10 @@ export function createGame(
   seed: number,
   rules: Partial<Rules> = {},
 ): GameState {
-  requireRule(players.length >= 2 && players.length <= 8, '2~8명이 필요합니다.');
+  requireRule(
+    players.length >= 2 && players.length <= maxPlayers,
+    `2~${maxPlayers}명이 필요합니다.`,
+  );
   requireRule(new Set(players.map((p) => p.id)).size === players.length, '중복 플레이어입니다.');
   const s: GameState = {
     schemaVersion: 1,
@@ -144,7 +148,7 @@ function nextTurn(s: GameState) {
   } else s.orderIndex++;
   let next = player(s, s.order[s.orderIndex]);
   let guard = 0;
-  while (next.dead && guard++ < 8) {
+  while (next.dead && guard++ < s.players.length) {
     s.orderIndex++;
     if (s.orderIndex >= s.order.length) {
       s.order = shuffle(

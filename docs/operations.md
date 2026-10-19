@@ -1,5 +1,34 @@
 # 운영 및 배포 지침
 
+## Docker로 단일 서버 배포
+
+Docker Engine과 Compose가 있는 서버에서 저장소 루트의 다음 명령을 실행합니다.
+
+```bash
+git clone https://github.com/lIlIlIIlIIlIIlI/godfilld.git
+cd godfilld
+docker compose up --build -d
+docker compose ps
+curl http://localhost:3000/api/health
+```
+
+Compose는 같은 포트에서 UI·HTTP API·WebSocket을 제공합니다. 기본 포트는 3000이며 다른 외부 포트는 `PORT=8080 docker compose up --build -d`로 지정합니다. 컨테이너 내부 포트는 계속 3000입니다. 서버 운영에는 도메인과 HTTPS를 설정하고 `/api/ws` upgrade를 같은 컨테이너로 전달하는 reverse proxy가 필요합니다.
+
+`arena-data` 이름 있는 볼륨의 `/app/var/arena.sqlite`에 저장합니다. `docker compose down` 뒤에도 유지되며, `docker compose down -v`는 저장 데이터도 삭제하므로 복구할 데이터가 있을 때 실행하지 마세요. SQLite는 단일 인스턴스용입니다. 이미지에는 `.env`나 DB가 포함되지 않습니다. 프로세스는 root가 아닌 `node` 사용자로 실행하고 healthcheck로 API 준비 상태를 검사합니다.
+
+코드를 갱신할 때는 `git pull --ff-only` 후 `docker compose up --build -d`를 실행합니다. 일시적으로 연결이 끊기며 클라이언트가 토큰으로 재접속합니다. DB 백업은 컨테이너를 멈춘 후 해당 볼륨을 복사하거나 SQLite의 일관된 backup 기능으로 생성하세요. 실행 중인 DB 파일만 복사하면 WAL의 최신 변경이 빠질 수 있습니다.
+
+전용 PostgreSQL이 필요한 운영은 `docker run --env-file /보호된/경로/arena.env ...` 등 런타임 주입을 사용합니다. `DATABASE_URL`을 설정하면 기존 PostgresStore를 사용합니다. 컨테이너들에서 같은 DB와 코드 버전을 사용하고 서로 허용한 origin을 설정해야 합니다. Compose 기본 구성은 DB URL 없이 단일 인스턴스로 시작하는 구성입니다.
+
+```bash
+npm ci
+npm run smoke -- http://localhost:3000
+```
+
+검사 도구는 health와 대응 소스 ZIP을 받은 뒤 9개 실제 WebSocket을 연결하고, 준비→시작→공개 상태 일치→개별 손패→토큰 재접속을 검사합니다. 임시 비공개 방은 종료 시 명시적으로 나갑니다. 운영 검사는 새 게스트 식별자를 생성하므로 테스트 환경을 권장합니다.
+
+`.github/workflows/check.yml`은 main push·PR·수동 실행에서 테스트, 100경기, 빌드, Docker 생성과 컨테이너 대전 검사를 수행합니다. 클라이언트 산출물은 Actions artifact에서 받을 수 있습니다. GitHub Pages 단독으로는 Node.js/WebSocket 서버를 운영할 수 없습니다. 기존 Vercel 구성은 아래와 같습니다.
+
 ## 구성
 
 - Node.js24. SQLite는 로컬 개발·단일 프로세스 실습용.

@@ -1,0 +1,34 @@
+name: Check game and deployment build
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run simulate -- 100
+      - run: npm run build
+      - name: Retain client and corresponding source
+        uses: actions/upload-artifact@v4
+        with:
+          name: godfilld-client-and-source
+          path: dist/
+      - name: Verify standalone server image
+        run: docker build -t godfilld:check .
+      - name: Test deployed HTTP and nine WebSocket clients
+        run: |
+          docker run --detach --name arena-check --publish 127.0.0.1:3000:3000 godfilld:check
+          trap 'docker rm --force arena-check' EXIT
+          node --input-type=module -e "for(let i=0;i<30;i++){try{const r=await fetch('http://127.0.0.1:3000/api/health');if(r.ok)process.exit(0)}catch{}await new Promise(r=>setTimeout(r,1000))}process.exit(1)"
+          npm run smoke -- http://127.0.0.1:3000

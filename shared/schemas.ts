@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { maxPlayers } from './settings.js';
 export { doomStartTurns } from './settings.js';
 export const doomStartSchema = z.union([
   z.literal(1),
@@ -39,7 +40,7 @@ export const roomSchema = z.object({
   namePlayer: z.string().trim().min(1).max(20),
   password: z.string().max(80).default(''),
   private: z.boolean().default(false),
-  capacity: z.number().int().min(2).max(8).default(4),
+  capacity: z.number().int().min(2).max(maxPlayers).default(4),
   mode: z.enum(['ffa', 'team']).default('ffa'),
   difficulty: z.enum(['easy', 'normal', 'hard']).default('normal'),
   doomAt: doomStartSchema.default(100),

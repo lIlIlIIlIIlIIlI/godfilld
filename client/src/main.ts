@@ -66,7 +66,7 @@ import type {
   CardDefinition,
   Difficulty,
 } from '../../shared/types';
-import { doomStartTurns } from '../../shared/settings';
+import { doomStartTurns, playerCounts } from '../../shared/settings';
 import type { DoomStartTurn } from '../../shared/types';
 import type { RoomService } from '../../server/src/rooms/RoomService';
 import { Connection } from './network';
@@ -83,6 +83,8 @@ let hoveredUid = '';
 let handFilter = 'all';
 let serverClockOffset = 0;
 const storedDoom = Number(localStorage.getItem('arena-doom-at'));
+const storedPlayers = Number(localStorage.getItem('arena-practice-players'));
+let practicePlayers = playerCounts.some((n) => n === storedPlayers) ? storedPlayers : 4;
 let doomAt: DoomStartTurn = doomStartTurns.includes(storedDoom as DoomStartTurn)
   ? (storedDoom as DoomStartTurn)
   : 100;
@@ -201,7 +203,7 @@ function home() {
   return `<main class="reference-home"><img class="reference-logo" src="/assets/reference/logo.webp" alt="GOD FIELD"><label class="reference-name-label" for="player-name">예언자의 이름</label><input class="reference-name-input" id="player-name" maxlength="20" value="${esc(localStorage.getItem('arena-name') || '')}" aria-label="예언자의 이름"><button class="reference-birth" data-enter>탄생하기</button><a class="reference-app-store" href="https://apps.apple.com/kr/app/id1536427424?l=ko" target="_blank" rel="noopener" aria-label="원작 God Field App Store"><img src="/assets/reference/app-store.svg" alt="App Store에서 다운로드하기"></a><a class="reference-google-play" href="https://play.google.com/store/apps/details?id=net.godfield&hl=ko" target="_blank" rel="noopener" aria-label="원작 God Field Google Play"><img src="/assets/reference/google-play.webp" alt="Google Play에서 다운로드하기"></a></main>`;
 }
 function modeMenu() {
-  return `<main class="reference-menu"><section><h1>훈련</h1><label>AI 난이도<select id="difficulty">${difficultyOptions()}</select></label>${doomOptions('practice-doom')}<button class="button primary" data-practice>AI 연습 대전</button></section><section><h1>결투</h1><button class="button primary" data-create>비밀 결투 · 방 만들기</button><button class="button" data-page="lobby">게임방 목록</button><button class="button" data-join-code>초대 코드로 참가</button><button class="button" data-page="codex">카드 도감</button><button class="button" data-page="guide">게임 방법</button></section></main>`;
+  return `<main class="reference-menu"><section><h1>훈련</h1><label>참가 인원<select id="practice-players">${playerCounts.map((n) => `<option value="${n}" ${n === practicePlayers ? 'selected' : ''}>${n}명 · 나 + AI ${n - 1}명</option>`).join('')}</select></label><label>AI 난이도<select id="difficulty">${difficultyOptions()}</select></label>${doomOptions('practice-doom')}<button class="button primary" data-practice>AI 연습 대전</button></section><section><h1>결투</h1><button class="button primary" data-create>비밀 결투 · 방 만들기</button><button class="button" data-page="lobby">게임방 목록</button><button class="button" data-join-code>초대 코드로 참가</button><button class="button" data-page="codex">카드 도감</button><button class="button" data-page="guide">게임 방법</button></section></main>`;
 }
 function lobbyPage() {
   return `<main class="page-container"><div class="page-heading"><div><div class="eyebrow">MULTIPLAYER</div><h1>게임방 목록</h1><p>방을 만들고 친구와 실시간으로 대전해 보세요.</p></div><button class="button primary" data-create>${icon('Plus')} 방 만들기</button></div><div class="section-bar"><h2>공개 게임방 <span class="count">${lobby.length}</span></h2><div><button class="button small" data-join-code>${icon('Link')} 초대 코드로 참가</button><button class="icon-button" data-refresh aria-label="새로 고침">${icon('RotateCcw')}</button></div></div><div class="room-list">${lobby.length ? lobby.map((r) => `<article class="lobby-card"><span class="path-icon ${r.mode === 'team' ? 'gold' : 'mint'}">${icon('Users', 28)}</span><div class="grow"><div class="tags"><span>${r.mode === 'team' ? '팀전' : '개인전'}</span>${r.locked ? '<span>비밀번호</span>' : ''}${r.playing ? '<span>대전 중</span>' : ''}</div><h3>${esc(r.name)}</h3><p>${r.count} / ${r.capacity} 명 · 재앙 ${r.doomAt ?? 100}턴</p></div><button class="button" data-join="${esc(r.id)}" data-locked="${r.locked}" data-spectate="${r.playing}">${r.playing ? '관전하기' : '참가하기'} ${icon('ArrowRight')}</button></article>`).join('') : `<div class="empty-state">${icon('Orbit', 48)}<h3>${conn.connected ? '아직 열린 방이 없어요' : '서버와 연결하고 있어요'}</h3><p>${conn.connected ? '첫 번째 방을 만들거나, AI와 먼저 연습해 보세요.' : '연결되면 게임방 목록을 불러옵니다.'}</p><button class="button primary" data-create>새로운 방 만들기</button></div>`}</div></main>`;
@@ -450,12 +452,15 @@ function codex() {
       '',
     )}</div>${filtered.length > codexLimit ? '<button class="button load-more" data-load-more>카드 더 보기</button>' : ''}</main>`;
 }
+function researchNotes() {
+  return `<section class="panel research-notes" aria-labelledby="research-heading"><h2 id="research-heading">조사 근거와 구현 범위</h2><p>2026년 10월 19일 확인. 공개 클라이언트와 규칙 설명을 참고해 독립 엔진에 구현했습니다.</p><ul><li><a href="https://godfield.net/?lang=ko" target="_blank" rel="noopener noreferrer">공식 God Field</a>: 최대 9인 카드 배틀. 공개 HTML은 Dart 컴파일 클라이언트, Firebase 익명 인증과 Firestore 구독을 사용합니다.</li><li><a href="https://namu.wiki/w/%EA%B0%93%ED%95%84%EB%93%9C" target="_blank" rel="noopener noreferrer">나무위키 · 게임 방식</a>: HP 40 · MP 10 · 소지금 20, 공격과 방어, 기적, 거래, 종말 설명을 교차 참고했습니다. 이용자 작성 자료이므로 공식 명세와 구분합니다.</li><li><a href="https://godfield.net/i18n/ko.json" target="_blank" rel="noopener noreferrer">공식 한국어 설명 파일</a>: 빛 공격은 방어 불가, 수호신 행동 확률은 25%로 설명합니다. 이 프로젝트는 어둠 속성으로 빛 방어 가능·수호자 행동 30%라는 기존 규칙을 유지합니다.</li><li><a href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer">REA 분석 도구</a>로 공개 번들을 조사했습니다. 확인한 근거와 분석 한계는 <a href="https://github.com/lIlIlIIlIIlIIlI/godfilld/blob/main/docs/godfield-research-2026-10-19.md" target="_blank" rel="noopener noreferrer">조사 보고서</a>에서 확인할 수 있습니다.</li></ul><p><strong>이 게임의 규칙:</strong> 시작 카드 10장, 손패·기적 합계 16칸, 종말 1/50/100/500턴, 악마 피해 5/10/15. 나무위키의 시작 카드 9장·종말 선택지·악마 피해 10/20/30과 차이가 있습니다. 공식 서버의 내부 코드와 확률은 확인하지 않았습니다. 랭크전·공식 계정 연동은 제공하지 않습니다.</p></section>`;
+}
 function guide() {
   const sections = [
     [
       '01',
       '살아남는 사람이 승리합니다',
-      'HP 40, MP 10, 소지금 20으로 시작합니다. 개인전은 최후의 생존자, 팀전은 마지막 생존 팀이 승리합니다. 시작 카드 10장, 일반 손패와 영구 기적을 합쳐 최대 16칸입니다.',
+      '2~9명이 HP 40, MP 10, 소지금 20으로 시작합니다. 개인전은 최후의 생존자, 팀전은 마지막 생존 팀이 승리합니다. 시작 카드 10장, 일반 손패와 영구 기적을 합쳐 최대 16칸입니다.',
     ],
     [
       '02',
@@ -493,7 +498,7 @@ function guide() {
       '방 생성 시 재앙 시작을 1/50/100/500턴 중 선택합니다. 선택한 턴 이후 카드 사용·지급마다 25% 악마 위험이 생깁니다. 시작 턴과 피해량 5/10/15는 이 게임의 설정이며 원본 확정 수치가 아닙니다. 입력 제한은 기본 60초이며, 시간이 지나면 AI가 대신 행동합니다. 재접속하면 저장된 경기와 조작권을 복구합니다.',
     ],
   ];
-  return `<main class="page-container guide"><div class="page-heading"><div><div class="eyebrow">A LITTLE HELP, A GREAT ADVENTURE</div><h1>처음 시작하기</h1><p>작은 선택들이 모여 하나의 전략이 됩니다.</p></div><button class="button primary" data-practice>연습하며 배우기 ${icon('ArrowRight')}</button></div><div class="guide-grid">${sections.map(([n, h, t]) => `<article class="panel guide-section"><span>${n}</span><h2>${h}</h2><p>${t}</p></article>`).join('')}</div><p class="muted">원본 Flash 실행 엔진은 사용하지 않으며, 허가 확인된 카드 그림·효과음을 사용합니다. 한국어 카드명은 원작 번역명이 아닌 새 이름입니다. 상세 규칙과 원본과의 차이는 소스의 docs/game-rules.md를 참고해 주세요.</p></main>`;
+  return `<main class="page-container guide"><div class="page-heading"><div><div class="eyebrow">A LITTLE HELP, A GREAT ADVENTURE</div><h1>처음 시작하기</h1><p>작은 선택들이 모여 하나의 전략이 됩니다.</p></div><button class="button primary" data-practice>연습하며 배우기 ${icon('ArrowRight')}</button></div><div class="guide-grid">${sections.map(([n, h, t]) => `<article class="panel guide-section"><span>${n}</span><h2>${h}</h2><p>${t}</p></article>`).join('')}</div><p class="muted">원본 Flash 실행 엔진은 사용하지 않으며, 허가 확인된 카드 그림·효과음을 사용합니다. 한국어 카드명은 원작 번역명이 아닌 새 이름입니다. 상세 규칙과 원본과의 차이는 소스의 docs/game-rules.md를 참고해 주세요.</p>${researchNotes()}</main>`;
 }
 function render() {
   document.body.classList.add('field-shell');
@@ -586,7 +591,7 @@ function startPractice() {
       difficulty,
       doomAt,
       private: true,
-      capacity: 4,
+      capacity: practicePlayers,
       mode: 'ffa',
     },
   });
@@ -608,7 +613,7 @@ function openSettings() {
 }
 function showCreate() {
   modal(
-    `<div class="eyebrow">ROOM</div><h2>게임방 만들기</h2><form id="create-form"><label>방 이름<input name="name" required maxlength="40" value="비밀 결투"></label><div class="form-grid"><label>게임 모드<select name="mode"><option value="ffa">개인전</option><option value="team">팀전</option></select></label><label>최대 인원<select name="capacity">${[2, 3, 4, 5, 6, 7, 8].map((n) => `<option ${n === 4 ? 'selected' : ''}>${n}</option>`).join('')}</select></label></div>${doomOptions('doomAt')}<label>비밀번호 · 선택<input name="password" type="password" maxlength="80" autocomplete="new-password" placeholder="친구만 초대하고 싶다면 입력해 주세요"></label><label class="check-label"><input name="private" type="checkbox"> 공개 목록에 표시하지 않기</label><button class="button primary">게임방 만들기 ${icon('ArrowRight')}</button></form>`,
+    `<div class="eyebrow">ROOM</div><h2>게임방 만들기</h2><form id="create-form"><label>방 이름<input name="name" required maxlength="40" value="비밀 결투"></label><div class="form-grid"><label>게임 모드<select name="mode"><option value="ffa">개인전</option><option value="team">팀전</option></select></label><label>최대 인원<select name="capacity">${playerCounts.map((n) => `<option ${n === 4 ? 'selected' : ''}>${n}</option>`).join('')}</select></label></div>${doomOptions('doomAt')}<label>비밀번호 · 선택<input name="password" type="password" maxlength="80" autocomplete="new-password" placeholder="친구만 초대하고 싶다면 입력해 주세요"></label><label class="check-label"><input name="private" type="checkbox"> 공개 목록에 표시하지 않기</label><button class="button primary">게임방 만들기 ${icon('ArrowRight')}</button></form>`,
   );
 }
 function showJoin(id = '', locked = false, spectate = false) {
@@ -790,6 +795,10 @@ function openExchange() {
 }
 document.addEventListener('change', (e) => {
   const el = e.target as HTMLSelectElement;
+  if (el.id === 'practice-players' && playerCounts.some((n) => n === Number(el.value))) {
+    practicePlayers = Number(el.value);
+    localStorage.setItem('arena-practice-players', String(practicePlayers));
+  }
   if (el.id === 'difficulty') difficulty = el.value as Difficulty;
   if (el.name === 'practice-doom' && doomStartTurns.includes(Number(el.value) as DoomStartTurn)) {
     doomAt = Number(el.value) as DoomStartTurn;

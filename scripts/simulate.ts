@@ -1,5 +1,6 @@
 import { createGame } from '../server/src/game/GameEngine';
 import { botStep } from '../server/src/ai/BotController';
+import { playerCounts } from '../shared/settings';
 const count = Number(process.argv[2] ?? 100);
 let max = 0,
   total = 0,
@@ -8,7 +9,7 @@ const start = Date.now();
 for (let seed = 1; seed <= count; seed++) {
   let s = createGame(
     `sim-${seed}`,
-    Array.from({ length: 2 + (seed % 7) }, (_, i) => ({
+    Array.from({ length: playerCounts[seed % playerCounts.length] }, (_, i) => ({
       id: `p${i}`,
       name: `봇 ${i}`,
       bot: true,

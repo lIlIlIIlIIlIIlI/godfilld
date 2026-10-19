@@ -52,7 +52,16 @@ it('connects Korean home controls to a real validated game action and escapes ch
   doom.dispatchEvent(new Event('change', { bubbles: true }));
   (document.querySelector('#difficulty') as HTMLSelectElement).value = 'hard';
   document.querySelector('#difficulty')!.dispatchEvent(new Event('change', { bubbles: true }));
+  expect(
+    [...document.querySelectorAll('#practice-players option')].map((e) => e.getAttribute('value')),
+  ).toEqual(['2', '3', '4', '5', '6', '7', '8', '9']);
+  (document.querySelector('#practice-players') as HTMLSelectElement).value = '9';
+  document
+    .querySelector('#practice-players')!
+    .dispatchEvent(new Event('change', { bubbles: true }));
   (document.querySelector('[data-practice]') as HTMLButtonElement).click();
+  expect(fixture.connection.sent.at(-1).options.capacity).toBe(9);
+  expect(localStorage.getItem('arena-practice-players')).toBe('9');
   expect(fixture.connection.sent.at(-1).options.difficulty).toBe('hard');
   expect(fixture.connection.sent.at(-1).options.doomAt).toBe(50);
   expect(fixture.connection.sent.at(-1).type).toBe('practice');
@@ -378,6 +387,15 @@ it('connects Korean home controls to a real validated game action and escapes ch
     actionsBefore,
   );
   fixture.connection.dispatchEvent(new CustomEvent('data', { detail: { type: 'left' } }));
+  (document.querySelector('[data-page="menu"]') as HTMLButtonElement).click();
+  (document.querySelector('[data-page="guide"]') as HTMLButtonElement).click();
+  expect(document.querySelector('#research-heading')?.textContent).toBe('조사 근거와 구현 범위');
+  expect(
+    document.querySelector('.research-notes a[href="https://godfield.net/i18n/ko.json"]'),
+  ).not.toBeNull();
+  expect(document.querySelector('.research-notes')?.textContent).toContain(
+    '수호신 행동 확률은 25%',
+  );
   vi.clearAllTimers();
   vi.useRealTimers();
 });

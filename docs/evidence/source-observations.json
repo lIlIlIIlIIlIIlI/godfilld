@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-10-19",
+  "rea_version": "6.7.0",
+  "rea_repository_commit": "e4c3d72396bf925a45724ce8b18b238b0d23d787",
+  "sources": [
+    {
+      "url": "https://godfield.net/?lang=ko",
+      "bytes": 2485,
+      "sha256": "fa085ea6481eb4e273dd28fe9eada8f0f2245af836872032dcff1cdc5427fef9"
+    },
+    {
+      "url": "https://godfield.net/main.dart.js",
+      "bytes": 440238,
+      "sha256": "764a50524e4b6b3f510415da7128abd8ad99dcb87b45b8572d98ddd96889cabd"
+    },
+    {
+      "url": "https://godfield.net/i18n/ko.json",
+      "bytes": 48626,
+      "sha256": "afa6ea83ead088d1148ab38ef4ccfd6ba08ede39966cdfee7a89870d470f96f9"
+    },
+    {
+      "url": "https://namu.wiki/w/%EA%B0%93%ED%95%84%EB%93%9C",
+      "bytes": 171027,
+      "sha256": "a3c6957dce82ff0b28c415be4899738f549c8fb1ca460a3248f63c93e9115cab"
+    }
+  ],
+  "bundle_excerpts": [
+    {
+      "term": "signInAnonymously",
+      "character_offset": 96991,
+      "line": 3352,
+      "excerpt": "turn A.i(b,r)\nfor(;;)switch(s){case 0:s=2\nreturn A.b(A.bs(A.a(A.a(v.G.firebase).signInAnonymously($.dL.v())),t.m),$async$kh)\ncase 2:return A.j(null,r)}})\nreturn A.k($async$kh,r)},\nkc(){var s=0,r=A.l(t.H),q\nvar $async$"
+    },
+    {
+      "term": "getFirestore",
+      "character_offset": 96704,
+      "line": 3344,
+      "excerpt": "ield\"}))\n$.dL.sdS(A.a(A.a(q.firebase).getAuth(p)))\n$.oa.sdS(A.a(A.a(q.firebase).getFirestore(p)))\ns=2\nreturn A.b(A.bs(A.a($.dL.v().authStateReady()),t.X),$async$ke)\ncase 2:return A.j(null,r)}})\nreturn A.k($async$"
+    },
+    {
+      "term": "onSnapshot",
+      "character_offset": 98219,
+      "line": 3396,
+      "excerpt": ".G,r=A.a(A.a(s.firebase).doc($.oa.v(),a))\nreturn new A.kf(t.g.a(A.a(s.firebase).onSnapshot(r,A.qN(new A.kg(b)))))},\nkg:function kg(a){this.a=a},\nkf:function kf(a){this.a=a},\npb(a,b){var s=b===B.a?20:360,r=A.a(A"
+    },
+    {
+      "term": "https://asia-northeast1-godfield.cloudfunctions.net/",
+      "character_offset": 118442,
+      "line": 4329,
+      "excerpt": ",r)\nfor(;;)switch(s){case 0:s=3\nreturn A.b(A.kd(),$async$cS)\ncase 3:o=d\nn=A.hC(\"https://asia-northeast1-godfield.cloudfunctions.net/\"+a)\nm=t.N\nl=A.ag([\"Authorization\",\"Bearer \"+A.C(o),\"Content-Type\",\"application/json\"],m,m)\ns=4\nreturn A.b(A.wJ(n,B.H.hR"
+    },
+    {
+      "term": "A.cS(\"create-room\"",
+      "character_offset": 219666,
+      "line": 8480,
+      "excerpt": "f(c!=null)J.dw(n,\"password\",c)\nif(b!=null)J.dw(n,\"lang\",b.c)\nq=3\ns=6\nreturn A.b(A.cS(\"create-room\",n),$async$c9)\ncase 6:m=e\nk=J.p_(m,\"roomId\")\nl=typeof k==\"string\"?k:null\nif(l!=null)o.en(a,l)\nq=1\ns=5\nbreak\ncase 3:q=2\nh"
+    },
+    {
+      "term": "/i18n/",
+      "character_offset": 119785,
+      "line": 4371,
+      "excerpt": "null)h=B.c.gI(B.G)\n$.aO.sdS(h)\nd=A\nc=A\nb=A\na=A\ns=3\nreturn A.b(A.bs(A.a(g.fetch(\"/i18n/\"+$.aO.v().c+\".json\")),t.m),$async$fN)\ncase 3:s=2\nreturn A.b(b.bs(a.a(a1.json()),t.X),$async$fN)\ncase 2:i=d.O(c.nF(a1))\n"
+    }
+  ],
+  "official_korean_rule_excerpts": {
+    "reference": {
+      "miraclesNote": "기적을 사용하면 MP를 소비하는 대신 몇 번이고 쓸 수 있다.",
+      "usedMiraclesNote": "한 번 일으킨 기적은 판매, 구매, 밤하늘의 빗자루의 사용 대상이 되지 않는다.",
+      "devilsNote": "종말의 시간 이후 성물을 받을 때마다 25%의 확률로 악마가 나타난다.",
+      "guardianAttackNote": "수호신은 적의 턴이 끝나고 25%의 확률로 행동한다."
+    },
+    "elementDescriptions": {
+      "light": "{{light}}의 공격은 어떤 속성으로도 방어할 수 없다.",
+      "darkness": "{{darkness}}의 공격은 어떠한 속성으로도 방어 가능하다. <br>단, 피해를 입으면 HP0이 된다."
+    },
+    "alerts": {
+      "pray": "무기를 소지하고 있어 기도할 수 없음"
+    }
+  }
+}
