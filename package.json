@@ -33,7 +33,7 @@
     "@types/pg": "^8.11.10",
     "@types/ws": "^8.5.13",
     "fflate": "^0.8.3",
-    "happy-dom": "^21.0.3",
+    "happy-dom": "^21.0.4",
     "prettier": "^3.9.10",
     "typescript": "^5.7.2",
     "vite": "^6.0.5",
